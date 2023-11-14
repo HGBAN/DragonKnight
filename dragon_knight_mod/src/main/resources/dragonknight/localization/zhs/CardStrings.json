@@ -1,0 +1,37 @@
+{
+  "${modID}:ExampleCard": {
+    "NAME": "Name",
+    "DESCRIPTION": "Description.",
+    "UPGRADE_DESCRIPTION": "This will automatically be used if the card is upgraded. Remove it if unneeded.",
+    "EXTENDED_DESCRIPTION": [
+      "You can put more text in here.",
+      "If you need to use it for stuff.",
+      "Blizzard is a good example for this."
+    ]
+  },
+  "${modID}:Strike_DK": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成!D!点伤害。"
+  },
+  "${modID}:Defend_DK": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得!B!点格挡。"
+  },
+  "${modID}:BeDragon": {
+    "NAME": "化龙",
+    "DESCRIPTION": "选择转变形态 NL 化龙"
+  },
+  "${modID}:BattleRage": {
+    "NAME": "战斗怒吼",
+    "DESCRIPTION": "造成!B!点伤害。 NL 获得!D!点格挡。 NL 烙印"
+  },
+  "${modID}:BrandAwaken": {
+    "NAME": "烙印唤醒",
+    "DESCRIPTION": "触发烙印。 NL 烙印",
+    "UPGRADE_DESCRIPTION": "触发烙印。 NL 增加1点能量。 NL 烙印"
+  },
+  "${modID}:AbyssForm": {
+    "NAME": "深渊形态",
+    "DESCRIPTION": "每回合第一次使用烙印牌将触发一次化龙。"
+  }
+}
