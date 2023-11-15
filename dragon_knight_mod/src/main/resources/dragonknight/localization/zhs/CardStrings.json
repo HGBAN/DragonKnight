@@ -28,7 +28,7 @@
   "${modID}:BrandAwaken": {
     "NAME": "烙印唤醒",
     "DESCRIPTION": "触发烙印。 NL 烙印",
-    "UPGRADE_DESCRIPTION": "触发烙印。 NL 增加1点能量。 NL 烙印"
+    "UPGRADE_DESCRIPTION": "触发烙印。 NL 增加1点[E]。 NL 烙印"
   },
   "${modID}:AbyssForm": {
     "NAME": "深渊形态",

@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.ui.buttons.CancelButton;
 
 import basemod.abstracts.CustomScreen;
 import dragonknight.powers.BlackDragon;
@@ -41,6 +40,7 @@ public class SelectDragonScreen extends CustomScreen {
         AbstractDungeon.isScreenUp = false;
     }
 
+    @SuppressWarnings("unused")
     private void open(AbstractPlayer player) {
         if (AbstractDungeon.screen != AbstractDungeon.CurrentScreen.NONE)
             AbstractDungeon.previousScreen = AbstractDungeon.screen;

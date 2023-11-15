@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
+  },
+  "${modID}:AbyssSeal": {
+    "NAME": "深渊之印",
+    "FLAVOR": "描述",
+    "DESCRIPTIONS": [
+      "每场战斗开始时随机进入黑龙或白龙形态。"
+    ]
   }
 }

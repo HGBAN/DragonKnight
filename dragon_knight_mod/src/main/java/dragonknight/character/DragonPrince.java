@@ -30,7 +30,6 @@ import basemod.animations.AbstractAnimation;
 
 import static dragonknight.DragonKnightMod.makeID;
 import static dragonknight.DragonKnightMod.characterPath;
-import static dragonknight.DragonKnightMod.logger;
 
 public class DragonPrince extends CustomPlayer {
     // private static enum Form {
@@ -67,7 +66,7 @@ public class DragonPrince extends CustomPlayer {
 
     // Stats
     public static final int ENERGY_PER_TURN = 3;
-    public static final int MAX_HP = 70;
+    public static final int MAX_HP = 80;
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
@@ -111,7 +110,7 @@ public class DragonPrince extends CustomPlayer {
 
     @Override
     public int getAscensionMaxHPLoss() {
-        return 10;
+        return 5;
     }
 
     @Override
@@ -190,8 +189,8 @@ public class DragonPrince extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add("Burning Blood");
-        UnlockTracker.markRelicAsSeen("Burning Blood");
+        retVal.add(makeID("AbyssSeal"));
+        UnlockTracker.markRelicAsSeen(makeID("AbyssSeal"));
         return retVal;
     }
 

@@ -2,19 +2,19 @@ package dragonknight;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
 import basemod.interfaces.EditKeywordsSubscriber;
+import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.OnCardUseSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
-import basemod.interfaces.PreMonsterTurnSubscriber;
 import dragonknight.util.GeneralUtils;
 import dragonknight.util.KeywordInfo;
 import dragonknight.util.TextureLoader;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -24,19 +24,14 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
-import com.megacrit.cardcrawl.cards.AbstractCard.CardTarget;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.events.city.Beggar;
 import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,12 +40,12 @@ import org.scannotation.AnnotationDB;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-import dragonknight.cards.uncommon.BeDragon;
 import dragonknight.character.DragonPrince;
 import dragonknight.powers.AbyssFormPower;
 import dragonknight.powers.BlackDragon;
 import dragonknight.powers.Brand;
 import dragonknight.powers.WhiteDragon;
+import dragonknight.relics.BaseRelic;
 import dragonknight.screens.SelectDragonScreen;
 
 @SpireInitializer
@@ -60,7 +55,8 @@ public class DragonKnightMod implements
         PostInitializeSubscriber,
         EditCharactersSubscriber,
         EditCardsSubscriber,
-        OnCardUseSubscriber {
+        OnCardUseSubscriber,
+        EditRelicsSubscriber {
     public static ModInfo info;
     public static String modID; // Edit your pom.xml to change this
     static {
@@ -291,6 +287,26 @@ public class DragonKnightMod implements
         // if (card.hasTag(Enums.BE_DRAGON)) {
         // BaseMod.openCustomScreen(SelectDragonScreen.Enum.SELECT_DRAGON_SCREEN, p);
         // }
+    }
+
+    @Override
+    public void receiveEditRelics() {
+        new AutoAdd(modID) // Loads files from this mod
+                .packageFilter("dragonknight.relics") // In the same package as this class
+                .any(BaseRelic.class, (info, relic) -> { // Run this code for any classes that extend this class
+                    if (relic.pool != null)
+                        BaseMod.addRelicToCustomPool(relic, relic.pool); // Register a custom character specific relic
+                    else
+                        BaseMod.addRelic(relic, RelicType.SHARED); // Register a shared or base game character specific
+                                                                   // relic
+
+                    // If the class is annotated with @AutoAdd.Seen, it will be marked as seen,
+                    // making it visible in the relic library.
+                    // If you want all your relics to be visible by default, just remove this if
+                    // statement.
+                    if (info.seen)
+                        UnlockTracker.markRelicAsSeen(relic.relicId);
+                });
     }
 
     // @Override
