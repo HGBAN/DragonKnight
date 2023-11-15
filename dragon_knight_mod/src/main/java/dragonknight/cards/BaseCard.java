@@ -170,6 +170,8 @@ public abstract class BaseCard extends CustomCard {
             case BLOCK:
                 calculateVarAsBlock(key);
                 break;
+            default:
+                break;
         }
 
         if (!customVars.containsKey(key)) {
@@ -234,6 +236,8 @@ public abstract class BaseCard extends CustomCard {
                     this.baseBlock = tmp;
                     return block;
                 });
+                break;
+            default:
                 break;
         }
 

@@ -44,6 +44,6 @@
   },
   "${modID}:WhiteRealm": {
     "NAME": "白界之力",
-    "DESCRIPTION": "回合结束时被烙印消耗的牌多触发一次。 NL 消耗"
+    "DESCRIPTION": "本回合结束时被烙印消耗的牌多触发一次。 NL 消耗"
   }
 }
