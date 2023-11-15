@@ -10,6 +10,7 @@ import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.OnCardUseSubscriber;
+import basemod.interfaces.OnStartBattleSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import dragonknight.util.GeneralUtils;
 import dragonknight.util.KeywordInfo;
@@ -32,6 +33,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import org.apache.logging.log4j.LogManager;
@@ -58,7 +60,8 @@ public class DragonKnightMod implements
         EditCharactersSubscriber,
         EditCardsSubscriber,
         OnCardUseSubscriber,
-        EditRelicsSubscriber {
+        EditRelicsSubscriber,
+        OnStartBattleSubscriber {
     public static ModInfo info;
     public static String modID; // Edit your pom.xml to change this
     static {
@@ -279,7 +282,7 @@ public class DragonKnightMod implements
     public void receiveCardUsed(AbstractCard card) {
         if (card.hasTag(Enums.BRAND)) {
             AbstractPlayer player = AbstractDungeon.player;
-            
+
             if (!player.drawPile.isEmpty()) {
                 AbstractCard brandCard = player.drawPile.getRandomCard(true);
                 brandCards.add(brandCard);
@@ -312,6 +315,12 @@ public class DragonKnightMod implements
                     if (info.seen)
                         UnlockTracker.markRelicAsSeen(relic.relicId);
                 });
+    }
+
+    @Override
+    public void receiveOnBattleStart(AbstractRoom arg0) {
+        brandCards.clear();
+        Brand.triggerCount = 1;
     }
 
     // @Override

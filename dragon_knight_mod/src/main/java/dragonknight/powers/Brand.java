@@ -2,6 +2,8 @@ package dragonknight.powers;
 
 import static dragonknight.DragonKnightMod.makeID;
 
+import java.util.Iterator;
+
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -42,9 +44,18 @@ public class Brand extends AbstractPower {
 
         builder.append(DESCRIPTIONS[0]).append(" NL ");
         builder.append(DESCRIPTIONS[1]).append(" NL ");
-        for (AbstractCard brandCard : DragonKnightMod.brandCards) {
-            builder.append(brandCard.name).append(" NL ");
+
+        Iterator<AbstractCard> iterator = DragonKnightMod.brandCards.iterator();
+
+        while (iterator.hasNext()) {
+            AbstractCard brandCard = iterator.next();
+            builder.append(brandCard.name);
+            if(iterator.hasNext())
+                builder.append(" NL ");
         }
+        // for (AbstractCard brandCard : DragonKnightMod.brandCards) {
+        // builder.append(brandCard.name).append(" NL ");
+        // }
         description = builder.toString();
         // this.description = DESCRIPTIONS[0] + " NL 下面的牌将在回合结束时打出： NL " +
         // brandCard.name;

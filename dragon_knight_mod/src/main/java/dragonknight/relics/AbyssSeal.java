@@ -43,4 +43,9 @@ public class AbyssSeal extends BaseRelic {
     public void justEnteredRoom(AbstractRoom room) {
         this.grayscale = false;
     }
+
+    @Override
+    public void onVictory() {
+        this.grayscale = false;
+    }
 }

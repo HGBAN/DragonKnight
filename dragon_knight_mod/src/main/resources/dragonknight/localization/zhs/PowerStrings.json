@@ -8,26 +8,26 @@
   "${modID}:BlackDragon": {
     "NAME": "黑龙形态",
     "DESCRIPTIONS": [
-      "化身黑龙，获得10点护甲，并随机使一张手牌获得消耗和烙印"
+      "化身黑龙，获得10点护甲，并随机使一张手牌获得消耗和烙印。"
     ]
   },
   "${modID}:WhiteDragon": {
     "NAME": "白龙形态",
     "DESCRIPTIONS": [
-      "化身白龙，使一张手牌获得烙印"
+      "化身白龙，使一张手牌获得烙印。"
     ]
   },
   "${modID}:Brand": {
     "NAME": "烙印",
     "DESCRIPTIONS": [
-      "随机消耗抽牌堆的一张牌，并在回合结束时打出",
+      "随机消耗抽牌堆的一张牌，并在回合结束时打出。",
       "下面的牌将在回合结束时打出："
     ]
   },
   "${modID}:AbyssFormPower": {
     "NAME": "深渊形态",
     "DESCRIPTIONS": [
-      "每回合第一次使用烙印牌将触发一次化龙"
+      "每回合第一次使用烙印牌将触发一次化龙。"
     ]
   },
   "${modID}:WhiteRealmPower": {
