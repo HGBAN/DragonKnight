@@ -279,8 +279,9 @@ public class DragonKnightMod implements
     public void receiveCardUsed(AbstractCard card) {
         if (card.hasTag(Enums.BRAND)) {
             AbstractPlayer player = AbstractDungeon.player;
-            AbstractCard brandCard = player.drawPile.getRandomCard(true);
-            if (brandCard != null) {
+            
+            if (!player.drawPile.isEmpty()) {
+                AbstractCard brandCard = player.drawPile.getRandomCard(true);
                 brandCards.add(brandCard);
                 AbstractDungeon.actionManager
                         .addToBottom(new ExhaustSpecificCardAction(brandCard, player.drawPile));
