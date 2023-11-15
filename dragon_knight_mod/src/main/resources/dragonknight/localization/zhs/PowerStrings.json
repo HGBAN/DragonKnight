@@ -29,5 +29,11 @@
     "DESCRIPTIONS": [
       "每回合第一次使用烙印牌将触发一次化龙"
     ]
+  },
+  "${modID}:WhiteRealmPower": {
+    "NAME": "白界之力",
+    "DESCRIPTIONS": [
+      "回合结束时被烙印消耗的牌触发多触发一次。"
+    ]
   }
 }

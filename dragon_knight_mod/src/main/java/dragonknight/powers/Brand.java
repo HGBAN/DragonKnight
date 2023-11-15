@@ -20,6 +20,7 @@ public class Brand extends AbstractPower {
     // public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     // public AbstractCard brandCard;
+    public static int triggerCount = 1;
 
     public Brand(AbstractCreature owner) {
         this.name = NAME;
@@ -31,6 +32,7 @@ public class Brand extends AbstractPower {
         DESCRIPTIONS = powerStrings.DESCRIPTIONS;
         description = "";
         // brandCard = card;
+        priority = 4;
 
         loadRegion("poison");
     }
@@ -64,19 +66,21 @@ public class Brand extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer) {
         if (!isPlayer)
             return;
+
         for (AbstractCard brandCard : DragonKnightMod.brandCards) {
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    brandCard.use(AbstractDungeon.player,
-                            AbstractDungeon.getMonsters().getRandomMonster());
+            for (int i = 0; i < triggerCount; i++) {
+                addToBot(new AbstractGameAction() {
+                    @Override
+                    public void update() {
+                        brandCard.use(AbstractDungeon.player,
+                                AbstractDungeon.getMonsters().getRandomMonster());
 
-                    this.isDone = true;
-                }
+                        this.isDone = true;
+                    }
 
-            });
+                });
+            }
         }
-
         // if (brandCard.target.equals(CardTarget.SELF)) {
         // AbstractDungeon.actionManager
         // .addToBottom(new UseCardAction(brandCard, AbstractDungeon.player));
