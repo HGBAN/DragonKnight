@@ -28,10 +28,18 @@
   "${modID}:BrandAwaken": {
     "NAME": "烙印唤醒",
     "DESCRIPTION": "触发烙印。 NL 烙印",
-    "UPGRADE_DESCRIPTION": "触发烙印。 NL 增加1点[E]。 NL 烙印"
+    "UPGRADE_DESCRIPTION": "触发烙印。 NL 增加1点 [E] 。 NL 烙印"
   },
   "${modID}:AbyssForm": {
     "NAME": "深渊形态",
     "DESCRIPTION": "每回合第一次使用烙印牌将触发一次化龙。"
+  },
+  "${modID}:DragonScale": {
+    "NAME": "龙鳞",
+    "DESCRIPTION": "获得!B!点格挡。 NL 如果被 消耗 ，则再获得!M!点格挡。"
+  },
+  "${modID}:Sweeping": {
+    "NAME": "横扫",
+    "DESCRIPTION": "对所有敌人造成!D!点伤害。 NL 如果被 消耗 ，则再造成!D!点伤害。"
   }
 }
