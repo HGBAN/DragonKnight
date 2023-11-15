@@ -2,6 +2,7 @@ package dragonknight;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.devcommands.ConsoleCommand;
 import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
@@ -41,6 +42,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import dragonknight.character.DragonPrince;
+import dragonknight.commands.ExhaustHand;
 import dragonknight.powers.AbyssFormPower;
 import dragonknight.powers.BlackDragon;
 import dragonknight.powers.Brand;
@@ -107,6 +109,8 @@ public class DragonKnightMod implements
         // The information used is taken from your pom.xml file.
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description,
                 null);
+
+        ConsoleCommand.addCommand("exhaust", ExhaustHand.class);
     }
 
     /*----------Localization----------*/
