@@ -24,7 +24,7 @@ public class WhiteRealm extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public WhiteRealm() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/WhiteRealm.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.exhaustOnUseOnce = true;

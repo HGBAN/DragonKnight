@@ -28,7 +28,7 @@ public class DragonScale extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public DragonScale() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/DragonScale.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseBlock = 14;

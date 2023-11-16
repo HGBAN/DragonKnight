@@ -25,7 +25,7 @@ public class Sweeping extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
     public Sweeping() {
-        super(ID, NAME, imagePath("cards/attack/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/attack/Sweeping.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseDamage = 7;

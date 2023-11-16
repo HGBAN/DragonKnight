@@ -24,7 +24,7 @@ public class BrandAwaken extends CustomCard {
     private static final CardTarget TARGET = CardTarget.NONE;
 
     public BrandAwaken() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/BrandAwaken.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.tags.add(DragonKnightMod.Enums.BRAND);
