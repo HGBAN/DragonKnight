@@ -279,6 +279,7 @@ public class DragonKnightMod implements
     }
 
     public static ArrayList<AbstractCard> brandCards = new ArrayList<>();
+    public static int brandCount = 0;
 
     public static class Enums {
         @SpireEnum
@@ -294,6 +295,7 @@ public class DragonKnightMod implements
                 AbstractCard brandCard = player.drawPile.getRandomCard(true);
                 logger.info(brandCard.cardID);
                 brandCards.add(brandCard);
+                brandCount++;
                 AbstractDungeon.actionManager
                         .addToBottom(new ExhaustSpecificCardAction(brandCard, player.drawPile));
                 AbstractDungeon.actionManager
@@ -329,6 +331,7 @@ public class DragonKnightMod implements
     public void receiveOnBattleStart(AbstractRoom arg0) {
         brandCards.clear();
         Brand.triggerCount = 1;
+        brandCount = 0;
     }
 
     // @Override

@@ -45,5 +45,9 @@
   "${modID}:WhiteRealm": {
     "NAME": "白界之力",
     "DESCRIPTION": "本回合结束时被烙印消耗的牌多触发一次。 NL 消耗"
+  },
+  "${modID}:FuriousFlames": {
+    "NAME": "暴怒烈焰",
+    "DESCRIPTION": "造成!D!点伤害。 NL 本次战斗每触发一次 烙印 ，增加5点伤害。"
   }
 }
