@@ -19,28 +19,34 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import dragonknight.DragonKnightMod;
 
-public class BlackDragon extends AbstractPower {
+public class BlackDragon extends BasePower {
     public static final String POWER_ID = makeID("BlackDragon");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public BlackDragon(AbstractCreature owner) {
+        super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
         // com.megacrit.cardcrawl.powers.NoDrawPower
         // logger.info(owner == null ? "null" : "exist");
-        this.name = NAME;
-        this.ID = POWER_ID;
-        this.owner = owner;
-        this.amount = -1;
-        this.type = PowerType.BUFF;
-        this.isTurnBased = true;
-        this.description = DESCRIPTIONS[0];
+        // this.name = NAME;
+        // this.ID = POWER_ID;
+        // this.owner = owner;
+        // this.amount = -1;
+        // this.type = PowerType.BUFF;
+        // this.isTurnBased = true;
+        // this.description = DESCRIPTIONS[0];
 
-        loadRegion("accuracy");
+        // loadRegion("accuracy");
 
         // ApplyPowerAction
         // addToBot(new Hand);
         // import com.megacrit.cardcrawl.actions.common.DamageAction
+    }
+
+    @Override
+    public void updateDescription() {
+        this.description = DESCRIPTIONS[0];
     }
 
     // @Override

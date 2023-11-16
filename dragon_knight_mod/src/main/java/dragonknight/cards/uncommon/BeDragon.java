@@ -25,7 +25,7 @@ public class BeDragon extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public BeDragon() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/BeDragon.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         // tags.add(DragonKnightMod.Enums.BE_DRAGON);

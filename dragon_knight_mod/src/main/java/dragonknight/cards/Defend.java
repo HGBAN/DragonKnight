@@ -23,7 +23,7 @@ public class Defend extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public Defend() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/Defend_DK.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.baseBlock = 5;

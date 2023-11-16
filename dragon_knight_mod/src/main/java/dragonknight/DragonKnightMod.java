@@ -49,6 +49,7 @@ import dragonknight.powers.AbyssFormPower;
 import dragonknight.powers.BlackDragon;
 import dragonknight.powers.Brand;
 import dragonknight.powers.WhiteDragon;
+import dragonknight.powers.WhiteRealmPower;
 import dragonknight.relics.BaseRelic;
 import dragonknight.screens.SelectDragonScreen;
 
@@ -82,6 +83,8 @@ public class DragonKnightMod implements
 
     private static final String CHAR_SELECT_BUTTON = characterPath("dragonprince/select/button.png");
     private static final String CHAR_SELECT_PORTRAIT = characterPath("dragonprince/select/portrait.jpg");
+
+    // private static final Texture ABYSS_SEAL=new Texture(powerPath("BG_ATTACK"));
 
     // This is used to prefix the IDs of various objects like cards and relics,
     // to avoid conflicts between different mods using the same name for things.
@@ -262,9 +265,10 @@ public class DragonKnightMod implements
         BaseMod.addKeyword(new String[] { "化龙" }, "选择一种形态进行变换");
 
         BaseMod.addPower(BlackDragon.class, BlackDragon.POWER_ID);
-        BaseMod.addPower(WhiteDragon.class, BlackDragon.POWER_ID);
+        BaseMod.addPower(WhiteDragon.class, WhiteDragon.POWER_ID);
         BaseMod.addPower(Brand.class, Brand.POWER_ID);
         BaseMod.addPower(AbyssFormPower.class, AbyssFormPower.POWER_ID);
+        BaseMod.addPower(WhiteRealmPower.class, WhiteRealmPower.POWER_ID);
         new AutoAdd(modID)
                 .packageFilter("dragonknight.cards")
                 .setDefaultSeen(true)
