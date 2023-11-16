@@ -25,6 +25,7 @@ import com.evacipated.cardcrawl.modthespire.Patcher;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -44,6 +45,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 import dragonknight.character.DragonPrince;
+import dragonknight.commands.BrandCommand;
 import dragonknight.commands.ExhaustHand;
 import dragonknight.powers.AbyssFormPower;
 import dragonknight.powers.BlackDragon;
@@ -117,6 +119,7 @@ public class DragonKnightMod implements
                 null);
 
         ConsoleCommand.addCommand("exhaust", ExhaustHand.class);
+        ConsoleCommand.addCommand("brand", BrandCommand.class);
     }
 
     /*----------Localization----------*/
@@ -289,6 +292,7 @@ public class DragonKnightMod implements
 
             if (!player.drawPile.isEmpty()) {
                 AbstractCard brandCard = player.drawPile.getRandomCard(true);
+                logger.info(brandCard.cardID);
                 brandCards.add(brandCard);
                 AbstractDungeon.actionManager
                         .addToBottom(new ExhaustSpecificCardAction(brandCard, player.drawPile));
@@ -341,4 +345,17 @@ public class DragonKnightMod implements
     // brandCards.clear();
     // return true;
     // }
+
+    public static void beDragon() {
+        if (AbstractDungeon.player.powers.stream().filter((power) -> power.ID
+                .equals(makeID("BlackDragon")) || power.ID.equals(makeID("WhiteDragon"))).count() == 0) {
+            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    BaseMod.openCustomScreen(SelectDragonScreen.Enum.SELECT_DRAGON_SCREEN);
+                    isDone = true;
+                }
+            });
+        }
+    }
 }

@@ -12,6 +12,7 @@ import basemod.abstracts.CustomCard;
 import dragonknight.character.DragonPrince;
 
 import static dragonknight.DragonKnightMod.imagePath;
+import static dragonknight.DragonKnightMod.logger;
 import static dragonknight.DragonKnightMod.makeID;
 
 public class Strike extends CustomCard {
@@ -46,6 +47,9 @@ public class Strike extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AttackEffect.SLASH_DIAGONAL));
+        logger.info(p);
+        logger.info(m);
+        logger.info("hello");
     }
 
 }

@@ -41,11 +41,11 @@ public class SelectDragonScreen extends CustomScreen {
     }
 
     @SuppressWarnings("unused")
-    private void open(AbstractPlayer player) {
+    private void open() {
         if (AbstractDungeon.screen != AbstractDungeon.CurrentScreen.NONE)
             AbstractDungeon.previousScreen = AbstractDungeon.screen;
 
-        this.player = player;
+        this.player = AbstractDungeon.player;
         reopen();
     }
 

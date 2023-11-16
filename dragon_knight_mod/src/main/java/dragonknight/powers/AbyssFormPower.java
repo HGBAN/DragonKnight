@@ -2,17 +2,13 @@ package dragonknight.powers;
 
 import static dragonknight.DragonKnightMod.makeID;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
-import basemod.BaseMod;
 import dragonknight.DragonKnightMod;
-import dragonknight.screens.SelectDragonScreen;
 
 public class AbyssFormPower extends BasePower {
     public static final String POWER_ID = makeID("AbyssFormPower");
@@ -49,13 +45,7 @@ public class AbyssFormPower extends BasePower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (card.hasTag(DragonKnightMod.Enums.BRAND) && !isUsed) {
-            addToBot(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    BaseMod.openCustomScreen(SelectDragonScreen.Enum.SELECT_DRAGON_SCREEN, AbstractDungeon.player);
-                    isDone = true;
-                }
-            });
+            DragonKnightMod.beDragon();
             isUsed = true;
         }
     }

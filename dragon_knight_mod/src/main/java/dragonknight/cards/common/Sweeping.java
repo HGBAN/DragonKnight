@@ -43,7 +43,7 @@ public class Sweeping extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!this.exhaustOnUseOnce)
+        if (!this.exhaustOnUseOnce && !this.exhaust)
             this.addToBot(new DamageAllEnemiesAction(p, this.damage, this.damageTypeForTurn, AttackEffect.FIRE));
 
     }
@@ -51,8 +51,8 @@ public class Sweeping extends CustomCard {
     @Override
     public void triggerOnExhaust() {
         AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new DamageAllEnemiesAction(p, this.damage, this.damageTypeForTurn, AttackEffect.FIRE));
-        this.addToBot(new DamageAllEnemiesAction(p, this.damage, this.damageTypeForTurn, AttackEffect.FIRE));
+        this.addToBot(new DamageAllEnemiesAction(p, this.baseDamage, this.damageTypeForTurn, AttackEffect.FIRE));
+        this.addToBot(new DamageAllEnemiesAction(p, this.baseDamage, this.damageTypeForTurn, AttackEffect.FIRE));
     }
 
 }

@@ -27,7 +27,8 @@ public class WhiteRealm extends CustomCard {
         super(ID, NAME, imagePath("cards/skill/WhiteRealm.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
-        this.exhaustOnUseOnce = true;
+        // this.exhaustOnUseOnce = true;
+        this.exhaust = true;
     }
 
     @Override

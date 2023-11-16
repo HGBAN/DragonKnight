@@ -83,7 +83,8 @@ public class BlackDragon extends BasePower {
                 if (cards.size() > 0) {
                     int index = AbstractDungeon.cardRng.random.nextInt(cards.size());
                     AbstractCard card = cards.get(index);
-                    card.exhaustOnUseOnce = true;
+                    // card.exhaustOnUseOnce = true;
+                    card.exhaust = true;
                     card.rawDescription += " NL 消耗 NL 烙印";
 
                     card.tags.add(DragonKnightMod.Enums.BRAND);

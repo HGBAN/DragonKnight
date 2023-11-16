@@ -46,12 +46,14 @@ public class DragonScale extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!this.exhaustOnUseOnce)
+        
+        if (!this.exhaustOnUseOnce && !this.exhaust)
             this.addToBot(new GainBlockAction(p, p, this.block));
     }
 
     @Override
     public void triggerOnExhaust() {
+        applyPowersToBlock();
         AbstractPlayer p = AbstractDungeon.player;
         this.addToBot(new GainBlockAction(p, p, this.block));
         this.addToBot(new GainBlockAction(p, p, this.magicNumber));

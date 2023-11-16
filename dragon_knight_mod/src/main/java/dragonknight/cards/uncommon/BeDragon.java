@@ -3,16 +3,14 @@ package dragonknight.cards.uncommon;
 import static dragonknight.DragonKnightMod.imagePath;
 import static dragonknight.DragonKnightMod.makeID;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
+import dragonknight.DragonKnightMod;
 import dragonknight.character.DragonPrince;
-import dragonknight.screens.SelectDragonScreen;
 
 public class BeDragon extends CustomCard {
     public static final String ID = makeID("BeDragon");
@@ -42,13 +40,7 @@ public class BeDragon extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new AbstractGameAction() {
-            @Override
-            public void update() {
-                BaseMod.openCustomScreen(SelectDragonScreen.Enum.SELECT_DRAGON_SCREEN, p);
-                isDone = true;
-            }
-        });
+        DragonKnightMod.beDragon();
     }
 
 }
