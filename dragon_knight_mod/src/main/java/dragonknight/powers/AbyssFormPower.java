@@ -20,16 +20,6 @@ public class AbyssFormPower extends BasePower {
 
     public AbyssFormPower(AbstractCreature owner) {
         super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
-        // this.name = NAME;
-        // this.ID = POWER_ID;
-        // this.owner = owner;
-        // this.amount = -1;
-        // this.type = PowerType.BUFF;
-        // this.isTurnBased = true;
-        // this.description = DESCRIPTIONS[0];
-
-        // loadRegion("artifact");
-
     }
 
     @Override

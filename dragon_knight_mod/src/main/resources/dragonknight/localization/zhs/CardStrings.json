@@ -49,5 +49,18 @@
   "${modID}:FuriousFlames": {
     "NAME": "暴怒烈焰",
     "DESCRIPTION": "造成!D!点伤害。 NL 本次战斗每触发一次 烙印 ，增加5点伤害。"
+  },
+  "${modID}:BrandProtector": {
+    "NAME": "烙印护体",
+    "DESCRIPTION": "回合结束时，本回合每有一张牌因为烙印被消耗则获得!M!点护甲。"
+  },
+  "${modID}:WhiteBrand": {
+    "NAME": "白色烙印",
+    "DESCRIPTION": "每次化身白龙时，获得!M!点力量"
+  }
+  ,
+  "${modID}:BlackBrand": {
+    "NAME": "黑色烙印",
+    "DESCRIPTION": "每次化身黑龙时，就获得!M!点多层护甲"
   }
 }

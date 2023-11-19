@@ -15,16 +15,6 @@ public class WhiteRealmPower extends BasePower {
 
     public WhiteRealmPower(AbstractCreature owner) {
         super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
-        // this.name = NAME;
-        // this.ID = POWER_ID;
-        // this.owner = owner;
-        // this.amount = -1;
-        // this.type = PowerType.BUFF;
-        // this.isTurnBased = true;
-        // this.description = DESCRIPTIONS[0];
-
-        // loadRegion("demonForm");
-        // com.megacrit.cardcrawl.powers.DemonFormPower
     }
 
     @Override

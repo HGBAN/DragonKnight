@@ -82,7 +82,7 @@ public class Brand extends AbstractPower {
     }
 
     @Override
-    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+    public void atEndOfTurn(boolean isPlayer) {
         if (!isPlayer)
             return;
 
@@ -189,70 +189,22 @@ public class Brand extends AbstractPower {
             }
         }
 
-        DragonKnightMod.brandCards.clear();
-        // if (brandCard.target.equals(CardTarget.SELF)) {
-        // AbstractDungeon.actionManager
-        // .addToBottom(new UseCardAction(brandCard, AbstractDungeon.player));
-        // } else
-        // AbstractDungeon.actionManager
-        // .addToBottom(new UseCardAction(brandCard,
-        // AbstractDungeon.getMonsters().getRandomMonster()));
-        // com.megacrit.cardcrawl.actions.utility.ExhaustToHandAction()
-
-        // addToBot(new UseCardAction(brandCard,));
+        // logger.info("hello");
         addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+        addToBot(new AbstractGameAction() {
+
+            @Override
+            public void update() {
+                DragonKnightMod.brandCards.clear();
+                isDone = true;
+            }
+
+        });
     }
 
     // @Override
-    // public void atEndOfTurn(boolean isPlayer) {
-    // if (!isPlayer)
-    // return;
+    // public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
 
-    // for (AbstractCard brandCard : DragonKnightMod.brandCards) {
-    // for (int i = 0; i < triggerCount; i++) {
-
-    // // addToBot(new ExhaustToHandAction(brandCard));
-    // // brandCard.freeToPlayOnce = true;
-
-    // // logger.info(DragonKnightMod.brandCards.size());
-    // // this.addToTop(new ShowCardAction(brandCard));
-    // // if (Settings.FAST_MODE) {
-    // // this.addToTop(new WaitAction(0.1F));
-    // // } else {
-    // // this.addToTop(new WaitAction(0.7F));
-    // // }
-    // // addToBot(new AbstractGameAction() {
-    // // @Override
-    // // public void update() {
-    // // brandCard.use(AbstractDungeon.player,
-    // // AbstractDungeon.getMonsters().getRandomMonster());
-
-    // // this.isDone = true;
-    // // }
-    // // });
-    // // AbstractMonster monster;
-    // // do {
-    // // monster = AbstractDungeon.getMonsters().getRandomMonster();
-    // // } while (!monster.isDeadOrEscaped());
-
-    // addToBot(new UseCardAction(brandCard,
-    // AbstractDungeon.getMonsters().getRandomMonster()));
-    // // com.megacrit.cardcrawl.actions.utility.UpdateCardDescriptionAction
-    // }
-    // }
-
-    // DragonKnightMod.brandCards.clear();
-    // // if (brandCard.target.equals(CardTarget.SELF)) {
-    // // AbstractDungeon.actionManager
-    // // .addToBottom(new UseCardAction(brandCard, AbstractDungeon.player));
-    // // } else
-    // // AbstractDungeon.actionManager
-    // // .addToBottom(new UseCardAction(brandCard,
-    // // AbstractDungeon.getMonsters().getRandomMonster()));
-    // // com.megacrit.cardcrawl.actions.utility.ExhaustToHandAction()
-
-    // // addToBot(new UseCardAction(brandCard,));
-    // addToBot(new RemoveSpecificPowerAction(owner, owner, this));
     // }
 
 }

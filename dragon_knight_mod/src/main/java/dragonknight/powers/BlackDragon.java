@@ -2,11 +2,13 @@ package dragonknight.powers;
 
 import static dragonknight.DragonKnightMod.makeID;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -16,6 +18,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
 import dragonknight.DragonKnightMod;
 
@@ -62,7 +65,8 @@ public class BlackDragon extends BasePower {
 
     @Override
     public void onInitialApplication() {
-        List<AbstractPower> whitePower = AbstractDungeon.player.powers.stream()
+        ArrayList<AbstractPower> powers = AbstractDungeon.player.powers;
+        List<AbstractPower> whitePower = powers.stream()
                 .filter(power -> power.ID.equals(makeID("WhiteDragon")))
                 .collect(Collectors.toList());
         if (whitePower.size() > 0) {
@@ -98,6 +102,12 @@ public class BlackDragon extends BasePower {
             }
 
         });
+        List<AbstractPower> blackBrandPower = powers.stream().filter(power -> power.ID.equals(makeID("BlackBrandPower")))
+                .collect(Collectors.toList());
+        for (AbstractPower power : blackBrandPower) {
+            // com.megacrit.cardcrawl.powers
+            addToBot(new ApplyPowerAction(owner, owner, new PlatedArmorPower (owner, power.amount)));
+        }
     }
 
     // @Override

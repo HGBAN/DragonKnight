@@ -35,5 +35,26 @@
     "DESCRIPTIONS": [
       "本回合结束时被烙印消耗的牌多触发一次。"
     ]
+  },
+  "${modID}:BrandProtectorPower": {
+    "NAME": "烙印护体",
+    "DESCRIPTIONS": [
+      "回合结束时，本回合每有一张牌因为烙印被消耗则获得",
+      "点护甲。"
+    ]
+  },
+  "${modID}:WhiteBrandPower": {
+    "NAME": "白色烙印",
+    "DESCRIPTIONS": [
+      "每次化身白龙时，获得",
+      "点力量。"
+    ]
+  },
+  "${modID}:BlackBrandPower": {
+    "NAME": "黑色烙印",
+    "DESCRIPTIONS": [
+      "每次化身黑龙时，获得",
+      "点多层护甲。"
+    ]
   }
 }

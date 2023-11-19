@@ -50,8 +50,11 @@ import dragonknight.commands.BrandCommand;
 import dragonknight.commands.ExhaustHand;
 import dragonknight.potions.BrandPotion;
 import dragonknight.powers.AbyssFormPower;
+import dragonknight.powers.BlackBrandPower;
 import dragonknight.powers.BlackDragon;
 import dragonknight.powers.Brand;
+import dragonknight.powers.BrandProtectorPower;
+import dragonknight.powers.WhiteBrandPower;
 import dragonknight.powers.WhiteDragon;
 import dragonknight.powers.WhiteRealmPower;
 import dragonknight.relics.BaseRelic;
@@ -274,6 +277,9 @@ public class DragonKnightMod implements
         BaseMod.addPower(Brand.class, Brand.POWER_ID);
         BaseMod.addPower(AbyssFormPower.class, AbyssFormPower.POWER_ID);
         BaseMod.addPower(WhiteRealmPower.class, WhiteRealmPower.POWER_ID);
+        BaseMod.addPower(BrandProtectorPower.class, BrandProtectorPower.POWER_ID);
+        BaseMod.addPower(BlackBrandPower.class, BlackBrandPower.POWER_ID);
+        BaseMod.addPower(WhiteBrandPower.class, WhiteBrandPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         new AutoAdd(modID)
