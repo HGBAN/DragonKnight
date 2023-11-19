@@ -17,6 +17,7 @@ import dragonknight.util.KeywordInfo;
 import dragonknight.util.TextureLoader;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -47,6 +48,7 @@ import java.util.*;
 import dragonknight.character.DragonPrince;
 import dragonknight.commands.BrandCommand;
 import dragonknight.commands.ExhaustHand;
+import dragonknight.potions.BrandPotion;
 import dragonknight.powers.AbyssFormPower;
 import dragonknight.powers.BlackDragon;
 import dragonknight.powers.Brand;
@@ -272,6 +274,8 @@ public class DragonKnightMod implements
         BaseMod.addPower(Brand.class, Brand.POWER_ID);
         BaseMod.addPower(AbyssFormPower.class, AbyssFormPower.POWER_ID);
         BaseMod.addPower(WhiteRealmPower.class, WhiteRealmPower.POWER_ID);
+
+        BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         new AutoAdd(modID)
                 .packageFilter("dragonknight.cards")
                 .setDefaultSeen(true)

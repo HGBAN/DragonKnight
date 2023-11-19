@@ -8,5 +8,11 @@
       " into a description.",
       " Exactly how depends on the potion, and you can set it up however you want."
     ]
+  },
+  "${modID}:BrandPotion": {
+    "NAME": "烙印药水",
+    "DESCRIPTIONS": [
+      "从随机3张烙印牌中选一张加入本场战斗，第一次使用消耗0 [E] "
+    ]
   }
 }
