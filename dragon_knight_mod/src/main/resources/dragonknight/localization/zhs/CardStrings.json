@@ -19,7 +19,7 @@
   },
   "${modID}:BeDragon": {
     "NAME": "化龙",
-    "DESCRIPTION": "选择转变形态 NL 化龙"
+    "DESCRIPTION": "选择转变形态。 NL 化龙"
   },
   "${modID}:BattleRage": {
     "NAME": "战斗怒吼",
