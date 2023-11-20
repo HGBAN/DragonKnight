@@ -19,16 +19,16 @@
   },
   "${modID}:BeDragon": {
     "NAME": "化龙",
-    "DESCRIPTION": "选择转变形态。 NL 化龙"
+    "DESCRIPTION": "选择转变形态。 NL dragonknight:化龙"
   },
   "${modID}:BattleRage": {
     "NAME": "战斗怒吼",
-    "DESCRIPTION": "造成!B!点伤害。 NL 获得!D!点格挡。 NL 烙印"
+    "DESCRIPTION": "造成!B!点伤害。 NL 获得!D!点格挡。 NL dragonknight:烙印"
   },
   "${modID}:BrandAwaken": {
     "NAME": "烙印唤醒",
-    "DESCRIPTION": "触发烙印。 NL 烙印",
-    "UPGRADE_DESCRIPTION": "触发烙印。 NL 获得 [E] 。 NL 烙印"
+    "DESCRIPTION": "触发烙印。 NL dragonknight:烙印",
+    "UPGRADE_DESCRIPTION": "触发烙印。 NL 获得 [E] 。 NL dragonknight:烙印"
   },
   "${modID}:AbyssForm": {
     "NAME": "深渊形态",
@@ -48,7 +48,7 @@
   },
   "${modID}:FuriousFlames": {
     "NAME": "暴怒烈焰",
-    "DESCRIPTION": "造成!D!点伤害。 NL 本次战斗每触发一次 烙印 ，增加5点伤害。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 本次战斗每触发一次烙印，增加5点伤害。"
   },
   "${modID}:BrandProtector": {
     "NAME": "烙印护体",

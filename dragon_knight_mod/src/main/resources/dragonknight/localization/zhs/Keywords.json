@@ -19,5 +19,21 @@
       "multiword_keywords"
     ],
     "DESCRIPTION": "Make sure the first element in NAMES has no underscores. The rest should use _ in the place of spaces. In card text, you'll use the underscore versions."
+  },
+  {
+    "ID": "Brand",
+    "PROPER_NAME": "烙印",
+    "NAMES": [
+      "烙印"
+    ],
+    "DESCRIPTION": "打出时，随机消耗抽牌堆中的一张牌，并在回合结束时将其打出。"
+  },
+  {
+    "ID": "BeDragon",
+    "PROPER_NAME": "化龙",
+    "NAMES": [
+      "化龙"
+    ],
+    "DESCRIPTION": "选择一种形态进行变换。"
   }
 ]

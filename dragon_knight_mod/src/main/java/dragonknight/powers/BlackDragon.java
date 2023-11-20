@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
@@ -38,7 +39,7 @@ public class BlackDragon extends BasePower {
     @Override
     public void atStartOfTurn() {
         addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-        
+
     }
 
     @Override
@@ -63,7 +64,8 @@ public class BlackDragon extends BasePower {
                     AbstractCard card = cards.get(index);
                     // card.exhaustOnUseOnce = true;
                     card.exhaust = true;
-                    card.rawDescription += " NL 消耗 NL 烙印";
+                    card.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0] + " NL dragonknight:"
+                            + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
 
                     card.tags.add(DragonKnightMod.Enums.BRAND);
                     card.initializeDescription();
