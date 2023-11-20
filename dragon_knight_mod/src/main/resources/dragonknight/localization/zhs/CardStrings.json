@@ -56,11 +56,15 @@
   },
   "${modID}:WhiteBrand": {
     "NAME": "白色烙印",
-    "DESCRIPTION": "每次化身白龙时，获得!M!点力量"
-  }
-  ,
+    "DESCRIPTION": "每次化身白龙时，获得!M!点力量。"
+  },
   "${modID}:BlackBrand": {
     "NAME": "黑色烙印",
-    "DESCRIPTION": "每次化身黑龙时，就获得!M!点多层护甲"
+    "DESCRIPTION": "每次化身黑龙时，就获得!M!点多层护甲。"
+  },
+  "${modID}:PhantomDragon": {
+    "NAME": "幻影之龙",
+    "DESCRIPTION": "本局战斗中，化身成龙后使用的第一张牌费用为0。",
+    "UPGRADE_DESCRIPTION": "本局战斗中，化身成龙后使用的第一张牌费用为0。 NL 固有 "
   }
 }

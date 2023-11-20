@@ -2,17 +2,12 @@ package dragonknight.powers;
 
 import static dragonknight.DragonKnightMod.makeID;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
@@ -56,11 +51,7 @@ public class WhiteDragon extends AbstractPower {
 
     @Override
     public void onInitialApplication() {
-        ArrayList<AbstractPower> powers = AbstractDungeon.player.powers;
-        List<AbstractPower> blackPower = powers.stream()
-                .filter(power -> power.ID.equals(makeID("BlackDragon")))
-                .collect(Collectors.toList());
-        if (blackPower.size() > 0) {
+        if (owner.hasPower(makeID("BlackDragon"))) {
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
             return;
         }
@@ -75,10 +66,19 @@ public class WhiteDragon extends AbstractPower {
             }
         }));
 
-        List<AbstractPower> whiteBrandPower = powers.stream().filter(power -> power.ID.equals(makeID("WhiteBrandPower")))
-                .collect(Collectors.toList());
-        for (AbstractPower power : whiteBrandPower) {
-            addToBot(new ApplyPowerAction(owner, owner, new StrengthPower(owner, power.amount)));
+        if (owner.hasPower(makeID("WhiteBrandPower"))) {
+            addToBot(new ApplyPowerAction(owner, owner,
+                    new StrengthPower(owner, owner.getPower(makeID("WhiteBrandPower")).amount)));
+        }
+
+        if (owner.hasPower(makeID("PhantomDragonPower"))) {
+            PhantomDragonPower power = (PhantomDragonPower) owner.getPower(makeID("PhantomDragonPower"));
+            if (!power.isUsed) {
+                if (owner.isPlayer) {
+                    addToBot(new ApplyPowerAction(owner, owner, new NextCardFreePower(owner, 1)));
+                    power.isUsed = true;
+                }
+            }
         }
         // com.megacrit.cardcrawl.actions.utility.
     }

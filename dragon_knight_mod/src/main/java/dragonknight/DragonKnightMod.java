@@ -54,6 +54,8 @@ import dragonknight.powers.BlackBrandPower;
 import dragonknight.powers.BlackDragon;
 import dragonknight.powers.Brand;
 import dragonknight.powers.BrandProtectorPower;
+import dragonknight.powers.NextCardFreePower;
+import dragonknight.powers.PhantomDragonPower;
 import dragonknight.powers.WhiteBrandPower;
 import dragonknight.powers.WhiteDragon;
 import dragonknight.powers.WhiteRealmPower;
@@ -280,6 +282,8 @@ public class DragonKnightMod implements
         BaseMod.addPower(BrandProtectorPower.class, BrandProtectorPower.POWER_ID);
         BaseMod.addPower(BlackBrandPower.class, BlackBrandPower.POWER_ID);
         BaseMod.addPower(WhiteBrandPower.class, WhiteBrandPower.POWER_ID);
+        BaseMod.addPower(PhantomDragonPower.class, PhantomDragonPower.POWER_ID);
+        BaseMod.addPower(NextCardFreePower.class, NextCardFreePower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         new AutoAdd(modID)
