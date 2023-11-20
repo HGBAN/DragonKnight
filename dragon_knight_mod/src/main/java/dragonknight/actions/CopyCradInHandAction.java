@@ -204,6 +204,8 @@ public class CopyCradInHandAction extends AbstractGameAction {
         card.rawDescription = this.c.rawDescription;
         card.initializeDescription();
         card.tags.clear();
+        card.exhaust = this.c.exhaust;
+        card.isEthereal = this.c.isEthereal;
         for (CardTags tags : this.c.tags) {
             card.tags.add(tags);
         }
