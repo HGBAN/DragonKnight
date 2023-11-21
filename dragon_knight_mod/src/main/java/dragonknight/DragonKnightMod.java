@@ -11,6 +11,7 @@ import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.OnCardUseSubscriber;
 import basemod.interfaces.OnStartBattleSubscriber;
+import basemod.interfaces.PostBattleSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import dragonknight.util.GeneralUtils;
 import dragonknight.util.KeywordInfo;
@@ -73,7 +74,8 @@ public class DragonKnightMod implements
         EditCardsSubscriber,
         OnCardUseSubscriber,
         EditRelicsSubscriber,
-        OnStartBattleSubscriber {
+        OnStartBattleSubscriber,
+        PostBattleSubscriber {
     public static ModInfo info;
     public static String modID; // Edit your pom.xml to change this
     static {
@@ -406,5 +408,10 @@ public class DragonKnightMod implements
                 }
             });
         }
+    }
+
+    @Override
+    public void receivePostBattle(AbstractRoom arg0) {
+        brandCount = 0;
     }
 }

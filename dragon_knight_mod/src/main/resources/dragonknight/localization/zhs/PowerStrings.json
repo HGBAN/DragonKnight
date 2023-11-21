@@ -14,7 +14,7 @@
   "${modID}:WhiteDragon": {
     "NAME": "白龙形态",
     "DESCRIPTIONS": [
-      "化身白龙，使一张手牌获得烙印。"
+      "化身白龙，复制一张手牌并使其获得烙印。"
     ]
   },
   "${modID}:Brand": {

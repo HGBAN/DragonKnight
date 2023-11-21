@@ -48,7 +48,7 @@
   },
   "${modID}:FuriousFlames": {
     "NAME": "暴怒烈焰",
-    "DESCRIPTION": "造成!D!点伤害。 NL 本次战斗每触发一次烙印，增加5点伤害。"
+    "DESCRIPTION": "造成20点伤害。 NL 本次战斗每触发一次烙印，增加5点伤害。 NL （造成!D!点伤害）"
   },
   "${modID}:BrandProtector": {
     "NAME": "烙印护体",

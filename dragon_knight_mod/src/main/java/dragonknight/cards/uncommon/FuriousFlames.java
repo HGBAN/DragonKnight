@@ -51,9 +51,9 @@ public class FuriousFlames extends CustomCard {
     @Override
     public void render(SpriteBatch sb) {
         this.baseDamage = 20 + DragonKnightMod.brandCount * 5;
-        if (this.baseDamage > 20) {
-            this.isDamageModified = true;
-        }
+        // if (this.baseDamage > 20) {
+        //     this.isDamageModified = true;
+        // }
         super.render(sb);
     }
 
