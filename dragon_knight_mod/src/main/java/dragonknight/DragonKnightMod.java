@@ -20,6 +20,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
@@ -299,27 +300,47 @@ public class DragonKnightMod implements
     public static class Enums {
         @SpireEnum
         public static CardTags BRAND;
+        @SpireEnum
+        public static CardTags BRAND2;
     }
 
     @Override
     public void receiveCardUsed(AbstractCard card) {
-        if (card.hasTag(Enums.BRAND)) {
-            AbstractPlayer player = AbstractDungeon.player;
-
-            if (!player.drawPile.isEmpty()) {
-                AbstractCard brandCard = player.drawPile.getRandomCard(true);
-                logger.info(brandCard.cardID);
-                brandCards.add(brandCard);
-                brandCount++;
-                AbstractDungeon.actionManager
-                        .addToBottom(new ExhaustSpecificCardAction(brandCard, player.drawPile));
-                AbstractDungeon.actionManager
-                        .addToBottom(new ApplyPowerAction(player, player, new Brand(player)));
+        AbstractPlayer player = AbstractDungeon.player;
+        if (!player.drawPile.isEmpty()) {
+            if (card.hasTag(Enums.BRAND)) {
+                if (!player.drawPile.isEmpty()) {
+                    AbstractCard brandCard = player.drawPile.getRandomCard(true);
+                    brandCard(brandCard);
+                }
+            } else if (card.hasTag(Enums.BRAND2)) {
+                if (player.hasPower(makeID("BlackDragon")) ||
+                        player.hasPower(makeID("WhiteDragon"))) {
+                    AbstractDungeon.actionManager
+                            .addToBottom(new SelectCardsAction(AbstractDungeon.player.drawPile.group, "", cards -> {
+                                for (AbstractCard brandCard : cards) {
+                                    brandCard(brandCard);
+                                }
+                            }));
+                } else {
+                    AbstractCard brandCard = player.drawPile.getRandomCard(true);
+                    brandCard(brandCard);
+                }
             }
         }
         // if (card.hasTag(Enums.BE_DRAGON)) {
         // BaseMod.openCustomScreen(SelectDragonScreen.Enum.SELECT_DRAGON_SCREEN, p);
         // }
+    }
+
+    public static void brandCard(AbstractCard brandCard) {
+        AbstractPlayer player = AbstractDungeon.player;
+        brandCards.add(brandCard);
+        brandCount++;
+        AbstractDungeon.actionManager
+                .addToBottom(new ExhaustSpecificCardAction(brandCard, player.drawPile));
+        AbstractDungeon.actionManager
+                .addToBottom(new ApplyPowerAction(player, player, new Brand(player)));
     }
 
     @Override
