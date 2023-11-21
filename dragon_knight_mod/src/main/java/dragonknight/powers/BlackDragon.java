@@ -36,32 +36,6 @@ public class BlackDragon extends BeDragonPower {
         this.description = DESCRIPTIONS[0];
     }
 
-    // @Override
-    // public void atStartOfTurn() {
-    // addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-
-    // }
-
-    // @Override
-    // public void onInitialApplication() {
-    // if (owner.hasPower(makeID("WhiteDragon"))) {
-    // addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-    // return;
-    // }
-
-    // if (owner.hasPower(makeID("PhantomDragonPower"))) {
-    // PhantomDragonPower power = (PhantomDragonPower)
-    // owner.getPower(makeID("PhantomDragonPower"));
-    // if (!power.isUsed) {
-    // if (owner.isPlayer) {
-    // addToBot(new ApplyPowerAction(owner, owner, new NextCardFreePower(owner,
-    // 1)));
-    // power.isUsed = true;
-    // }
-    // }
-    // }
-    // }
-
     @Override
     protected void initializeTemplate() {
         // addToBot(new RemoveSpecificPowerAction(owner, owner, makeID("WhiteDragon")));
@@ -82,11 +56,16 @@ public class BlackDragon extends BeDragonPower {
                     int index = AbstractDungeon.cardRng.random.nextInt(cards.size());
                     AbstractCard card = cards.get(index);
                     // card.exhaustOnUseOnce = true;
-                    card.exhaust = true;
-                    card.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0] + " NL dragonknight:"
-                            + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
+                    if (!card.exhaust) {
+                        card.exhaust = true;
+                        card.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0];
+                    }
+                    if (!card.hasTag(DragonKnightMod.Enums.BRAND) && !card.hasTag(DragonKnightMod.Enums.BRAND2)) {
+                        card.tags.add(DragonKnightMod.Enums.BRAND);
+                        card.rawDescription += " NL dragonknight:"
+                                + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
+                    }
 
-                    card.tags.add(DragonKnightMod.Enums.BRAND);
                     card.initializeDescription();
                     card.glowColor = Color.GOLD.cpy();
                 }

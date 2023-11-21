@@ -27,14 +27,14 @@ public class BlackBrand extends CustomCard {
         super(ID, NAME, imagePath("cards/power/BlackBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
-        this.baseMagicNumber = 3;
+        this.baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(1);
         }
     }
 

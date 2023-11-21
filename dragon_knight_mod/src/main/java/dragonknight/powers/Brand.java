@@ -38,26 +38,29 @@ public class Brand extends BasePower {
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        // this.description = DESCRIPTIONS[0];
+        updateDes();
     }
 
     private void updateDes() {
         StringBuilder builder = new StringBuilder();
 
         builder.append(DESCRIPTIONS[0]).append(" NL ");
-        builder.append(DESCRIPTIONS[1]).append(" NL ");
+        if (DragonKnightMod.brandCards.size() > 0) {
+            builder.append(DESCRIPTIONS[1]).append(" NL ");
 
-        Iterator<AbstractCard> iterator = DragonKnightMod.brandCards.iterator();
+            Iterator<AbstractCard> iterator = DragonKnightMod.brandCards.iterator();
 
-        while (iterator.hasNext()) {
-            AbstractCard brandCard = iterator.next();
-            builder.append(brandCard.name);
-            if (iterator.hasNext())
-                builder.append(" NL ");
+            while (iterator.hasNext()) {
+                AbstractCard brandCard = iterator.next();
+                builder.append(brandCard.name);
+                if (iterator.hasNext())
+                    builder.append(" NL ");
+            }
+            // for (AbstractCard brandCard : DragonKnightMod.brandCards) {
+            // builder.append(brandCard.name).append(" NL ");
+            // }
         }
-        // for (AbstractCard brandCard : DragonKnightMod.brandCards) {
-        // builder.append(brandCard.name).append(" NL ");
-        // }
         description = builder.toString();
         // this.description = DESCRIPTIONS[0] + " NL 下面的牌将在回合结束时打出： NL " +
         // brandCard.name;

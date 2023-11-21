@@ -50,12 +50,14 @@ public class WhiteDragon extends BeDragonPower {
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
             return;
         }
-        addToBot(new SelectCardsInHandAction(1, "复制", (card) -> !card.hasTag(DragonKnightMod.Enums.BRAND), (cards) -> {
+        addToBot(new SelectCardsInHandAction(1, "复制", (card) -> true, (cards) -> {
             for (AbstractCard card : cards) {
                 AbstractCard newCard = card.makeSameInstanceOf();
 
-                newCard.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
-                newCard.initializeDescription();
+                if (!newCard.hasTag(DragonKnightMod.Enums.BRAND) && !newCard.hasTag(DragonKnightMod.Enums.BRAND2)) {
+                    newCard.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
+                    newCard.initializeDescription();
+                }
                 newCard.tags.add(DragonKnightMod.Enums.BRAND);
                 addToBot(new CopyCradInHandAction(newCard));
             }
