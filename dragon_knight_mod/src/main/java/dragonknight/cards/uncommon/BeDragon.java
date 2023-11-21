@@ -26,7 +26,7 @@ public class BeDragon extends CustomCard {
         super(ID, NAME, imagePath("cards/skill/BeDragon.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
-        // tags.add(DragonKnightMod.Enums.BE_DRAGON);
+        tags.add(DragonKnightMod.Enums.NO_BRAND);
         // com.megacrit.cardcrawl.cards.green.PoisonedStab
     }
 

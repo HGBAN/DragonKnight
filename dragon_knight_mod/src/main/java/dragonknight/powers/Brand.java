@@ -23,7 +23,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import dragonknight.DragonKnightMod;
 
-public class Brand extends AbstractPower {
+public class Brand extends BasePower {
     public static final String POWER_ID = makeID("Brand");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -33,18 +33,12 @@ public class Brand extends AbstractPower {
     public static int triggerCount = 1;
 
     public Brand(AbstractCreature owner) {
-        this.name = NAME;
-        this.ID = POWER_ID;
-        this.owner = owner;
-        this.amount = -1;
-        this.type = PowerType.BUFF;
-        this.isTurnBased = true;
-        DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-        description = "";
-        // brandCard = card;
-        priority = 4;
+        super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
+    }
 
-        loadRegion("poison");
+    @Override
+    public void updateDescription() {
+        this.description = DESCRIPTIONS[0];
     }
 
     private void updateDes() {
