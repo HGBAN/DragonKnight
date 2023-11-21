@@ -70,5 +70,9 @@
   "${modID}:KingsBrand": {
     "NAME": "王之烙印",
     "DESCRIPTION": "获得一层人工制品，使所有敌人失去1点力量。化龙后弃牌堆的这张牌会回到手牌。 NL 保留 NL dragonknight:烙印"
+  },
+  "${modID}:Judgement": {
+    "NAME": "审判",
+    "DESCRIPTION": "造成14点伤害。被 消耗 后，将另一张审判加入抽牌堆中。"
   }
 }
