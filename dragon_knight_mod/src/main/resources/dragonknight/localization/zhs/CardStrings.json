@@ -77,7 +77,7 @@
   },
   "${modID}:Banish": {
     "NAME": "追放",
-    "DESCRIPTION": "如果处于化龙状态，则将烙印改为可以选择一张抽牌堆里的卡牌。 NL 烙印"
+    "DESCRIPTION": "如果处于化龙状态，则将烙印改为可以选择一张抽牌堆里的卡牌。 NL dragonknight:烙印"
   },
   "${modID}:Convict": {
     "NAME": "断罪",

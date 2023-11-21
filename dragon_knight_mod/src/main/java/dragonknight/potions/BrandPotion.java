@@ -2,11 +2,13 @@ package dragonknight.potions;
 
 import static dragonknight.DragonKnightMod.makeID;
 
-import com.megacrit.cardcrawl.actions.unique.DiscoveryAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
+
+import dragonknight.actions.DiscoveryBrandCardsAction;
 
 public class BrandPotion extends AbstractPotion {
     public static final String ID = makeID("BrandPotion");
@@ -22,12 +24,14 @@ public class BrandPotion extends AbstractPotion {
     public void initializeData() {
         this.potency = this.getPotency();
         description = DESCRIPTIONS[0];
+        // com.megacrit.cardcrawl.potions.SkillPotion
+        // logger.info(description);
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, this.description));
     }
 
     @Override
     public int getPotency(int ascensionLevel) {
-        // com.megacrit.cardcrawl.potions.SkillPotion
-
         return 1;
     }
 
@@ -38,7 +42,7 @@ public class BrandPotion extends AbstractPotion {
 
     @Override
     public void use(AbstractCreature target) {
-        this.addToBot(new DiscoveryAction(null, this.potency));
+        this.addToBot(new DiscoveryBrandCardsAction(this.potency));
     }
 
 }

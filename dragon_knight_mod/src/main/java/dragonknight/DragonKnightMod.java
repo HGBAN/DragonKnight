@@ -45,6 +45,7 @@ import org.scannotation.AnnotationDB;
 
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import dragonknight.character.DragonPrince;
 import dragonknight.commands.BrandCommand;
@@ -292,19 +293,23 @@ public class DragonKnightMod implements
                 .packageFilter("dragonknight.cards")
                 .setDefaultSeen(true)
                 .cards();
+
+        brandTagCards = BaseMod.getCustomCardsToAdd().stream()
+                .filter(card -> card.hasTag(Enums.BRAND) || card.hasTag(Enums.BRAND2)).collect(Collectors.toList());
     }
 
     public static ArrayList<AbstractCard> brandCards = new ArrayList<>();
+    public static List<AbstractCard> brandTagCards;
     public static int brandCount = 0;
 
     public static class Enums {
-        //随机消耗
+        // 随机消耗
         @SpireEnum
         public static CardTags BRAND;
-        //选择消耗
+        // 有化龙的情况下选择消耗，否则随机消耗
         @SpireEnum
         public static CardTags BRAND2;
-        //加上了此TAG的牌被烙印消耗后不触发效果
+        // 加上了此TAG的牌被烙印消耗后不触发效果
         @SpireEnum
         public static CardTags NO_BRAND;
     }
