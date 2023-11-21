@@ -24,7 +24,7 @@ public class PhantomDragon extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public PhantomDragon() {
-        super(ID, NAME, imagePath("cards/power/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/power/PhantomDragon.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         // this.exhaustOnUseOnce = true;

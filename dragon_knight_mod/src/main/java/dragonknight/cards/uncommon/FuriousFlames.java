@@ -27,7 +27,7 @@ public class FuriousFlames extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public FuriousFlames() {
-        super(ID, NAME, imagePath("cards/attack/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/attack/FuriousFlames.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
 

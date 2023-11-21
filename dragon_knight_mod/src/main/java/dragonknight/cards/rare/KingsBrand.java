@@ -30,7 +30,7 @@ public class KingsBrand extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public KingsBrand() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/KingsBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.retain = true;

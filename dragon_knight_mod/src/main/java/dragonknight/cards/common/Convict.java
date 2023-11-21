@@ -28,7 +28,7 @@ public class Convict extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public Convict() {
-        super(ID, NAME, imagePath("cards/attack/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/attack/Convict.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseDamage = 12;

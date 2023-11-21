@@ -23,7 +23,7 @@ public class Banish extends CustomCard {
     private static final CardTarget TARGET = CardTarget.NONE;
 
     public Banish() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/Banish.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.tags.add(DragonKnightMod.Enums.BRAND2);
