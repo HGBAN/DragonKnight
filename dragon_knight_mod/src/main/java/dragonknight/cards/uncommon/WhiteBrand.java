@@ -33,6 +33,7 @@ public class WhiteBrand extends CustomCard {
     @Override
     public void upgrade() {
         if (!upgraded) {
+            this.upgradeName();
             this.upgradeMagicNumber(1);
         }
     }

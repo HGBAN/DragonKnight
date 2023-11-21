@@ -105,9 +105,8 @@ public class DragonKnightMod implements
     // annotation at the top of the class.
     public static void initialize() {
         new DragonKnightMod();
-        // new DragonPrince();
-        // logger.info(CardCrawlGame.languagePack.getCharacterString(makeID("DragonPrince")).NAMES[0]);
-        // logger.info("abc:" + getLangString());
+        // BaseMod.getCard
+        // com.megacrit.cardcrawl.potions.SkillPotion
     }
 
     public DragonKnightMod() {

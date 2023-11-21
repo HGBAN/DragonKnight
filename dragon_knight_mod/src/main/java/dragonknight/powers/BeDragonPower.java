@@ -1,0 +1,61 @@
+package dragonknight.powers;
+
+import static dragonknight.DragonKnightMod.makeID;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+
+public abstract class BeDragonPower extends BasePower {
+
+    public BeDragonPower(String id, PowerType powerType, boolean isTurnBased, AbstractCreature owner,
+            AbstractCreature source, int amount) {
+        super(id, powerType, isTurnBased, owner, source, amount);
+    }
+
+    protected abstract void initializeTemplate();
+
+    @Override
+    public void atStartOfTurn() {
+        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+    }
+
+    @Override
+    public void onInitialApplication() {
+        // if (owner.hasPower(makeID("WhiteDragon")) || owner.hasPower(makeID("BlackDragon"))) {
+        //     addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+        //     return;
+        // }
+
+        initializeTemplate();
+
+        // 检查幻影之龙的效果
+        if (owner.hasPower(makeID("PhantomDragonPower"))) {
+            PhantomDragonPower power = (PhantomDragonPower) owner.getPower(makeID("PhantomDragonPower"));
+            if (!power.isUsed) {
+                if (owner.isPlayer) {
+                    addToBot(new ApplyPowerAction(owner, owner, new NextCardFreePower(owner, 1)));
+                    power.isUsed = true;
+                }
+            }
+        }
+
+        // 检查王之烙印
+        if (owner.isPlayer) {
+            AbstractPlayer player = (AbstractPlayer) owner;
+            List<AbstractCard> cards = player.discardPile.group.stream()
+                    .filter(card -> card.cardID.equals(makeID("KingsBrand")))
+                    .collect(Collectors.toList());
+            for (AbstractCard card : cards) {
+                addToBot(new DiscardToHandAction(card));
+            }
+        }
+
+    }
+}

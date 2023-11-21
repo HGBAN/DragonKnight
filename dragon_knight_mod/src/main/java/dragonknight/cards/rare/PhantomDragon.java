@@ -34,6 +34,7 @@ public class PhantomDragon extends CustomCard {
     @Override
     public void upgrade() {
         if (!this.upgraded) {
+            this.upgradeName();
             this.isInnate = true;
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             initializeDescription();

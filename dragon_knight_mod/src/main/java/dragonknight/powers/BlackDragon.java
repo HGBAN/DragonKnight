@@ -21,7 +21,7 @@ import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
 import dragonknight.DragonKnightMod;
 
-public class BlackDragon extends BasePower {
+public class BlackDragon extends BeDragonPower {
     public static final String POWER_ID = makeID("BlackDragon");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -36,20 +36,39 @@ public class BlackDragon extends BasePower {
         this.description = DESCRIPTIONS[0];
     }
 
-    @Override
-    public void atStartOfTurn() {
-        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+    // @Override
+    // public void atStartOfTurn() {
+    // addToBot(new RemoveSpecificPowerAction(owner, owner, this));
 
-    }
+    // }
+
+    // @Override
+    // public void onInitialApplication() {
+    // if (owner.hasPower(makeID("WhiteDragon"))) {
+    // addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+    // return;
+    // }
+
+    // if (owner.hasPower(makeID("PhantomDragonPower"))) {
+    // PhantomDragonPower power = (PhantomDragonPower)
+    // owner.getPower(makeID("PhantomDragonPower"));
+    // if (!power.isUsed) {
+    // if (owner.isPlayer) {
+    // addToBot(new ApplyPowerAction(owner, owner, new NextCardFreePower(owner,
+    // 1)));
+    // power.isUsed = true;
+    // }
+    // }
+    // }
+    // }
 
     @Override
-    public void onInitialApplication() {
+    protected void initializeTemplate() {
+        // addToBot(new RemoveSpecificPowerAction(owner, owner, makeID("WhiteDragon")));
         if (owner.hasPower(makeID("WhiteDragon"))) {
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
             return;
         }
-
-        // addToBot(new RemoveSpecificPowerAction(owner, owner, makeID("WhiteDragon")));
         addToBot(new GainBlockAction(owner, 10));
         addToBot(new AbstractGameAction() {
 
@@ -80,16 +99,6 @@ public class BlackDragon extends BasePower {
         if (owner.hasPower(makeID("BlackBrandPower"))) {
             addToBot(new ApplyPowerAction(owner, owner,
                     new PlatedArmorPower(owner, owner.getPower(makeID("BlackBrandPower")).amount)));
-        }
-
-        if (owner.hasPower(makeID("PhantomDragonPower"))) {
-            PhantomDragonPower power = (PhantomDragonPower) owner.getPower(makeID("PhantomDragonPower"));
-            if (!power.isUsed) {
-                if (owner.isPlayer) {
-                    addToBot(new ApplyPowerAction(owner, owner, new NextCardFreePower(owner, 1)));
-                    power.isUsed = true;
-                }
-            }
         }
     }
 }
