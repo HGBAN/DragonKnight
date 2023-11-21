@@ -4,7 +4,9 @@ import static dragonknight.DragonKnightMod.imagePath;
 import static dragonknight.DragonKnightMod.makeID;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,23 +17,22 @@ import basemod.abstracts.CustomCard;
 import dragonknight.DragonKnightMod;
 import dragonknight.character.DragonPrince;
 
-public class Sweeping extends CustomCard {
-    public static final String ID = makeID("Sweeping");
+public class Convict extends CustomCard {
+    public static final String ID = makeID("Convict");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public Sweeping() {
-        super(ID, NAME, imagePath("cards/attack/Sweeping.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+    public Convict() {
+        super(ID, NAME, imagePath("cards/attack/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
-        this.baseDamage = 7;
+        this.baseDamage = 12;
         this.tags.add(DragonKnightMod.Enums.NO_BRAND);
-        // com.megacrit.cardcrawl.cards.blue.SweepingBeam
     }
 
     @Override
@@ -45,15 +46,14 @@ public class Sweeping extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!this.exhaustOnUseOnce && !this.exhaust)
-            this.addToBot(new DamageAllEnemiesAction(p, this.damage, this.damageTypeForTurn, AttackEffect.FIRE));
-
+            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
+                    AttackEffect.LIGHTNING));
     }
 
     @Override
     public void triggerOnExhaust() {
-        AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new DamageAllEnemiesAction(p, this.baseDamage, this.damageTypeForTurn, AttackEffect.FIRE));
-        this.addToBot(new DamageAllEnemiesAction(p, this.baseDamage, this.damageTypeForTurn, AttackEffect.FIRE));
+        this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, this.damage, this.damageTypeForTurn,
+                AttackEffect.LIGHTNING));
     }
 
 }

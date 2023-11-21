@@ -298,10 +298,15 @@ public class DragonKnightMod implements
     public static int brandCount = 0;
 
     public static class Enums {
+        //随机消耗
         @SpireEnum
         public static CardTags BRAND;
+        //选择消耗
         @SpireEnum
         public static CardTags BRAND2;
+        //加上了此TAG的牌被烙印消耗后不触发效果
+        @SpireEnum
+        public static CardTags NO_BRAND;
     }
 
     @Override

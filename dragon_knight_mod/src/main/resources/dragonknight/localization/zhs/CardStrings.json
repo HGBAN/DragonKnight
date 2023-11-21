@@ -73,10 +73,14 @@
   },
   "${modID}:Judgement": {
     "NAME": "审判",
-    "DESCRIPTION": "造成14点伤害。被 消耗 后，将另一张审判加入抽牌堆中。"
+    "DESCRIPTION": "造成!D!点伤害。被 消耗 后，将另一张审判加入抽牌堆中。"
   },
   "${modID}:Banish": {
     "NAME": "追放",
     "DESCRIPTION": "如果处于化龙状态，则将烙印改为可以选择一张抽牌堆里的卡牌。 NL 烙印"
+  },
+  "${modID}:Convict": {
+    "NAME": "断罪",
+    "DESCRIPTION": "造成!D!点伤害。如果这张牌被消耗，就对所有敌人造成!D!点伤害。"
   }
 }

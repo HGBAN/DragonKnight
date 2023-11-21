@@ -87,7 +87,7 @@ public class Brand extends AbstractPower {
             return;
 
         for (AbstractCard brandCard : DragonKnightMod.brandCards) {
-            if (brandCard.cardID.equals(makeID("DragonScale")) || brandCard.cardID.equals(makeID("Sweeping"))) {
+            if (brandCard.hasTag(DragonKnightMod.Enums.NO_BRAND)) {
                 continue;
             }
             for (int i = 0; i < triggerCount; i++) {

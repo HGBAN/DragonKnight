@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import basemod.abstracts.CustomCard;
+import dragonknight.DragonKnightMod;
 import dragonknight.character.DragonPrince;
 
 public class DragonScale extends CustomCard {
@@ -33,6 +34,7 @@ public class DragonScale extends CustomCard {
                 TARGET);
         this.baseBlock = 14;
         this.baseMagicNumber = 8;
+        this.tags.add(DragonKnightMod.Enums.NO_BRAND);
     }
 
     @Override
