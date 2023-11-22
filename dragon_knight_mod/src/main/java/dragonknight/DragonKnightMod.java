@@ -13,6 +13,7 @@ import basemod.interfaces.OnCardUseSubscriber;
 import basemod.interfaces.OnStartBattleSubscriber;
 import basemod.interfaces.PostBattleSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.PreMonsterTurnSubscriber;
 import dragonknight.util.GeneralUtils;
 import dragonknight.util.KeywordInfo;
 import dragonknight.util.TextureLoader;
@@ -37,6 +38,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -75,7 +77,8 @@ public class DragonKnightMod implements
         OnCardUseSubscriber,
         EditRelicsSubscriber,
         OnStartBattleSubscriber,
-        PostBattleSubscriber {
+        PostBattleSubscriber,
+        PreMonsterTurnSubscriber {
     public static ModInfo info;
     public static String modID; // Edit your pom.xml to change this
     static {
@@ -303,6 +306,7 @@ public class DragonKnightMod implements
     public static ArrayList<AbstractCard> brandCards = new ArrayList<>();
     public static List<AbstractCard> brandTagCards;
     public static int brandCount = 0;
+    public static int blockGainedThisTurn = 0;
 
     public static class Enums {
         // 随机消耗
@@ -380,6 +384,7 @@ public class DragonKnightMod implements
         brandCards.clear();
         Brand.triggerCount = 1;
         brandCount = 0;
+        blockGainedThisTurn = 0;
     }
 
     // @Override
@@ -413,5 +418,12 @@ public class DragonKnightMod implements
     @Override
     public void receivePostBattle(AbstractRoom arg0) {
         brandCount = 0;
+        blockGainedThisTurn = 0;
+    }
+
+    @Override
+    public boolean receivePreMonsterTurn(AbstractMonster arg0) {
+        blockGainedThisTurn = 0;
+        return true;
     }
 }

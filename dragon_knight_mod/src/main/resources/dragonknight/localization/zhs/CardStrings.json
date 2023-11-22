@@ -82,5 +82,9 @@
   "${modID}:Convict": {
     "NAME": "断罪",
     "DESCRIPTION": "造成!D!点伤害。如果这张牌被消耗，就对所有敌人造成!D!点伤害。"
+  },
+  "${modID}:ApostlesComing": {
+    "NAME": "使徒降临",
+    "DESCRIPTION": "获得等同于本回合已经获得的护甲值一半数值的临时力量。 NL （获得!M!点临时力量） NL dragonknight:化龙 "
   }
 }
