@@ -89,24 +89,10 @@ public class Brand extends BasePower {
                 continue;
             }
             for (int i = 0; i < triggerCount; i++) {
-
-                // addToBot(new ExhaustToHandAction(brandCard));
-                // brandCard.freeToPlayOnce = true;
-
-                // logger.info(DragonKnightMod.brandCards.size());
-                // this.addToTop(new ShowCardAction(brandCard));
-                // if (Settings.FAST_MODE) {
-                // this.addToTop(new WaitAction(0.1F));
-                // } else {
-                // this.addToTop(new WaitAction(0.7F));
-                // }
                 addToBot(new AbstractGameAction() {
                     @Override
                     public void update() {
-                        // brandCard.use(AbstractDungeon.player,
-                        // AbstractDungeon.getMonsters().getRandomMonster());
                         AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster();
-                        // brandCard.exhaustOnUseOnce = true;
                         brandCard.calculateCardDamage(monster);
                         brandCard.use(AbstractDungeon.player, monster);
                         AbstractDungeon.actionManager.addToBottom(new UseCardAction(brandCard, monster) {
@@ -176,14 +162,6 @@ public class Brand extends BasePower {
                     }
 
                 });
-                // AbstractMonster monster;
-                // do {
-                // monster = AbstractDungeon.getMonsters().getRandomMonster();
-                // } while (!monster.isDeadOrEscaped());
-
-                // addToBot(new UseCardAction(brandCard,
-                // AbstractDungeon.getMonsters().getRandomMonster()));
-                // com.megacrit.cardcrawl.actions.utility.UpdateCardDescriptionAction
             }
         }
 
@@ -193,6 +171,7 @@ public class Brand extends BasePower {
 
             @Override
             public void update() {
+                DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCount;
                 DragonKnightMod.brandCards.clear();
                 isDone = true;
             }

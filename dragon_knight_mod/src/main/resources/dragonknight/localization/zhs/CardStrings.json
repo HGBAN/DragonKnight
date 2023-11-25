@@ -73,7 +73,7 @@
   },
   "${modID}:Judgement": {
     "NAME": "审判",
-    "DESCRIPTION": "造成!D!点伤害。被 消耗 后，将另一张审判加入抽牌堆中。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 被 消耗 后，将另一张审判加入抽牌堆中。"
   },
   "${modID}:Banish": {
     "NAME": "追放",
@@ -86,5 +86,13 @@
   "${modID}:ApostlesComing": {
     "NAME": "使徒降临",
     "DESCRIPTION": "获得等同于本回合已经获得的护甲值一半数值的临时力量。 NL （获得!M!点临时力量） NL dragonknight:化龙 "
+  },
+  "${modID}:RebornScale": {
+    "NAME": "再生鳞甲",
+    "DESCRIPTION": "获得!B!点格挡。 NL 被 消耗 后，将另一张再生鳞甲加入抽牌堆中。"
+  },
+  "${modID}:FusionBrand": {
+    "NAME": "融合烙印",
+    "DESCRIPTION": "在上回合消耗烙印牌后，获得相应数量的 [E] 并抽取同样数量的牌。 NL 被烙印 消耗 后，将另一张融合烙印加入弃牌堆中。"
   }
 }

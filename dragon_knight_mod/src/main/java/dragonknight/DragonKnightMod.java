@@ -50,6 +50,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import dragonknight.cards.BrandCopyCard;
 import dragonknight.character.DragonPrince;
 import dragonknight.commands.BrandCommand;
 import dragonknight.commands.ExhaustHand;
@@ -307,6 +308,7 @@ public class DragonKnightMod implements
     public static List<AbstractCard> brandTagCards;
     public static int brandCount = 0;
     public static int blockGainedThisTurn = 0;
+    public static int brandCountLastTurn = 0;
 
     public static class Enums {
         // 随机消耗
@@ -353,6 +355,9 @@ public class DragonKnightMod implements
         AbstractPlayer player = AbstractDungeon.player;
         brandCards.add(brandCard);
         brandCount++;
+        if (brandCard instanceof BrandCopyCard) {
+            ((BrandCopyCard) brandCard).brandExhaust = true;
+        }
         AbstractDungeon.actionManager
                 .addToBottom(new ExhaustSpecificCardAction(brandCard, player.drawPile));
         AbstractDungeon.actionManager
@@ -384,6 +389,7 @@ public class DragonKnightMod implements
         brandCards.clear();
         Brand.triggerCount = 1;
         brandCount = 0;
+        brandCountLastTurn = 0;
         blockGainedThisTurn = 0;
     }
 
@@ -418,6 +424,7 @@ public class DragonKnightMod implements
     @Override
     public void receivePostBattle(AbstractRoom arg0) {
         brandCount = 0;
+        brandCountLastTurn = 0;
         blockGainedThisTurn = 0;
     }
 
