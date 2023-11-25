@@ -4,6 +4,7 @@ import static dragonknight.DragonKnightMod.makeID;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -47,6 +48,7 @@ public class WhiteDragon extends BeDragonPower {
     @Override
     protected void initializeTemplate() {
         if (owner.hasPower(makeID("BlackDragon"))) {
+            addToBot(new DrawCardAction(1));
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
             return;
         }

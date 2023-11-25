@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -40,6 +41,7 @@ public class BlackDragon extends BeDragonPower {
     protected void initializeTemplate() {
         // addToBot(new RemoveSpecificPowerAction(owner, owner, makeID("WhiteDragon")));
         if (owner.hasPower(makeID("WhiteDragon"))) {
+            addToBot(new GainEnergyAction(1));
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
             return;
         }
