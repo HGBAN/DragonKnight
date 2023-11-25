@@ -23,7 +23,7 @@
   },
   "${modID}:BattleRage": {
     "NAME": "战斗怒吼",
-    "DESCRIPTION": "造成!B!点伤害。 NL 获得!D!点格挡。 NL dragonknight:烙印"
+    "DESCRIPTION": "造成!D!点伤害。 NL 获得!B!点格挡。 NL dragonknight:烙印"
   },
   "${modID}:BrandAwaken": {
     "NAME": "烙印唤醒",

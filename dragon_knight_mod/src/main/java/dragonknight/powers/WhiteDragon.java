@@ -71,6 +71,11 @@ public class WhiteDragon extends BeDragonPower {
         }
     }
 
+    @Override
+    public void stackPower(int stackAmount) {
+        addToBot(new DrawCardAction(1));
+    }
+
     // @Override
     // public void stackPower(int stackAmount) {
     // logger.info("stack");

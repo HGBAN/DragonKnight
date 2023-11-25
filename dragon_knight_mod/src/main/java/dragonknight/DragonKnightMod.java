@@ -411,16 +411,17 @@ public class DragonKnightMod implements
     // }
 
     public static void beDragon() {
-        if (AbstractDungeon.player.powers.stream().filter((power) -> power.ID
-                .equals(makeID("BlackDragon")) || power.ID.equals(makeID("WhiteDragon"))).count() == 0) {
-            AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
-                @Override
-                public void update() {
-                    BaseMod.openCustomScreen(SelectDragonScreen.Enum.SELECT_DRAGON_SCREEN);
-                    isDone = true;
-                }
-            });
-        }
+        // if (AbstractDungeon.player.powers.stream().filter((power) -> power.ID
+        // .equals(makeID("BlackDragon")) ||
+        // power.ID.equals(makeID("WhiteDragon"))).count() == 0) {
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                BaseMod.openCustomScreen(SelectDragonScreen.Enum.SELECT_DRAGON_SCREEN);
+                isDone = true;
+            }
+        });
+        // }
     }
 
     @Override

@@ -82,4 +82,9 @@ public class BlackDragon extends BeDragonPower {
                     new PlatedArmorPower(owner, owner.getPower(makeID("BlackBrandPower")).amount)));
         }
     }
+
+    @Override
+    public void stackPower(int stackAmount) {
+        addToBot(new GainEnergyAction(1));
+    }
 }
