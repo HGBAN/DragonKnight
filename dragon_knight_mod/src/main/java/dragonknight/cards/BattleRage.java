@@ -1,4 +1,4 @@
-package dragonknight.cards.uncommon;
+package dragonknight.cards;
 
 import static dragonknight.DragonKnightMod.imagePath;
 import static dragonknight.DragonKnightMod.makeID;
@@ -23,7 +23,7 @@ public class BattleRage extends CustomCard {
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final int COST = 2;
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
 
     public BattleRage() {

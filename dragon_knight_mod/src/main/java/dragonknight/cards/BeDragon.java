@@ -1,4 +1,4 @@
-package dragonknight.cards.uncommon;
+package dragonknight.cards;
 
 import static dragonknight.DragonKnightMod.imagePath;
 import static dragonknight.DragonKnightMod.makeID;
@@ -19,7 +19,7 @@ public class BeDragon extends CustomCard {
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
     private static final int COST = 1;
     private static final CardType TYPE = CardType.SKILL;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public BeDragon() {
