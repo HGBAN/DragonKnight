@@ -34,7 +34,7 @@ public class AbyssDragon extends BaseRelic {
 
     @Override
     public boolean canSpawn() {
-        return AbstractDungeon.player.hasPower(makeID("AbyssSeal"));
+        return AbstractDungeon.player.hasRelic(makeID("AbyssSeal"));
     }
 
     @Override
