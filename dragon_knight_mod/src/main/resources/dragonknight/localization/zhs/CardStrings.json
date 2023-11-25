@@ -85,7 +85,7 @@
   },
   "${modID}:ApostlesComing": {
     "NAME": "使徒降临",
-    "DESCRIPTION": "获得等同于本回合已经获得的护甲值一半数值的临时力量。 NL （获得!M!点临时力量） NL dragonknight:化龙 "
+    "DESCRIPTION": "获得等同于本回合已经获得的护甲值一半数值的临时力量。 NL （获得!M!点临时力量） NL dragonknight:化龙"
   },
   "${modID}:RebornScale": {
     "NAME": "再生鳞甲",
