@@ -34,6 +34,7 @@ public class Brand extends BasePower {
 
     public Brand(AbstractCreature owner) {
         super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
+        priority = 4;
     }
 
     @Override

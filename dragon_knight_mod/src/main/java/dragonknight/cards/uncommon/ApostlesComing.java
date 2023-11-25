@@ -30,6 +30,7 @@ public class ApostlesComing extends CustomCard {
         super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
+        this.tags.add(DragonKnightMod.Enums.NO_BRAND);
         this.baseMagicNumber = 0;
     }
 
@@ -44,8 +45,10 @@ public class ApostlesComing extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         DragonKnightMod.beDragon();
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, this.baseMagicNumber)));
-        this.addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.baseMagicNumber)));
+        if (this.baseMagicNumber > 0) {
+            this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, this.baseMagicNumber)));
+            this.addToBot(new ApplyPowerAction(p, p, new LoseStrengthPower(p, this.baseMagicNumber)));
+        }
     }
 
     @Override

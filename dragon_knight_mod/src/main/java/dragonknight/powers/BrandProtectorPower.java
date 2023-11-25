@@ -1,6 +1,5 @@
 package dragonknight.powers;
 
-import static dragonknight.DragonKnightMod.logger;
 import static dragonknight.DragonKnightMod.makeID;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
@@ -34,7 +33,8 @@ public class BrandProtectorPower extends BasePower {
             return;
         AbstractPlayer p = AbstractDungeon.player;
         int block = DragonKnightMod.brandCards.size() * this.amount;
-        logger.info(DragonKnightMod.brandCards.size());
-        this.addToBot(new GainBlockAction(p, p, block));
+        // logger.info(DragonKnightMod.brandCards.size());
+        if (block > 0)
+            this.addToBot(new GainBlockAction(p, p, block));
     }
 }
