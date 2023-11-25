@@ -14,5 +14,11 @@
     "DESCRIPTIONS": [
       "从随机3张烙印牌中选一张加入本场战斗，第一次使用消耗0 [E] 。"
     ]
+  },
+  "${modID}:BeDragonPotion": {
+    "NAME": "化龙药水",
+    "DESCRIPTIONS": [
+      "选择变成一个化龙形态。"
+    ]
   }
 }
