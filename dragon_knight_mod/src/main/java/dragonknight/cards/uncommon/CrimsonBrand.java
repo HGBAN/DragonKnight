@@ -26,7 +26,7 @@ public class CrimsonBrand extends BrandCopyCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public CrimsonBrand() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/CrimsonBrand.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseMagicNumber = 2;

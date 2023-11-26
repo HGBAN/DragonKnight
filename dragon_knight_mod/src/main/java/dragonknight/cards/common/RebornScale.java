@@ -24,7 +24,7 @@ public class RebornScale extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public RebornScale() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/RebornScale.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseBlock = 8;

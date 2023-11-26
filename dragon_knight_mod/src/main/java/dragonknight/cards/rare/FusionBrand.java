@@ -26,7 +26,7 @@ public class FusionBrand extends BrandCopyCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public FusionBrand() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/FusionBrand.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         

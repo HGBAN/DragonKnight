@@ -27,7 +27,7 @@ public class MourningBrand extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public MourningBrand() {
-        super(ID, NAME, imagePath("cards/attack/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/attack/MourningBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
@@ -53,3 +53,4 @@ public class MourningBrand extends CustomCard {
         }
     }
 }
+
