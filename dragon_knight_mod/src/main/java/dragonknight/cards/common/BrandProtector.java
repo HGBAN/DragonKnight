@@ -27,7 +27,7 @@ public class BrandProtector extends CustomCard {
         super(ID, NAME, imagePath("cards/power/BrandProtector.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
-        this.baseMagicNumber = 2;
+        this.baseMagicNumber = 3;
     }
 
     @Override
