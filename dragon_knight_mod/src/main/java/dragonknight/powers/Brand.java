@@ -92,7 +92,7 @@ public class Brand extends BasePower {
                 addToBot(new AbstractGameAction() {
                     @Override
                     public void update() {
-                        AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster();
+                        AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(true);
                         brandCard.calculateCardDamage(monster);
                         brandCard.use(AbstractDungeon.player, monster);
                         AbstractDungeon.actionManager.addToBottom(new UseCardAction(brandCard, monster) {
