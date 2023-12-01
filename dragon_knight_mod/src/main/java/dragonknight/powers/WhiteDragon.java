@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
 import dragonknight.DragonKnightMod;
-import dragonknight.actions.CopyCradInHandAction;
+import dragonknight.actions.CopyCardInHandAction;
 
 public class WhiteDragon extends BeDragonPower {
     public static final String POWER_ID = makeID("WhiteDragon");
@@ -61,7 +61,7 @@ public class WhiteDragon extends BeDragonPower {
                     newCard.initializeDescription();
                 }
                 newCard.tags.add(DragonKnightMod.Enums.BRAND);
-                addToBot(new CopyCradInHandAction(newCard));
+                addToBot(new CopyCardInHandAction(newCard));
             }
         }));
 

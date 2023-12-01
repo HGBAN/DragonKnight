@@ -106,10 +106,27 @@
   "${modID}:CrimsonBrand": {
     "NAME": "赤红烙印",
     "DESCRIPTION": "随机抽取一张烙印牌。如果抽牌堆不足10张牌，就再抽!M!张牌；如果不足5张，获得 [E] [E] 。被烙印 消耗 后，将另一张赤红烙印加入弃牌堆。",
-    "UPGRADE_DESCRIPTION":"随机抽取一张烙印牌。如果抽牌堆不足10张牌，就再抽!M!张牌；如果不足5张，获得 [E] [E] [E] 。被烙印 消耗 后，将另一张赤红烙印加入弃牌堆。"
+    "UPGRADE_DESCRIPTION": "随机抽取一张烙印牌。如果抽牌堆不足10张牌，就再抽!M!张牌；如果不足5张，获得 [E] [E] [E] 。被烙印 消耗 后，将另一张赤红烙印加入弃牌堆。"
   },
   "${modID}:SwordBrand": {
     "NAME": "剑之烙印",
     "DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被烙印消耗，将另一张剑之烙印加入弃牌堆。 NL dragonknight:烙印"
+  },
+  "${modID}:ColdAirflow": {
+    "NAME": "极寒气流",
+    "DESCRIPTION": "对所有敌人造成!D!点伤害，并使他们失去!M!点临时力量。被 消耗 后，首先摧毁所有敌人的护甲。"
+  },
+  "${modID}:SeparateBrand": {
+    "NAME": "分离烙印",
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因烙印消耗的牌超过4张，再造成!M!次伤害。被烙印 消耗 后，将另一张分离烙印加入弃牌堆。 NL dragonknight:烙印"
+  },
+  "${modID}:Bite": {
+    "NAME": "撕咬",
+    "DESCRIPTION": "造成!D!点伤害，并使目标失去!M!点临时力量。"
+  },
+  "${modID}:AshBrand": {
+    "NAME": "灰烬烙印",
+    "DESCRIPTION": "每回合开始时，随机将上一回合的一张因烙印消耗的牌的具有消耗和虚无的复制加入手牌。",
+    "UPGRADE_DESCRIPTION": "每回合开始时，随机将上一回合的一张因烙印消耗的牌的具有消耗和虚无的复制加入手牌。 NL 固有"
   }
 }

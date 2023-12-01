@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 
 import dragonknight.DragonKnightMod;
-import dragonknight.actions.CopyCradInHandAction;
+import dragonknight.actions.CopyCardInHandAction;
 import dragonknight.character.DragonPrince;
 
 public class AbyssApostles extends BaseRelic {
@@ -49,7 +49,7 @@ public class AbyssApostles extends BaseRelic {
         if (!newCards.isEmpty()) {
             this.flash();
             for (AbstractCard card : newCards) {
-                addToBot(new CopyCradInHandAction(card));
+                addToBot(new CopyCardInHandAction(card));
             }
             newCards.clear();
         }

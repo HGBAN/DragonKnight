@@ -172,6 +172,8 @@ public class Brand extends BasePower {
             @Override
             public void update() {
                 DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCount;
+                DragonKnightMod.brandCardsLastTurn.clear();
+                DragonKnightMod.brandCardsLastTurn.addAll(DragonKnightMod.brandCards);
                 DragonKnightMod.brandCards.clear();
                 isDone = true;
             }

@@ -12,13 +12,13 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
-public class CopyCradInHandAction extends AbstractGameAction {
+public class CopyCardInHandAction extends AbstractGameAction {
     private AbstractCard c;
     private static final float PADDING;
     private boolean isOtherCardInCenter;
     private boolean sameUUID;
 
-    public CopyCradInHandAction(AbstractCard card, boolean isOtherCardInCenter) {
+    public CopyCardInHandAction(AbstractCard card, boolean isOtherCardInCenter) {
         this.isOtherCardInCenter = true;
         this.sameUUID = false;
         UnlockTracker.markCardAsSeen(card.cardID);
@@ -33,11 +33,11 @@ public class CopyCradInHandAction extends AbstractGameAction {
         this.isOtherCardInCenter = isOtherCardInCenter;
     }
 
-    public CopyCradInHandAction(AbstractCard card) {
+    public CopyCardInHandAction(AbstractCard card) {
         this(card, 1);
     }
 
-    public CopyCradInHandAction(AbstractCard card, int amount) {
+    public CopyCardInHandAction(AbstractCard card, int amount) {
         this.isOtherCardInCenter = true;
         this.sameUUID = false;
         UnlockTracker.markCardAsSeen(card.cardID);
@@ -51,12 +51,12 @@ public class CopyCradInHandAction extends AbstractGameAction {
 
     }
 
-    public CopyCradInHandAction(AbstractCard card, int amount, boolean isOtherCardInCenter) {
+    public CopyCardInHandAction(AbstractCard card, int amount, boolean isOtherCardInCenter) {
         this(card, amount);
         this.isOtherCardInCenter = isOtherCardInCenter;
     }
 
-    public CopyCradInHandAction(AbstractCard card, boolean isOtherCardInCenter, boolean sameUUID) {
+    public CopyCardInHandAction(AbstractCard card, boolean isOtherCardInCenter, boolean sameUUID) {
         this(card, 1);
         this.isOtherCardInCenter = isOtherCardInCenter;
         this.sameUUID = sameUUID;

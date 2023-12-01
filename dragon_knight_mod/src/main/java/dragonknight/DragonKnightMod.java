@@ -313,6 +313,7 @@ public class DragonKnightMod implements
     public static int brandCount = 0;
     public static int blockGainedThisTurn = 0;
     public static int brandCountLastTurn = 0;
+    public static ArrayList<AbstractCard> brandCardsLastTurn = new ArrayList<>();
 
     public static ArrayList<AbstractCard> tempBrandCards = new ArrayList<>();
 
@@ -393,6 +394,7 @@ public class DragonKnightMod implements
         Brand.triggerCount = 1;
         brandCount = 0;
         brandCountLastTurn = 0;
+        brandCardsLastTurn.clear();
         blockGainedThisTurn = 0;
     }
 
@@ -410,6 +412,7 @@ public class DragonKnightMod implements
     public void receivePostBattle(AbstractRoom arg0) {
         brandCount = 0;
         brandCountLastTurn = 0;
+        brandCardsLastTurn.clear();
         blockGainedThisTurn = 0;
         tempBrandCards.clear();
     }
@@ -430,5 +433,18 @@ public class DragonKnightMod implements
             card.initializeDescription();
         }
         tempBrandCards.clear();
+    }
+
+    public static AbstractCard copyCard(AbstractCard card) {
+        AbstractCard newCard = card.makeStatEquivalentCopy();
+        newCard.rawDescription = card.rawDescription;
+        newCard.initializeDescription();
+        newCard.tags.clear();
+        newCard.exhaust = card.exhaust;
+        newCard.isEthereal = card.isEthereal;
+        for (CardTags tags : card.tags) {
+            newCard.tags.add(tags);
+        }
+        return newCard;
     }
 }
