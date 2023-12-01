@@ -10,6 +10,7 @@ import basemod.interfaces.EditKeywordsSubscriber;
 import basemod.interfaces.EditRelicsSubscriber;
 import basemod.interfaces.EditStringsSubscriber;
 import basemod.interfaces.OnCardUseSubscriber;
+import basemod.interfaces.OnPlayerTurnStartSubscriber;
 import basemod.interfaces.OnStartBattleSubscriber;
 import basemod.interfaces.PostBattleSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
@@ -80,7 +81,8 @@ public class DragonKnightMod implements
         EditRelicsSubscriber,
         OnStartBattleSubscriber,
         PostBattleSubscriber,
-        PreMonsterTurnSubscriber {
+        PreMonsterTurnSubscriber,
+        OnPlayerTurnStartSubscriber {
     public static ModInfo info;
     public static String modID; // Edit your pom.xml to change this
     static {
@@ -312,6 +314,8 @@ public class DragonKnightMod implements
     public static int blockGainedThisTurn = 0;
     public static int brandCountLastTurn = 0;
 
+    public static ArrayList<AbstractCard> tempBrandCards = new ArrayList<>();
+
     public static class Enums {
         // 随机消耗
         @SpireEnum
@@ -348,9 +352,6 @@ public class DragonKnightMod implements
                 }
             }
         }
-        // if (card.hasTag(Enums.BE_DRAGON)) {
-        // BaseMod.openCustomScreen(SelectDragonScreen.Enum.SELECT_DRAGON_SCREEN, p);
-        // }
     }
 
     public static void brandCard(AbstractCard brandCard) {
@@ -395,25 +396,7 @@ public class DragonKnightMod implements
         blockGainedThisTurn = 0;
     }
 
-    // @Override
-    // public boolean receivePreMonsterTurn(AbstractMonster arg0) {
-    // for (AbstractCard brandCard : brandCards) {
-    // if (brandCard.target.equals(CardTarget.SELF)) {
-    // AbstractDungeon.actionManager
-    // .addToBottom(new UseCardAction(brandCard, AbstractDungeon.player));
-    // } else
-    // AbstractDungeon.actionManager
-    // .addToBottom(new UseCardAction(brandCard,
-    // AbstractDungeon.getMonsters().getRandomMonster()));
-    // }
-    // brandCards.clear();
-    // return true;
-    // }
-
     public static void beDragon() {
-        // if (AbstractDungeon.player.powers.stream().filter((power) -> power.ID
-        // .equals(makeID("BlackDragon")) ||
-        // power.ID.equals(makeID("WhiteDragon"))).count() == 0) {
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
             public void update() {
@@ -421,7 +404,6 @@ public class DragonKnightMod implements
                 isDone = true;
             }
         });
-        // }
     }
 
     @Override
@@ -429,11 +411,24 @@ public class DragonKnightMod implements
         brandCount = 0;
         brandCountLastTurn = 0;
         blockGainedThisTurn = 0;
+        tempBrandCards.clear();
     }
 
     @Override
     public boolean receivePreMonsterTurn(AbstractMonster arg0) {
         blockGainedThisTurn = 0;
         return true;
+    }
+
+    @Override
+    public void receiveOnPlayerTurnStart() {
+        for (AbstractCard card : tempBrandCards) {
+            card.tags.remove(Enums.BRAND);
+            card.rawDescription = card.rawDescription.replace(
+                    " NL dragonknight:" + DragonKnightMod.keywords.get("TempBrand").PROPER_NAME,
+                    "");
+            card.initializeDescription();
+        }
+        tempBrandCards.clear();
     }
 }
