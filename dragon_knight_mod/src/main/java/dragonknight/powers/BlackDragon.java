@@ -57,7 +57,7 @@ public class BlackDragon extends BeDragonPower {
                                 && !card.hasTag(DragonKnightMod.Enums.BRAND2))
                         .collect(Collectors.toList());
                 if (cards.size() > 0) {
-                    int index = AbstractDungeon.cardRng.random.nextInt(cards.size());
+                    int index = AbstractDungeon.cardRng.random(cards.size() - 1);
                     AbstractCard card = cards.get(index);
                     // card.exhaustOnUseOnce = true;
                     if (!card.exhaust) {

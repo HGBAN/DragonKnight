@@ -28,7 +28,7 @@ public class AbyssSeal extends BaseRelic {
     public void atBattleStart() {
         this.flash();
 
-        int r = AbstractDungeon.cardRng.random.nextInt(2);
+        int r = AbstractDungeon.cardRng.random(1);
         AbstractPlayer player = AbstractDungeon.player;
         if (r == 0) {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new BlackDragon(player), 0));

@@ -54,11 +54,12 @@ public class SwordBrand extends CustomCard {
                         .filter(card -> !card.hasTag(DragonKnightMod.Enums.BRAND)
                                 && !card.hasTag(DragonKnightMod.Enums.BRAND2))
                         .collect(Collectors.toList());
+                // cards.remove(SwordBrand.this);
 
                 for (int i = 0; i < SwordBrand.this.baseMagicNumber; i++) {
                     if (cards.size() <= 0)
                         break;
-                    int index = AbstractDungeon.cardRng.random(cards.size());
+                    int index = AbstractDungeon.cardRng.random(cards.size() - 1);
                     AbstractCard randomCard = cards.get(index);
                     cards.remove(index);
 

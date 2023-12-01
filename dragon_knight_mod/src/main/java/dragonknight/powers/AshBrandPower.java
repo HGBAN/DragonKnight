@@ -34,7 +34,7 @@ public class AshBrandPower extends BasePower {
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                int index = AbstractDungeon.cardRng.random(DragonKnightMod.brandCardsLastTurn.size());
+                int index = AbstractDungeon.cardRng.random(DragonKnightMod.brandCardsLastTurn.size() - 1);
                 AbstractCard randomCard = DragonKnightMod.brandCardsLastTurn.get(index);
 
                 AbstractCard newCard = copyCard(randomCard);

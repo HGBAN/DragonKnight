@@ -33,8 +33,9 @@ public class KingsBrand extends CustomCard {
         super(ID, NAME, imagePath("cards/skill/KingsBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
-        this.retain = true;
+        this.selfRetain = true;
         this.tags.add(DragonKnightMod.Enums.BRAND);
+        // com.megacrit.cardcrawl.cards.tempCards.Miracle
     }
 
     @Override
