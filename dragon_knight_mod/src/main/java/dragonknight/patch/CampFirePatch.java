@@ -4,13 +4,13 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+//import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.rooms.CampfireUI;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 
 import dragonknight.ui.AntiBrandOption;
 
-@SpirePatch(clz = CampfireUI.class, method = "initializeButtons")
+//@SpirePatch(clz = CampfireUI.class, method = "initializeButtons")
 public class CampFirePatch {
     @SuppressWarnings("unchecked")
     @SpireInsertPatch(rloc = 4)
