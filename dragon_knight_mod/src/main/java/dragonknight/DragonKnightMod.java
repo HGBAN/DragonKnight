@@ -501,6 +501,8 @@ public class DragonKnightMod implements
         antiBrandCards.clear();
         // antiBrandCards = arg;
         for (Integer index : arg) {
+            if (index < 0)
+                continue;
             AbstractCard card = AbstractDungeon.player.masterDeck.group.get(index);
             card.tags.add(Enums.ANTI_BRAND);
             card.initializeDescription();
@@ -512,7 +514,9 @@ public class DragonKnightMod implements
     public List<Integer> onSave() {
         List<Integer> ret = new ArrayList<>();
         for (AbstractCard card : antiBrandCards) {
-            ret.add(AbstractDungeon.player.masterDeck.group.indexOf(card));
+            int index = AbstractDungeon.player.masterDeck.group.indexOf(card);
+            if (index >= 0)
+                ret.add(index);
         }
         return ret;
     }
