@@ -1,5 +1,6 @@
 package dragonknight.powers;
 
+import static dragonknight.DragonKnightMod.addBrandToCard;
 import static dragonknight.DragonKnightMod.makeID;
 
 import java.util.List;
@@ -54,7 +55,8 @@ public class BlackDragon extends BeDragonPower {
 
                 List<AbstractCard> cards = player.hand.group.stream()
                         .filter(card -> !card.hasTag(DragonKnightMod.Enums.BRAND)
-                                && !card.hasTag(DragonKnightMod.Enums.BRAND2))
+                                && !card.hasTag(DragonKnightMod.Enums.BRAND2)
+                                && !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND))
                         .collect(Collectors.toList());
                 if (cards.size() > 0) {
                     int index = AbstractDungeon.cardRng.random(cards.size() - 1);
@@ -64,11 +66,7 @@ public class BlackDragon extends BeDragonPower {
                         card.exhaust = true;
                         card.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0];
                     }
-                    if (!card.hasTag(DragonKnightMod.Enums.BRAND) && !card.hasTag(DragonKnightMod.Enums.BRAND2)) {
-                        card.tags.add(DragonKnightMod.Enums.BRAND);
-                        card.rawDescription += " NL dragonknight:"
-                                + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
-                    }
+                    addBrandToCard(card);
 
                     card.initializeDescription();
                     card.glowColor = Color.GOLD.cpy();

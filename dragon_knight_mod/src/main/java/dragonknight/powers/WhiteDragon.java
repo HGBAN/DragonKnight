@@ -1,5 +1,6 @@
 package dragonknight.powers;
 
+import static dragonknight.DragonKnightMod.addBrandToCard;
 import static dragonknight.DragonKnightMod.makeID;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction;
@@ -52,15 +53,12 @@ public class WhiteDragon extends BeDragonPower {
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
             return;
         }
-        addToBot(new SelectCardsInHandAction(1, "复制", (card) -> true, (cards) -> {
+        addToBot(new SelectCardsInHandAction(1, "复制", (card) -> !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND), (cards) -> {
             for (AbstractCard card : cards) {
                 AbstractCard newCard = card.makeSameInstanceOf();
 
-                if (!newCard.hasTag(DragonKnightMod.Enums.BRAND) && !newCard.hasTag(DragonKnightMod.Enums.BRAND2)) {
-                    newCard.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
-                    newCard.initializeDescription();
-                }
-                newCard.tags.add(DragonKnightMod.Enums.BRAND);
+                addBrandToCard(newCard);
+                newCard.initializeDescription();
                 addToBot(new CopyCardInHandAction(newCard));
             }
         }));

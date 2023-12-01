@@ -1,5 +1,7 @@
 package dragonknight.commands;
 
+import java.util.ArrayList;
+
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -18,8 +20,14 @@ public class BrandCommand extends ConsoleCommand {
 
     @Override
     protected void execute(String[] tokens, int depth) {
+        ArrayList<AbstractCard> group = new ArrayList<>();
+        for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+            if (!c.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
+                group.add(c);
+            }
+        }
         AbstractDungeon.actionManager
-                .addToBottom(new SelectCardsAction(AbstractDungeon.player.drawPile.group, "", cards -> {
+                .addToBottom(new SelectCardsAction(group, "", cards -> {
                     for (AbstractCard brandCard : cards) {
                         DragonKnightMod.brandCard(brandCard);
                     }

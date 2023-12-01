@@ -2,6 +2,7 @@ package dragonknight;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.abstracts.CustomSavable;
 import basemod.devcommands.ConsoleCommand;
 import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
@@ -82,7 +83,8 @@ public class DragonKnightMod implements
         OnStartBattleSubscriber,
         PostBattleSubscriber,
         PreMonsterTurnSubscriber,
-        OnPlayerTurnStartSubscriber {
+        OnPlayerTurnStartSubscriber,
+        CustomSavable<List<Integer>> {
     public static ModInfo info;
     public static String modID; // Edit your pom.xml to change this
     static {
@@ -270,6 +272,8 @@ public class DragonKnightMod implements
 
     @Override
     public void receiveEditCharacters() {
+        BaseMod.addSaveField("antiBrandCards", this);
+
         BaseMod.addCharacter(new DragonPrince(),
                 CHAR_SELECT_BUTTON, CHAR_SELECT_PORTRAIT, DragonPrince.Enums.DRAGON_PRINCE);
 
@@ -316,6 +320,7 @@ public class DragonKnightMod implements
     public static ArrayList<AbstractCard> brandCardsLastTurn = new ArrayList<>();
 
     public static ArrayList<AbstractCard> tempBrandCards = new ArrayList<>();
+    public static ArrayList<AbstractCard> antiBrandCards = new ArrayList<>();
 
     public static class Enums {
         // 随机消耗
@@ -327,6 +332,8 @@ public class DragonKnightMod implements
         // 加上了此TAG的牌被烙印消耗后不触发效果
         @SpireEnum
         public static CardTags NO_BRAND;
+        @SpireEnum
+        public static CardTags ANTI_BRAND;
     }
 
     @Override
@@ -335,21 +342,29 @@ public class DragonKnightMod implements
         if (!player.drawPile.isEmpty()) {
             if (card.hasTag(Enums.BRAND)) {
                 if (!player.drawPile.isEmpty()) {
-                    AbstractCard brandCard = player.drawPile.getRandomCard(true);
-                    brandCard(brandCard);
+                    AbstractCard brandCard = getRandomCardThatCanBrand();
+                    if (brandCard != null)
+                        brandCard(brandCard);
                 }
             } else if (card.hasTag(Enums.BRAND2)) {
                 if (player.hasPower(makeID("BlackDragon")) ||
                         player.hasPower(makeID("WhiteDragon"))) {
+                    ArrayList<AbstractCard> group = new ArrayList<>();
+                    for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+                        if (!c.hasTag(Enums.ANTI_BRAND)) {
+                            group.add(c);
+                        }
+                    }
                     AbstractDungeon.actionManager
-                            .addToBottom(new SelectCardsAction(AbstractDungeon.player.drawPile.group, "", cards -> {
+                            .addToBottom(new SelectCardsAction(group, "", cards -> {
                                 for (AbstractCard brandCard : cards) {
                                     brandCard(brandCard);
                                 }
                             }));
                 } else {
-                    AbstractCard brandCard = player.drawPile.getRandomCard(true);
-                    brandCard(brandCard);
+                    AbstractCard brandCard = getRandomCardThatCanBrand();
+                    if (brandCard != null)
+                        brandCard(brandCard);
                 }
             }
         }
@@ -446,5 +461,59 @@ public class DragonKnightMod implements
             newCard.tags.add(tags);
         }
         return newCard;
+    }
+
+    public static AbstractCard getRandomCardThatCanBrand() {
+        List<AbstractCard> cards = AbstractDungeon.player.drawPile.group.stream()
+                .filter(c -> !c.hasTag(Enums.ANTI_BRAND))
+                .collect(Collectors.toList());
+
+        if (cards.size() > 0)
+            return cards.get(AbstractDungeon.cardRng.random(cards.size() - 1));
+        else
+            return null;
+    }
+
+    public static boolean canBrand(AbstractCard card) {
+        return !card.hasTag(DragonKnightMod.Enums.BRAND) && !card.hasTag(DragonKnightMod.Enums.BRAND2)
+                && !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND);
+    }
+
+    public static void addBrandToCard(AbstractCard card) {
+        if (canBrand(card)) {
+            card.tags.add(DragonKnightMod.Enums.BRAND);
+            card.rawDescription += " NL dragonknight:"
+                    + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
+        }
+    }
+
+    public static void addAntiBrandToCard(AbstractCard card) {
+        if (canBrand(card)) {
+            card.tags.add(DragonKnightMod.Enums.ANTI_BRAND);
+            antiBrandCards.add(card);
+            // card.rawDescription += " NL dragonknight:"
+            // + DragonKnightMod.keywords.get("AntiBrand").PROPER_NAME;
+        }
+    }
+
+    @Override
+    public void onLoad(List<Integer> arg) {
+        antiBrandCards.clear();
+        // antiBrandCards = arg;
+        for (Integer index : arg) {
+            AbstractCard card = AbstractDungeon.player.masterDeck.group.get(index);
+            card.tags.add(Enums.ANTI_BRAND);
+            card.initializeDescription();
+            antiBrandCards.add(card);
+        }
+    }
+
+    @Override
+    public List<Integer> onSave() {
+        List<Integer> ret = new ArrayList<>();
+        for (AbstractCard card : antiBrandCards) {
+            ret.add(AbstractDungeon.player.masterDeck.group.indexOf(card));
+        }
+        return ret;
     }
 }
