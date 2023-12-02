@@ -69,6 +69,7 @@ public class CardPatch {
             }
         }
 
+        //不知为何Postfix在卡牌描述过长时会不执行
         // public static void Postfix(AbstractCard _instance) {
         //     _instance.rawDescription = Field.tempDescription.get(_instance);
         //     // if (!temp.contains(_instance))
