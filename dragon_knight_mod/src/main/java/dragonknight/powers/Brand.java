@@ -95,7 +95,7 @@ public class Brand extends BasePower {
                         AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(true);
                         brandCard.calculateCardDamage(monster);
                         brandCard.use(AbstractDungeon.player, monster);
-                        AbstractDungeon.actionManager.addToBottom(new UseCardAction(brandCard, monster) {
+                        AbstractDungeon.actionManager.addToTop(new UseCardAction(brandCard, monster) {
                             @Override
                             public void update() {
                                 if (this.duration == 0.15F) {
@@ -171,8 +171,7 @@ public class Brand extends BasePower {
 
             @Override
             public void update() {
-                DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCount;
-                DragonKnightMod.brandCount = 0;
+                DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCards.size();
                 DragonKnightMod.brandCardsLastTurn.clear();
                 DragonKnightMod.brandCardsLastTurn.addAll(DragonKnightMod.brandCards);
                 DragonKnightMod.brandCards.clear();

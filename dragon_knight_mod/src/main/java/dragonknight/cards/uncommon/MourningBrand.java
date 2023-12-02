@@ -52,5 +52,14 @@ public class MourningBrand extends CustomCard {
             this.addToBot(new DrawCardAction(this.baseMagicNumber));
         }
     }
-}
 
+    @Override
+    public void triggerWhenDrawn() {
+        if (DragonKnightMod.brandCountLastTurn > 0) {
+            this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
+}

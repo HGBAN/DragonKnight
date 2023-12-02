@@ -34,17 +34,18 @@ public class AshBrandPower extends BasePower {
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
-                int index = AbstractDungeon.cardRng.random(DragonKnightMod.brandCardsLastTurn.size() - 1);
-                AbstractCard randomCard = DragonKnightMod.brandCardsLastTurn.get(index);
+                if (DragonKnightMod.brandCardsLastTurn.size() > 0) {
+                    int index = AbstractDungeon.cardRng.random(DragonKnightMod.brandCardsLastTurn.size() - 1);
+                    AbstractCard randomCard = DragonKnightMod.brandCardsLastTurn.get(index);
 
-                AbstractCard newCard = copyCard(randomCard);
-                newCard.isEthereal = true;
-                newCard.exhaust = true;
-                newCard.rawDescription += " NL " + GameDictionary.ETHEREAL.NAMES[0] + " NL "
-                        + GameDictionary.EXHAUST.NAMES[0];
-                newCard.initializeDescription();
-                addToBot(new CopyCardInHandAction(newCard));
-
+                    AbstractCard newCard = copyCard(randomCard);
+                    newCard.isEthereal = true;
+                    newCard.exhaust = true;
+                    newCard.rawDescription += " NL " + GameDictionary.ETHEREAL.NAMES[0] + " NL "
+                            + GameDictionary.EXHAUST.NAMES[0];
+                    newCard.initializeDescription();
+                    addToBot(new CopyCardInHandAction(newCard));
+                }
                 isDone = true;
             }
         });

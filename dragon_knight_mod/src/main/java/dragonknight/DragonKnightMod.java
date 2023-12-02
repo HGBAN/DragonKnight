@@ -322,6 +322,8 @@ public class DragonKnightMod implements
     public static ArrayList<AbstractCard> tempBrandCards = new ArrayList<>();
     public static ArrayList<AbstractCard> antiBrandCards = new ArrayList<>();
 
+    public static boolean antiBrandSet = false;
+
     public static class Enums {
         // 随机消耗
         @SpireEnum

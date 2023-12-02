@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 
+import dragonknight.DragonKnightMod;
+
 import static dragonknight.DragonKnightMod.canBrand;
 import static dragonknight.DragonKnightMod.makeID;
 
@@ -30,6 +32,7 @@ public class AntiBrandOption extends AbstractCampfireOption {
     @Override
     public void useOption() {
         if (this.usable) {
+            DragonKnightMod.antiBrandSet = true;
             AbstractDungeon.gridSelectScreen.open(getNoBrandCards(), 1, TEXT[0],
                     false, false, true, false);
 
