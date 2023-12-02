@@ -1,53 +1,39 @@
 package dragonknight.patch;
 
+import static dragonknight.DragonKnightMod.logger;
+
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.events.city.TheLibrary;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 
 import dragonknight.DragonKnightMod;
 
 public class CardPatch {
+    //@SpirePatch(clz = TheLibrary.class, method = "buttonEffect")
+    public static class TestPatch {
+        @SpireInsertPatch(loc = 87, localvars = { "card" })
+        public static void Insert(TheLibrary _instance, AbstractCard card) {
+            logger.info(card.name);
+        }
+    }
+
     @SpirePatch(clz = AbstractCard.class, method = SpirePatch.CLASS)
     public static class Field {
         public static SpireField<String> tempDescription = new SpireField<>(() -> null);
     }
 
-    // private static String temp = "";
     @SpirePatch(clz = AbstractCard.class, method = "initializeDescription")
     public static class DescriptionPatch {
-        // private static ConcurrentHashMap<AbstractCard, String> temp = new
-        // ConcurrentHashMap<>();
 
         public static void Prefix(AbstractCard _instance) {
-            // // temp = _instance.rawDescription;
-            // if (_instance.rawDescription == null){
-            // // _instance.rawDescription="";
-            // logger.info("null");
-            // return;
+            // String temp = Field.tempDescription.get(_instance);
+            // if (temp != null) {
+            // _instance.rawDescription = temp;
             // }
-            // logger.info(_instance.name);
-            // for (AbstractCard card : temp.keySet()) {
-            // logger.info(card.name);
-            // }
-            // logger.info("--------------");
-            // synchronized (_instance) {
-            // while (temp.containsKey(_instance)) {
-            // try {
-            // _instance.wait();
-            // } catch (InterruptedException e) {
-            // e.printStackTrace();
-            // }
-            // }
-            // temp.put(_instance, _instance.rawDescription);
-            // }
-            String temp = Field.tempDescription.get(_instance);
-            if (temp != null) {
-                _instance.rawDescription = temp;
-            }
             Field.tempDescription.set(_instance, _instance.rawDescription);
-
-            // logger.info(_instance.name);
 
             if (_instance.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
                 _instance.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("AntiBrand").PROPER_NAME;
@@ -67,21 +53,22 @@ public class CardPatch {
             if (_instance.hasTag(DragonKnightMod.Enums.BE_DRAGON)) {
                 _instance.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("BeDragon").PROPER_NAME;
             }
+            // com.megacrit.cardcrawl.events.city.TheLibrary
         }
 
-        //不知为何Postfix在卡牌描述过长时会不执行
-        // public static void Postfix(AbstractCard _instance) {
-        //     _instance.rawDescription = Field.tempDescription.get(_instance);
-        //     // if (!temp.contains(_instance))
-        //     // return;
-        //     // _instance.rawDescription = temp.get(_instance);
+        @SpireInsertPatch(locs = { 472, 587 })
+        public static void Insert(AbstractCard _instance) {
+            _instance.rawDescription = Field.tempDescription.get(_instance);
+            // if (!temp.contains(_instance))
+            // return;
+            // _instance.rawDescription = temp.get(_instance);
 
-        //     // logger.info("fdf");
-        //     // synchronized (_instance) {
-        //     // temp.remove(_instance);
-        //     // _instance.notifyAll();
-        //     // }
-        // }
+            // logger.info("fdf");
+            // synchronized (_instance) {
+            // temp.remove(_instance);
+            // _instance.notifyAll();
+            // }
+        }
     }
 
     @SpirePatch(clz = AbstractCard.class, method = "makeStatEquivalentCopy")

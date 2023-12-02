@@ -52,7 +52,7 @@ public class Convict extends CustomCard {
 
     @Override
     public void triggerOnExhaust() {
-        this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, this.damage, this.damageTypeForTurn,
+        this.addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, this.baseDamage, this.damageTypeForTurn,
                 AttackEffect.LIGHTNING));
     }
 

@@ -66,9 +66,10 @@ public class SwordBrand extends BrandCopyCard {
                     cards.remove(index);
 
                     randomCard.tags.add(DragonKnightMod.Enums.BRAND);
+                    randomCard.tags.add(DragonKnightMod.Enums.TEMP_BRAND);
                     DragonKnightMod.tempBrandCards.add(randomCard);
-                    randomCard.rawDescription += " NL dragonknight:"
-                            + DragonKnightMod.keywords.get("TempBrand").PROPER_NAME;
+                    // randomCard.rawDescription += " NL dragonknight:"
+                    //         + DragonKnightMod.keywords.get("TempBrand").PROPER_NAME;
                     randomCard.initializeDescription();
                 }
 

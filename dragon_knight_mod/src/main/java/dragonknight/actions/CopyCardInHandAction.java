@@ -202,13 +202,13 @@ public class CopyCardInHandAction extends AbstractGameAction {
     private AbstractCard makeNewCard() {
         AbstractCard card = this.sameUUID ? this.c.makeSameInstanceOf() : this.c.makeStatEquivalentCopy();
         card.rawDescription = this.c.rawDescription;
-        card.initializeDescription();
         card.tags.clear();
         card.exhaust = this.c.exhaust;
         card.isEthereal = this.c.isEthereal;
         for (CardTags tags : this.c.tags) {
             card.tags.add(tags);
         }
+        card.initializeDescription();
         return card;
     }
 
