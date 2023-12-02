@@ -27,6 +27,7 @@ public class Banish extends CustomCard {
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.tags.add(DragonKnightMod.Enums.BRAND2);
+        this.initializeDescription();
     }
 
     @Override

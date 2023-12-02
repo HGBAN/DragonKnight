@@ -27,6 +27,8 @@ public class BeDragon extends CustomCard {
                 RARITY,
                 TARGET);
         tags.add(DragonKnightMod.Enums.NO_BRAND);
+        tags.add(DragonKnightMod.Enums.BE_DRAGON);
+        this.initializeDescription();
         // com.megacrit.cardcrawl.cards.green.PoisonedStab
     }
 

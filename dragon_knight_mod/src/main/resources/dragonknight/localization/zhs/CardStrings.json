@@ -19,16 +19,16 @@
   },
   "${modID}:BeDragon": {
     "NAME": "化龙",
-    "DESCRIPTION": "选择转变形态。 NL dragonknight:化龙"
+    "DESCRIPTION": "选择转变形态。"
   },
   "${modID}:BattleRage": {
     "NAME": "战斗怒吼",
-    "DESCRIPTION": "造成!D!点伤害。 NL 获得!B!点格挡。 NL dragonknight:烙印"
+    "DESCRIPTION": "造成!D!点伤害。 NL 获得!B!点格挡。"
   },
   "${modID}:BrandAwaken": {
     "NAME": "烙印唤醒",
-    "DESCRIPTION": "触发烙印。 NL dragonknight:烙印",
-    "UPGRADE_DESCRIPTION": "触发烙印。 NL 获得 [E] 。 NL dragonknight:烙印"
+    "DESCRIPTION": "触发烙印。",
+    "UPGRADE_DESCRIPTION": "触发烙印。 NL 获得 [E] 。"
   },
   "${modID}:AbyssForm": {
     "NAME": "深渊形态",
@@ -69,7 +69,7 @@
   },
   "${modID}:KingsBrand": {
     "NAME": "王之烙印",
-    "DESCRIPTION": "获得一层人工制品，使所有敌人失去1点力量。化龙后弃牌堆的这张牌会回到手牌。 NL 保留 NL dragonknight:烙印"
+    "DESCRIPTION": "获得一层人工制品，使所有敌人失去1点力量。化龙后弃牌堆的这张牌会回到手牌。 NL 保留"
   },
   "${modID}:Judgement": {
     "NAME": "审判",
@@ -77,7 +77,7 @@
   },
   "${modID}:Banish": {
     "NAME": "追放",
-    "DESCRIPTION": "如果处于化龙状态，则将烙印改为可以选择一张抽牌堆里的卡牌。 NL dragonknight:烙印"
+    "DESCRIPTION": "如果处于化龙状态，则将烙印改为可以选择一张抽牌堆里的卡牌。"
   },
   "${modID}:Convict": {
     "NAME": "断罪",
@@ -85,7 +85,7 @@
   },
   "${modID}:ApostlesComing": {
     "NAME": "使徒降临",
-    "DESCRIPTION": "获得等同于本回合已经获得的护甲值一半数值的临时力量。 NL （获得!M!点临时力量） NL dragonknight:化龙"
+    "DESCRIPTION": "获得等同于本回合已经获得的护甲值一半数值的临时力量。 NL （获得!M!点临时力量）"
   },
   "${modID}:RebornScale": {
     "NAME": "再生鳞甲",
@@ -110,7 +110,7 @@
   },
   "${modID}:SwordBrand": {
     "NAME": "剑之烙印",
-    "DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被烙印消耗，将另一张剑之烙印加入弃牌堆。 NL dragonknight:烙印"
+    "DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被烙印消耗，将另一张剑之烙印加入弃牌堆。"
   },
   "${modID}:ColdAirflow": {
     "NAME": "极寒气流",
@@ -118,7 +118,7 @@
   },
   "${modID}:SeparateBrand": {
     "NAME": "分离烙印",
-    "DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因烙印消耗的牌超过4张，再造成!M!次伤害。被烙印 消耗 后，将另一张分离烙印加入弃牌堆。 NL dragonknight:烙印"
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因烙印消耗的牌超过4张，再造成!M!次伤害。被烙印 消耗 后，将另一张分离烙印加入弃牌堆。"
   },
   "${modID}:Bite": {
     "NAME": "撕咬",

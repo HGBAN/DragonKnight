@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
@@ -64,7 +63,8 @@ public class BlackDragon extends BeDragonPower {
                     // card.exhaustOnUseOnce = true;
                     if (!card.exhaust) {
                         card.exhaust = true;
-                        card.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0];
+                        card.tags.add(DragonKnightMod.Enums.EXHAUST);
+                        // card.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0];
                     }
                     addBrandToCard(card);
 

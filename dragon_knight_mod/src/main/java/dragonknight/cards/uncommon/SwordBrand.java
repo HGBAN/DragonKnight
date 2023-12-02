@@ -34,6 +34,7 @@ public class SwordBrand extends BrandCopyCard {
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.tags.add(DragonKnightMod.Enums.BRAND);
+        this.initializeDescription();
         this.baseMagicNumber = 1;
     }
 

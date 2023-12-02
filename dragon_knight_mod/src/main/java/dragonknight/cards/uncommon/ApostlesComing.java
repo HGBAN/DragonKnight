@@ -31,7 +31,9 @@ public class ApostlesComing extends CustomCard {
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.tags.add(DragonKnightMod.Enums.NO_BRAND);
+        this.tags.add(DragonKnightMod.Enums.BE_DRAGON);
         this.baseMagicNumber = 0;
+        this.initializeDescription();
     }
 
     @Override

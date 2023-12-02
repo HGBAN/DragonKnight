@@ -5,7 +5,6 @@ import static dragonknight.DragonKnightMod.makeID;
 import java.util.ArrayList;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.helpers.GameDictionary;
 
 import dragonknight.DragonKnightMod;
 import dragonknight.actions.CopyCardInHandAction;
@@ -36,8 +35,10 @@ public class AbyssApostles extends BaseRelic {
             newCard.tags.addAll(card.tags);
             newCard.exhaust = true;
             newCard.isEthereal = true;
-            newCard.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0] + " NL "
-                    + GameDictionary.ETHEREAL.NAMES[0];
+            newCard.tags.add(DragonKnightMod.Enums.EXHAUST);
+            newCard.tags.add(DragonKnightMod.Enums.ETHEREAL);
+            // newCard.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0] + " NL "
+            //         + GameDictionary.ETHEREAL.NAMES[0];
             newCard.initializeDescription();
 
             newCards.add(newCard);

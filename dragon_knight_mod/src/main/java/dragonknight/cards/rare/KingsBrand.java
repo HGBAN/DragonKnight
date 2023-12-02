@@ -35,6 +35,7 @@ public class KingsBrand extends CustomCard {
                 RARITY, TARGET);
         this.selfRetain = true;
         this.tags.add(DragonKnightMod.Enums.BRAND);
+        this.initializeDescription();
         // com.megacrit.cardcrawl.cards.tempCards.Miracle
     }
 

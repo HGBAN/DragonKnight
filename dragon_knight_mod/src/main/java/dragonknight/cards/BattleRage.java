@@ -33,6 +33,7 @@ public class BattleRage extends CustomCard {
         this.baseDamage = 8;
         this.baseBlock = 8;
         this.tags.add(DragonKnightMod.Enums.BRAND);
+        this.initializeDescription();
     }
 
     @Override

@@ -28,6 +28,7 @@ public class BrandAwaken extends CustomCard {
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.tags.add(DragonKnightMod.Enums.BRAND);
+        this.initializeDescription();
     }
 
     @Override

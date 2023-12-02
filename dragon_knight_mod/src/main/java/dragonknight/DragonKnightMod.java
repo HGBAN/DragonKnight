@@ -336,6 +336,15 @@ public class DragonKnightMod implements
         public static CardTags NO_BRAND;
         @SpireEnum
         public static CardTags ANTI_BRAND;
+
+        @SpireEnum
+        public static CardTags EXHAUST;
+        @SpireEnum
+        public static CardTags ETHEREAL;
+        @SpireEnum
+        public static CardTags TEMP_BRAND;
+        @SpireEnum
+        public static CardTags BE_DRAGON;
     }
 
     @Override
@@ -484,8 +493,8 @@ public class DragonKnightMod implements
     public static void addBrandToCard(AbstractCard card) {
         if (canBrand(card)) {
             card.tags.add(DragonKnightMod.Enums.BRAND);
-            card.rawDescription += " NL dragonknight:"
-                    + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
+            // card.rawDescription += " NL dragonknight:"
+            //         + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
         }
     }
 
