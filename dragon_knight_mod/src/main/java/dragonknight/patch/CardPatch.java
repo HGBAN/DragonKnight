@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.helpers.GameDictionary;
 import dragonknight.DragonKnightMod;
 
 public class CardPatch {
-    //@SpirePatch(clz = TheLibrary.class, method = "buttonEffect")
+    // @SpirePatch(clz = TheLibrary.class, method = "buttonEffect")
     public static class TestPatch {
         @SpireInsertPatch(loc = 87, localvars = { "card" })
         public static void Insert(TheLibrary _instance, AbstractCard card) {
@@ -25,49 +25,49 @@ public class CardPatch {
         public static SpireField<String> tempDescription = new SpireField<>(() -> null);
     }
 
+    public static void addKeywordText(AbstractCard card) {
+        if (card.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
+            card.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("AntiBrand").PROPER_NAME;
+        }
+        if (card.hasTag(DragonKnightMod.Enums.BRAND) || card.hasTag(DragonKnightMod.Enums.BRAND2)) {
+            if (card.hasTag(DragonKnightMod.Enums.TEMP_BRAND)) {
+                card.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("TempBrand").PROPER_NAME;
+            } else {
+                card.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
+            }
+        }
+        if (card.hasTag(DragonKnightMod.Enums.EXHAUST)) {
+            card.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0];
+        }
+        if (card.hasTag(DragonKnightMod.Enums.ETHEREAL)) {
+            card.rawDescription += " NL " + GameDictionary.ETHEREAL.NAMES[0];
+        }
+        if (card.hasTag(DragonKnightMod.Enums.BE_DRAGON)) {
+            card.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("BeDragon").PROPER_NAME;
+        }
+    }
+
     @SpirePatch(clz = AbstractCard.class, method = "initializeDescription")
     public static class DescriptionPatch {
 
         public static void Prefix(AbstractCard _instance) {
-            // String temp = Field.tempDescription.get(_instance);
-            // if (temp != null) {
-            // _instance.rawDescription = temp;
-            // }
             Field.tempDescription.set(_instance, _instance.rawDescription);
 
-            if (_instance.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
-                _instance.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("AntiBrand").PROPER_NAME;
-            }
-            if (_instance.hasTag(DragonKnightMod.Enums.BRAND) || _instance.hasTag(DragonKnightMod.Enums.BRAND2)) {
-                _instance.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
-            }
-            if (_instance.hasTag(DragonKnightMod.Enums.EXHAUST)) {
-                _instance.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0];
-            }
-            if (_instance.hasTag(DragonKnightMod.Enums.ETHEREAL)) {
-                _instance.rawDescription += " NL " + GameDictionary.ETHEREAL.NAMES[0];
-            }
-            if (_instance.hasTag(DragonKnightMod.Enums.TEMP_BRAND)) {
-                _instance.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("TempBrand").PROPER_NAME;
-            }
-            if (_instance.hasTag(DragonKnightMod.Enums.BE_DRAGON)) {
-                _instance.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("BeDragon").PROPER_NAME;
-            }
-            // com.megacrit.cardcrawl.events.city.TheLibrary
+            addKeywordText(_instance);
         }
 
-        @SpireInsertPatch(locs = { 472, 587 })
+        @SpireInsertPatch(loc = 587)
         public static void Insert(AbstractCard _instance) {
             _instance.rawDescription = Field.tempDescription.get(_instance);
-            // if (!temp.contains(_instance))
-            // return;
-            // _instance.rawDescription = temp.get(_instance);
+        }
+    }
 
-            // logger.info("fdf");
-            // synchronized (_instance) {
-            // temp.remove(_instance);
-            // _instance.notifyAll();
-            // }
+    @SpirePatch(clz = AbstractCard.class, method = "initializeDescriptionCN")
+    public static class DescriptionCNPatch {
+
+        @SpireInsertPatch(loc = 776)
+        public static void Insert(AbstractCard _instance) {
+            _instance.rawDescription = Field.tempDescription.get(_instance);
         }
     }
 

@@ -58,4 +58,14 @@ public class SeparateBrand extends BrandCopyCard {
     public void brandExhaust() {
         addToBot(new MakeTempCardInDrawPileAction(this.makeCopy(), 1, true, true));
     }
+
+    @Override
+    public void triggerWhenDrawn() {
+        if (DragonKnightMod.brandCountLastTurn > 4) {
+            this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
+        }else{
+            this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
 }

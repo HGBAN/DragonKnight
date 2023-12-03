@@ -38,12 +38,14 @@ public class AshBrandPower extends BasePower {
                     AbstractCard randomCard = DragonKnightMod.brandCardsLastTurn.get(index);
 
                     AbstractCard newCard = copyCard(randomCard);
+                    if (!newCard.exhaust)
+                        newCard.tags.add(DragonKnightMod.Enums.EXHAUST);
+                    if (!newCard.isEthereal)
+                        newCard.tags.add(DragonKnightMod.Enums.ETHEREAL);
                     newCard.isEthereal = true;
                     newCard.exhaust = true;
-                    newCard.tags.add(DragonKnightMod.Enums.EXHAUST);
-                    newCard.tags.add(DragonKnightMod.Enums.ETHEREAL);
                     // newCard.rawDescription += " NL " + GameDictionary.ETHEREAL.NAMES[0] + " NL "
-                    //         + GameDictionary.EXHAUST.NAMES[0];
+                    // + GameDictionary.EXHAUST.NAMES[0];
                     newCard.initializeDescription();
                     addToBot(new CopyCardInHandAction(newCard));
                 }

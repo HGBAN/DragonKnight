@@ -33,12 +33,14 @@ public class AbyssApostles extends BaseRelic {
             AbstractCard newCard = card.makeStatEquivalentCopy();
             newCard.tags.clear();
             newCard.tags.addAll(card.tags);
+            if (!newCard.exhaust)
+                newCard.tags.add(DragonKnightMod.Enums.EXHAUST);
+            if (!newCard.isEthereal)
+                newCard.tags.add(DragonKnightMod.Enums.ETHEREAL);
             newCard.exhaust = true;
             newCard.isEthereal = true;
-            newCard.tags.add(DragonKnightMod.Enums.EXHAUST);
-            newCard.tags.add(DragonKnightMod.Enums.ETHEREAL);
             // newCard.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0] + " NL "
-            //         + GameDictionary.ETHEREAL.NAMES[0];
+            // + GameDictionary.ETHEREAL.NAMES[0];
             newCard.initializeDescription();
 
             newCards.add(newCard);
@@ -55,4 +57,11 @@ public class AbyssApostles extends BaseRelic {
             newCards.clear();
         }
     }
+
+    @Override
+    public void atBattleStartPreDraw() {
+        newCards.clear();
+    }
+
+    
 }
