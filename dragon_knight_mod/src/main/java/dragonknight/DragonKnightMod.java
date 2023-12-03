@@ -59,6 +59,7 @@ import dragonknight.commands.ExhaustHand;
 import dragonknight.potions.BeDragonPotion;
 import dragonknight.potions.BrandPotion;
 import dragonknight.powers.AbyssFormPower;
+import dragonknight.powers.AshBrandPower;
 import dragonknight.powers.BlackBrandPower;
 import dragonknight.powers.BlackDragon;
 import dragonknight.powers.Brand;
@@ -300,6 +301,7 @@ public class DragonKnightMod implements
         BaseMod.addPower(WhiteBrandPower.class, WhiteBrandPower.POWER_ID);
         BaseMod.addPower(PhantomDragonPower.class, PhantomDragonPower.POWER_ID);
         BaseMod.addPower(NextCardFreePower.class, NextCardFreePower.POWER_ID);
+        BaseMod.addPower(AshBrandPower.class, AshBrandPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GRAY, Color.BLUE, Color.GOLD, BeDragonPotion.ID);
