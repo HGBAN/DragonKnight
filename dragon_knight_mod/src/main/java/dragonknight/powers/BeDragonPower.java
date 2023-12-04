@@ -41,6 +41,7 @@ public abstract class BeDragonPower extends BasePower {
             PhantomDragonPower power = (PhantomDragonPower) owner.getPower(makeID("PhantomDragonPower"));
             if (!power.isUsed) {
                 if (owner.isPlayer) {
+                    power.flash();
                     addToBot(new ApplyPowerAction(owner, owner, new NextCardFreePower(owner, 1)));
                     power.isUsed = true;
                 }

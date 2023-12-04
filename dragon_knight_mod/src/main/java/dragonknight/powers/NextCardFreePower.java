@@ -35,6 +35,7 @@ public class NextCardFreePower extends BasePower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         this.amount--;
+        this.flash();
         if (this.amount <= 0) {
             addToBot(new RemoveSpecificPowerAction(owner, owner, NextCardFreePower.this));
         }

@@ -84,6 +84,7 @@ public class Brand extends BasePower {
         if (!isPlayer)
             return;
 
+        this.flash();
         for (AbstractCard brandCard : DragonKnightMod.brandCards) {
             if (brandCard.hasTag(DragonKnightMod.Enums.NO_BRAND)) {
                 continue;

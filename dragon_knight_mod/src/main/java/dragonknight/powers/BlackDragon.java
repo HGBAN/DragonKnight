@@ -79,6 +79,7 @@ public class BlackDragon extends BeDragonPower {
         });
 
         if (owner.hasPower(makeID("BlackBrandPower"))) {
+            owner.getPower(makeID("BlackBrandPower")).flash();
             addToBot(new ApplyPowerAction(owner, owner,
                     new PlatedArmorPower(owner, owner.getPower(makeID("BlackBrandPower")).amount)));
         }

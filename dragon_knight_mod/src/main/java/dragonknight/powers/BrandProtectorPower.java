@@ -31,10 +31,13 @@ public class BrandProtectorPower extends BasePower {
     public void atEndOfTurn(boolean isPlayer) {
         if (!isPlayer)
             return;
+
         AbstractPlayer p = AbstractDungeon.player;
         int block = DragonKnightMod.brandCards.size() * this.amount;
         // logger.info(DragonKnightMod.brandCards.size());
-        if (block > 0)
+        if (block > 0){
+            this.flash();
             this.addToBot(new GainBlockAction(p, p, block));
+        }
     }
 }

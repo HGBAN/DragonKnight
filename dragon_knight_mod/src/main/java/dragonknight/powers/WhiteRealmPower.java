@@ -32,6 +32,7 @@ public class WhiteRealmPower extends BasePower {
         if (!isPlayer)
             return;
         Brand.triggerCount--;
+        this.flash();
         addToBot(new RemoveSpecificPowerAction(owner, owner, this));
     }
 }

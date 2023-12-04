@@ -66,6 +66,7 @@ public class WhiteDragon extends BeDragonPower {
                 }));
 
         if (owner.hasPower(makeID("WhiteBrandPower"))) {
+            owner.getPower(makeID("WhiteBrandPower")).flash();
             addToBot(new ApplyPowerAction(owner, owner,
                     new StrengthPower(owner, owner.getPower(makeID("WhiteBrandPower")).amount)));
         }

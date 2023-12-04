@@ -35,6 +35,7 @@ public class AbyssFormPower extends BasePower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if ((card.hasTag(DragonKnightMod.Enums.BRAND) || card.hasTag(DragonKnightMod.Enums.BRAND2)) && !isUsed) {
+            this.flash();
             DragonKnightMod.beDragon();
             isUsed = true;
         }

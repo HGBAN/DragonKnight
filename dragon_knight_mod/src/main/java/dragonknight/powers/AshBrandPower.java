@@ -34,6 +34,7 @@ public class AshBrandPower extends BasePower {
             @Override
             public void update() {
                 if (DragonKnightMod.brandCardsLastTurn.size() > 0) {
+                    flash();
                     int index = AbstractDungeon.cardRng.random(DragonKnightMod.brandCardsLastTurn.size() - 1);
                     AbstractCard randomCard = DragonKnightMod.brandCardsLastTurn.get(index);
 
