@@ -167,18 +167,18 @@ public class Brand extends BasePower {
 
         // logger.info("hello");
         addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-        addToBot(new AbstractGameAction() {
+        // addToBot(new AbstractGameAction() {
 
-            @Override
-            public void update() {
-                DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCards.size();
-                DragonKnightMod.brandCardsLastTurn.clear();
-                DragonKnightMod.brandCardsLastTurn.addAll(DragonKnightMod.brandCards);
-                DragonKnightMod.brandCards.clear();
-                isDone = true;
-            }
+        //     @Override
+        //     public void update() {
+        //         DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCards.size();
+        //         DragonKnightMod.brandCardsLastTurn.clear();
+        //         DragonKnightMod.brandCardsLastTurn.addAll(DragonKnightMod.brandCards);
+        //         DragonKnightMod.brandCards.clear();
+        //         isDone = true;
+        //     }
 
-        });
+        // });
     }
 
     // @Override

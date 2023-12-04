@@ -27,7 +27,8 @@ public class FuriousFlames extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public FuriousFlames() {
-        super(ID, NAME, imagePath("cards/attack/FuriousFlames.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/attack/FuriousFlames.png"), COST, DESCRIPTION, TYPE,
+                DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
 
@@ -50,10 +51,12 @@ public class FuriousFlames extends CustomCard {
 
     @Override
     public void render(SpriteBatch sb) {
+        int temp = this.baseDamage;
         this.baseDamage = 20 + DragonKnightMod.brandCount * 5;
-        // if (this.baseDamage > 20) {
-        //     this.isDamageModified = true;
-        // }
+        if (temp != this.baseDamage) {
+            this.applyPowers();
+        }
+
         super.render(sb);
     }
 

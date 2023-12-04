@@ -43,6 +43,7 @@ public class BlackDragon extends BeDragonPower {
         if (owner.hasPower(makeID("WhiteDragon"))) {
             addToBot(new GainEnergyAction(1));
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+            done = true;
             return;
         }
         addToBot(new GainBlockAction(owner, 10));

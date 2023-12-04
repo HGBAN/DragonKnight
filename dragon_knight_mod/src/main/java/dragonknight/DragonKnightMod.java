@@ -461,6 +461,11 @@ public class DragonKnightMod implements
             card.initializeDescription();
         }
         tempBrandCards.clear();
+
+        DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCards.size();
+        DragonKnightMod.brandCardsLastTurn.clear();
+        DragonKnightMod.brandCardsLastTurn.addAll(DragonKnightMod.brandCards);
+        DragonKnightMod.brandCards.clear();
     }
 
     public static AbstractCard copyCard(AbstractCard card) {
@@ -496,7 +501,7 @@ public class DragonKnightMod implements
         if (canBrand(card)) {
             card.tags.add(DragonKnightMod.Enums.BRAND);
             // card.rawDescription += " NL dragonknight:"
-            //         + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
+            // + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
         }
     }
 

@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
 public abstract class BeDragonPower extends BasePower {
+    protected boolean done = false;
 
     public BeDragonPower(String id, PowerType powerType, boolean isTurnBased, AbstractCreature owner,
             AbstractCreature source, int amount) {
@@ -28,12 +29,12 @@ public abstract class BeDragonPower extends BasePower {
 
     @Override
     public void onInitialApplication() {
-        // if (owner.hasPower(makeID("WhiteDragon")) || owner.hasPower(makeID("BlackDragon"))) {
-        //     addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-        //     return;
-        // }
-
         initializeTemplate();
+
+        if (done) {
+            done = false;
+            return;
+        }
 
         // 检查幻影之龙的效果
         if (owner.hasPower(makeID("PhantomDragonPower"))) {
