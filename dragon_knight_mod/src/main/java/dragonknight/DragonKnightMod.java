@@ -48,8 +48,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.scannotation.AnnotationDB;
 
+import java.lang.ref.WeakReference;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import dragonknight.cards.BrandCopyCard;
@@ -325,6 +327,9 @@ public class DragonKnightMod implements
     public static ArrayList<AbstractCard> antiBrandCards = new ArrayList<>();
 
     public static boolean antiBrandSet = false;
+    public static ArrayList<WeakReference<Consumer<AbstractCard>>> onAddBrandCard = new ArrayList<>();
+    public static ArrayList<WeakReference<Runnable>> onRemoveBrandCards = new ArrayList<>();
+    public static ArrayList<WeakReference<Runnable>> onClearBrandCards = new ArrayList<>();
 
     public static class Enums {
         // 随机消耗
@@ -347,6 +352,28 @@ public class DragonKnightMod implements
         public static CardTags TEMP_BRAND;
         @SpireEnum
         public static CardTags BE_DRAGON;
+    }
+
+    public static void onClearBrandCards() {
+        Iterator<WeakReference<Runnable>> itr = onClearBrandCards.iterator();
+        while (itr.hasNext()) {
+            Runnable r = itr.next().get();
+            if (r == null)
+                itr.remove();
+            else
+                r.run();
+        }
+    }
+
+    public static void onRemoveBrandCards() {
+        Iterator<WeakReference<Runnable>> itr = onRemoveBrandCards.iterator();
+        while (itr.hasNext()) {
+            Runnable r = itr.next().get();
+            if (r == null)
+                itr.remove();
+            else
+                r.run();
+        }
     }
 
     @Override
@@ -387,6 +414,18 @@ public class DragonKnightMod implements
         AbstractPlayer player = AbstractDungeon.player;
         brandCards.add(brandCard);
         brandCount++;
+
+        Iterator<WeakReference<Consumer<AbstractCard>>> itr = onAddBrandCard.iterator();
+        while (itr.hasNext()) {
+            Consumer<AbstractCard> c = itr.next().get();
+            if (c == null)
+                itr.remove();
+            else
+                c.accept(brandCard);
+        }
+        // for (Consumer<AbstractCard> listener : onAddBrandCard) {
+        // listener.accept(brandCard);
+        // }
         if (brandCard instanceof BrandCopyCard) {
             ((BrandCopyCard) brandCard).brandExhaust = true;
         }
@@ -419,6 +458,7 @@ public class DragonKnightMod implements
     @Override
     public void receiveOnBattleStart(AbstractRoom arg0) {
         brandCards.clear();
+        onClearBrandCards();
         Brand.triggerCount = 1;
         brandCount = 0;
         brandCountLastTurn = 0;
@@ -466,6 +506,7 @@ public class DragonKnightMod implements
         DragonKnightMod.brandCardsLastTurn.clear();
         DragonKnightMod.brandCardsLastTurn.addAll(DragonKnightMod.brandCards);
         DragonKnightMod.brandCards.clear();
+        onClearBrandCards();
     }
 
     public static AbstractCard copyCard(AbstractCard card) {

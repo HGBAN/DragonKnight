@@ -31,9 +31,10 @@ public class Brand extends BasePower {
 
     // public AbstractCard brandCard;
     public static int triggerCount = 1;
+    private int currentIndex = 0;
 
     public Brand(AbstractCreature owner) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, -1);
         priority = 4;
     }
 
@@ -79,112 +80,145 @@ public class Brand extends BasePower {
         updateDes();
     }
 
-    @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        if (!isPlayer)
+    private void handleNextCard() {
+        if (currentIndex >= DragonKnightMod.brandCards.size()) {
+            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
             return;
+        }
+        AbstractCard brandCard = DragonKnightMod.brandCards.get(currentIndex++);
+        // DragonKnightMod.brandCards.remove(0);
+        if (brandCard.hasTag(DragonKnightMod.Enums.NO_BRAND)) {
 
-        this.flash();
-        for (AbstractCard brandCard : DragonKnightMod.brandCards) {
-            if (brandCard.hasTag(DragonKnightMod.Enums.NO_BRAND)) {
-                continue;
+            addToBot(new AbstractGameAction() {
+                @Override
+                public void update() {
+                    DragonKnightMod.onRemoveBrandCards();
+                    handleNextCard();
+                    isDone = true;
+                }
+            });
+            return;
+        }
+        addToBot(new AbstractGameAction() {
+            {
+                this.duration = 0.7f;
             }
-            for (int i = 0; i < triggerCount; i++) {
-                addToBot(new AbstractGameAction() {
-                    @Override
-                    public void update() {
-                        AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(true);
-                        brandCard.calculateCardDamage(monster);
-                        brandCard.use(AbstractDungeon.player, monster);
-                        AbstractDungeon.actionManager.addToTop(new UseCardAction(brandCard, monster) {
-                            @Override
-                            public void update() {
-                                if (this.duration == 0.15F) {
-                                    Iterator<AbstractPower> var1 = AbstractDungeon.player.powers.iterator();
 
-                                    while (var1.hasNext()) {
-                                        AbstractPower p = (AbstractPower) var1.next();
+            private boolean fade = false;
+
+            @Override
+            public void update() {
+                if (this.duration != 0.7f) {
+                    brandCard.update();
+                    if (this.duration < 0.3f && !fade) {
+                        fade = true;
+                        brandCard.fadingOut = true;
+                    }
+                    this.tickDuration();
+                    if (this.isDone) {
+                        handleNextCard();
+                    }
+                    return;
+                }
+                DragonKnightMod.onRemoveBrandCards();
+                for (int i = 0; i < triggerCount; i++) {
+
+                    AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(true);
+                    brandCard.calculateCardDamage(monster);
+                    brandCard.use(AbstractDungeon.player, monster);
+                    AbstractDungeon.actionManager.addToBottom(new UseCardAction(brandCard, monster) {
+                        @Override
+                        public void update() {
+                            if (this.duration == 0.15F) {
+                                Iterator<AbstractPower> var1 = AbstractDungeon.player.powers.iterator();
+
+                                while (var1.hasNext()) {
+                                    AbstractPower p = (AbstractPower) var1.next();
+                                    if (!brandCard.dontTriggerOnUseCard) {
+                                        p.onAfterUseCard(brandCard, this);
+                                    }
+                                }
+
+                                Iterator<AbstractMonster> var2 = AbstractDungeon.getMonsters().monsters.iterator();
+
+                                while (var2.hasNext()) {
+                                    AbstractMonster m = (AbstractMonster) var2.next();
+                                    Iterator<AbstractPower> var3 = m.powers.iterator();
+
+                                    while (var3.hasNext()) {
+                                        AbstractPower p = (AbstractPower) var3.next();
                                         if (!brandCard.dontTriggerOnUseCard) {
                                             p.onAfterUseCard(brandCard, this);
                                         }
                                     }
-
-                                    Iterator<AbstractMonster> var2 = AbstractDungeon.getMonsters().monsters.iterator();
-
-                                    while (var2.hasNext()) {
-                                        AbstractMonster m = (AbstractMonster) var2.next();
-                                        Iterator<AbstractPower> var3 = m.powers.iterator();
-
-                                        while (var3.hasNext()) {
-                                            AbstractPower p = (AbstractPower) var3.next();
-                                            if (!brandCard.dontTriggerOnUseCard) {
-                                                p.onAfterUseCard(brandCard, this);
-                                            }
-                                        }
-                                    }
-
-                                    brandCard.freeToPlayOnce = false;
-                                    brandCard.isInAutoplay = false;
-                                    if (brandCard.purgeOnUse) {
-                                        this.addToTop(new ShowCardAndPoofAction(brandCard));
-                                        this.isDone = true;
-                                        AbstractDungeon.player.cardInUse = null;
-                                        return;
-                                    }
-
-                                    if (brandCard.type == CardType.POWER) {
-                                        this.addToTop(new ShowCardAction(brandCard));
-                                        if (Settings.FAST_MODE) {
-                                            this.addToTop(new WaitAction(0.1F));
-                                        } else {
-                                            this.addToTop(new WaitAction(0.7F));
-                                        }
-
-                                        AbstractDungeon.player.hand.empower(brandCard);
-                                        this.isDone = true;
-                                        AbstractDungeon.player.hand.applyPowers();
-                                        AbstractDungeon.player.hand.glowCheck();
-                                        AbstractDungeon.player.cardInUse = null;
-                                        return;
-                                    }
-
-                                    AbstractDungeon.player.cardInUse = null;
-
-                                    brandCard.exhaustOnUseOnce = false;
-                                    brandCard.dontTriggerOnUseCard = false;
-                                    this.addToBot(new HandCheckAction());
                                 }
 
-                                this.tickDuration();
+                                brandCard.freeToPlayOnce = false;
+                                brandCard.isInAutoplay = false;
+                                if (brandCard.purgeOnUse) {
+                                    this.addToTop(new ShowCardAndPoofAction(brandCard));
+                                    this.isDone = true;
+                                    AbstractDungeon.player.cardInUse = null;
+                                    return;
+                                }
+
+                                if (brandCard.type == CardType.POWER) {
+                                    this.addToTop(new ShowCardAction(brandCard));
+                                    if (Settings.FAST_MODE) {
+                                        this.addToTop(new WaitAction(0.1F));
+                                    } else {
+                                        this.addToTop(new WaitAction(0.7F));
+                                    }
+
+                                    AbstractDungeon.player.hand.empower(brandCard);
+                                    this.isDone = true;
+                                    AbstractDungeon.player.hand.applyPowers();
+                                    AbstractDungeon.player.hand.glowCheck();
+                                    AbstractDungeon.player.cardInUse = null;
+                                    return;
+                                }
+
+                                AbstractDungeon.player.cardInUse = null;
+
+                                brandCard.exhaustOnUseOnce = false;
+                                brandCard.dontTriggerOnUseCard = false;
+                                this.addToBot(new HandCheckAction());
                             }
-                        });
 
-                        this.isDone = true;
-                    }
+                            this.tickDuration();
+                        }
+                    });
+                }
+                AbstractDungeon.player.cardInUse = brandCard;
+                brandCard.current_x = brandCard.current_y = 0;
+                brandCard.target_x = (float) (Settings.WIDTH / 2);
+                brandCard.target_y = (float) (Settings.HEIGHT / 2);
+                brandCard.targetTransparency = 1;
+                brandCard.transparency = 1;
+                brandCard.fadingOut = false;
 
-                });
+                // this.isDone = true;
+
+                this.tickDuration();
             }
-        }
 
-        // logger.info("hello");
-        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-        // addToBot(new AbstractGameAction() {
-
-        //     @Override
-        //     public void update() {
-        //         DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCards.size();
-        //         DragonKnightMod.brandCardsLastTurn.clear();
-        //         DragonKnightMod.brandCardsLastTurn.addAll(DragonKnightMod.brandCards);
-        //         DragonKnightMod.brandCards.clear();
-        //         isDone = true;
-        //     }
-
-        // });
+        });
     }
 
-    // @Override
-    // public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+    @Override
+    public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
+        if (!isPlayer)
+            return;
 
-    // }
+        this.flash();
+        addToBot(new AbstractGameAction() {
 
+            @Override
+            public void update() {
+                isDone = true;
+                handleNextCard();
+            }
+
+        });
+    }
 }

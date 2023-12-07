@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -15,18 +16,22 @@ import com.megacrit.cardcrawl.cards.red.Bash;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.beyond.SpireHeart;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeDur;
 import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeIntensity;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
+import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
+import dragonknight.ui.BrandQueue;
 
 import static dragonknight.DragonKnightMod.makeID;
 import static dragonknight.DragonKnightMod.characterPath;
@@ -39,6 +44,7 @@ public class DragonPrince extends CustomPlayer {
     // }
 
     // private Form form = Form.HUMAN;
+    private BrandQueue brandQueue;
 
     public DragonPrince() {
         super(NAMES[0], Enums.DRAGON_PRINCE, new CustomEnergyOrb(null, null, null), new AbstractAnimation() { // this.
@@ -62,6 +68,7 @@ public class DragonPrince extends CustomPlayer {
         this.stateData.setMix("Hit", "Idle", 0.1F);
         e.setTimeScale(0.6F);
         // com.megacrit.cardcrawl.characters.Ironclad
+        brandQueue = new BrandQueue(this);
     }
 
     // Stats
@@ -211,4 +218,15 @@ public class DragonPrince extends CustomPlayer {
         return new DragonPrince();
     }
 
+    // private AbstractCard cardTest = new BattleRage();
+
+    @Override
+    public void render(SpriteBatch sb) {
+        super.render(sb);
+
+        if ((AbstractDungeon.getCurrRoom().phase == RoomPhase.COMBAT
+                || AbstractDungeon.getCurrRoom() instanceof MonsterRoom) && !this.isDead) {
+            brandQueue.render(sb);
+        }
+    }
 }
