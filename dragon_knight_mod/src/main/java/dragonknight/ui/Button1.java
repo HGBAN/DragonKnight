@@ -6,10 +6,13 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.ui.buttons.Button;
 
 public class Button1 extends Button {
     public String buttonText = "";
+    public String tipHeader = "";
+    public String tipText = "";
     public static final Texture BUTTON_TEXTURE = new Texture(imagePath("buttonL.png"));
 
     public Button1(float x, float y) {
@@ -23,5 +26,8 @@ public class Button1 extends Button {
 
         FontHelper.renderFontCentered(sb, FontHelper.buttonLabelFont, buttonText, x + width / 2, y + height / 2,
                 Color.WHITE.cpy());
+        if (hb.hovered) {
+            TipHelper.renderGenericTip(this.x, this.y, tipHeader, tipText);
+        }
     }
 }
