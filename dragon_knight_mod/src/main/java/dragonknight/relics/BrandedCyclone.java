@@ -5,6 +5,8 @@ import static dragonknight.DragonKnightMod.makeID;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+
+import dragonknight.DragonKnightMod;
 import dragonknight.character.DragonPrince;
 
 public class BrandedCyclone extends BaseRelic {
@@ -25,10 +27,12 @@ public class BrandedCyclone extends BaseRelic {
     @Override
     public void onUseCard(AbstractCard targetCard, UseCardAction useCardAction) {
         if (!isUsed) {
-            addToBot(new DrawCardAction(1));
-            this.flash();
-            this.grayscale = true;
-            this.isUsed = true;
+            if (targetCard.hasTag(DragonKnightMod.Enums.BRAND) || targetCard.hasTag(DragonKnightMod.Enums.BRAND2)) {
+                addToBot(new DrawCardAction(1));
+                this.flash();
+                this.grayscale = true;
+                this.isUsed = true;
+            }
         }
     }
 

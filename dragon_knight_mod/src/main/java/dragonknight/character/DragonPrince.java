@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
-import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
@@ -56,17 +55,18 @@ public class DragonPrince extends CustomPlayer {
         // ArrayList<String> relics = new ArrayList<>();
 
         // ArrayList<String> deck = new ArrayList<>();
-        initializeClass(null,
+        initializeClass(characterPath("dragonprince/protrait.png"),
                 SHOULDER_2,
                 SHOULDER_1,
                 CORPSE, getLoadout(),
                 -4.0F, -16.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        this.loadAnimation(characterPath("dragonprince/skeleton.atlas"),
-                characterPath("dragonprince/skeleton.json"), 1.0F);
-        AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
-        this.stateData.setMix("Hit", "Idle", 0.1F);
-        e.setTimeScale(0.6F);
+        
+        // this.loadAnimation(characterPath("dragonprince/skeleton.atlas"),
+        //         characterPath("dragonprince/skeleton.json"), 1.0F);
+        // AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
+        // this.stateData.setMix("Hit", "Idle", 0.1F);
+        // e.setTimeScale(0.6F);
         // com.megacrit.cardcrawl.characters.Ironclad
         brandQueue = new BrandQueue(this);
     }
