@@ -396,7 +396,7 @@ public class DragonKnightMod implements
                         }
                     }
                     AbstractDungeon.actionManager
-                            .addToBottom(new SelectCardsAction(group, "", cards -> {
+                            .addToBottom(new SelectCardsAction(group, "选择一张牌消耗", cards -> {
                                 for (AbstractCard brandCard : cards) {
                                     brandCard(brandCard);
                                 }
