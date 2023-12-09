@@ -179,25 +179,25 @@ public class DragonPrince extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        // retVal.add(makeID("Strike_DK"));
-        // retVal.add(makeID("Strike_DK"));
-        // retVal.add(makeID("Strike_DK"));
-        // retVal.add(makeID("Strike_DK"));
-        // retVal.add(makeID("Defend_DK"));
-        // retVal.add(makeID("Defend_DK"));
-        // retVal.add(makeID("Defend_DK"));
-        // retVal.add(makeID("Defend_DK"));
-        // retVal.add(makeID("BeDragon"));
-        // retVal.add(makeID("BattleRage"));
+        retVal.add(makeID("Strike_DK"));
+        retVal.add(makeID("Strike_DK"));
+        retVal.add(makeID("Strike_DK"));
+        retVal.add(makeID("Strike_DK"));
+        retVal.add(makeID("Defend_DK"));
+        retVal.add(makeID("Defend_DK"));
+        retVal.add(makeID("Defend_DK"));
+        retVal.add(makeID("Defend_DK"));
+        retVal.add(makeID("BeDragon"));
+        retVal.add(makeID("BattleRage"));
 
-        retVal.add(makeID("Judgement"));
-        retVal.add(makeID("Judgement"));
-        retVal.add(makeID("RebornScale"));
-        retVal.add(makeID("RebornScale"));
+        // retVal.add(makeID("Judgement"));,
+        // retVal.add(makeID("Judgement"));
+        // retVal.add(makeID("RebornScale"));
+        // retVal.add(makeID("RebornScale"));
         // retVal.add(makeID("CrimsonBrand"));
         // retVal.add(makeID("CrimsonBrand"));
         // retVal.add(makeID("BrandAwaken"));
-        retVal.add(makeID("BeDragon"));
+        // retVal.add(makeID("BeDragon"));
         return retVal;
     }
 

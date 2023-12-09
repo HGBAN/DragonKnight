@@ -41,6 +41,7 @@ public class AshBrand extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ApplyPowerAction(p, p, new AshBrandPower(p)));
+        if (!p.hasPower(ID))
+            this.addToBot(new ApplyPowerAction(p, p, new AshBrandPower(p)));
     }
 }

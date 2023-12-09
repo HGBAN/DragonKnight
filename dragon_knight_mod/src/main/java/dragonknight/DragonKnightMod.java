@@ -35,6 +35,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -382,7 +383,7 @@ public class DragonKnightMod implements
         if (!player.drawPile.isEmpty()) {
             if (card.hasTag(Enums.BRAND)) {
                 if (!player.drawPile.isEmpty()) {
-                    AbstractCard brandCard = getRandomCardThatCanBrand();
+                    AbstractCard brandCard = getRandomCardThatCanBrand(player.drawPile);
                     if (brandCard != null)
                         brandCard(brandCard);
                 }
@@ -402,7 +403,7 @@ public class DragonKnightMod implements
                                 }
                             }));
                 } else {
-                    AbstractCard brandCard = getRandomCardThatCanBrand();
+                    AbstractCard brandCard = getRandomCardThatCanBrand(player.drawPile);
                     if (brandCard != null)
                         brandCard(brandCard);
                 }
@@ -431,8 +432,9 @@ public class DragonKnightMod implements
         }
         AbstractDungeon.actionManager
                 .addToBottom(new ExhaustSpecificCardAction(brandCard, player.drawPile));
-        AbstractDungeon.actionManager
-                .addToBottom(new ApplyPowerAction(player, player, new Brand(player)));
+        if (!player.hasPower(makeID("Brand")))
+            AbstractDungeon.actionManager
+                    .addToBottom(new ApplyPowerAction(player, player, new Brand(player)));
     }
 
     @Override
@@ -522,11 +524,10 @@ public class DragonKnightMod implements
         return newCard;
     }
 
-    public static AbstractCard getRandomCardThatCanBrand() {
-        List<AbstractCard> cards = AbstractDungeon.player.drawPile.group.stream()
-                .filter(c -> !c.hasTag(Enums.ANTI_BRAND))
+    public static AbstractCard getRandomCardThatCanBrand(CardGroup group) {
+        List<AbstractCard> cards = group.group.stream()
+                .filter(c -> !c.hasTag(Enums.ANTI_BRAND) && c.canUse(null, null))
                 .collect(Collectors.toList());
-
         if (cards.size() > 0)
             return cards.get(AbstractDungeon.cardRng.random(cards.size() - 1));
         else

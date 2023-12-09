@@ -54,7 +54,7 @@ public class SwordBrand extends BrandCopyCard {
             public void update() {
                 List<AbstractCard> cards = p.hand.group.stream()
                         .filter(card -> !card.hasTag(DragonKnightMod.Enums.BRAND)
-                                && !card.hasTag(DragonKnightMod.Enums.BRAND2))
+                                && !card.hasTag(DragonKnightMod.Enums.BRAND2) && card.canUse(null, null))
                         .collect(Collectors.toList());
                 // cards.remove(SwordBrand.this);
 
@@ -69,7 +69,7 @@ public class SwordBrand extends BrandCopyCard {
                     randomCard.tags.add(DragonKnightMod.Enums.TEMP_BRAND);
                     DragonKnightMod.tempBrandCards.add(randomCard);
                     // randomCard.rawDescription += " NL dragonknight:"
-                    //         + DragonKnightMod.keywords.get("TempBrand").PROPER_NAME;
+                    // + DragonKnightMod.keywords.get("TempBrand").PROPER_NAME;
                     randomCard.initializeDescription();
                 }
 

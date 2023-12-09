@@ -56,7 +56,8 @@ public class BlackDragon extends BeDragonPower {
                 List<AbstractCard> cards = player.hand.group.stream()
                         .filter(card -> !card.hasTag(DragonKnightMod.Enums.BRAND)
                                 && !card.hasTag(DragonKnightMod.Enums.BRAND2)
-                                && !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND))
+                                && !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND)
+                                && card.canUse(null, null))
                         .collect(Collectors.toList());
                 if (cards.size() > 0) {
                     int index = AbstractDungeon.cardRng.random(cards.size() - 1);

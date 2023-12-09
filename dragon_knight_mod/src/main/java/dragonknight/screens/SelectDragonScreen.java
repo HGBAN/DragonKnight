@@ -1,8 +1,12 @@
 package dragonknight.screens;
 
+import static dragonknight.DragonKnightMod.makeID;
+
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -79,14 +83,23 @@ public class SelectDragonScreen extends CustomScreen {
     public void update() {
         blackDragon.update();
         if (blackDragon.pressed) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new BlackDragon(player), 0));
+            if (!player.hasPower(makeID("BlackDragon")))
+                AbstractDungeon.actionManager
+                        .addToBottom(new ApplyPowerAction(player, player, new BlackDragon(player), 0));
+            else
+                AbstractDungeon.actionManager
+                        .addToBottom(new GainEnergyAction(1));
 
             AbstractDungeon.closeCurrentScreen();
             blackDragon.pressed = false;
         }
         whiteDragon.update();
         if (whiteDragon.pressed) {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new WhiteDragon(player), 0));
+            if (!player.hasPower(makeID("WhiteDragon")))
+                AbstractDungeon.actionManager
+                        .addToBottom(new ApplyPowerAction(player, player, new WhiteDragon(player), 0));
+            else
+                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
 
             AbstractDungeon.closeCurrentScreen();
             whiteDragon.pressed = false;

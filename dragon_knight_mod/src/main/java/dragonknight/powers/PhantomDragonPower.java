@@ -22,4 +22,9 @@ public class PhantomDragonPower extends BasePower {
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
     }
+
+    @Override
+    public void atStartOfTurn() {
+        this.isUsed = false;
+    }
 }

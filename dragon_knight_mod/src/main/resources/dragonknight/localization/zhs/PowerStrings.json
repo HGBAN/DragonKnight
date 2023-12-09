@@ -8,72 +8,72 @@
   "${modID}:BlackDragon": {
     "NAME": "黑龙形态",
     "DESCRIPTIONS": [
-      "化身黑龙，获得10点护甲，并随机使一张手牌获得消耗和烙印。"
+      "化身黑龙，获得 #b10 点护甲，并随机使一张手牌获得 #y消耗 和 #y烙印 。"
     ]
   },
   "${modID}:WhiteDragon": {
     "NAME": "白龙形态",
     "DESCRIPTIONS": [
-      "化身白龙，复制一张手牌并使其获得烙印。"
+      "化身 #y白龙 ，复制一张手牌并使其获得 #y烙印 。"
     ]
   },
   "${modID}:Brand": {
     "NAME": "烙印",
     "DESCRIPTIONS": [
-      "随机消耗抽牌堆的一张牌，并在回合结束时打出。",
+      "随机 #y消耗 抽牌堆的一张牌，并在回合结束时打出。",
       "下面的牌将在回合结束时打出："
     ]
   },
   "${modID}:AbyssFormPower": {
     "NAME": "深渊形态",
     "DESCRIPTIONS": [
-      "每回合第一次使用烙印牌将触发一次化龙。"
+      "每回合第一次使用 #y烙印 牌将触发一次 #y化龙 。"
     ]
   },
   "${modID}:WhiteRealmPower": {
     "NAME": "白界之力",
     "DESCRIPTIONS": [
-      "本回合结束时被烙印消耗的牌多触发一次。"
+      "本回合结束时被 #y烙印 #y消耗 的牌多触发一次。"
     ]
   },
   "${modID}:BrandProtectorPower": {
     "NAME": "烙印护体",
     "DESCRIPTIONS": [
-      "回合结束时，本回合每有一张牌因为烙印被消耗则获得",
-      "点护甲。"
+      "回合结束时，本回合每有一张牌因为 #y烙印 被 #y消耗 则获得 #b",
+      " 点护甲。"
     ]
   },
   "${modID}:WhiteBrandPower": {
     "NAME": "白色烙印",
     "DESCRIPTIONS": [
-      "每次化身白龙时，获得",
-      "点力量。"
+      "每次化身 #y白龙 时，获得 #b",
+      " 点 #y力量 。"
     ]
   },
   "${modID}:BlackBrandPower": {
     "NAME": "黑色烙印",
     "DESCRIPTIONS": [
-      "每次化身黑龙时，获得",
-      "点多层护甲。"
+      "每次化身 #y黑龙 时，获得 #b",
+      " 点 #y多层护甲 。"
     ]
   },
   "${modID}:NextCardFreePower": {
     "NAME": "幻象",
     "DESCRIPTIONS": [
-      "你打出的下",
-      "张牌将消耗0点能量。"
+      "你打出的下 #b",
+      " 张牌将消耗 #b0 点 #y能量 。"
     ]
   },
   "${modID}:PhantomDragonPower": {
     "NAME": "幻象之龙",
     "DESCRIPTIONS": [
-      "本局战斗中，化身成龙后使用的第一张牌费用为0。"
+      "本局战斗中，化身成龙后使用的第一张牌消耗 #b0 点 #y能量 。"
     ]
   },
   "${modID}:AshBrandPower": {
     "NAME": "灰烬烙印",
     "DESCRIPTIONS": [
-      "每回合开始时，随机将上一回合的一张因烙印消耗的牌的具有消耗和虚无的复制加入手牌。"
+      "每回合开始时，随机将上一回合的一张因 #y烙印 #y消耗 的牌的具有 #y消耗 和 #y虚无 的复制加入手牌。"
     ]
   }
 }

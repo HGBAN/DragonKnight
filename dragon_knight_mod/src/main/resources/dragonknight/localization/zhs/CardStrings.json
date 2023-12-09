@@ -27,12 +27,12 @@
   },
   "${modID}:BrandAwaken": {
     "NAME": "烙印唤醒",
-    "DESCRIPTION": "触发烙印。",
-    "UPGRADE_DESCRIPTION": "触发烙印。 NL 获得 [E] 。"
+    "DESCRIPTION": "触发 dragonknight:烙印 。",
+    "UPGRADE_DESCRIPTION": "触发 dragonknight:烙印 。 NL 获得 [E] 。"
   },
   "${modID}:AbyssForm": {
     "NAME": "深渊形态",
-    "DESCRIPTION": "每回合第一次使用烙印牌将触发一次化龙。"
+    "DESCRIPTION": "每回合第一次使用 dragonknight:烙印 牌将触发一次化龙。"
   },
   "${modID}:DragonScale": {
     "NAME": "龙鳞",
@@ -44,15 +44,15 @@
   },
   "${modID}:WhiteRealm": {
     "NAME": "白界之力",
-    "DESCRIPTION": "本回合结束时被烙印消耗的牌多触发一次。 NL 消耗"
+    "DESCRIPTION": "本回合结束时被 dragonknight:烙印 消耗的牌多触发一次。 NL 消耗"
   },
   "${modID}:FuriousFlames": {
     "NAME": "暴怒烈焰",
-    "DESCRIPTION": "造成20点伤害。 NL 本次战斗每触发一次烙印，增加3点伤害。 NL （造成!D!点伤害）"
+    "DESCRIPTION": "造成20点伤害。 NL 本次战斗每触发一次 dragonknight:烙印 ，增加3点伤害。 NL （造成!D!点伤害）"
   },
   "${modID}:BrandProtector": {
     "NAME": "烙印护体",
-    "DESCRIPTION": "回合结束时，本回合每有一张牌因为烙印被消耗则获得!M!点护甲。"
+    "DESCRIPTION": "回合结束时，本回合每有一张牌因为 dragonknight:烙印 被消耗则获得!M!点护甲。"
   },
   "${modID}:WhiteBrand": {
     "NAME": "白色烙印",
@@ -77,7 +77,7 @@
   },
   "${modID}:Banish": {
     "NAME": "追放",
-    "DESCRIPTION": "如果处于化龙状态，则将烙印改为可以选择一张抽牌堆里的卡牌。"
+    "DESCRIPTION": "如果处于化龙状态，则将 dragonknight:烙印 改为可以选择一张抽牌堆里的卡牌。"
   },
   "${modID}:Convict": {
     "NAME": "断罪",
@@ -93,11 +93,11 @@
   },
   "${modID}:FusionBrand": {
     "NAME": "融合烙印",
-    "DESCRIPTION": "在上回合消耗烙印牌后，获得相应数量的 [E] 并抽取同样数量的牌。 NL 被烙印 消耗 后，将另一张融合烙印加入弃牌堆中。"
+    "DESCRIPTION": "在上回合消耗 dragonknight:烙印 牌后，获得相应数量的 [E] 并抽取同样数量的牌。 NL 被 dragonknight:烙印 消耗 后，将另一张融合烙印加入弃牌堆中。"
   },
   "${modID}:MourningBrand": {
     "NAME": "悲恸烙印",
-    "DESCRIPTION": "造成!D!点伤害。 NL 如果上个回合结束时有牌被烙印消耗，就从抽牌堆抽!M!张牌。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果上个回合结束时有牌被 dragonknight:烙印 消耗，就从抽牌堆抽!M!张牌。"
   },
   "${modID}:Trample": {
     "NAME": "践踏",
@@ -105,12 +105,12 @@
   },
   "${modID}:CrimsonBrand": {
     "NAME": "赤红烙印",
-    "DESCRIPTION": "随机抽取一张烙印牌。如果抽牌堆不足10张牌，就再抽2张牌；如果不足5张，获得 [E] [E] 。被烙印 消耗 后，将另一张赤红烙印加入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "随机抽取一张烙印牌。如果抽牌堆不足10张牌，就再抽2张牌；如果不足5张，获得 [E] [E] [E] 。被烙印 消耗 后，将另一张赤红烙印加入弃牌堆。"
+    "DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果抽牌堆不足10张牌，就再抽2张牌；如果不足5张，获得 [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张赤红烙印加入弃牌堆。",
+    "UPGRADE_DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果抽牌堆不足10张牌，就再抽2张牌；如果不足5张，获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张赤红烙印加入弃牌堆。"
   },
   "${modID}:SwordBrand": {
     "NAME": "剑之烙印",
-    "DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被烙印消耗，将另一张剑之烙印加入弃牌堆。"
+    "DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被 dragonknight:烙印 消耗，将另一张剑之烙印加入弃牌堆。"
   },
   "${modID}:ColdAirflow": {
     "NAME": "极寒气流",
@@ -118,7 +118,7 @@
   },
   "${modID}:SeparateBrand": {
     "NAME": "分离烙印",
-    "DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因烙印消耗的牌超过4张，再造成!M!次伤害。被烙印 消耗 后，将另一张分离烙印加入弃牌堆。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因 dragonknight:烙印 消耗的牌超过4张，再造成!M!次伤害。被 dragonknight:烙印 消耗 后，将另一张分离烙印加入弃牌堆。"
   },
   "${modID}:Bite": {
     "NAME": "撕咬",
@@ -126,7 +126,7 @@
   },
   "${modID}:AshBrand": {
     "NAME": "灰烬烙印",
-    "DESCRIPTION": "每回合开始时，随机将上一回合的一张因烙印消耗的牌的具有消耗和虚无的复制加入手牌。",
-    "UPGRADE_DESCRIPTION": "每回合开始时，随机将上一回合的一张因烙印消耗的牌的具有消耗和虚无的复制加入手牌。 NL 固有"
+    "DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗的牌的具有消耗和虚无的复制加入手牌。",
+    "UPGRADE_DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗的牌的具有消耗和虚无的复制加入手牌。 NL 固有"
   }
 }

@@ -54,7 +54,8 @@ public class WhiteDragon extends BeDragonPower {
             done = true;
             return;
         }
-        addToBot(new SelectCardsInHandAction(1, "复制", (card) -> !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND),
+        addToBot(new SelectCardsInHandAction(1, "复制",
+                (card) -> !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND) && card.canUse(null, null),
                 (cards) -> {
                     for (AbstractCard card : cards) {
                         AbstractCard newCard = card.makeSameInstanceOf();

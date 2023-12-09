@@ -26,7 +26,7 @@
     "NAMES": [
       "烙印"
     ],
-    "DESCRIPTION": "打出时，随机消耗抽牌堆中的一张牌，并在回合结束时将其打出。"
+    "DESCRIPTION": "打出时，随机 #y消耗 抽牌堆中的一张牌，并在回合结束时将其打出。"
   },
   {
     "ID": "BeDragon",
@@ -34,7 +34,7 @@
     "NAMES": [
       "化龙"
     ],
-    "DESCRIPTION": "选择一种形态进行变换。"
+    "DESCRIPTION": "选择进入 #y黑龙形态 或 #y白龙形态 。"
   },
   {
     "ID": "TempBrand",
@@ -42,7 +42,7 @@
     "NAMES": [
       "临时烙印"
     ],
-    "DESCRIPTION": "仅限本回合。打出时，随机消耗抽牌堆中的一张牌，并在回合结束时将其打出。"
+    "DESCRIPTION": "仅限本回合。打出时，随机 消耗 抽牌堆中的一张牌，并在回合结束时将其打出。"
   },
   {
     "ID": "AntiBrand",
@@ -50,6 +50,22 @@
     "NAMES": [
       "反烙印"
     ],
-    "DESCRIPTION": "不会因为烙印被消耗，也不会被刻上烙印。"
+    "DESCRIPTION": "不会因为 #y烙印 被 消耗 ，也不会被刻上 #y烙印 。"
+  },
+  {
+    "ID": "BlackDragon",
+    "PROPER_NAME": "黑龙形态",
+    "NAMES": [
+      "黑龙形态"
+    ],
+    "DESCRIPTION": "化身黑龙，获得10点护甲，并随机使一张手牌获得 #y消耗 和 #y烙印 。"
+  },
+  {
+    "ID": "WhiteDragon",
+    "PROPER_NAME": "白龙形态",
+    "NAMES": [
+      "白龙形态"
+    ],
+    "DESCRIPTION": "化身白龙，复制一张手牌并使其获得 #y烙印 。"
   }
 ]

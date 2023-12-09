@@ -39,6 +39,7 @@ public class AbyssForm extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new AbyssFormPower(p)));
+        if (!p.hasPower(ID))
+            addToBot(new ApplyPowerAction(p, p, new AbyssFormPower(p)));
     }
 }
