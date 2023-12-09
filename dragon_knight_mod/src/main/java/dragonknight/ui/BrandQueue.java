@@ -75,7 +75,7 @@ public class BrandQueue {
 
     public void render(SpriteBatch sb) {
         if (brandCards.size() > 0) {
-            FontHelper.topPanelInfoFont.draw(sb, "烙印：", x - 80, y);
+            FontHelper.charDescFont.draw(sb, "烙印：", x - 80, y);
         }
 
         ArrayList<AbstractCard> renderCards = new ArrayList<>();

@@ -61,9 +61,8 @@ public class DragonPrince extends CustomPlayer {
                 CORPSE, getLoadout(),
                 -4.0F, -16.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        
         // this.loadAnimation(characterPath("dragonprince/skeleton.atlas"),
-        //         characterPath("dragonprince/skeleton.json"), 1.0F);
+        // characterPath("dragonprince/skeleton.json"), 1.0F);
         // AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
         // this.stateData.setMix("Hit", "Idle", 0.1F);
         // e.setTimeScale(0.6F);
@@ -180,18 +179,25 @@ public class DragonPrince extends CustomPlayer {
     @Override
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(makeID("Strike_DK"));
-        retVal.add(makeID("Strike_DK"));
-        retVal.add(makeID("Strike_DK"));
-        retVal.add(makeID("Strike_DK"));
-        retVal.add(makeID("Strike_DK"));
-        retVal.add(makeID("Defend_DK"));
-        retVal.add(makeID("Defend_DK"));
-        retVal.add(makeID("Defend_DK"));
-        retVal.add(makeID("Defend_DK"));
+        // retVal.add(makeID("Strike_DK"));
+        // retVal.add(makeID("Strike_DK"));
+        // retVal.add(makeID("Strike_DK"));
+        // retVal.add(makeID("Strike_DK"));
+        // retVal.add(makeID("Defend_DK"));
+        // retVal.add(makeID("Defend_DK"));
+        // retVal.add(makeID("Defend_DK"));
+        // retVal.add(makeID("Defend_DK"));
+        // retVal.add(makeID("BeDragon"));
+        // retVal.add(makeID("BattleRage"));
+
+        retVal.add(makeID("Judgement"));
+        retVal.add(makeID("Judgement"));
+        retVal.add(makeID("RebornScale"));
+        retVal.add(makeID("RebornScale"));
+        // retVal.add(makeID("CrimsonBrand"));
+        // retVal.add(makeID("CrimsonBrand"));
+        // retVal.add(makeID("BrandAwaken"));
         retVal.add(makeID("BeDragon"));
-        retVal.add(makeID("BattleRage"));
-        retVal.add(makeID("BrandAwaken"));
         return retVal;
     }
 

@@ -306,7 +306,7 @@ public class DragonKnightMod implements
         BaseMod.addPower(AshBrandPower.class, AshBrandPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
-        BaseMod.addPotion(BeDragonPotion.class, Color.GRAY, Color.BLUE, Color.GOLD, BeDragonPotion.ID);
+        BaseMod.addPotion(BeDragonPotion.class, Color.GRAY, Color.BLUE, Color.WHITE, BeDragonPotion.ID);
         new AutoAdd(modID)
                 .packageFilter("dragonknight.cards")
                 .setDefaultSeen(true)

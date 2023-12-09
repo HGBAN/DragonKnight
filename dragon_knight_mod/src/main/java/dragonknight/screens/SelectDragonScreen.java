@@ -63,7 +63,7 @@ public class SelectDragonScreen extends CustomScreen {
     public void render(SpriteBatch sb) {
         blackDragon.render(sb);
         whiteDragon.render(sb);
-        FontHelper.topPanelInfoFont.draw(sb,
+        FontHelper.charDescFont.draw(sb,
                 "一回合中进入一种形态后就不能再进入另一种形态。形态会在下一回合开始时结束。已经有烙印的牌不能被复制。如果化龙黑龙失败，则加一费；如果化龙白龙失败，则抽一张牌。",
                 Settings.WIDTH / 2 - 300, Settings.HEIGHT / 2 - 200, 600, 0, true);
     }
