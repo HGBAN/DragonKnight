@@ -6,6 +6,7 @@ import static dragonknight.DragonKnightMod.makeID;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -39,6 +40,8 @@ public class SeparateBrand extends BrandCopyCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeDamage(8);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -56,14 +59,17 @@ public class SeparateBrand extends BrandCopyCard {
 
     @Override
     public void brandExhaust() {
-        addToBot(new MakeTempCardInDrawPileAction(this.makeCopy(), 1, true, true));
+        AbstractCard newCard = this.makeCopy();
+        if (this.upgraded)
+            newCard.upgrade();
+        addToBot(new MakeTempCardInDrawPileAction(newCard, 1, true, true));
     }
 
     @Override
     public void triggerWhenDrawn() {
         if (DragonKnightMod.brandCountLastTurn > 4) {
             this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
-        }else{
+        } else {
             this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
         }
     }

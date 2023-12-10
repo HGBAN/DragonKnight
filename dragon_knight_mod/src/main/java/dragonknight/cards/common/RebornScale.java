@@ -5,6 +5,7 @@ import static dragonknight.DragonKnightMod.makeID;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -24,7 +25,8 @@ public class RebornScale extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public RebornScale() {
-        super(ID, NAME, imagePath("cards/skill/RebornScale.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/RebornScale.png"), COST, DESCRIPTION, TYPE,
+                DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseBlock = 8;
@@ -35,6 +37,8 @@ public class RebornScale extends CustomCard {
         if (!upgraded) {
             this.upgradeName();
             this.upgradeBlock(4);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -45,7 +49,10 @@ public class RebornScale extends CustomCard {
 
     @Override
     public void triggerOnExhaust() {
-        addToBot(new MakeTempCardInDrawPileAction(this.makeCopy(), 1, true, true));
+        AbstractCard newCard = this.makeCopy();
+        if (this.upgraded)
+            newCard.upgrade();
+        addToBot(new MakeTempCardInDrawPileAction(newCard, 1, true, true));
     }
 
 }

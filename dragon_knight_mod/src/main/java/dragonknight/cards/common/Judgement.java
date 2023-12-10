@@ -6,6 +6,7 @@ import static dragonknight.DragonKnightMod.makeID;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -37,6 +38,8 @@ public class Judgement extends CustomCard {
         if (!upgraded) {
             this.upgradeName();
             this.upgradeDamage(4);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -48,7 +51,10 @@ public class Judgement extends CustomCard {
 
     @Override
     public void triggerOnExhaust() {
-        addToBot(new MakeTempCardInDrawPileAction(this.makeCopy(), 1, true, true));
+        AbstractCard newCard = this.makeCopy();
+        if (this.upgraded)
+            newCard.upgrade();
+        addToBot(new MakeTempCardInDrawPileAction(newCard, 1, true, true));
     }
 
 }

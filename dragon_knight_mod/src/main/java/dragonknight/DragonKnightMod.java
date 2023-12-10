@@ -37,6 +37,7 @@ import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -307,7 +308,7 @@ public class DragonKnightMod implements
         BaseMod.addPower(AshBrandPower.class, AshBrandPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
-        BaseMod.addPotion(BeDragonPotion.class, Color.GRAY, Color.BLUE, Color.WHITE, BeDragonPotion.ID);
+        BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
         new AutoAdd(modID)
                 .packageFilter("dragonknight.cards")
                 .setDefaultSeen(true)
@@ -485,6 +486,8 @@ public class DragonKnightMod implements
         brandCardsLastTurn.clear();
         blockGainedThisTurn = 0;
         tempBrandCards.clear();
+        brandCards.clear();
+        onClearBrandCards();
     }
 
     @Override
@@ -524,9 +527,13 @@ public class DragonKnightMod implements
         return newCard;
     }
 
+    public static boolean canUseCard(AbstractCard card) {
+        return card.type != CardType.STATUS && card.type != CardType.CURSE && card.cost >= 0;
+    }
+
     public static AbstractCard getRandomCardThatCanBrand(CardGroup group) {
         List<AbstractCard> cards = group.group.stream()
-                .filter(c -> !c.hasTag(Enums.ANTI_BRAND) && c.canUse(null, null))
+                .filter(c -> !c.hasTag(Enums.ANTI_BRAND) && canUseCard(c))
                 .collect(Collectors.toList());
         if (cards.size() > 0)
             return cards.get(AbstractDungeon.cardRng.random(cards.size() - 1));

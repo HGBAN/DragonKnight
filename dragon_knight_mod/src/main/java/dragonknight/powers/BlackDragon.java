@@ -1,6 +1,7 @@
 package dragonknight.powers;
 
 import static dragonknight.DragonKnightMod.addBrandToCard;
+import static dragonknight.DragonKnightMod.canUseCard;
 import static dragonknight.DragonKnightMod.makeID;
 
 import java.util.List;
@@ -57,7 +58,7 @@ public class BlackDragon extends BeDragonPower {
                         .filter(card -> !card.hasTag(DragonKnightMod.Enums.BRAND)
                                 && !card.hasTag(DragonKnightMod.Enums.BRAND2)
                                 && !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND)
-                                && card.canUse(null, null))
+                                && canUseCard(card))
                         .collect(Collectors.toList());
                 if (cards.size() > 0) {
                     int index = AbstractDungeon.cardRng.random(cards.size() - 1);

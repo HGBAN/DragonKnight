@@ -1,5 +1,6 @@
 package dragonknight.cards.uncommon;
 
+import static dragonknight.DragonKnightMod.canUseCard;
 import static dragonknight.DragonKnightMod.imagePath;
 import static dragonknight.DragonKnightMod.makeID;
 
@@ -43,6 +44,8 @@ public class SwordBrand extends BrandCopyCard {
         if (!upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -54,7 +57,7 @@ public class SwordBrand extends BrandCopyCard {
             public void update() {
                 List<AbstractCard> cards = p.hand.group.stream()
                         .filter(card -> !card.hasTag(DragonKnightMod.Enums.BRAND)
-                                && !card.hasTag(DragonKnightMod.Enums.BRAND2) && card.canUse(null, null))
+                                && !card.hasTag(DragonKnightMod.Enums.BRAND2) && canUseCard(card))
                         .collect(Collectors.toList());
                 // cards.remove(SwordBrand.this);
 
@@ -81,6 +84,9 @@ public class SwordBrand extends BrandCopyCard {
 
     @Override
     public void brandExhaust() {
-        addToBot(new MakeTempCardInDiscardAction(this.makeCopy(), 1));
+        AbstractCard newCard = this.makeCopy();
+        if (this.upgraded)
+            newCard.upgrade();
+        addToBot(new MakeTempCardInDiscardAction(newCard, 1));
     }
 }

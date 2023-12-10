@@ -6,6 +6,7 @@ import static dragonknight.DragonKnightMod.makeID;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -26,7 +27,8 @@ public class CrimsonBrand extends BrandCopyCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public CrimsonBrand() {
-        super(ID, NAME, imagePath("cards/skill/CrimsonBrand.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/CrimsonBrand.png"), COST, DESCRIPTION, TYPE,
+                DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseMagicNumber = 2;
@@ -55,6 +57,9 @@ public class CrimsonBrand extends BrandCopyCard {
 
     @Override
     public void brandExhaust() {
-        this.addToBot(new MakeTempCardInDiscardAction(this.makeCopy(), 1));
+        AbstractCard newCard = this.makeCopy();
+        if (this.upgraded)
+            newCard.upgrade();
+        this.addToBot(new MakeTempCardInDiscardAction(newCard, 1));
     }
 }

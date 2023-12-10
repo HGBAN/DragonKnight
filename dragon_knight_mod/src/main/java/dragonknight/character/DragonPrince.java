@@ -189,6 +189,7 @@ public class DragonPrince extends CustomPlayer {
         retVal.add(makeID("Defend_DK"));
         retVal.add(makeID("BeDragon"));
         retVal.add(makeID("BattleRage"));
+        retVal.add(makeID("Judgement"));
 
         // retVal.add(makeID("Judgement"));,
         // retVal.add(makeID("Judgement"));
