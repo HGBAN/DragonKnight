@@ -47,8 +47,8 @@ public class BrandQueue {
         onAddBrandCardListener = (card) -> {
             AbstractCard cp = copyCard(card);
             cp.drawScale = 0.2f;
-            cp.current_x = x + (HB_W * cp.drawScale + 10) * brandCards.size();
-            cp.current_y = y;
+            cp.target_x = cp.current_x = x + (HB_W * cp.drawScale + 10) * brandCards.size();
+            cp.target_y = cp.current_y = y;
             cp.hb.move(cp.current_x, cp.current_y);
             cp.hb.resize(HB_W * cp.drawScale, HB_H * cp.drawScale);
             if (card.hasTag(DragonKnightMod.Enums.NO_BRAND)) {
@@ -73,22 +73,27 @@ public class BrandQueue {
         DragonKnightMod.onClearBrandCards.add(new WeakReference<Runnable>(onClearBrandCardsListener));
     }
 
+    private ArrayList<AbstractCard> renderCards = new ArrayList<>();
+
     public void render(SpriteBatch sb) {
         if (brandCards.size() > 0) {
             FontHelper.charDescFont.draw(sb, "烙印：", x - 80, y);
         }
 
-        ArrayList<AbstractCard> renderCards = new ArrayList<>();
+        renderCards.clear();
         boolean hover = false;
         for (int i = 0; i < brandCards.size(); i++) {
             AbstractCard card = brandCards.get(i);
             card.hb.update();
+            card.update();
             if (card.hb.hovered && !hover) {
-                card.drawScale = 0.7f;
+                // card.drawScale = 0.7f;
+                card.targetDrawScale = 0.7f;
                 hover = true;
                 renderCards.add(card);
             } else {
-                card.drawScale = 0.2f;
+                // card.drawScale = 0.2f;
+                card.targetDrawScale = 0.2f;
                 renderCards.add(0, card);
             }
             card.hb.move(card.current_x, card.current_y);
