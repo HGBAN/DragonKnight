@@ -1,5 +1,7 @@
 package dragonknight.character;
 
+import static dragonknight.DragonKnightMod.*;
+
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.Color;
@@ -31,9 +33,6 @@ import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
 import dragonknight.ui.BrandQueue;
-
-import static dragonknight.DragonKnightMod.makeID;
-import static dragonknight.DragonKnightMod.characterPath;
 
 public class DragonPrince extends CustomPlayer {
     // private static enum Form {
@@ -189,6 +188,7 @@ public class DragonPrince extends CustomPlayer {
         retVal.add(makeID("Defend_DK"));
         retVal.add(makeID("BeDragon"));
         retVal.add(makeID("BattleRage"));
+        retVal.add(makeID("BrandAwaken"));
         retVal.add(makeID("Judgement"));
 
         // retVal.add(makeID("Judgement"));,

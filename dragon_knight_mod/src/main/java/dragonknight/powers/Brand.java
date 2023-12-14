@@ -1,6 +1,6 @@
 package dragonknight.powers;
 
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import java.util.Iterator;
 
@@ -125,6 +125,7 @@ public class Brand extends BasePower {
 
                     AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(true);
                     brandCard.calculateCardDamage(monster);
+                    brandCard.freeToPlayOnce = true;
                     brandCard.use(AbstractDungeon.player, monster);
                     AbstractDungeon.actionManager.addToBottom(new UseCardAction(brandCard, monster) {
                         @Override

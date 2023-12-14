@@ -130,7 +130,30 @@
   },
   "${modID}:AshBrand": {
     "NAME": "灰烬烙印",
-    "DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗的牌的具有消耗和虚无的复制加入手牌。",
+    "DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗 的牌的具有消耗和虚无的复制加入手牌。",
     "UPGRADE_DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗的牌的具有消耗和虚无的复制加入手牌。 NL 固有"
+  },
+  "${modID}:Roar": {
+    "NAME": "咆哮",
+    "DESCRIPTION": "造成3点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张咆哮加入抽牌堆。",
+    "UPGRADE_DESCRIPTION": "造成3点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张咆哮+加入抽牌堆。"
+  },
+  "${modID}:IceDevilBrand": {
+    "NAME": "冰魔烙印",
+    "DESCRIPTION": "对所有敌人造成等同于本回合使用的烙印牌乘以X的伤害。 NL （造成!D!点伤害）",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成等同于本回合使用的烙印牌乘以X+1的伤害。 NL （造成!D!点伤害）"
+  },
+  "${modID}:SurefireBrand": {
+    "NAME": "神炎烙印",
+    "DESCRIPTION": "使所有手牌获得 dragonknight:烙印 ， 虚无 和 消耗 。回合结束时将本回合 消耗 的牌的复制加入抽牌堆。"
+  },
+  "${modID}:Puncture": {
+    "NAME": "穿刺",
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果被 消耗 则摧毁目标的护甲。"
+  },
+  "${modID}:LavaImpact": {
+    "NAME": "熔岩冲击",
+    "DESCRIPTION": "造成已 消耗 牌的数量的伤害X次。",
+    "UPGRADE_DESCRIPTION": "造成已 消耗 牌的数量的伤害X+1次。"
   }
 }

@@ -1,24 +1,22 @@
 package dragonknight;
 
-import basemod.AutoAdd;
-import basemod.BaseMod;
-import basemod.abstracts.CustomSavable;
-import basemod.devcommands.ConsoleCommand;
-import basemod.helpers.RelicType;
-import basemod.interfaces.EditCardsSubscriber;
-import basemod.interfaces.EditCharactersSubscriber;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditRelicsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.OnCardUseSubscriber;
-import basemod.interfaces.OnPlayerTurnStartSubscriber;
-import basemod.interfaces.OnStartBattleSubscriber;
-import basemod.interfaces.PostBattleSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
-import basemod.interfaces.PreMonsterTurnSubscriber;
-import dragonknight.util.GeneralUtils;
-import dragonknight.util.KeywordInfo;
-import dragonknight.util.TextureLoader;
+import java.lang.ref.WeakReference;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.scannotation.AnnotationDB;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -35,27 +33,40 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.CharacterStrings;
+import com.megacrit.cardcrawl.localization.EventStrings;
+import com.megacrit.cardcrawl.localization.OrbStrings;
+import com.megacrit.cardcrawl.localization.PotionStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.scannotation.AnnotationDB;
-
-import java.lang.ref.WeakReference;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
-
+import basemod.AutoAdd;
+import basemod.BaseMod;
+import basemod.abstracts.CustomSavable;
+import basemod.devcommands.ConsoleCommand;
+import basemod.helpers.RelicType;
+import basemod.interfaces.EditCardsSubscriber;
+import basemod.interfaces.EditCharactersSubscriber;
+import basemod.interfaces.EditKeywordsSubscriber;
+import basemod.interfaces.EditRelicsSubscriber;
+import basemod.interfaces.EditStringsSubscriber;
+import basemod.interfaces.OnCardUseSubscriber;
+import basemod.interfaces.OnPlayerTurnStartSubscriber;
+import basemod.interfaces.OnStartBattleSubscriber;
+import basemod.interfaces.PostBattleSubscriber;
+import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.PreMonsterTurnSubscriber;
 import dragonknight.cards.BrandCopyCard;
 import dragonknight.character.DragonPrince;
 import dragonknight.commands.BrandCommand;
@@ -70,11 +81,15 @@ import dragonknight.powers.Brand;
 import dragonknight.powers.BrandProtectorPower;
 import dragonknight.powers.NextCardFreePower;
 import dragonknight.powers.PhantomDragonPower;
+import dragonknight.powers.SurefirePower;
 import dragonknight.powers.WhiteBrandPower;
 import dragonknight.powers.WhiteDragon;
 import dragonknight.powers.WhiteRealmPower;
 import dragonknight.relics.BaseRelic;
 import dragonknight.screens.SelectDragonScreen;
+import dragonknight.util.GeneralUtils;
+import dragonknight.util.KeywordInfo;
+import dragonknight.util.TextureLoader;
 
 @SpireInitializer
 public class DragonKnightMod implements
@@ -306,6 +321,7 @@ public class DragonKnightMod implements
         BaseMod.addPower(PhantomDragonPower.class, PhantomDragonPower.POWER_ID);
         BaseMod.addPower(NextCardFreePower.class, NextCardFreePower.POWER_ID);
         BaseMod.addPower(AshBrandPower.class, AshBrandPower.POWER_ID);
+        BaseMod.addPower(SurefirePower.class, SurefirePower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
@@ -332,6 +348,8 @@ public class DragonKnightMod implements
     public static ArrayList<WeakReference<Consumer<AbstractCard>>> onAddBrandCard = new ArrayList<>();
     public static ArrayList<WeakReference<Runnable>> onRemoveBrandCards = new ArrayList<>();
     public static ArrayList<WeakReference<Runnable>> onClearBrandCards = new ArrayList<>();
+
+    public static ArrayList<AbstractCard> exhaustCardsLastTurn = new ArrayList<>();
 
     public static class Enums {
         // 随机消耗
@@ -467,6 +485,7 @@ public class DragonKnightMod implements
         brandCountLastTurn = 0;
         brandCardsLastTurn.clear();
         blockGainedThisTurn = 0;
+        exhaustCardsLastTurn.clear();
     }
 
     public static void beDragon() {
@@ -488,6 +507,7 @@ public class DragonKnightMod implements
         tempBrandCards.clear();
         brandCards.clear();
         onClearBrandCards();
+        exhaustCardsLastTurn.clear();
     }
 
     @Override
@@ -506,6 +526,8 @@ public class DragonKnightMod implements
             card.initializeDescription();
         }
         tempBrandCards.clear();
+
+        exhaustCardsLastTurn.clear();
 
         DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCards.size();
         DragonKnightMod.brandCardsLastTurn.clear();
@@ -528,7 +550,7 @@ public class DragonKnightMod implements
     }
 
     public static boolean canUseCard(AbstractCard card) {
-        return card.type != CardType.STATUS && card.type != CardType.CURSE && card.cost >= 0;
+        return card.type != CardType.STATUS && card.type != CardType.CURSE && card.cost >= -1;
     }
 
     public static AbstractCard getRandomCardThatCanBrand(CardGroup group) {
