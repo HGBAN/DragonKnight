@@ -1,13 +1,15 @@
 package dragonknight.potions;
 
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.localization.PotionStrings;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 
+import dragonknight.DragonKnightMod;
 import dragonknight.actions.DiscoveryBrandCardsAction;
 
 public class BrandPotion extends AbstractPotion {
@@ -28,6 +30,8 @@ public class BrandPotion extends AbstractPotion {
         // logger.info(description);
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, this.description));
+        this.tips.add(new PowerTip(TipHelper.capitalize(DragonKnightMod.keywords.get("Brand").PROPER_NAME),
+                DragonKnightMod.keywords.get("Brand").DESCRIPTION));
     }
 
     @Override
