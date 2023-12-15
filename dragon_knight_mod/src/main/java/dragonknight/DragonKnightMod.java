@@ -557,7 +557,7 @@ public class DragonKnightMod implements
 
     public static AbstractCard getRandomCardThatCanBrand(CardGroup group) {
         List<AbstractCard> cards = group.group.stream()
-                .filter(c -> !c.hasTag(Enums.ANTI_BRAND) && canUseCard(c))
+                .filter(c -> !c.hasTag(Enums.ANTI_BRAND))
                 .collect(Collectors.toList());
         if (cards.size() > 0)
             return cards.get(AbstractDungeon.cardRng.random(cards.size() - 1));

@@ -4,7 +4,7 @@ import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -44,7 +44,7 @@ public class Roar extends BrandCopyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
-                    AttackEffect.SMASH));
+                AttackEffect.SMASH));
     }
 
     @Override
@@ -52,6 +52,6 @@ public class Roar extends BrandCopyCard {
         AbstractCard newCard = this.makeCopy();
         if (this.upgraded)
             newCard.upgrade();
-        this.addToBot(new MakeTempCardInDiscardAction(newCard, 1));
+        this.addToBot(new MakeTempCardInDrawPileAction(newCard, 1, true, true));
     }
 }
