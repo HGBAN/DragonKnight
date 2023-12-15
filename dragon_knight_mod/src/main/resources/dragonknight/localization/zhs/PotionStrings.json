@@ -12,13 +12,19 @@
   "${modID}:BrandPotion": {
     "NAME": "烙印药水",
     "DESCRIPTIONS": [
-      "从随机3张烙印牌中选一张加入本场战斗，第一次使用消耗0 [E] 。"
+      "从随机 #b3 张 #y烙印 牌中选一张加入本场战斗，第一次使用消耗 #b0 [E] 。"
     ]
   },
   "${modID}:BeDragonPotion": {
     "NAME": "化龙药水",
     "DESCRIPTIONS": [
-      "选择变成一个化龙形态。"
+      "选择变成一个 #y化龙 形态。"
+    ]
+  },
+  "${modID}:IceDevilPotion": {
+    "NAME": "冰魔药水",
+    "DESCRIPTIONS": [
+      "对所有敌人造成本次战斗中已 #y消耗 牌的数量的伤害。"
     ]
   }
 }
