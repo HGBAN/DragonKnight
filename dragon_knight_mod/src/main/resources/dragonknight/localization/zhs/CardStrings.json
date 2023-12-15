@@ -135,8 +135,8 @@
   },
   "${modID}:Roar": {
     "NAME": "咆哮",
-    "DESCRIPTION": "造成3点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张咆哮加入抽牌堆。",
-    "UPGRADE_DESCRIPTION": "造成3点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张咆哮+加入抽牌堆。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张咆哮加入抽牌堆。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张咆哮+加入抽牌堆。"
   },
   "${modID}:IceDevilBrand": {
     "NAME": "冰魔烙印",
