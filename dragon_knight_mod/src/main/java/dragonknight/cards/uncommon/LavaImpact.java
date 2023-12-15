@@ -2,6 +2,7 @@ package dragonknight.cards.uncommon;
 
 import static dragonknight.DragonKnightMod.*;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -49,6 +50,14 @@ public class LavaImpact extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.baseDamage = p.exhaustPile.size();
         this.calculateCardDamage(m);
+        this.addToBot(new AbstractGameAction() {
+            @Override
+            public void update() {
+                if (!LavaImpact.this.freeToPlayOnce)
+                    AbstractDungeon.player.energy.use(EnergyPanel.totalCount);
+                this.isDone = true;
+            }
+        });
         for (int i = 0; i < getEffect(); i++)
             this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                     AttackEffect.FIRE));

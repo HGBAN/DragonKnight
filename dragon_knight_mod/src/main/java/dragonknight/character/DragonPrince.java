@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
-import com.megacrit.cardcrawl.cards.red.Bash;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -32,6 +31,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
 import basemod.animations.AbstractAnimation;
+import dragonknight.cards.BattleRage;
 import dragonknight.ui.BrandQueue;
 
 public class DragonPrince extends CustomPlayer {
@@ -172,7 +172,7 @@ public class DragonPrince extends CustomPlayer {
 
     @Override
     public AbstractCard getStartCardForEvent() {
-        return new Bash();
+        return new BattleRage();
     }
 
     @Override
@@ -189,7 +189,7 @@ public class DragonPrince extends CustomPlayer {
         retVal.add(makeID("BeDragon"));
         retVal.add(makeID("BattleRage"));
         retVal.add(makeID("BrandAwaken"));
-        retVal.add(makeID("Judgement"));
+        retVal.add(makeID("Roar"));
 
         // retVal.add(makeID("Judgement"));,
         // retVal.add(makeID("Judgement"));

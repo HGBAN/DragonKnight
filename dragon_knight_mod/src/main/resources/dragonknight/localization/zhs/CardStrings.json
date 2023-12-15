@@ -149,7 +149,7 @@
   },
   "${modID}:Puncture": {
     "NAME": "穿刺",
-    "DESCRIPTION": "造成!D!点伤害。 NL 如果被 消耗 则摧毁目标的护甲。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果被 消耗 则先摧毁目标的护甲。"
   },
   "${modID}:LavaImpact": {
     "NAME": "熔岩冲击",

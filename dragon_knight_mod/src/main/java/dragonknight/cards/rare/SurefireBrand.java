@@ -2,9 +2,6 @@ package dragonknight.cards.rare;
 
 import static dragonknight.DragonKnightMod.*;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -47,14 +44,21 @@ public class SurefireBrand extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        List<AbstractCard> cards = p.hand.group.stream()
-                .filter(card -> !card.hasTag(DragonKnightMod.Enums.BRAND)
-                        && !card.hasTag(DragonKnightMod.Enums.BRAND2)
-                        && !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND)
-                        && canUseCard(card))
-                .collect(Collectors.toList());
         for (AbstractCard card : p.hand.group) {
-            
+            if (!card.hasTag(DragonKnightMod.Enums.BRAND)
+                    && !card.hasTag(DragonKnightMod.Enums.BRAND2) && !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND)
+                    && canUseCard(card)) {
+                card.tags.add(DragonKnightMod.Enums.BRAND);
+            }
+            if (!card.exhaust && !card.exhaustOnUseOnce && canUseCard(card)) {
+                card.exhaust = true;
+                card.tags.add(DragonKnightMod.Enums.EXHAUST);
+            }
+            if (!card.isEthereal) {
+                card.isEthereal = true;
+                card.tags.add(DragonKnightMod.Enums.ETHEREAL);
+            }
+            card.initializeDescription();
         }
         if (!p.hasPower(ID))
             addToBot(new ApplyPowerAction(p, p, new SurefirePower(p)));

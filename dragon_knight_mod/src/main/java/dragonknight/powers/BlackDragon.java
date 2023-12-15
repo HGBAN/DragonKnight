@@ -1,8 +1,6 @@
 package dragonknight.powers;
 
-import static dragonknight.DragonKnightMod.addBrandToCard;
-import static dragonknight.DragonKnightMod.canUseCard;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
