@@ -1,7 +1,6 @@
 package dragonknight.relics;
 
-import static dragonknight.DragonKnightMod.beDragon;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -39,9 +38,9 @@ public class AbyssDragon extends BaseRelic {
 
     @Override
     public void atTurnStartPostDraw() {
-        this.flash();
 
         if (DragonKnightMod.brandCountLastTurn >= 4) {
+            this.flash();
             int r = AbstractDungeon.cardRng.random(1);
             AbstractPlayer player = AbstractDungeon.player;
             if (r == 0) {
@@ -53,8 +52,6 @@ public class AbyssDragon extends BaseRelic {
             }
         }
     }
-
-
 
     // @Override
     // public void justEnteredRoom(AbstractRoom room) {
