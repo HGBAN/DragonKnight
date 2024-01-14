@@ -69,7 +69,7 @@
   },
   "${modID}:KingsBrand": {
     "NAME": "王之烙印",
-    "DESCRIPTION": "获得一层人工制品，使所有敌人失去1点力量。化龙后弃牌堆的这张牌会回到手牌。 NL 保留 。"
+    "DESCRIPTION": "获得一层 人工制品 ，使所有敌人失去1点力量。 dragonknight:化龙 后弃牌堆的这张牌会回到手牌。 NL 保留 。"
   },
   "${modID}:Judgement": {
     "NAME": "审判",

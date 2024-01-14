@@ -55,7 +55,7 @@ public class BrandQueue {
             cp.target_y = cp.current_y = y;
             cp.hb.move(cp.current_x, cp.current_y);
             cp.hb.resize(HB_W * cp.drawScale, HB_H * cp.drawScale);
-            if (card.hasTag(DragonKnightMod.Enums.NO_BRAND) || !canUseCard(card)) {
+            if (card.hasTag(DragonKnightMod.Enums.NO_BRAND) || card.cost == -2) {
                 try {
                     renderColorField.set(cp, Color.GRAY.cpy());
                 } catch (Exception e) {

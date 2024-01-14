@@ -88,7 +88,7 @@ public class Brand extends BasePower {
         }
         AbstractCard brandCard = DragonKnightMod.brandCards.get(currentIndex++);
         // DragonKnightMod.brandCards.remove(0);
-        if (brandCard.hasTag(DragonKnightMod.Enums.NO_BRAND) || !canUseCard(brandCard)) {
+        if (brandCard.hasTag(DragonKnightMod.Enums.NO_BRAND) || brandCard.cost == -2) {
 
             addToBot(new AbstractGameAction() {
                 @Override
