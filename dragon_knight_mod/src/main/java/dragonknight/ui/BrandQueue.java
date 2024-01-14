@@ -1,6 +1,6 @@
 package dragonknight.ui;
 
-import static dragonknight.DragonKnightMod.copyCard;
+import static dragonknight.DragonKnightMod.*;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
@@ -11,8 +11,11 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.localization.UIStrings;
+
 import dragonknight.DragonKnightMod;
 
 public class BrandQueue {
@@ -30,6 +33,7 @@ public class BrandQueue {
 
     private static Field renderColorField;
 
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("BrandQueue"));
     static {
         try {
             renderColorField = AbstractCard.class.getDeclaredField("renderColor");
@@ -51,7 +55,7 @@ public class BrandQueue {
             cp.target_y = cp.current_y = y;
             cp.hb.move(cp.current_x, cp.current_y);
             cp.hb.resize(HB_W * cp.drawScale, HB_H * cp.drawScale);
-            if (card.hasTag(DragonKnightMod.Enums.NO_BRAND)) {
+            if (card.hasTag(DragonKnightMod.Enums.NO_BRAND) || !canUseCard(card)) {
                 try {
                     renderColorField.set(cp, Color.GRAY.cpy());
                 } catch (Exception e) {
@@ -77,7 +81,7 @@ public class BrandQueue {
 
     public void render(SpriteBatch sb) {
         if (brandCards.size() > 0) {
-            FontHelper.charDescFont.draw(sb, "烙印：", x - 80, y);
+            FontHelper.charDescFont.draw(sb, uiStrings.TEXT[0], x - 80, y);
         }
 
         renderCards.clear();

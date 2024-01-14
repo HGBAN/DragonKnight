@@ -44,7 +44,7 @@
   },
   "${modID}:WhiteRealm": {
     "NAME": "白界之力",
-    "DESCRIPTION": "回合结束时被 dragonknight:烙印 消耗的牌多触发一次。 NL 消耗"
+    "DESCRIPTION": "回合结束时被 dragonknight:烙印 消耗的牌多触发一次。 NL 消耗。"
   },
   "${modID}:FuriousFlames": {
     "NAME": "暴怒烈焰",
@@ -65,11 +65,11 @@
   "${modID}:PhantomDragon": {
     "NAME": "幻影之龙",
     "DESCRIPTION": "本局战斗中，化身成龙后使用的第一张牌费用为0。",
-    "UPGRADE_DESCRIPTION": "本局战斗中，化身成龙后使用的第一张牌费用为0。 NL 固有 "
+    "UPGRADE_DESCRIPTION": "本局战斗中，化身成龙后使用的第一张牌费用为0。 NL 固有 。"
   },
   "${modID}:KingsBrand": {
     "NAME": "王之烙印",
-    "DESCRIPTION": "获得一层人工制品，使所有敌人失去1点力量。化龙后弃牌堆的这张牌会回到手牌。 NL 保留"
+    "DESCRIPTION": "获得一层人工制品，使所有敌人失去1点力量。化龙后弃牌堆的这张牌会回到手牌。 NL 保留 。"
   },
   "${modID}:Judgement": {
     "NAME": "审判",
@@ -131,7 +131,7 @@
   "${modID}:AshBrand": {
     "NAME": "灰烬烙印",
     "DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗 的牌的具有消耗和虚无的复制加入手牌。",
-    "UPGRADE_DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗的牌的具有消耗和虚无的复制加入手牌。 NL 固有"
+    "UPGRADE_DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗的牌的具有消耗和虚无的复制加入手牌。 NL 固有 。"
   },
   "${modID}:Roar": {
     "NAME": "咆哮",

@@ -88,7 +88,7 @@ public class Brand extends BasePower {
         }
         AbstractCard brandCard = DragonKnightMod.brandCards.get(currentIndex++);
         // DragonKnightMod.brandCards.remove(0);
-        if (brandCard.hasTag(DragonKnightMod.Enums.NO_BRAND)) {
+        if (brandCard.hasTag(DragonKnightMod.Enums.NO_BRAND) || !canUseCard(brandCard)) {
 
             addToBot(new AbstractGameAction() {
                 @Override
@@ -219,8 +219,8 @@ public class Brand extends BasePower {
             power.flash();
             // power.amount--;
             // if (power.amount == 0) {
-            //     Brand.triggerCount--;
-            //     addToBot(new RemoveSpecificPowerAction(owner, owner, power));
+            // Brand.triggerCount--;
+            // addToBot(new RemoveSpecificPowerAction(owner, owner, power));
             // }
         }
         addToBot(new AbstractGameAction() {
