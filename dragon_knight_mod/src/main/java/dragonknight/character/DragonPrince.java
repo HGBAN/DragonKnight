@@ -89,7 +89,7 @@ public class DragonPrince extends CustomPlayer {
     private static final String SHOULDER_2 = characterPath("dragonprince/shoulder2.png");
     private static final String CORPSE = characterPath("dragonprince/corpse.png"); // Corpse is when you die.
 
-    public static final Color CARD_COLOR = new Color(128f / 255f, 128f / 255f, 128f / 255f, 1f);
+    public static final Color CARD_COLOR = new Color(72f / 255f, 30f / 255f, 28f / 255f, 1f);
 
     public static class Enums {
         // These are used to identify your character, as well as your character's card
