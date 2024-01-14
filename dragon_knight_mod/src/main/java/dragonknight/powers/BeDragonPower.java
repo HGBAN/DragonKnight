@@ -1,6 +1,6 @@
 package dragonknight.powers;
 
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,7 +42,7 @@ public abstract class BeDragonPower extends BasePower {
             if (!power.isUsed) {
                 if (owner.isPlayer) {
                     power.flash();
-                    addToBot(new ApplyPowerAction(owner, owner, new NextCardFreePower(owner, 1)));
+                    addToBot(new ApplyPowerAction(owner, owner, new NextCardFreePower(owner, power.amount)));
                     power.isUsed = true;
                 }
             }

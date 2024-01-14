@@ -1,6 +1,6 @@
 package dragonknight.powers;
 
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,12 +15,12 @@ public class PhantomDragonPower extends BasePower {
     public boolean isUsed = false;
 
     public PhantomDragonPower(AbstractCreature owner) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
+        super(POWER_ID, PowerType.BUFF, true, owner, owner, 1);
     }
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
     @Override

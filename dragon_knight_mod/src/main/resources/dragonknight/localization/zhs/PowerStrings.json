@@ -33,7 +33,8 @@
   "${modID}:WhiteRealmPower": {
     "NAME": "白界之力",
     "DESCRIPTIONS": [
-      "本回合结束时被 #y烙印 #y消耗 的牌多触发一次。"
+      "被 #y烙印 #y消耗 的牌多触发一次，持续 #b",
+      " 个回合。"
     ]
   },
   "${modID}:BrandProtectorPower": {
@@ -67,13 +68,15 @@
   "${modID}:PhantomDragonPower": {
     "NAME": "幻象之龙",
     "DESCRIPTIONS": [
-      "本局战斗中，化身成龙后使用的第一张牌消耗 #b0 点 #y能量 。"
+      "本局战斗中，化身成龙后使用的前 #b",
+      " 张牌消耗 #b0 点 #y能量 。"
     ]
   },
   "${modID}:AshBrandPower": {
     "NAME": "灰烬烙印",
     "DESCRIPTIONS": [
-      "每回合开始时，随机将上一回合的一张因 #y烙印 #y消耗 的牌的具有 #y消耗 和 #y虚无 的复制加入手牌。"
+      "每回合开始时，随机将上一回合的 #b",
+      " 张因 #y烙印 #y消耗 的牌的具有 #y消耗 和 #y虚无 的复制加入手牌。"
     ]
   },
   "${modID}:SurefirePower": {

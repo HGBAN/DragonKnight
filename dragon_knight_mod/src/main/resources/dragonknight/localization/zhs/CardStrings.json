@@ -44,7 +44,7 @@
   },
   "${modID}:WhiteRealm": {
     "NAME": "白界之力",
-    "DESCRIPTION": "本回合结束时被 dragonknight:烙印 消耗的牌多触发一次。 NL 消耗"
+    "DESCRIPTION": "回合结束时被 dragonknight:烙印 消耗的牌多触发一次。 NL 消耗"
   },
   "${modID}:FuriousFlames": {
     "NAME": "暴怒烈焰",

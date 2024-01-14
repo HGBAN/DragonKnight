@@ -1,6 +1,6 @@
 package dragonknight.powers;
 
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -14,12 +14,12 @@ public class WhiteRealmPower extends BasePower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public WhiteRealmPower(AbstractCreature owner) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
+        super(POWER_ID, PowerType.BUFF, true, owner, owner, 1);
     }
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
     @Override
@@ -31,8 +31,11 @@ public class WhiteRealmPower extends BasePower {
     public void atEndOfTurn(boolean isPlayer) {
         if (!isPlayer)
             return;
-        Brand.triggerCount--;
-        this.flash();
-        addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+
+        this.amount--;
+        if (this.amount == 0) {
+            Brand.triggerCount--;
+            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+        }
     }
 }

@@ -1,7 +1,8 @@
 package dragonknight.powers;
 
-import static dragonknight.DragonKnightMod.copyCard;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
+
+import java.util.ArrayList;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -20,39 +21,47 @@ public class AshBrandPower extends BasePower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public AshBrandPower(AbstractCreature owner) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
+        super(POWER_ID, PowerType.BUFF, true, owner, owner, 1);
     }
 
     @Override
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
     }
 
     @Override
     public void atStartOfTurn() {
+        if (!owner.isPlayer)
+            return;
         this.addToBot(new AbstractGameAction() {
             @Override
             public void update() {
                 if (DragonKnightMod.brandCardsLastTurn.size() > 0) {
                     flash();
-                    int index = AbstractDungeon.cardRng.random(DragonKnightMod.brandCardsLastTurn.size() - 1);
-                    AbstractCard randomCard = DragonKnightMod.brandCardsLastTurn.get(index);
+                    ArrayList<AbstractCard> candidates = new ArrayList<>(DragonKnightMod.brandCardsLastTurn);
+                    for (int i = 0; i < AshBrandPower.this.amount; i++) {
+                        if (candidates.size() <= 0)
+                            break;
+                        int index = AbstractDungeon.cardRng.random(candidates.size() - 1);
+                        AbstractCard randomCard = candidates.get(index);
+                        candidates.remove(index);
 
-                    AbstractCard newCard = copyCard(randomCard);
-                    if (!newCard.exhaust)
-                        newCard.tags.add(DragonKnightMod.Enums.EXHAUST);
-                    if (!newCard.isEthereal)
-                        newCard.tags.add(DragonKnightMod.Enums.ETHEREAL);
-                    newCard.isEthereal = true;
-                    newCard.exhaust = true;
-                    // newCard.rawDescription += " NL " + GameDictionary.ETHEREAL.NAMES[0] + " NL "
-                    // + GameDictionary.EXHAUST.NAMES[0];
-                    newCard.initializeDescription();
-                    addToBot(new CopyCardInHandAction(newCard));
+                        AbstractCard newCard = copyCard(randomCard);
+                        if (!newCard.exhaust)
+                            newCard.tags.add(DragonKnightMod.Enums.EXHAUST);
+                        if (!newCard.isEthereal)
+                            newCard.tags.add(DragonKnightMod.Enums.ETHEREAL);
+                        newCard.isEthereal = true;
+                        newCard.exhaust = true;
+
+                        newCard.initializeDescription();
+                        addToBot(new CopyCardInHandAction(newCard));
+                    }
                 }
                 isDone = true;
             }
         });
+
     }
 
 }

@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -212,6 +213,16 @@ public class Brand extends BasePower {
             return;
 
         this.flash();
+        AbstractPlayer player = AbstractDungeon.player;
+        if (player.hasPower(makeID("WhiteRealmPower"))) {
+            AbstractPower power = player.getPower(makeID("WhiteRealmPower"));
+            power.flash();
+            // power.amount--;
+            // if (power.amount == 0) {
+            //     Brand.triggerCount--;
+            //     addToBot(new RemoveSpecificPowerAction(owner, owner, power));
+            // }
+        }
         addToBot(new AbstractGameAction() {
 
             @Override
@@ -221,5 +232,6 @@ public class Brand extends BasePower {
             }
 
         });
+
     }
 }
