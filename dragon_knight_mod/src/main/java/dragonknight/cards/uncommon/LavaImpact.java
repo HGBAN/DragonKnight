@@ -33,6 +33,7 @@ public class LavaImpact extends CustomCard {
                 RARITY, TARGET);
         this.baseDamage = 0;
         this.tags.add(DragonKnightMod.Enums.ANTI_BRAND);
+        this.exhaust = true;
         this.tags.add(DragonKnightMod.Enums.EXHAUST);
         this.initializeDescription();
     }
