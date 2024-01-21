@@ -155,5 +155,22 @@
     "NAME": "熔岩冲击",
     "DESCRIPTION": "造成已 消耗 牌的数量的伤害X次。",
     "UPGRADE_DESCRIPTION": "造成已 消耗 牌的数量的伤害X+1次。"
+  },
+  "${modID}:HammerBrand": {
+    "NAME": "锤之烙印",
+    "DESCRIPTION": "使目标失去!M!点力量。若上个回合触发过 dragonknight:烙印 ，获得!M!点力量。"
+  },
+  "${modID}:HeavenlyRevelation": {
+    "NAME": "天底的圣告",
+    "DESCRIPTION": "每个回合第一次使用 dragonknight:烙印 牌时，从抽牌堆中随机抽取一张名字中含有“烙印”的牌，并从弃牌堆中随机将一张牌洗回牌堆。"
+  },
+  "${modID}:HeavenlyEtudeOfTheNadir": {
+    "NAME": "天底的即凶剧",
+    "DESCRIPTION": "把全部手牌洗回牌堆，手牌中加入相同数量的“即凶剧”卡牌。"
+  },
+  "${modID}:EtudeOfTheNadir": {
+    "NAME": "即凶剧",
+    "DESCRIPTION": "抽一张牌。",
+    "UPGRADE_DESCRIPTION": "抽一张牌。 NL 获得 [E] 。"
   }
 }

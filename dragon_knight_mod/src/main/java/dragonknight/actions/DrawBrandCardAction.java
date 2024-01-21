@@ -1,6 +1,7 @@
 package dragonknight.actions;
 
 import java.util.Iterator;
+import java.util.function.Predicate;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,12 +15,19 @@ import dragonknight.DragonKnightMod;
 
 public class DrawBrandCardAction extends AbstractGameAction {
     private AbstractPlayer p;
+    private Predicate<AbstractCard> predicate;
 
-    public DrawBrandCardAction(int amount) {
+    public DrawBrandCardAction(int amount, Predicate<AbstractCard> predicate) {
         this.p = AbstractDungeon.player;
         this.amount = amount;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_MED;
+        this.predicate = predicate;
+    }
+
+    public DrawBrandCardAction(int amount) {
+        this(amount, (c) -> c.hasTag(DragonKnightMod.Enums.BRAND) || c.hasTag(DragonKnightMod.Enums.BRAND2)
+                || c.hasTag(DragonKnightMod.Enums.TEMP_BRAND));
     }
 
     @Override
@@ -36,7 +44,7 @@ public class DrawBrandCardAction extends AbstractGameAction {
             AbstractCard card;
             while (var.hasNext()) {
                 card = var.next();
-                if (card.hasTag(DragonKnightMod.Enums.BRAND) || card.hasTag(DragonKnightMod.Enums.BRAND2)) {
+                if (predicate.test(card)) {
                     tmp.addToRandomSpot(card);
                 }
             }
