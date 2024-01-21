@@ -73,8 +73,8 @@
   },
   "${modID}:Judgement": {
     "NAME": "审判",
-    "DESCRIPTION": "造成!D!点伤害。 NL 被 消耗 后，将另一张审判加入抽牌堆中。",
-    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 被 消耗 后，将另一张审判+加入抽牌堆中。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 被 消耗 后，将另一张 *审判 加入抽牌堆中。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 被 消耗 后，将另一张 *审判+ 加入抽牌堆中。"
   },
   "${modID}:Banish": {
     "NAME": "追放",
@@ -90,12 +90,12 @@
   },
   "${modID}:RebornScale": {
     "NAME": "再生鳞甲",
-    "DESCRIPTION": "获得!B!点格挡。 NL 被 消耗 后，将另一张再生鳞甲加入抽牌堆中。",
-    "UPGRADE_DESCRIPTION": "获得!B!点格挡。 NL 被 消耗 后，将另一张再生鳞甲+加入抽牌堆中。"
+    "DESCRIPTION": "获得!B!点格挡。 NL 被 消耗 后，将另一张 *再生鳞甲 加入抽牌堆中。",
+    "UPGRADE_DESCRIPTION": "获得!B!点格挡。 NL 被 消耗 后，将另一张 *再生鳞甲+ 加入抽牌堆中。"
   },
   "${modID}:FusionBrand": {
     "NAME": "融合烙印",
-    "DESCRIPTION": "在上回合消耗 dragonknight:烙印 牌后，获得相应数量的 [E] 并抽取同样数量的牌。 NL 被 dragonknight:烙印 消耗 后，将另一张融合烙印加入弃牌堆中。"
+    "DESCRIPTION": "在上回合消耗 dragonknight:烙印 牌后，获得相应数量的 [E] 并抽取同样数量的牌。 NL 被 dragonknight:烙印 消耗 后，将另一张 *融合烙印 加入弃牌堆中。"
   },
   "${modID}:MourningBrand": {
     "NAME": "悲恸烙印",
@@ -107,13 +107,13 @@
   },
   "${modID}:CrimsonBrand": {
     "NAME": "赤红烙印",
-    "DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果抽牌堆不足10张牌，就再抽2张牌；如果不足5张，获得 [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张赤红烙印加入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果抽牌堆不足10张牌，就再抽2张牌；如果不足5张，获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张赤红烙印+加入弃牌堆。"
+    "DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果抽牌堆不足10张牌，就再抽2张牌；如果不足5张，获得 [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印 加入弃牌堆。",
+    "UPGRADE_DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果抽牌堆不足10张牌，就再抽2张牌；如果不足5张，获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印+ 加入弃牌堆。"
   },
   "${modID}:SwordBrand": {
     "NAME": "剑之烙印",
-    "DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被 dragonknight:烙印 消耗，将另一张剑之烙印加入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被 dragonknight:烙印 消耗，将另一张剑之烙印+加入弃牌堆。"
+    "DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被 dragonknight:烙印 消耗，将另一张 *剑之烙印 加入弃牌堆。",
+    "UPGRADE_DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被 dragonknight:烙印 消耗，将另一张 *剑之烙印+ 加入弃牌堆。"
   },
   "${modID}:ColdAirflow": {
     "NAME": "极寒气流",
@@ -121,8 +121,8 @@
   },
   "${modID}:SeparateBrand": {
     "NAME": "分离烙印",
-    "DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因 dragonknight:烙印 消耗的牌超过4张，再造成!M!次伤害。被 dragonknight:烙印 消耗 后，将另一张分离烙印加入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因 dragonknight:烙印 消耗的牌超过4张，再造成!M!次伤害。被 dragonknight:烙印 消耗 后，将另一张分离烙印+加入弃牌堆。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因 dragonknight:烙印 消耗的牌超过4张，再造成!M!次伤害。被 dragonknight:烙印 消耗 后，将另一张 *分离烙印 加入弃牌堆。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因 dragonknight:烙印 消耗的牌超过4张，再造成!M!次伤害。被 dragonknight:烙印 消耗 后，将另一张 *分离烙印+ 加入弃牌堆。"
   },
   "${modID}:Bite": {
     "NAME": "撕咬",
@@ -135,8 +135,8 @@
   },
   "${modID}:Roar": {
     "NAME": "咆哮",
-    "DESCRIPTION": "造成!D!点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张咆哮加入抽牌堆。",
-    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张咆哮+加入抽牌堆。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张 *咆哮 加入抽牌堆。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张 *咆哮+ 加入抽牌堆。"
   },
   "${modID}:IceDevilBrand": {
     "NAME": "冰魔烙印",
@@ -166,7 +166,7 @@
   },
   "${modID}:HeavenlyEtudeOfTheNadir": {
     "NAME": "天底的即凶剧",
-    "DESCRIPTION": "把全部手牌洗回牌堆，手牌中加入相同数量的“即凶剧”卡牌。"
+    "DESCRIPTION": "把全部手牌洗回牌堆，手牌中加入相同数量的 *即凶剧 。"
   },
   "${modID}:EtudeOfTheNadir": {
     "NAME": "即凶剧",

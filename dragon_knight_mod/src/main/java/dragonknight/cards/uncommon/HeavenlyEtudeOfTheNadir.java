@@ -27,6 +27,7 @@ public class HeavenlyEtudeOfTheNadir extends CustomCard {
         super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
+        this.cardsToPreview = new EtudeOfTheNadir();
     }
 
     @Override
