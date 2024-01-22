@@ -30,7 +30,7 @@ public class SurefirePower extends BasePower {
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
         this.flash();
         if (isPlayer) {
-            for (AbstractCard card : DragonKnightMod.exhaustCardsLastTurn) {
+            for (AbstractCard card : DragonKnightMod.exhaustCardsThisTurn) {
                 addToBot(new MakeTempCardInDrawPileAction(card, 1, true, true));
             }
         }

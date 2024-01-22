@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import dragonknight.DragonKnightMod;
+import dragonknight.cards.IBrandDifferentCard;
 
 public class Brand extends BasePower {
     public static final String POWER_ID = makeID("Brand");
@@ -125,6 +126,7 @@ public class Brand extends BasePower {
                 for (int i = 0; i < triggerCount; i++) {
 
                     AbstractMonster monster = AbstractDungeon.getMonsters().getRandomMonster(true);
+
                     brandCard.calculateCardDamage(monster);
                     brandCard.freeToPlayOnce = true;
                     brandCard.use(AbstractDungeon.player, monster);
@@ -184,6 +186,7 @@ public class Brand extends BasePower {
 
                                 brandCard.exhaustOnUseOnce = false;
                                 brandCard.dontTriggerOnUseCard = false;
+
                                 this.addToBot(new HandCheckAction());
                             }
 
@@ -191,6 +194,17 @@ public class Brand extends BasePower {
                         }
                     });
                 }
+                AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+
+                    @Override
+                    public void update() {
+                        if (brandCard instanceof IBrandDifferentCard) {
+                            ((IBrandDifferentCard) brandCard).setBranded(false);
+                        }
+                        isDone = true;
+                    }
+
+                });
                 AbstractDungeon.player.cardInUse = brandCard;
                 brandCard.current_x = brandCard.current_y = 0;
                 brandCard.target_x = (float) (Settings.WIDTH / 2);

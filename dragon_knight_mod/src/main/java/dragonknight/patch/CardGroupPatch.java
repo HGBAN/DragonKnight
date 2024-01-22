@@ -10,7 +10,7 @@ public class CardGroupPatch {
     @SpirePatch(clz = CardGroup.class, method = "moveToExhaustPile")
     static class MoveToExhaustPilePatch {
         public static void Postfix(CardGroup __instance, AbstractCard c) {
-            DragonKnightMod.exhaustCardsLastTurn.add(c);
+            DragonKnightMod.exhaustCardsThisTurn.add(c);
         }
     }
 }

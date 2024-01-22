@@ -68,6 +68,7 @@ import basemod.interfaces.PostBattleSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import basemod.interfaces.PreMonsterTurnSubscriber;
 import dragonknight.cards.BrandCopyCard;
+import dragonknight.cards.IBrandDifferentCard;
 import dragonknight.character.DragonPrince;
 import dragonknight.commands.BrandCommand;
 import dragonknight.commands.ExhaustHand;
@@ -341,6 +342,7 @@ public class DragonKnightMod implements
     public static int brandCount = 0;
     public static int blockGainedThisTurn = 0;
     public static int brandCountLastTurn = 0;
+    public static int exhaustCardsUsedThisTurn = 0;
     public static ArrayList<AbstractCard> brandCardsLastTurn = new ArrayList<>();
 
     public static ArrayList<AbstractCard> tempBrandCards = new ArrayList<>();
@@ -351,7 +353,7 @@ public class DragonKnightMod implements
     public static ArrayList<WeakReference<Runnable>> onRemoveBrandCards = new ArrayList<>();
     public static ArrayList<WeakReference<Runnable>> onClearBrandCards = new ArrayList<>();
 
-    public static ArrayList<AbstractCard> exhaustCardsLastTurn = new ArrayList<>();
+    public static ArrayList<AbstractCard> exhaustCardsThisTurn = new ArrayList<>();
 
     public static class Enums {
         // 随机消耗
@@ -430,10 +432,17 @@ public class DragonKnightMod implements
                 }
             }
         }
+
+        if (card.exhaustOnUseOnce || card.exhaust) {
+            exhaustCardsUsedThisTurn++;
+        }
     }
 
     public static void brandCard(AbstractCard brandCard) {
         AbstractPlayer player = AbstractDungeon.player;
+        if (brandCard instanceof IBrandDifferentCard) {
+            ((IBrandDifferentCard) brandCard).setBranded(true);
+        }
         brandCards.add(brandCard);
         brandCount++;
 
@@ -487,7 +496,8 @@ public class DragonKnightMod implements
         brandCountLastTurn = 0;
         brandCardsLastTurn.clear();
         blockGainedThisTurn = 0;
-        exhaustCardsLastTurn.clear();
+        exhaustCardsThisTurn.clear();
+        exhaustCardsUsedThisTurn = 0;
     }
 
     public static void beDragon() {
@@ -509,7 +519,8 @@ public class DragonKnightMod implements
         tempBrandCards.clear();
         brandCards.clear();
         onClearBrandCards();
-        exhaustCardsLastTurn.clear();
+        exhaustCardsThisTurn.clear();
+        exhaustCardsUsedThisTurn = 0;
     }
 
     @Override
@@ -529,7 +540,8 @@ public class DragonKnightMod implements
         }
         tempBrandCards.clear();
 
-        exhaustCardsLastTurn.clear();
+        exhaustCardsThisTurn.clear();
+        exhaustCardsUsedThisTurn = 0;
 
         DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCards.size();
         DragonKnightMod.brandCardsLastTurn.clear();
