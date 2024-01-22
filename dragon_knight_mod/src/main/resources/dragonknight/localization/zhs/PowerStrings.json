@@ -62,7 +62,7 @@
     "NAME": "幻象",
     "DESCRIPTIONS": [
       "你打出的下 #b",
-      " 张牌将消耗 #b0 点 #y能量 。"
+      " 张牌将不消耗 [E] 。"
     ]
   },
   "${modID}:PhantomDragonPower": {
@@ -91,6 +91,19 @@
       "每个回合第一次使用 #y烙印 牌时，从抽牌堆中随机抽取 #b",
       " 张名字中含有“烙印”的牌，并从弃牌堆中随机将 #b",
       " 张牌洗回牌堆。"
+    ]
+  },
+  "${modID}:TrueEyePower": {
+    "NAME": "真眼",
+    "DESCRIPTIONS": [
+      "下面 #b",
+      " 次打出的牌少消耗1点 [E] 。"
+    ]
+  },
+  "${modID}:TrueDragon": {
+    "NAME": "真龙形态",
+    "DESCRIPTIONS": [
+      "化身真龙，获得 #b6 [E] ，抽 #b6 张牌，下面 #b6 次使用的牌少消耗 #b1 点 [E] 。"
     ]
   }
 }

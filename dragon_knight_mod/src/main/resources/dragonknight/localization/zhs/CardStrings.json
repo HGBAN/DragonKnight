@@ -177,5 +177,9 @@
     "NAME": "强风",
     "DESCRIPTION": "造成!D!点伤害。 NL 本回合每次使用 消耗 牌，增加2点伤害。若被 dragonknight:烙印 消耗 ，额外增加!M!点伤害。",
     "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 本回合每次使用 消耗 牌，增加3点伤害。若被 dragonknight:烙印 消耗 ，额外增加!M!点伤害。"
+  },
+  "${modID}:TrueEyeBrand": {
+    "NAME": "真眼烙印",
+    "DESCRIPTION": "进入 dragonknight:白龙形态 。 NL 如果已经处于 dragonknight:黑龙形态 或 dragonknight:白龙形态 ，则进入 dragonknight:真龙形态 。"
   }
 }

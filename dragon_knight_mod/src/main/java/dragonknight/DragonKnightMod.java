@@ -84,6 +84,8 @@ import dragonknight.powers.BrandProtectorPower;
 import dragonknight.powers.NextCardFreePower;
 import dragonknight.powers.PhantomDragonPower;
 import dragonknight.powers.SurefirePower;
+import dragonknight.powers.TrueDragon;
+import dragonknight.powers.TrueEyePower;
 import dragonknight.powers.WhiteBrandPower;
 import dragonknight.powers.WhiteDragon;
 import dragonknight.powers.WhiteRealmPower;
@@ -324,6 +326,8 @@ public class DragonKnightMod implements
         BaseMod.addPower(NextCardFreePower.class, NextCardFreePower.POWER_ID);
         BaseMod.addPower(AshBrandPower.class, AshBrandPower.POWER_ID);
         BaseMod.addPower(SurefirePower.class, SurefirePower.POWER_ID);
+        BaseMod.addPower(TrueEyePower.class, TrueEyePower.POWER_ID);
+        BaseMod.addPower(TrueDragon.class, TrueDragon.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
@@ -465,6 +469,8 @@ public class DragonKnightMod implements
         if (!player.hasPower(makeID("Brand")))
             AbstractDungeon.actionManager
                     .addToBottom(new ApplyPowerAction(player, player, new Brand(player)));
+        else
+            player.getPower(makeID("Brand")).updateDescription();
     }
 
     @Override

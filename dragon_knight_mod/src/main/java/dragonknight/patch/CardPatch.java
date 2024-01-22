@@ -2,11 +2,14 @@ package dragonknight.patch;
 
 import static dragonknight.DragonKnightMod.*;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.TheLibrary;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.UIStrings;
@@ -85,6 +88,64 @@ public class CardPatch {
                 __result.initializeDescription();
             }
             return __result;
+        }
+    }
+
+    private static boolean rec = false;
+
+    @SpirePatch(clz = AbstractCard.class, method = "renderEnergy")
+    public static class renderEnergyPatch {
+        private static boolean changed = false;
+
+        // 显示减一费的能力
+        public static void Prefix(AbstractCard _instance, SpriteBatch sb) {
+            AbstractPlayer player = AbstractDungeon.player;
+            if (player != null) {
+                if (player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
+                        && _instance.costForTurn > 0) {
+                    _instance.setCostForTurn(_instance.costForTurn - 1);
+                    changed = true;
+                    rec = true;
+                }
+            }
+        }
+
+        public static void Postfix(AbstractCard _instance, SpriteBatch sb) {
+            if (changed) {
+                _instance.setCostForTurn(_instance.costForTurn + 1);
+                if (_instance.costForTurn == _instance.cost) {
+                    _instance.isCostModifiedForTurn = false;
+                }
+                changed = false;
+                rec = false;
+            }
+        }
+    }
+
+    @SpirePatch(clz = AbstractCard.class, method = "hasEnoughEnergy")
+    public static class hasEnoughEnergyPatch {
+        private static boolean changed = false;
+
+        // 减一费的判断
+        public static void Prefix(AbstractCard _instance) {
+            AbstractPlayer player = AbstractDungeon.player;
+            if (player != null) {
+                if (player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
+                        && _instance.costForTurn > 0 && !rec) {
+                    _instance.setCostForTurn(_instance.costForTurn - 1);
+                    if (_instance.costForTurn == _instance.cost) {
+                        _instance.isCostModifiedForTurn = false;
+                    }
+                    changed = true;
+                }
+            }
+        }
+
+        public static void Postfix(AbstractCard _instance) {
+            if (changed) {
+                _instance.setCostForTurn(_instance.costForTurn + 1);
+                changed = false;
+            }
         }
     }
 }

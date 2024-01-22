@@ -39,7 +39,7 @@ public class BlackDragon extends BeDragonPower {
     @Override
     protected void initializeTemplate() {
         // addToBot(new RemoveSpecificPowerAction(owner, owner, makeID("WhiteDragon")));
-        if (owner.hasPower(makeID("WhiteDragon"))) {
+        if (owner.hasPower(makeID("WhiteDragon")) || owner.hasPower(makeID("TrueDragon"))) {
             addToBot(new GainEnergyAction(1));
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
             done = true;
