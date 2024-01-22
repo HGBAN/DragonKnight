@@ -2,7 +2,6 @@ package dragonknight.cards.uncommon;
 
 import static dragonknight.DragonKnightMod.*;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
@@ -59,10 +58,16 @@ public class IceDevilBrand extends CustomCard {
                 new DamageAllEnemiesAction(p, this.baseDamage, this.damageTypeForTurn, AttackEffect.SLASH_DIAGONAL));
     }
 
+    // @Override
+    // public void render(SpriteBatch sb) {
+    // this.baseDamage = getEffect() * DragonKnightMod.brandCards.size();
+    // super.render(sb);
+    // }
+
     @Override
-    public void render(SpriteBatch sb) {
-        this.baseDamage = getEffect() * DragonKnightMod.brandCards.size();
-        super.render(sb);
+    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster mo, float tmp) {
+        tmp += getEffect() * DragonKnightMod.brandCards.size();
+        return tmp;
     }
 
     private int getEffect() {

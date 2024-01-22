@@ -48,7 +48,7 @@
   },
   "${modID}:FuriousFlames": {
     "NAME": "暴怒烈焰",
-    "DESCRIPTION": "造成20点伤害。 NL 本次战斗每触发一次 dragonknight:烙印 ，增加3点伤害。 NL （造成!D!点伤害）"
+    "DESCRIPTION": "造成!D!点伤害。 NL 本次战斗每触发一次 dragonknight:烙印 ，增加3点伤害。"
   },
   "${modID}:BrandProtector": {
     "NAME": "烙印护体",
@@ -140,8 +140,8 @@
   },
   "${modID}:IceDevilBrand": {
     "NAME": "冰魔烙印",
-    "DESCRIPTION": "对所有敌人造成等同于本回合使用的烙印牌乘以X的伤害。 NL （造成!D!点伤害）",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成等同于本回合使用的烙印牌乘以X+1的伤害。 NL （造成!D!点伤害）"
+    "DESCRIPTION": "对所有敌人造成等同于本回合使用的 dragonknight:烙印 牌乘以X的伤害。 NL （造成!D!点伤害）",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成等同于本回合使用的 dragonknight:烙印 牌乘以X+1的伤害。 NL （造成!D!点伤害）"
   },
   "${modID}:SurefireBrand": {
     "NAME": "神炎烙印",

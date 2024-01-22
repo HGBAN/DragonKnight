@@ -1,9 +1,7 @@
 package dragonknight.cards.uncommon;
 
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -50,14 +48,20 @@ public class FuriousFlames extends CustomCard {
     }
 
     @Override
-    public void render(SpriteBatch sb) {
-        int temp = this.baseDamage;
-        this.baseDamage = 20 + DragonKnightMod.brandCount * 3;
-        if (temp != this.baseDamage) {
-            this.applyPowers();
-        }
-
-        super.render(sb);
+    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster mo, float tmp) {
+        tmp += DragonKnightMod.brandCount * 3;
+        return tmp;
     }
+
+    // @Override
+    // public void render(SpriteBatch sb) {
+    // int temp = this.baseDamage;
+    // this.baseDamage = 20 + DragonKnightMod.brandCount * 3;
+    // if (temp != this.baseDamage) {
+    // this.applyPowers();
+    // }
+
+    // super.render(sb);
+    // }
 
 }
