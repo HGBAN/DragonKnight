@@ -26,7 +26,7 @@ public class TrueEyePower extends BasePower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (!owner.hasPower("NextCardFreePower")) {
+        if (!owner.hasPower(makeID("NextCardFreePower"))) {
             this.amount--;
             this.flash();
             if (this.amount <= 0) {

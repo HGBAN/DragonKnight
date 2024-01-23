@@ -1,8 +1,6 @@
 package dragonknight.cards.uncommon;
 
-import static dragonknight.DragonKnightMod.canUseCard;
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -57,7 +55,8 @@ public class SwordBrand extends BrandCopyCard {
             public void update() {
                 List<AbstractCard> cards = p.hand.group.stream()
                         .filter(card -> !card.hasTag(DragonKnightMod.Enums.BRAND)
-                                && !card.hasTag(DragonKnightMod.Enums.BRAND2) && canUseCard(card))
+                                && !card.hasTag(DragonKnightMod.Enums.BRAND2)
+                                && !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND) && canUseCard(card))
                         .collect(Collectors.toList());
                 // cards.remove(SwordBrand.this);
 
