@@ -420,7 +420,7 @@ public class DragonKnightMod implements
                 }
             } else if (card.hasTag(Enums.BRAND2)) {
                 if (player.hasPower(makeID("BlackDragon")) ||
-                        player.hasPower(makeID("WhiteDragon"))) {
+                        player.hasPower(makeID("WhiteDragon")) || player.hasPower(makeID("TrueDragon"))) {
                     ArrayList<AbstractCard> group = new ArrayList<>();
                     for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
                         if (!c.hasTag(Enums.ANTI_BRAND)) {

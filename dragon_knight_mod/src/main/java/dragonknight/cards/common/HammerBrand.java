@@ -24,7 +24,8 @@ public class HammerBrand extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public HammerBrand() {
-        super(ID, NAME, imagePath("cards/skill/HammerBrand.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/HammerBrand.png"), COST, DESCRIPTION, TYPE,
+                DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseMagicNumber = 1;
@@ -47,5 +48,11 @@ public class HammerBrand extends CustomCard {
         if (DragonKnightMod.brandCountLastTurn > 0) {
             this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, this.baseMagicNumber)));
         }
+    }
+
+    @Override
+    public void triggerWhenDrawn() {
+        if (DragonKnightMod.brandCountLastTurn > 0)
+            this.glowColor = GOLD_BORDER_GLOW_COLOR;
     }
 }
