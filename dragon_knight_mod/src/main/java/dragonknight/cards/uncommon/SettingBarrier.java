@@ -23,7 +23,7 @@ public class SettingBarrier extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public SettingBarrier() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/SettingBarrier.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.baseMagicNumber = 4;

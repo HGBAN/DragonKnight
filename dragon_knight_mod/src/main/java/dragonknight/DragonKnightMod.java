@@ -77,10 +77,12 @@ import dragonknight.potions.BrandPotion;
 import dragonknight.potions.IceDevilPotion;
 import dragonknight.powers.AbyssFormPower;
 import dragonknight.powers.AshBrandPower;
+import dragonknight.powers.BarrierPower;
 import dragonknight.powers.BlackBrandPower;
 import dragonknight.powers.BlackDragon;
 import dragonknight.powers.Brand;
 import dragonknight.powers.BrandProtectorPower;
+import dragonknight.powers.HeavenlyRevelationPower;
 import dragonknight.powers.NextCardFreePower;
 import dragonknight.powers.PhantomDragonPower;
 import dragonknight.powers.SurefirePower;
@@ -326,8 +328,10 @@ public class DragonKnightMod implements
         BaseMod.addPower(NextCardFreePower.class, NextCardFreePower.POWER_ID);
         BaseMod.addPower(AshBrandPower.class, AshBrandPower.POWER_ID);
         BaseMod.addPower(SurefirePower.class, SurefirePower.POWER_ID);
+        BaseMod.addPower(HeavenlyRevelationPower.class, HeavenlyRevelationPower.POWER_ID);
         BaseMod.addPower(TrueEyePower.class, TrueEyePower.POWER_ID);
         BaseMod.addPower(TrueDragon.class, TrueDragon.POWER_ID);
+        BaseMod.addPower(BarrierPower.class, BarrierPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);

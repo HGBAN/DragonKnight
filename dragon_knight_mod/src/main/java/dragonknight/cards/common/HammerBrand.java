@@ -24,7 +24,7 @@ public class HammerBrand extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public HammerBrand() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/HammerBrand.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseMagicNumber = 1;
