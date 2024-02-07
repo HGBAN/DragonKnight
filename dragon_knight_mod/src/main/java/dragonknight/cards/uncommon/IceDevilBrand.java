@@ -54,8 +54,10 @@ public class IceDevilBrand extends CustomCard {
                 this.isDone = true;
             }
         });
-        this.addToBot(
-                new DamageAllEnemiesAction(p, this.baseDamage, this.damageTypeForTurn, AttackEffect.SLASH_DIAGONAL));
+        for (int i = 0; i < getEffect(); i++)
+            this.addToBot(
+                    new DamageAllEnemiesAction(p, this.damage, this.damageTypeForTurn,
+                            AttackEffect.SLASH_DIAGONAL));
     }
 
     // @Override
@@ -66,7 +68,7 @@ public class IceDevilBrand extends CustomCard {
 
     @Override
     public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster mo, float tmp) {
-        tmp += getEffect() * DragonKnightMod.brandCards.size();
+        tmp += DragonKnightMod.enemyPowerCountThisTurn;
         return tmp;
     }
 

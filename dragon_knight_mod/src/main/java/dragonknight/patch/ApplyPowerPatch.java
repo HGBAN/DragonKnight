@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
+import dragonknight.DragonKnightMod;
 import dragonknight.powers.BarrierPower;
 
 public class ApplyPowerPatch {
@@ -18,6 +19,11 @@ public class ApplyPowerPatch {
             if (_instance.target.hasPower(makeID("BarrierPower"))) {
                 BarrierPower barrierPower = (BarrierPower) _instance.target.getPower(makeID("BarrierPower"));
                 barrierPower.onAddPower(___powerToApply);
+            }
+            if (!_instance.target.isPlayer) {
+                if (_instance.amount > 0) {
+                    DragonKnightMod.enemyPowerCountThisTurn += _instance.amount;
+                }
             }
         }
     }

@@ -140,8 +140,8 @@
   },
   "${modID}:IceDevilBrand": {
     "NAME": "冰魔烙印",
-    "DESCRIPTION": "对所有敌人造成等同于本回合使用的 dragonknight:烙印 牌乘以X的伤害。 NL （造成!D!点伤害）",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成等同于本回合使用的 dragonknight:烙印 牌乘以X+1的伤害。 NL （造成!D!点伤害）"
+    "DESCRIPTION": "对所有敌人造成等同于本回合敌人获得的所有状态层数的伤害X次。 NL （造成!D!点伤害）。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成等同于本回合敌人获得的所有状态层数的伤害X+1次。 NL （造成!D!点伤害）。"
   },
   "${modID}:SurefireBrand": {
     "NAME": "神炎烙印",

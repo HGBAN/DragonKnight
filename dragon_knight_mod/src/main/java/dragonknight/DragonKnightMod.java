@@ -359,6 +359,7 @@ public class DragonKnightMod implements
     public static int blockGainedThisTurn = 0;
     public static int brandCountLastTurn = 0;
     public static int exhaustCardsUsedThisTurn = 0;
+    public static int enemyPowerCountThisTurn = 0;
     public static ArrayList<AbstractCard> brandCardsLastTurn = new ArrayList<>();
 
     public static ArrayList<AbstractCard> tempBrandCards = new ArrayList<>();
@@ -524,6 +525,7 @@ public class DragonKnightMod implements
         blockGainedThisTurn = 0;
         exhaustCardsThisTurn.clear();
         exhaustCardsUsedThisTurn = 0;
+        enemyPowerCountThisTurn = 0;
     }
 
     public static void beDragon() {
@@ -547,6 +549,7 @@ public class DragonKnightMod implements
         onClearBrandCards();
         exhaustCardsThisTurn.clear();
         exhaustCardsUsedThisTurn = 0;
+        enemyPowerCountThisTurn = 0;
     }
 
     @Override
@@ -568,6 +571,7 @@ public class DragonKnightMod implements
 
         exhaustCardsThisTurn.clear();
         exhaustCardsUsedThisTurn = 0;
+        enemyPowerCountThisTurn = 0;
 
         DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCards.size();
         DragonKnightMod.brandCardsLastTurn.clear();
