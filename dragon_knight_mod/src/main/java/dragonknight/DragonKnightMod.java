@@ -77,6 +77,7 @@ import dragonknight.potions.BrandPotion;
 import dragonknight.potions.IceDevilPotion;
 import dragonknight.powers.AbyssFormPower;
 import dragonknight.powers.AshBrandPower;
+import dragonknight.powers.AshPower;
 import dragonknight.powers.BarrierPower;
 import dragonknight.powers.BlackBrandPower;
 import dragonknight.powers.BlackDragon;
@@ -85,7 +86,9 @@ import dragonknight.powers.BrandProtectorPower;
 import dragonknight.powers.HeavenlyRevelationPower;
 import dragonknight.powers.NextCardFreePower;
 import dragonknight.powers.PhantomDragonPower;
+import dragonknight.powers.ScorchPower;
 import dragonknight.powers.SurefirePower;
+import dragonknight.powers.SurefireScorchPower;
 import dragonknight.powers.TrueDragon;
 import dragonknight.powers.TrueEyePower;
 import dragonknight.powers.WhiteBrandPower;
@@ -332,6 +335,9 @@ public class DragonKnightMod implements
         BaseMod.addPower(TrueEyePower.class, TrueEyePower.POWER_ID);
         BaseMod.addPower(TrueDragon.class, TrueDragon.POWER_ID);
         BaseMod.addPower(BarrierPower.class, BarrierPower.POWER_ID);
+        BaseMod.addPower(SurefireScorchPower.class, SurefireScorchPower.POWER_ID);
+        BaseMod.addPower(ScorchPower.class, ScorchPower.POWER_ID);
+        BaseMod.addPower(AshPower.class, AshPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
@@ -475,6 +481,14 @@ public class DragonKnightMod implements
                     .addToBottom(new ApplyPowerAction(player, player, new Brand(player)));
         else
             player.getPower(makeID("Brand")).updateDescription();
+
+        // 处理神炎灼烧
+        for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {
+            if (!m.isDead && m.hasPower(makeID("SurefireScorchPower"))) {
+                AbstractDungeon.actionManager
+                        .addToBottom(new ApplyPowerAction(m, m, new ScorchPower(m, 1)));
+            }
+        }
     }
 
     @Override

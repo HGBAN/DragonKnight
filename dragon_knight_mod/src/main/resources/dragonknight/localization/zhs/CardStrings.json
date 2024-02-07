@@ -185,5 +185,13 @@
   "${modID}:SettingBarrier": {
     "NAME": "设置结界",
     "DESCRIPTION": "本回合，目标敌人每次获得状态时，就对其造成!M!倍该状态层数的伤害。"
+  },
+  "${modID}:SurefireBreath": {
+    "NAME": "神炎吐息",
+    "DESCRIPTION": "造成!D!点伤害。 NL 给予 dragonknight:神炎灼烧 。"
+  },
+  "${modID}:AshenScorch": {
+    "NAME": "灰烬灼烧",
+    "DESCRIPTION": "给予!M!层 dragonknight:灰烬 。"
   }
 }

@@ -112,5 +112,25 @@
       "本回合每次获得状态时，就造成 #b",
       " 倍该状态层数的伤害。"
     ]
+  },
+  "${modID}:SurefireScorchPower": {
+    "NAME": "神炎灼烧",
+    "DESCRIPTIONS": [
+      "每次有牌因为 #y烙印 被 #y消耗 ，则添加 #b1 层灼烧。"
+    ]
+  },
+  "${modID}:ScorchPower": {
+    "NAME": "灼烧",
+    "DESCRIPTIONS": [
+      "回合结束时受到 #b",
+      " 点伤害。每次造成伤害后层数减半。"
+    ]
+  },
+  "${modID}:AshPower": {
+    "NAME": "灰烬",
+    "DESCRIPTIONS": [
+      "每次受到伤害时，额外受到 #b",
+      " 点伤害。"
+    ]
   }
 }

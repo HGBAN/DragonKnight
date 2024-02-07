@@ -75,5 +75,21 @@
       "真龙形态"
     ],
     "DESCRIPTION": "化身真龙，获得 #b6 [E] ，抽 #b6 张牌，下面 #b6 次使用的牌少消耗 #b1 点 [E] 。"
+  },
+  {
+    "ID": "SurefireScorchPower",
+    "PROPER_NAME": "神炎灼烧",
+    "NAMES": [
+      "神炎灼烧"
+    ],
+    "DESCRIPTION": "每次有牌因为 #y烙印 被 #y消耗 ，则添加 #b1 层灼烧。"
+  },
+  {
+    "ID": "AshPower",
+    "PROPER_NAME": "灰烬",
+    "NAMES": [
+      "灰烬"
+    ],
+    "DESCRIPTION": "每次受到伤害时，额外受到伤害。"
   }
 ]
