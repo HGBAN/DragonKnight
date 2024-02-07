@@ -48,7 +48,8 @@ public class AngryTailSwipe extends CustomCard {
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AttackEffect.BLUNT_LIGHT));
         this.addToBot(new GainBlockAction(p, block));
-        this.addToBot(new ApplyPowerAction(p, p, new DragonAwakeningPower(p)));
+        if (!p.hasPower(makeID("DragonAwakeningPower")))
+            this.addToBot(new ApplyPowerAction(p, p, new DragonAwakeningPower(p)));
     }
 
 }
