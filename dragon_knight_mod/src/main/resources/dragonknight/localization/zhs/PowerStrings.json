@@ -132,5 +132,11 @@
       "每次受到伤害时，额外受到 #b",
       " 点伤害。"
     ]
+  },
+  "${modID}:DragonAwakeningPower": {
+    "NAME": "龙之觉醒",
+    "DESCRIPTIONS": [
+      "下回合进入 #y白龙形态 。"
+    ]
   }
 }

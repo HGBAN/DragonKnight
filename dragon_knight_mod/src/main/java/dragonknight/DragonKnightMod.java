@@ -83,6 +83,7 @@ import dragonknight.powers.BlackBrandPower;
 import dragonknight.powers.BlackDragon;
 import dragonknight.powers.Brand;
 import dragonknight.powers.BrandProtectorPower;
+import dragonknight.powers.DragonAwakeningPower;
 import dragonknight.powers.HeavenlyRevelationPower;
 import dragonknight.powers.NextCardFreePower;
 import dragonknight.powers.PhantomDragonPower;
@@ -338,6 +339,7 @@ public class DragonKnightMod implements
         BaseMod.addPower(SurefireScorchPower.class, SurefireScorchPower.POWER_ID);
         BaseMod.addPower(ScorchPower.class, ScorchPower.POWER_ID);
         BaseMod.addPower(AshPower.class, AshPower.POWER_ID);
+        BaseMod.addPower(DragonAwakeningPower.class, DragonAwakeningPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
@@ -615,7 +617,7 @@ public class DragonKnightMod implements
     }
 
     public static void addAntiBrandToCard(AbstractCard card) {
-        if (canBrand(card)) {
+        if (canBrand(card) && !card.hasTag(Enums.TEMP_BRAND)) {
             card.tags.add(DragonKnightMod.Enums.ANTI_BRAND);
             antiBrandCards.add(card);
             // card.rawDescription += " NL dragonknight:"

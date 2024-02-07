@@ -28,6 +28,7 @@ public class CardPatch {
     @SpirePatch(clz = AbstractCard.class, method = SpirePatch.CLASS)
     public static class Field {
         public static SpireField<String> tempDescription = new SpireField<>(() -> null);
+        public static SpireField<AbstractCard> masterCard = new SpireField<>(() -> null);
     }
 
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Period"));

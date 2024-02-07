@@ -193,5 +193,19 @@
   "${modID}:AshenScorch": {
     "NAME": "灰烬灼烧",
     "DESCRIPTION": "给予!M!层 dragonknight:灰烬 。"
+  },
+  "${modID}:IceDevilShield": {
+    "NAME": "冰魔护盾",
+    "DESCRIPTION": "获得!B!点格挡。本场战斗中，当前所有手牌获得 dragonknight:反烙印 。",
+    "UPGRADE_DESCRIPTION": "获得!B!点格挡。当前所有手牌将始终获得 dragonknight:反烙印 。"
+  },
+  "${modID}:AngryTailSwipe": {
+    "NAME": "愤怒尾扫",
+    "DESCRIPTION": "造成!D!点伤害。 NL 获得!B!点格挡。 NL 下个回合进入 dragonknight:白龙形态 。"
+  },
+  "${modID}:SteadyMind": {
+    "NAME": "稳定心神",
+    "DESCRIPTION": "获得!B!点格挡。 NL 造成获得的格挡值的伤害。",
+    "UPGRADE_DESCRIPTION": "获得!B!点格挡。 NL 造成2倍获得的格挡值的伤害。"
   }
 }
