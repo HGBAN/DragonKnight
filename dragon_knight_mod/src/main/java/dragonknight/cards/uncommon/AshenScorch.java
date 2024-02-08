@@ -24,7 +24,7 @@ public class AshenScorch extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public AshenScorch() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/AshenScorch.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.baseMagicNumber = 1;

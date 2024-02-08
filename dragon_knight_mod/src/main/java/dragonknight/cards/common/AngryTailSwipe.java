@@ -27,7 +27,7 @@ public class AngryTailSwipe extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
 
     public AngryTailSwipe() {
-        super(ID, NAME, imagePath("cards/attack/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/attack/AngryTailSwipe.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseDamage = 8;

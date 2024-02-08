@@ -26,7 +26,7 @@ public class IceDevilShield extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public IceDevilShield() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/IceDevilShield.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.baseBlock = 15;
