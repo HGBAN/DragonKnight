@@ -68,8 +68,8 @@
   "${modID}:PhantomDragonPower": {
     "NAME": "幻象之龙",
     "DESCRIPTIONS": [
-      "本局战斗中，化身成龙后使用的前 #b",
-      " 张牌消耗 #b0 点 #y能量 。"
+      "本次战斗中，#y化龙 后使用的前 #b",
+      " 张牌消耗 #b0 点 [E] 。"
     ]
   },
   "${modID}:AshBrandPower": {
@@ -137,6 +137,12 @@
     "NAME": "龙之觉醒",
     "DESCRIPTIONS": [
       "下回合进入 #y白龙形态 。"
+    ]
+  },
+  "${modID}:AshenManaPower": {
+    "NAME": "灰烬魔能",
+    "DESCRIPTIONS": [
+      "每个回合开始时，随机选择手牌中的1张 #y烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。"
     ]
   }
 }

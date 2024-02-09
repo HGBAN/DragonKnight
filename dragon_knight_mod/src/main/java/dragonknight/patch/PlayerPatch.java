@@ -17,8 +17,8 @@ public class PlayerPatch {
         public static void Prefix(AbstractPlayer _instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
             AbstractPlayer player = AbstractDungeon.player;
             if (player != null) {
-                if (player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
-                        && c.costForTurn > 0) {
+                if ((player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
+                        && c.costForTurn > 0)) {
                     c.setCostForTurn(c.costForTurn - 1);
                     changed = true;
                 }

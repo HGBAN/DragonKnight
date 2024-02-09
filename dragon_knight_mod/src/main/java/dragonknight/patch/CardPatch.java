@@ -2,7 +2,9 @@ package dragonknight.patch;
 
 import static dragonknight.DragonKnightMod.*;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -29,12 +31,16 @@ public class CardPatch {
     public static class Field {
         public static SpireField<String> tempDescription = new SpireField<>(() -> null);
         public static SpireField<AbstractCard> masterCard = new SpireField<>(() -> null);
+        public static SpireField<Boolean> reduceEnergy = new SpireField<>(() -> false);
     }
 
-    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Period"));
+    private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Description"));
 
     public static void addKeywordText(AbstractCard card) {
         String period = " " + uiStrings.TEXT[0];
+        if (card.hasTag(DragonKnightMod.Enums.DRAW_CARD)) {
+            card.rawDescription += " NL " + uiStrings.TEXT[1];
+        }
         if (card.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
             card.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("AntiBrand").PROPER_NAME + period;
         }
@@ -98,12 +104,19 @@ public class CardPatch {
     public static class renderEnergyPatch {
         private static boolean changed = false;
 
+        @SpireInsertPatch(loc = 2725, localvars = { "costColor" })
+        public static void Insert(AbstractCard _instance, SpriteBatch sb, @ByRef Color[] costColor) {
+            if (Field.reduceEnergy.get(_instance)) {
+                costColor[0] = new Color(0x66cc00ff);
+            }
+        }
+
         // 显示减一费的能力
         public static void Prefix(AbstractCard _instance, SpriteBatch sb) {
             AbstractPlayer player = AbstractDungeon.player;
             if (player != null) {
-                if (player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
-                        && _instance.costForTurn > 0) {
+                if ((player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
+                        && _instance.costForTurn > 0)) {
                     _instance.setCostForTurn(_instance.costForTurn - 1);
                     changed = true;
                     rec = true;
@@ -131,8 +144,8 @@ public class CardPatch {
         public static void Prefix(AbstractCard _instance) {
             AbstractPlayer player = AbstractDungeon.player;
             if (player != null) {
-                if (player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
-                        && _instance.costForTurn > 0 && !rec) {
+                if ((player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
+                        && _instance.costForTurn > 0 && !rec)) {
                     _instance.setCostForTurn(_instance.costForTurn - 1);
                     if (_instance.costForTurn == _instance.cost) {
                         _instance.isCostModifiedForTurn = false;

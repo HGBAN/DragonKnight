@@ -24,9 +24,10 @@
       "烙印："
     ]
   },
-  "${modID}:Period": {
+  "${modID}:Description": {
     "TEXT": [
-      "。"
+      "。",
+      "抽1张牌。"
     ]
   }
 }

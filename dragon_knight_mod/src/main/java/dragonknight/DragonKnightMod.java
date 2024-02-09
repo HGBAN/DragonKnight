@@ -31,6 +31,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
@@ -78,6 +79,7 @@ import dragonknight.potions.IceDevilPotion;
 import dragonknight.powers.AbyssFormPower;
 import dragonknight.powers.AshBrandPower;
 import dragonknight.powers.AshPower;
+import dragonknight.powers.AshenManaPower;
 import dragonknight.powers.BarrierPower;
 import dragonknight.powers.BlackBrandPower;
 import dragonknight.powers.BlackDragon;
@@ -340,6 +342,7 @@ public class DragonKnightMod implements
         BaseMod.addPower(ScorchPower.class, ScorchPower.POWER_ID);
         BaseMod.addPower(AshPower.class, AshPower.POWER_ID);
         BaseMod.addPower(DragonAwakeningPower.class, DragonAwakeningPower.POWER_ID);
+        BaseMod.addPower(AshenManaPower.class, AshenManaPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
@@ -393,6 +396,9 @@ public class DragonKnightMod implements
         public static CardTags TEMP_BRAND;
         @SpireEnum
         public static CardTags BE_DRAGON;
+
+        @SpireEnum
+        public static CardTags DRAW_CARD;
     }
 
     public static void onClearBrandCards() {
@@ -420,6 +426,7 @@ public class DragonKnightMod implements
     @Override
     public void receiveCardUsed(AbstractCard card) {
         AbstractPlayer player = AbstractDungeon.player;
+
         if (!player.drawPile.isEmpty()) {
             if (card.hasTag(Enums.BRAND)) {
                 if (!player.drawPile.isEmpty()) {
@@ -452,6 +459,10 @@ public class DragonKnightMod implements
 
         if (card.exhaustOnUseOnce || card.exhaust) {
             exhaustCardsUsedThisTurn++;
+        }
+
+        if (card.hasTag(Enums.DRAW_CARD)) {
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
         }
     }
 
