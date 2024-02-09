@@ -32,7 +32,7 @@
   },
   "${modID}:AbyssForm": {
     "NAME": "深渊形态",
-    "DESCRIPTION": "每回合第一次使用 dragonknight:烙印 牌将触发一次化龙。"
+    "DESCRIPTION": "每回合第一次使用 dragonknight:烙印 牌将触发一次 dragonknight:化龙 。"
   },
   "${modID}:DragonScale": {
     "NAME": "龙鳞",

@@ -32,6 +32,7 @@ public class HammerBrand extends CustomCard {
         this.tags.add(DragonKnightMod.Enums.BRAND);
         this.tags.add(DragonKnightMod.Enums.EXHAUST);
         this.exhaust = true;
+        this.initializeDescription();
     }
 
     @Override

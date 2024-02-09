@@ -39,7 +39,7 @@ public class AbyssDragon extends BaseRelic {
     @Override
     public void atTurnStartPostDraw() {
 
-        if (DragonKnightMod.brandCountLastTurn >= 4) {
+        if (DragonKnightMod.brandCountLastTurn >= 3) {
             this.flash();
             int r = AbstractDungeon.cardRng.random(1);
             AbstractPlayer player = AbstractDungeon.player;

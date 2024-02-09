@@ -22,8 +22,7 @@ public class IceDevilPotion extends AbstractPotion {
 
     public IceDevilPotion() {
         super(NAME, ID, PotionRarity.RARE, PotionSize.BOLT, PotionColor.BLUE);
-        isThrown = true;
-        targetRequired = true;
+        isThrown = false;
     }
 
     public void initializeData() {
