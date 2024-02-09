@@ -85,7 +85,7 @@ import dragonknight.powers.BlackBrandPower;
 import dragonknight.powers.BlackDragon;
 import dragonknight.powers.Brand;
 import dragonknight.powers.BrandProtectorPower;
-import dragonknight.powers.DragonAwakeningPower;
+import dragonknight.powers.DevouringBrandPower;
 import dragonknight.powers.HeavenlyRevelationPower;
 import dragonknight.powers.NextCardFreePower;
 import dragonknight.powers.PhantomDragonPower;
@@ -96,6 +96,7 @@ import dragonknight.powers.TrueDragon;
 import dragonknight.powers.TrueEyePower;
 import dragonknight.powers.WhiteBrandPower;
 import dragonknight.powers.WhiteDragon;
+import dragonknight.powers.WhiteDragonAwakeningPower;
 import dragonknight.powers.WhiteRealmPower;
 import dragonknight.relics.BaseRelic;
 import dragonknight.screens.SelectDragonScreen;
@@ -341,8 +342,9 @@ public class DragonKnightMod implements
         BaseMod.addPower(SurefireScorchPower.class, SurefireScorchPower.POWER_ID);
         BaseMod.addPower(ScorchPower.class, ScorchPower.POWER_ID);
         BaseMod.addPower(AshPower.class, AshPower.POWER_ID);
-        BaseMod.addPower(DragonAwakeningPower.class, DragonAwakeningPower.POWER_ID);
+        BaseMod.addPower(WhiteDragonAwakeningPower.class, WhiteDragonAwakeningPower.POWER_ID);
         BaseMod.addPower(AshenManaPower.class, AshenManaPower.POWER_ID);
+        BaseMod.addPower(DevouringBrandPower.class, DevouringBrandPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
@@ -363,6 +365,8 @@ public class DragonKnightMod implements
     public static int brandCountLastTurn = 0;
     public static int exhaustCardsUsedThisTurn = 0;
     public static int enemyPowerCountThisTurn = 0;
+    public static boolean isEnemyDamagedThisTurn = false;
+    public static boolean isEnemyDamagedLastTurn = false;
     public static ArrayList<AbstractCard> brandCardsLastTurn = new ArrayList<>();
 
     public static ArrayList<AbstractCard> tempBrandCards = new ArrayList<>();
@@ -518,6 +522,8 @@ public class DragonKnightMod implements
         exhaustCardsThisTurn.clear();
         exhaustCardsUsedThisTurn = 0;
         enemyPowerCountThisTurn = 0;
+        isEnemyDamagedThisTurn = false;
+        isEnemyDamagedLastTurn = false;
     }
 
     public static void beDragon() {
@@ -542,6 +548,8 @@ public class DragonKnightMod implements
         exhaustCardsThisTurn.clear();
         exhaustCardsUsedThisTurn = 0;
         enemyPowerCountThisTurn = 0;
+        isEnemyDamagedThisTurn = false;
+        isEnemyDamagedLastTurn = false;
     }
 
     @Override
@@ -564,6 +572,9 @@ public class DragonKnightMod implements
         exhaustCardsThisTurn.clear();
         exhaustCardsUsedThisTurn = 0;
         enemyPowerCountThisTurn = 0;
+
+        isEnemyDamagedLastTurn = isEnemyDamagedThisTurn;
+        isEnemyDamagedThisTurn = false;
 
         DragonKnightMod.brandCountLastTurn = DragonKnightMod.brandCards.size();
         DragonKnightMod.brandCardsLastTurn.clear();

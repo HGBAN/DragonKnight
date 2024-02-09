@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.character.DragonPrince;
-import dragonknight.powers.DragonAwakeningPower;
+import dragonknight.powers.WhiteDragonAwakeningPower;
 
 public class AngryTailSwipe extends CustomCard {
     public static final String ID = makeID("AngryTailSwipe");
@@ -27,7 +27,8 @@ public class AngryTailSwipe extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
 
     public AngryTailSwipe() {
-        super(ID, NAME, imagePath("cards/attack/AngryTailSwipe.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/attack/AngryTailSwipe.png"), COST, DESCRIPTION, TYPE,
+                DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseDamage = 8;
@@ -48,8 +49,8 @@ public class AngryTailSwipe extends CustomCard {
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AttackEffect.BLUNT_LIGHT));
         this.addToBot(new GainBlockAction(p, block));
-        if (!p.hasPower(makeID("DragonAwakeningPower")))
-            this.addToBot(new ApplyPowerAction(p, p, new DragonAwakeningPower(p)));
+        if (!p.hasPower(makeID("WhiteDragonAwakeningPower")) && !p.hasPower(makeID("BlackDragonAwakeningPower")))
+            this.addToBot(new ApplyPowerAction(p, p, new WhiteDragonAwakeningPower(p)));
     }
 
 }

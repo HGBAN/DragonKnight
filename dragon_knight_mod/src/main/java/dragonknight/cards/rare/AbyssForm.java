@@ -1,7 +1,6 @@
 package dragonknight.cards.rare;
 
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -39,7 +38,7 @@ public class AbyssForm extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower(ID))
+        if (!p.hasPower(makeID("AbyssFormPower")))
             addToBot(new ApplyPowerAction(p, p, new AbyssFormPower(p)));
     }
 }

@@ -8,30 +8,40 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import dragonknight.powers.DevouringBrandPower;
+
 public class PlayerPatch {
 
     @SpirePatch(clz = AbstractPlayer.class, method = "useCard")
     public static class useCardPatch {
-        private static boolean changed = false;
+        private static int change = 0;
 
         public static void Prefix(AbstractPlayer _instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
             AbstractPlayer player = AbstractDungeon.player;
             if (player != null) {
-                if ((player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
-                        && c.costForTurn > 0)) {
-                    c.setCostForTurn(c.costForTurn - 1);
-                    changed = true;
+                if (!AbstractDungeon.getCurrRoom().isBattleOver
+                        && c.costForTurn > 0) {
+                    int tmp = c.costForTurn;
+                    if (player.hasPower(makeID("TrueEyePower"))) {
+                        c.setCostForTurn(c.costForTurn - 1);
+                    }
+                    if (player.hasPower(makeID("DevouringBrandPower"))) {
+                        if (DevouringBrandPower.existInExhaustPile.contains(c.name)) {
+                            c.setCostForTurn(c.costForTurn - 2);
+                        }
+                    }
+                    change = tmp - c.costForTurn;
                 }
             }
         }
 
         public static void Postfix(AbstractPlayer _instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
-            if (changed) {
+            if (change > 0) {
                 c.setCostForTurn(c.costForTurn + 1);
                 if (c.costForTurn == c.cost) {
                     c.isCostModifiedForTurn = false;
                 }
-                changed = false;
+                change = 0;
             }
         }
     }

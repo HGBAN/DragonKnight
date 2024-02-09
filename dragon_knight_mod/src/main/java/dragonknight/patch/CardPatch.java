@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
 import dragonknight.DragonKnightMod;
+import dragonknight.powers.DevouringBrandPower;
 
 public class CardPatch {
     // @SpirePatch(clz = TheLibrary.class, method = "buttonEffect")
@@ -102,7 +103,7 @@ public class CardPatch {
 
     @SpirePatch(clz = AbstractCard.class, method = "renderEnergy")
     public static class renderEnergyPatch {
-        private static boolean changed = false;
+        private static int change = 0;
 
         @SpireInsertPatch(loc = 2725, localvars = { "costColor" })
         public static void Insert(AbstractCard _instance, SpriteBatch sb, @ByRef Color[] costColor) {
@@ -111,26 +112,35 @@ public class CardPatch {
             }
         }
 
-        // 显示减一费的能力
+        // 显示减费的能力
         public static void Prefix(AbstractCard _instance, SpriteBatch sb) {
             AbstractPlayer player = AbstractDungeon.player;
             if (player != null) {
-                if ((player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
-                        && _instance.costForTurn > 0)) {
-                    _instance.setCostForTurn(_instance.costForTurn - 1);
-                    changed = true;
-                    rec = true;
+                if (!AbstractDungeon.getCurrRoom().isBattleOver
+                        && _instance.costForTurn > 0) {
+                    int tmp = _instance.costForTurn;
+                    if (player.hasPower(makeID("TrueEyePower"))) {
+                        _instance.setCostForTurn(_instance.costForTurn - 1);
+                        rec = true;
+                    }
+                    if (player.hasPower(makeID("DevouringBrandPower"))) {
+                        if (DevouringBrandPower.existInExhaustPile.contains(_instance.name)) {
+                            _instance.setCostForTurn(_instance.costForTurn - 2);
+                        }
+                        rec = true;
+                    }
+                    change += tmp - _instance.costForTurn;
                 }
             }
         }
 
         public static void Postfix(AbstractCard _instance, SpriteBatch sb) {
-            if (changed) {
-                _instance.setCostForTurn(_instance.costForTurn + 1);
+            if (change > 0) {
+                _instance.setCostForTurn(_instance.costForTurn + change);
                 if (_instance.costForTurn == _instance.cost) {
                     _instance.isCostModifiedForTurn = false;
                 }
-                changed = false;
+                change = 0;
                 rec = false;
             }
         }
@@ -138,27 +148,32 @@ public class CardPatch {
 
     @SpirePatch(clz = AbstractCard.class, method = "hasEnoughEnergy")
     public static class hasEnoughEnergyPatch {
-        private static boolean changed = false;
+        private static int change = 0;
 
-        // 减一费的判断
+        // 减费的判断
         public static void Prefix(AbstractCard _instance) {
             AbstractPlayer player = AbstractDungeon.player;
             if (player != null) {
-                if ((player.hasPower(makeID("TrueEyePower")) && !AbstractDungeon.getCurrRoom().isBattleOver
-                        && _instance.costForTurn > 0 && !rec)) {
-                    _instance.setCostForTurn(_instance.costForTurn - 1);
-                    if (_instance.costForTurn == _instance.cost) {
-                        _instance.isCostModifiedForTurn = false;
+                if (!AbstractDungeon.getCurrRoom().isBattleOver
+                        && _instance.costForTurn > 0 && !rec) {
+                    int tmp = _instance.costForTurn;
+                    if (player.hasPower(makeID("TrueEyePower"))) {
+                        _instance.setCostForTurn(_instance.costForTurn - 1);
                     }
-                    changed = true;
+                    if (player.hasPower(makeID("DevouringBrandPower"))) {
+                        if (DevouringBrandPower.existInExhaustPile.contains(_instance.name)) {
+                            _instance.setCostForTurn(_instance.costForTurn - 2);
+                        }
+                    }
+                    change += tmp - _instance.costForTurn;
                 }
             }
         }
 
         public static void Postfix(AbstractCard _instance) {
-            if (changed) {
-                _instance.setCostForTurn(_instance.costForTurn + 1);
-                changed = false;
+            if (change > 0) {
+                _instance.setCostForTurn(_instance.costForTurn + change);
+                change = 0;
             }
         }
     }

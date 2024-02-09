@@ -60,7 +60,7 @@ public class SurefireBrand extends CustomCard {
             }
             card.initializeDescription();
         }
-        if (!p.hasPower(ID))
+        if (!p.hasPower(makeID("SurefirePower")))
             addToBot(new ApplyPowerAction(p, p, new SurefirePower(p)));
     }
 }

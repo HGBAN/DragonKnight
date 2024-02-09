@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import basemod.abstracts.CustomCard;
 import dragonknight.DragonKnightMod;
 import dragonknight.character.DragonPrince;
-import dragonknight.powers.DragonAwakeningPower;
+import dragonknight.powers.WhiteDragonAwakeningPower;
 import dragonknight.powers.WhiteRealmPower;
 
 public class WhiteRealm extends CustomCard {
@@ -46,7 +46,7 @@ public class WhiteRealm extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower(ID))
+        if (!p.hasPower(makeID("WhiteRealmPower")))
             addToBot(new ApplyPowerAction(p, p, new WhiteRealmPower(p)));
     }
 
@@ -54,7 +54,7 @@ public class WhiteRealm extends CustomCard {
     public void triggerOnExhaust() {
         AbstractPlayer p = AbstractDungeon.player;
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 5)));
-        addToBot(new ApplyPowerAction(p, p, new DragonAwakeningPower(p)));
+        addToBot(new ApplyPowerAction(p, p, new WhiteDragonAwakeningPower(p)));
     }
 
 }

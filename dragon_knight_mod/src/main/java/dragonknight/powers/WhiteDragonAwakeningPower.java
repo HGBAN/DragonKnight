@@ -8,13 +8,13 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
-public class DragonAwakeningPower extends BasePower {
-    public static final String POWER_ID = makeID("DragonAwakeningPower");
+public class WhiteDragonAwakeningPower extends BasePower {
+    public static final String POWER_ID = makeID("WhiteDragonAwakeningPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     // public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public DragonAwakeningPower(AbstractCreature owner) {
+    public WhiteDragonAwakeningPower(AbstractCreature owner) {
         super(POWER_ID, PowerType.BUFF, false, owner, owner, -1);
     }
 

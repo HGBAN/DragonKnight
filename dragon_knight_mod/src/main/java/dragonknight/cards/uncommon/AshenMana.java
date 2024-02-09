@@ -40,7 +40,7 @@ public class AshenMana extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower(ID))
+        if (!p.hasPower(AshenManaPower.POWER_ID))
             this.addToBot(new ApplyPowerAction(p, p, new AshenManaPower(p)));
     }
 

@@ -133,8 +133,8 @@
       " 点伤害。"
     ]
   },
-  "${modID}:DragonAwakeningPower": {
-    "NAME": "龙之觉醒",
+  "${modID}:WhiteDragonAwakeningPower": {
+    "NAME": "白龙觉醒",
     "DESCRIPTIONS": [
       "下回合进入 #y白龙形态 。"
     ]
@@ -143,6 +143,18 @@
     "NAME": "灰烬魔能",
     "DESCRIPTIONS": [
       "每个回合开始时，随机选择手牌中的1张 #y烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。"
+    ]
+  },
+  "${modID}:BlackDragonAwakeningPower": {
+    "NAME": "黑龙觉醒",
+    "DESCRIPTIONS": [
+      "下回合进入 #y黑龙形态 。"
+    ]
+  },
+  "${modID}:DevouringBrandPower": {
+    "NAME": "吞噬烙印",
+    "DESCRIPTIONS": [
+      "将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。"
     ]
   }
 }

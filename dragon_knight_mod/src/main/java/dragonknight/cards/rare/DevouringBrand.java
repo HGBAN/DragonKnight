@@ -10,24 +10,22 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.character.DragonPrince;
-import dragonknight.powers.PhantomDragonPower;
+import dragonknight.powers.DevouringBrandPower;
 
-public class PhantomDragon extends CustomCard {
-    public static final String ID = makeID("PhantomDragon");
+public class DevouringBrand extends CustomCard {
+    public static final String ID = makeID("DevouringBrand");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    private static final int COST = 3;
+    private static final int COST = 2;
     private static final CardType TYPE = CardType.POWER;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public PhantomDragon() {
-        super(ID, NAME, imagePath("cards/power/PhantomDragon.png"), COST, DESCRIPTION, TYPE,
+    public DevouringBrand() {
+        super(ID, NAME, imagePath("cards/power/default.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
-        // this.exhaustOnUseOnce = true;
-        this.exhaust = true;
     }
 
     @Override
@@ -36,19 +34,13 @@ public class PhantomDragon extends CustomCard {
             this.upgradeName();
             this.isInnate = true;
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            initializeDescription();
+            this.initializeDescription();
         }
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower(makeID("PhantomDragonPower")))
-            addToBot(new ApplyPowerAction(p, p, new PhantomDragonPower(p)));
+        if (!p.hasPower(DevouringBrandPower.POWER_ID))
+            addToBot(new ApplyPowerAction(p, p, new DevouringBrandPower(p)));
     }
-
-    @Override
-    public void atTurnStart() {
-        this.isUsed = false;
-    }
-
 }

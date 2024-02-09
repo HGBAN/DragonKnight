@@ -216,5 +216,14 @@
     "NAME": "灰烬魔能",
     "DESCRIPTION": "每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。",
     "UPGRADE_DESCRIPTION":"每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。 NL 固有。"
+  },
+  "${modID}:HauntingMurmur": {
+    "NAME": "幽怨低吟",
+    "DESCRIPTION": "下个回合进入 dragonknight:黑龙形态 。 NL 使所有敌人获得!M!层 易伤 ，!M!层 虚弱 。 NL 如果上个回合有敌人受伤，则额外叠加4层状态，并获得!B!点格挡值。"
+  },
+  "${modID}:DevouringBrand": {
+    "NAME": "吞噬烙印",
+    "DESCRIPTION": "将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。",
+    "UPGRADE_DESCRIPTION":"将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。 NL 固有。"
   }
 }
