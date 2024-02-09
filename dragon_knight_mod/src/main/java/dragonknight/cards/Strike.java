@@ -1,5 +1,7 @@
 package dragonknight.cards;
 
+import static dragonknight.DragonKnightMod.*;
+
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,10 +12,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.character.DragonPrince;
-
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.logger;
-import static dragonknight.DragonKnightMod.makeID;
 
 public class Strike extends CustomCard {
     public static final String ID = makeID("Strike_DK");
@@ -47,9 +45,9 @@ public class Strike extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AttackEffect.SLASH_DIAGONAL));
-        logger.info(p);
-        logger.info(m);
-        logger.info("hello");
+        // logger.info(p);
+        // logger.info(m);
+        // logger.info("hello");
     }
 
 }

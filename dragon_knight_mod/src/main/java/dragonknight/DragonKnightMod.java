@@ -22,7 +22,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
 import com.evacipated.cardcrawl.modthespire.Patcher;
@@ -68,6 +67,7 @@ import basemod.interfaces.OnStartBattleSubscriber;
 import basemod.interfaces.PostBattleSubscriber;
 import basemod.interfaces.PostInitializeSubscriber;
 import basemod.interfaces.PreMonsterTurnSubscriber;
+import dragonknight.actions.BrandAction;
 import dragonknight.cards.BrandCopyCard;
 import dragonknight.cards.IBrandDifferentCard;
 import dragonknight.character.DragonPrince;
@@ -427,42 +427,23 @@ public class DragonKnightMod implements
     public void receiveCardUsed(AbstractCard card) {
         AbstractPlayer player = AbstractDungeon.player;
 
-        if (!player.drawPile.isEmpty()) {
-            if (card.hasTag(Enums.BRAND)) {
-                if (!player.drawPile.isEmpty()) {
-                    AbstractCard brandCard = getRandomCardThatCanBrand(player.drawPile);
-                    if (brandCard != null)
-                        brandCard(brandCard);
-                }
-            } else if (card.hasTag(Enums.BRAND2)) {
-                if (player.hasPower(makeID("BlackDragon")) ||
-                        player.hasPower(makeID("WhiteDragon")) || player.hasPower(makeID("TrueDragon"))) {
-                    ArrayList<AbstractCard> group = new ArrayList<>();
-                    for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-                        if (!c.hasTag(Enums.ANTI_BRAND)) {
-                            group.add(c);
-                        }
-                    }
-                    AbstractDungeon.actionManager
-                            .addToBottom(new SelectCardsAction(group, "选择一张牌消耗", cards -> {
-                                for (AbstractCard brandCard : cards) {
-                                    brandCard(brandCard);
-                                }
-                            }));
-                } else {
-                    AbstractCard brandCard = getRandomCardThatCanBrand(player.drawPile);
-                    if (brandCard != null)
-                        brandCard(brandCard);
-                }
+        if (card.hasTag(Enums.DRAW_CARD)) {
+            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
+        }
+
+        if (card.hasTag(Enums.BRAND)) {
+            AbstractDungeon.actionManager.addToBottom(new BrandAction(false));
+        } else if (card.hasTag(Enums.BRAND2)) {
+            if (player.hasPower(makeID("BlackDragon")) ||
+                    player.hasPower(makeID("WhiteDragon")) || player.hasPower(makeID("TrueDragon"))) {
+                AbstractDungeon.actionManager.addToBottom(new BrandAction(true));
+            } else {
+                AbstractDungeon.actionManager.addToBottom(new BrandAction(false));
             }
         }
 
         if (card.exhaustOnUseOnce || card.exhaust) {
             exhaustCardsUsedThisTurn++;
-        }
-
-        if (card.hasTag(Enums.DRAW_CARD)) {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
         }
     }
 

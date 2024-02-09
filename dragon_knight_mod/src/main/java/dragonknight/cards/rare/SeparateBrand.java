@@ -1,7 +1,6 @@
 package dragonknight.cards.rare;
 
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -49,7 +48,7 @@ public class SeparateBrand extends BrandCopyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AttackEffect.SLASH_VERTICAL));
-        if (DragonKnightMod.brandCountLastTurn > 4) {
+        if (DragonKnightMod.brandCountLastTurn > 2) {
             for (int i = 0; i < this.baseMagicNumber; i++) {
                 this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                         AttackEffect.SLASH_VERTICAL));
@@ -66,7 +65,7 @@ public class SeparateBrand extends BrandCopyCard {
     }
 
     @Override
-    public void triggerWhenDrawn() {
+    public void triggerOnGlowCheck() {
         if (DragonKnightMod.brandCountLastTurn > 4) {
             this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
         } else {

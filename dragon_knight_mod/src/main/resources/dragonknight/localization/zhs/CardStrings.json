@@ -99,7 +99,7 @@
   },
   "${modID}:MourningBrand": {
     "NAME": "悲恸烙印",
-    "DESCRIPTION": "造成!D!点伤害。 NL 如果上个回合结束时有牌被 dragonknight:烙印 消耗，就从抽牌堆抽!M!张牌。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果上个回合结束时有牌被 dragonknight:烙印 消耗 ，则获得 [E] [E] ，抽!M!张牌，并触发1次 dragonknight:烙印 。"
   },
   "${modID}:Trample": {
     "NAME": "践踏",
@@ -107,8 +107,8 @@
   },
   "${modID}:CrimsonBrand": {
     "NAME": "赤红烙印",
-    "DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果抽牌堆不足10张牌，就再抽2张牌；如果不足5张，获得 [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印 放入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果抽牌堆不足10张牌，就再抽2张牌；如果不足5张，获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印+ 放入弃牌堆。"
+    "DESCRIPTION": "抽1张 dragonknight:烙印 牌。如果已消耗的牌的数量不足10张，就再抽!M!张牌；如果不足5张，再获得 [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印 放入弃牌堆。",
+    "UPGRADE_DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果已消耗的牌的数量不足10张，就再抽!M!张牌；如果不足5张，再获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印+ 放入弃牌堆。"
   },
   "${modID}:SwordBrand": {
     "NAME": "剑之烙印",
@@ -121,8 +121,8 @@
   },
   "${modID}:SeparateBrand": {
     "NAME": "分离烙印",
-    "DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因 dragonknight:烙印 消耗的牌超过4张，再造成!M!次伤害。被 dragonknight:烙印 消耗 后，将另一张 *分离烙印 放入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因 dragonknight:烙印 消耗的牌超过4张，再造成!M!次伤害。被 dragonknight:烙印 消耗 后，将另一张 *分离烙印+ 放入弃牌堆。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因 dragonknight:烙印 消耗的牌超过2张，再造成!M!次伤害。被 dragonknight:烙印 消耗 后，将另一张 *分离烙印 放入弃牌堆。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 如果上回合因 dragonknight:烙印 消耗的牌超过2张，再造成!M!次伤害。被 dragonknight:烙印 消耗 后，将另一张 *分离烙印+ 放入弃牌堆。"
   },
   "${modID}:Bite": {
     "NAME": "撕咬",

@@ -1,11 +1,11 @@
 package dragonknight.cards.uncommon;
 
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.DragonKnightMod;
+import dragonknight.actions.BrandAction;
 import dragonknight.character.DragonPrince;
 
 public class MourningBrand extends CustomCard {
@@ -31,8 +32,8 @@ public class MourningBrand extends CustomCard {
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
-        this.baseDamage = 6;
-        this.baseMagicNumber = 2;
+        this.baseDamage = 9;
+        this.baseMagicNumber = 1;
     }
 
     @Override
@@ -50,11 +51,22 @@ public class MourningBrand extends CustomCard {
                 AttackEffect.SLASH_VERTICAL));
         if (DragonKnightMod.brandCountLastTurn > 0) {
             this.addToBot(new DrawCardAction(this.baseMagicNumber));
+            this.addToBot(new GainEnergyAction(2));
+            this.addToBot(new BrandAction(false));
         }
     }
 
+    // @Override
+    // public void triggerWhenDrawn() {
+    //     if (DragonKnightMod.brandCountLastTurn > 0) {
+    //         this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
+    //     } else {
+    //         this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
+    //     }
+    // }
+
     @Override
-    public void triggerWhenDrawn() {
+    public void triggerOnGlowCheck() {
         if (DragonKnightMod.brandCountLastTurn > 0) {
             this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
@@ -62,4 +74,5 @@ public class MourningBrand extends CustomCard {
         }
     }
 
+    
 }

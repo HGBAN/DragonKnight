@@ -1,7 +1,6 @@
 package dragonknight.cards.uncommon;
 
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -47,9 +46,9 @@ public class CrimsonBrand extends BrandCopyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DrawBrandCardAction(1));
-        if (p.drawPile.group.size() < 10) {
-            this.addToBot(new DrawCardAction(2));
-            if (p.drawPile.group.size() < 5) {
+        if (p.exhaustPile.group.size() < 10) {
+            this.addToBot(new DrawCardAction(this.baseMagicNumber));
+            if (p.exhaustPile.group.size() < 5) {
                 this.addToBot(new GainEnergyAction(this.baseMagicNumber));
             }
         }
