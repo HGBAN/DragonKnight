@@ -41,7 +41,7 @@ public class DevouringBrandPower extends BasePower {
 
     @Override
     public void onExhaust(AbstractCard card) {
-        existInExhaustPile.add(card.name);
+        existInExhaustPile.add(card.cardID);
     }
 
 }
