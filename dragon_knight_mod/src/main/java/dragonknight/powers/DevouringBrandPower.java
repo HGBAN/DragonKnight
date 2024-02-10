@@ -35,7 +35,7 @@ public class DevouringBrandPower extends BasePower {
             return;
         AbstractPlayer p = AbstractDungeon.player;
         for (AbstractCard c : p.exhaustPile.group) {
-            existInExhaustPile.add(c.name);
+            existInExhaustPile.add(c.cardID);
         }
     }
 
@@ -44,5 +44,4 @@ public class DevouringBrandPower extends BasePower {
         existInExhaustPile.add(card.name);
     }
 
-    
 }

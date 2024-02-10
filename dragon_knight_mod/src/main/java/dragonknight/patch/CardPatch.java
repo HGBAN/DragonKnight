@@ -124,7 +124,7 @@ public class CardPatch {
                         rec = true;
                     }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {
-                        if (DevouringBrandPower.existInExhaustPile.contains(_instance.name)) {
+                        if (DevouringBrandPower.existInExhaustPile.contains(_instance.cardID)) {
                             _instance.setCostForTurn(_instance.costForTurn - 2);
                         }
                         rec = true;
@@ -161,7 +161,7 @@ public class CardPatch {
                         _instance.setCostForTurn(_instance.costForTurn - 1);
                     }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {
-                        if (DevouringBrandPower.existInExhaustPile.contains(_instance.name)) {
+                        if (DevouringBrandPower.existInExhaustPile.contains(_instance.cardID)) {
                             _instance.setCostForTurn(_instance.costForTurn - 2);
                         }
                     }

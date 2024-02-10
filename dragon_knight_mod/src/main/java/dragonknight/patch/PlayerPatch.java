@@ -26,7 +26,7 @@ public class PlayerPatch {
                         c.setCostForTurn(c.costForTurn - 1);
                     }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {
-                        if (DevouringBrandPower.existInExhaustPile.contains(c.name)) {
+                        if (DevouringBrandPower.existInExhaustPile.contains(c.cardID)) {
                             c.setCostForTurn(c.costForTurn - 2);
                         }
                     }

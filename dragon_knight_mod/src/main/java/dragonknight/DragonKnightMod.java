@@ -83,6 +83,7 @@ import dragonknight.powers.AshenManaPower;
 import dragonknight.powers.BarrierPower;
 import dragonknight.powers.BlackBrandPower;
 import dragonknight.powers.BlackDragon;
+import dragonknight.powers.BlackDragonAwakeningPower;
 import dragonknight.powers.Brand;
 import dragonknight.powers.BrandProtectorPower;
 import dragonknight.powers.DevouringBrandPower;
@@ -344,6 +345,7 @@ public class DragonKnightMod implements
         BaseMod.addPower(AshPower.class, AshPower.POWER_ID);
         BaseMod.addPower(WhiteDragonAwakeningPower.class, WhiteDragonAwakeningPower.POWER_ID);
         BaseMod.addPower(AshenManaPower.class, AshenManaPower.POWER_ID);
+        BaseMod.addPower(BlackDragonAwakeningPower.class, BlackDragonAwakeningPower.POWER_ID);
         BaseMod.addPower(DevouringBrandPower.class, DevouringBrandPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
