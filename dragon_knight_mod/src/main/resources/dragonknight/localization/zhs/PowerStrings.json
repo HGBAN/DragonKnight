@@ -156,5 +156,12 @@
     "DESCRIPTIONS": [
       "将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。"
     ]
+  },
+  "${modID}:BrandsCallPower": {
+    "NAME": "烙印的呼唤",
+    "DESCRIPTIONS": [
+      "下 #b",
+      " 张 #y烙印 牌降低1点 [E] 的消耗。"
+    ]
   }
 }

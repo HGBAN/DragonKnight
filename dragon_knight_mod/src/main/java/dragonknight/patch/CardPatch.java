@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.UIStrings;
 
 import dragonknight.DragonKnightMod;
+import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
 
 public class CardPatch {
@@ -123,6 +124,10 @@ public class CardPatch {
                         _instance.setCostForTurn(_instance.costForTurn - 1);
                         rec = true;
                     }
+                    if (player.hasPower(BrandsCallPower.POWER_ID) && isBrandCard(_instance)) {
+                        _instance.setCostForTurn(_instance.costForTurn - 1);
+                        rec = true;
+                    }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {
                         if (DevouringBrandPower.existInExhaustPile.contains(_instance.cardID)) {
                             _instance.setCostForTurn(_instance.costForTurn - 2);
@@ -158,6 +163,9 @@ public class CardPatch {
                         && _instance.costForTurn > 0 && !rec) {
                     int tmp = _instance.costForTurn;
                     if (player.hasPower(makeID("TrueEyePower"))) {
+                        _instance.setCostForTurn(_instance.costForTurn - 1);
+                    }
+                    if (player.hasPower(BrandsCallPower.POWER_ID) && isBrandCard(_instance)) {
                         _instance.setCostForTurn(_instance.costForTurn - 1);
                     }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {

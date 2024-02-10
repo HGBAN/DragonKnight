@@ -40,5 +40,19 @@
     "DESCRIPTIONS": [
       "在篝火处休息时，可以选择给一张卡牌添加 #ydragonknight:反烙印 。"
     ]
+  },
+  "${modID}:BrandsCall": {
+    "NAME": "烙印的呼唤",
+    "FLAVOR": "暂无。",
+    "DESCRIPTIONS": [
+      "每个回合开始时额外抽 #b1 张 #ydragonknight:烙印 牌，每个回合使用的第1张 #ydragonknight:烙印 牌降低 #b1 点 [E] 的消耗。"
+    ]
+  },
+  "${modID}:KingsInsight": {
+    "NAME": "王的觉悟",
+    "FLAVOR": "暂无。",
+    "DESCRIPTIONS": [
+      "每当获得状态牌时，将其 #y消耗 。"
+    ]
   }
 }

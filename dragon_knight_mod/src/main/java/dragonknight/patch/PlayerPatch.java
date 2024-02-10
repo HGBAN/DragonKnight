@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
 
 public class PlayerPatch {
@@ -23,6 +24,9 @@ public class PlayerPatch {
                         && c.costForTurn > 0) {
                     int tmp = c.costForTurn;
                     if (player.hasPower(makeID("TrueEyePower"))) {
+                        c.setCostForTurn(c.costForTurn - 1);
+                    }
+                    if (player.hasPower(BrandsCallPower.POWER_ID) && isBrandCard(c)) {
                         c.setCostForTurn(c.costForTurn - 1);
                     }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {

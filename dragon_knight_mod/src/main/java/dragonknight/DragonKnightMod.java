@@ -86,6 +86,7 @@ import dragonknight.powers.BlackDragon;
 import dragonknight.powers.BlackDragonAwakeningPower;
 import dragonknight.powers.Brand;
 import dragonknight.powers.BrandProtectorPower;
+import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
 import dragonknight.powers.HeavenlyRevelationPower;
 import dragonknight.powers.NextCardFreePower;
@@ -347,6 +348,7 @@ public class DragonKnightMod implements
         BaseMod.addPower(AshenManaPower.class, AshenManaPower.POWER_ID);
         BaseMod.addPower(BlackDragonAwakeningPower.class, BlackDragonAwakeningPower.POWER_ID);
         BaseMod.addPower(DevouringBrandPower.class, DevouringBrandPower.POWER_ID);
+        BaseMod.addPower(BrandsCallPower.class, BrandsCallPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
@@ -427,6 +429,10 @@ public class DragonKnightMod implements
             else
                 r.run();
         }
+    }
+
+    public static boolean isBrandCard(AbstractCard card) {
+        return card.hasTag(Enums.BRAND) || card.hasTag(Enums.BRAND2) || card.hasTag(Enums.TEMP_BRAND);
     }
 
     @Override

@@ -1,7 +1,5 @@
 package dragonknight.patch;
 
-import static dragonknight.DragonKnightMod.*;
-
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -15,7 +13,6 @@ public class MonsterPatch {
 
         @SpireInsertPatch(loc = 804)
         public static void Insert(AbstractMonster _instance, DamageInfo info) {
-            logger.info(info.output);
             DragonKnightMod.isEnemyDamagedThisTurn = true;
         }
     }
