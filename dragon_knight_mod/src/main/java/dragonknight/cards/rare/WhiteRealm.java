@@ -46,8 +46,7 @@ public class WhiteRealm extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower(makeID("WhiteRealmPower")))
-            addToBot(new ApplyPowerAction(p, p, new WhiteRealmPower(p)));
+        addToBot(new ApplyPowerAction(p, p, new WhiteRealmPower(p, 1)));
     }
 
     @Override

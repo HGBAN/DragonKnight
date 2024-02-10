@@ -13,8 +13,8 @@ public class WhiteRealmPower extends BasePower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public WhiteRealmPower(AbstractCreature owner) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, 1);
+    public WhiteRealmPower(AbstractCreature owner,int amount) {
+        super(POWER_ID, PowerType.BUFF, true, owner, owner, amount);
     }
 
     @Override
