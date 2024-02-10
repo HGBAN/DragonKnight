@@ -1,6 +1,6 @@
 package dragonknight.patch;
 
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
@@ -16,13 +16,23 @@ public class BossRelicSelectPatch {
             r.instantObtain(AbstractDungeon.player, 0, true);
             (AbstractDungeon.getCurrRoom()).rewardPopOutTimer = 0.25F;
         }
+        if (r.relicId.equals(makeID("IceDevilsHeart"))) {
+            r.instantObtain(AbstractDungeon.player, 0, true);
+            (AbstractDungeon.getCurrRoom()).rewardPopOutTimer = 0.25F;
+        }
     }
 }
 
 @SpirePatch(clz = AbstractRelic.class, method = "bossObtainLogic")
 class BossObtainPatch {
-    public static SpireReturn<Void> Prefix(AbstractRelic _instance,FloatyEffect ___f_effect) {
+    public static SpireReturn<Void> Prefix(AbstractRelic _instance, FloatyEffect ___f_effect) {
         if (_instance.relicId.equals(makeID("AbyssDragon"))) {
+            _instance.isObtained = true;
+            ___f_effect.x = 0.0F;
+            ___f_effect.y = 0.0F;
+            return SpireReturn.Return();
+        }
+        if (_instance.relicId.equals(makeID("IceDevilsHeart"))) {
             _instance.isObtained = true;
             ___f_effect.x = 0.0F;
             ___f_effect.y = 0.0F;

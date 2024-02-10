@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import dragonknight.DragonKnightMod.Enums;
+import dragonknight.relics.IceDevilsHeart;
 
 public class BrandAction extends AbstractGameAction {
     private boolean canChoose;
@@ -23,7 +24,7 @@ public class BrandAction extends AbstractGameAction {
     @Override
     public void update() {
         AbstractPlayer player = AbstractDungeon.player;
-        if (player.drawPile.isEmpty()) {
+        if (player.drawPile.isEmpty() || player.hasRelic(IceDevilsHeart.ID)) {
             isDone = true;
             return;
         }

@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import dragonknight.DragonKnightMod;
 import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
+import dragonknight.powers.IceDevilsHeartPower;
 
 public class CardPatch {
     // @SpirePatch(clz = TheLibrary.class, method = "buttonEffect")
@@ -128,6 +129,11 @@ public class CardPatch {
                         _instance.setCostForTurn(_instance.costForTurn - 1);
                         rec = true;
                     }
+                    if (player.hasPower(IceDevilsHeartPower.POWER_ID)
+                            && _instance.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
+                        _instance.setCostForTurn(_instance.costForTurn - 1);
+                        rec = true;
+                    }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {
                         if (DevouringBrandPower.existInExhaustPile.contains(_instance.cardID)) {
                             _instance.setCostForTurn(_instance.costForTurn - 2);
@@ -166,6 +172,10 @@ public class CardPatch {
                         _instance.setCostForTurn(_instance.costForTurn - 1);
                     }
                     if (player.hasPower(BrandsCallPower.POWER_ID) && isBrandCard(_instance)) {
+                        _instance.setCostForTurn(_instance.costForTurn - 1);
+                    }
+                    if (player.hasPower(IceDevilsHeartPower.POWER_ID)
+                            && _instance.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
                         _instance.setCostForTurn(_instance.costForTurn - 1);
                     }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {

@@ -5,10 +5,12 @@ import static dragonknight.DragonKnightMod.*;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import dragonknight.DragonKnightMod;
 import dragonknight.powers.BarrierPower;
+import dragonknight.relics.DivineFlameRing;
 
 public class ApplyPowerPatch {
 
@@ -19,6 +21,10 @@ public class ApplyPowerPatch {
             if (_instance.target.hasPower(makeID("BarrierPower"))) {
                 BarrierPower barrierPower = (BarrierPower) _instance.target.getPower(makeID("BarrierPower"));
                 barrierPower.onAddPower(___powerToApply);
+            }
+            if (!_instance.target.isPlayer && AbstractDungeon.player.hasRelic(DivineFlameRing.ID)) {
+                DivineFlameRing divineFlameRing = (DivineFlameRing) AbstractDungeon.player.getRelic(DivineFlameRing.ID);
+                divineFlameRing.onAddPower();
             }
             if (!_instance.target.isPlayer) {
                 if (_instance.amount > 0) {

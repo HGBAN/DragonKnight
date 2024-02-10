@@ -8,8 +8,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
+import dragonknight.DragonKnightMod;
 import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
+import dragonknight.powers.IceDevilsHeartPower;
 
 public class PlayerPatch {
 
@@ -27,6 +29,10 @@ public class PlayerPatch {
                         c.setCostForTurn(c.costForTurn - 1);
                     }
                     if (player.hasPower(BrandsCallPower.POWER_ID) && isBrandCard(c)) {
+                        c.setCostForTurn(c.costForTurn - 1);
+                    }
+                    if (player.hasPower(IceDevilsHeartPower.POWER_ID)
+                            && c.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
                         c.setCostForTurn(c.costForTurn - 1);
                     }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {

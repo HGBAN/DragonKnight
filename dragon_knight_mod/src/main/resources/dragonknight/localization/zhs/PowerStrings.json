@@ -163,5 +163,12 @@
       "下 #b",
       " 张 #y烙印 牌降低1点 [E] 的消耗。"
     ]
+  },
+  "${modID}:IceDevilsHeartPower": {
+    "NAME": "冰魔之心",
+    "DESCRIPTIONS": [
+      "下 #b",
+      " 张 #y反烙印 牌降低1点 [E] 的消耗。"
+    ]
   }
 }

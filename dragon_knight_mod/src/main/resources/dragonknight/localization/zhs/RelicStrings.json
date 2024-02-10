@@ -54,5 +54,26 @@
     "DESCRIPTIONS": [
       "每当获得状态牌时，将其 #y消耗 。"
     ]
+  },
+  "${modID}:IceDevilsHeart": {
+    "NAME": "冰魔之心",
+    "FLAVOR": "暂无。",
+    "DESCRIPTIONS": [
+      "每个回合开始时额外抽 #b1 张 #ydragonknight:反烙印 牌，每个回合使用的第 #b1 张 #ydragonknight:反烙印 牌降低 #b1 点 [E] 的消耗。每个回合开始时额外获得 [E] [E] ，并额外抽 #b2 张牌。你不会再触发 #ydragonknight:烙印 。"
+    ]
+  },
+  "${modID}:DivineFlameRing": {
+    "NAME": "神炎之环",
+    "FLAVOR": "暂无。",
+    "DESCRIPTIONS": [
+      "每当你使敌人获得状态，获得 [E] 和 #b1 点临时 #y力量 。"
+    ]
+  },
+  "${modID}:CopyPaper": {
+    "NAME": "复印纸",
+    "FLAVOR": "暂无。",
+    "DESCRIPTIONS": [
+      "每个回合开始后，可以选择 #b1 张手牌返回抽牌堆并随机抽 #b1 张 #ydragonknight:烙印 牌。"
+    ]
   }
 }

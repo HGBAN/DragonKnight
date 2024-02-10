@@ -11,13 +11,13 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 
 import dragonknight.DragonKnightMod;
 
-public class BrandsCallPower extends BasePower {
-    public static final String POWER_ID = makeID("BrandsCallPower");
+public class IceDevilsHeartPower extends BasePower {
+    public static final String POWER_ID = makeID("IceDevilsHeartPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public BrandsCallPower(AbstractCreature owner, int amount) {
+    public IceDevilsHeartPower(AbstractCreature owner, int amount) {
         super(POWER_ID, PowerType.BUFF, true, owner, owner, amount);
     }
 
@@ -28,8 +28,7 @@ public class BrandsCallPower extends BasePower {
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (card.hasTag(DragonKnightMod.Enums.BRAND) || card.hasTag(DragonKnightMod.Enums.BRAND2)
-                || card.hasTag(DragonKnightMod.Enums.TEMP_BRAND)) {
+        if (card.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
             this.amount--;
             this.flash();
             if (this.amount <= 0) {
