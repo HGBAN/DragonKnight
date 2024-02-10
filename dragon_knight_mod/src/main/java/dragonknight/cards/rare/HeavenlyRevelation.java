@@ -38,7 +38,6 @@ public class HeavenlyRevelation extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower(makeID("HeavenlyRevelationPower")))
-            addToBot(new ApplyPowerAction(p, p, new HeavenlyRevelationPower(p)));
+        addToBot(new ApplyPowerAction(p, p, new HeavenlyRevelationPower(p)));
     }
 }

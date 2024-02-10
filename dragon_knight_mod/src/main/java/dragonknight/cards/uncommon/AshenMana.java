@@ -23,7 +23,7 @@ public class AshenMana extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public AshenMana() {
-        super(ID, NAME, imagePath("cards/power/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/power/AshenMana.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
     }

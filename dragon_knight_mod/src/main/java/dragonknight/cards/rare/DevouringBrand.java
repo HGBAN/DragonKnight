@@ -23,7 +23,7 @@ public class DevouringBrand extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public DevouringBrand() {
-        super(ID, NAME, imagePath("cards/power/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/power/DevouringBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
     }

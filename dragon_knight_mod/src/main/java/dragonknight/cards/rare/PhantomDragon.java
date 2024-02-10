@@ -42,8 +42,7 @@ public class PhantomDragon extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower(makeID("PhantomDragonPower")))
-            addToBot(new ApplyPowerAction(p, p, new PhantomDragonPower(p)));
+        addToBot(new ApplyPowerAction(p, p, new PhantomDragonPower(p, 1)));
     }
 
     @Override

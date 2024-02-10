@@ -32,7 +32,7 @@ public class TemporalBrand extends CustomCard {
     private int brandNumber = 1;
 
     public TemporalBrand() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/TemporalBrand.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseMagicNumber = 3;

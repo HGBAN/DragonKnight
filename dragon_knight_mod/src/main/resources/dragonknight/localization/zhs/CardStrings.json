@@ -224,6 +224,6 @@
   "${modID}:DevouringBrand": {
     "NAME": "吞噬烙印",
     "DESCRIPTION": "将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。",
-    "UPGRADE_DESCRIPTION":"将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。 NL 固有。"
+    "UPGRADE_DESCRIPTION":"将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。 NL 固有 。"
   }
 }

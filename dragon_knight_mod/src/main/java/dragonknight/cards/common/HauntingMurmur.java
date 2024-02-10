@@ -28,7 +28,7 @@ public class HauntingMurmur extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ALL;
 
     public HauntingMurmur() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/HauntingMurmur.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseBlock = 10;

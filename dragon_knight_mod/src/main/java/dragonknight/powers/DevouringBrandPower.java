@@ -18,7 +18,7 @@ public class DevouringBrandPower extends BasePower {
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public static Set<String> existInExhaustPile = new HashSet<>();
+    public Set<String> existInExhaustPile = new HashSet<>();
 
     public DevouringBrandPower(AbstractCreature owner) {
         super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
