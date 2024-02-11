@@ -56,7 +56,7 @@ public class IceDevilBrand extends CustomCard {
         });
         for (int i = 0; i < getEffect(); i++)
             this.addToBot(
-                    new DamageAllEnemiesAction(p, this.damage, this.damageTypeForTurn,
+                    new DamageAllEnemiesAction(p, DragonKnightMod.enemyPowerCountThisTurn, this.damageTypeForTurn,
                             AttackEffect.SLASH_DIAGONAL));
     }
 

@@ -3,7 +3,6 @@ package dragonknight.relics;
 import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -26,14 +25,24 @@ public class IceDevilsHeart extends BaseRelic {
         return DESCRIPTIONS[0];
     }
 
+    public void onEquip() {
+        AbstractDungeon.player.masterHandSize += 2;
+        AbstractDungeon.player.energy.energyMaster += 2;
+    }
+
+    public void onUnequip() {
+        AbstractDungeon.player.masterHandSize -= 2;
+        AbstractDungeon.player.energy.energyMaster -= 2;
+    }
+
     @Override
-    public void atTurnStartPostDraw() {
+    public void atTurnStart() {
         this.flash();
         AbstractPlayer p = AbstractDungeon.player;
         addToBot(new DrawBrandCardAction(1, (x) -> x.hasTag(DragonKnightMod.Enums.ANTI_BRAND)));
         addToBot(new ApplyPowerAction(p, p, new IceDevilsHeartPower(p, 1)));
         addToBot(new GainEnergyAction(2));
-        addToBot(new DrawCardAction(2));
+        // addToBot(new DrawCardAction(2));
     }
 
     @Override

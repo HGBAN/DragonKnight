@@ -2,7 +2,6 @@ package dragonknight.relics;
 
 import static dragonknight.DragonKnightMod.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,26 +36,30 @@ public class CopyPaper extends BaseRelic {
                         .collect(Collectors.toList());
                 if (brandCards.size() > 0) {
                     CopyPaper.this.flash();
-                    addToBot(new SelectCardsInHandAction(1, "返回抽牌堆", true, true, (x) -> true, (cards) -> {
-                        ArrayList<AbstractCard> tmpCards = new ArrayList<>(cards);
-                        addToBot(new AbstractGameAction() {
-
-                            @Override
-                            public void update() {
-                                if (tmpCards.size() > 0) {
-                                    p.hand.group.remove(tmpCards.get(0));
-                                    p.hand.moveToDeck(tmpCards.get(0), true);
-
-                                    AbstractCard brandCard = brandCards
-                                            .get(AbstractDungeon.cardRng.random(brandCards.size() - 1));
-                                    p.drawPile.group.remove(brandCard);
-                                    p.drawPile.moveToHand(brandCard);
-
-                                    // p.hand.refreshHandLayout();
+                    addToTop(new SelectCardsInHandAction(1, "返回抽牌堆", true, true, (x) -> true, (cards) -> {
+                        // ArrayList<AbstractCard> tmpCards = new ArrayList<>(cards);
+                        if (cards.size() > 0) {
+                            // logger.info(p.hand.getTopCard().name);
+                            // logger.info(p.hand.getTopCard().equals(cards.get(0)));
+                            AbstractCard card = cards.get(0);
+                            addToTop(new AbstractGameAction() {
+                                @Override
+                                public void update() {
+                                    p.hand.group.remove(card);
+                                    card.stopGlowing();
+                                    isDone = true;
                                 }
-                                isDone = true;
-                            }
-                        });
+                            });
+
+                            p.hand.moveToDeck(card, true);
+
+                            AbstractCard brandCard = brandCards
+                                    .get(AbstractDungeon.cardRng.random(brandCards.size() - 1));
+                            p.drawPile.group.remove(brandCard);
+                            p.drawPile.moveToHand(brandCard);
+
+                            // p.hand.refreshHandLayout();
+                        }
                     }));
                 }
                 isDone = true;

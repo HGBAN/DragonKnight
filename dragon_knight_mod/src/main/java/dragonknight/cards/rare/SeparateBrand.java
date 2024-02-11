@@ -66,7 +66,7 @@ public class SeparateBrand extends BrandCopyCard {
 
     @Override
     public void triggerOnGlowCheck() {
-        if (DragonKnightMod.brandCountLastTurn > 4) {
+        if (DragonKnightMod.brandCountLastTurn > 2) {
             this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();

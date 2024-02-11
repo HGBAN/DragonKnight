@@ -18,13 +18,22 @@ public class BrandsCall extends BaseRelic {
         pool = DragonPrince.Enums.CARD_COLOR;
     }
 
+    // public void onEquip() {
+    //     AbstractDungeon.player.masterHandSize++;
+    // }
+
+    // public void onUnequip() {
+    //     AbstractDungeon.player.masterHandSize--;
+    // }
+
     @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0];
     }
 
     @Override
-    public void atTurnStartPostDraw() {
+    public void atTurnStart() {
+        this.flash();
         addToBot(new DrawBrandCardAction(1));
         AbstractPlayer p = AbstractDungeon.player;
         addToBot(new ApplyPowerAction(p, p, new BrandsCallPower(p, 1)));
