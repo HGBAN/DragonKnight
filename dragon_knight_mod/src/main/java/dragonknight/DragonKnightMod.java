@@ -37,6 +37,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -174,6 +175,7 @@ public class DragonKnightMod implements
 
         ConsoleCommand.addCommand("exhaust", ExhaustHand.class);
         ConsoleCommand.addCommand("brand", BrandCommand.class);
+        cardNameKeywords = CardCrawlGame.languagePack.getUIString(makeID("CardNameKeywords"));
     }
 
     /*----------Localization----------*/
@@ -382,6 +384,8 @@ public class DragonKnightMod implements
     public static ArrayList<WeakReference<Runnable>> onClearBrandCards = new ArrayList<>();
 
     public static ArrayList<AbstractCard> exhaustCardsThisTurn = new ArrayList<>();
+
+    public static UIStrings cardNameKeywords;
 
     public static class Enums {
         // 随机消耗

@@ -23,21 +23,6 @@ public class WhiteDragon extends BeDragonPower {
 
     public WhiteDragon(AbstractCreature owner) {
         super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
-        // com.megacrit.cardcrawl.powers.AngryPower
-        // logger.info(owner == null ? "null" : "exist");
-        // this.name = NAME;
-        // this.ID = POWER_ID;
-        // this.owner = owner;
-        // this.amount = -1;
-        // this.type = PowerType.BUFF;
-        // this.isTurnBased = true;
-        // this.description = DESCRIPTIONS[0];
-
-        // loadRegion("anger");
-
-        // ApplyPowerAction
-        // addToBot(new Hand);
-        // import com.megacrit.cardcrawl.actions.common.DamageAction
     }
 
     @Override

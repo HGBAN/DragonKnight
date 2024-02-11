@@ -29,5 +29,11 @@
       "。",
       "抽1张牌。"
     ]
+  },
+  "${modID}:CardNameKeywords": {
+    "TEXT_DICT": {
+      "Brand": "烙印",
+      "Heavenly": "天底"
+    }
   }
 }

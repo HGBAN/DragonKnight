@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import dragonknight.DragonKnightMod;
 import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
+import dragonknight.powers.HeavenlyLinkPower;
 import dragonknight.powers.IceDevilsHeartPower;
 
 public class PlayerPatch {
@@ -35,8 +36,13 @@ public class PlayerPatch {
                             && c.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
                         c.setCostForTurn(c.costForTurn - 1);
                     }
+                    if (player.hasPower(HeavenlyLinkPower.POWER_ID)
+                            && c.name.contains(DragonKnightMod.cardNameKeywords.TEXT_DICT.get("Heavenly"))) {
+                        c.setCostForTurn(c.costForTurn - 1);
+                    }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {
-                        if (((DevouringBrandPower)player.getPower(makeID("DevouringBrandPower"))).existInExhaustPile.contains(c.cardID)) {
+                        if (((DevouringBrandPower) player.getPower(makeID("DevouringBrandPower"))).existInExhaustPile
+                                .contains(c.cardID)) {
                             c.setCostForTurn(c.costForTurn - 2);
                         }
                     }

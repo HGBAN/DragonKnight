@@ -225,5 +225,21 @@
     "NAME": "吞噬烙印",
     "DESCRIPTION": "将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。",
     "UPGRADE_DESCRIPTION":"将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。 NL 固有 。"
+  },
+  "${modID}:HeavenlyLink": {
+    "NAME": "天底的连接",
+    "DESCRIPTION": "名字中有 *天底 的牌降低1点 [E] 的消耗。每次使用 *天底 牌都会获得 [E] 。"
+  },
+  "${modID}:HeavenlyDescent": {
+    "NAME": "天底的降临",
+    "DESCRIPTION": "对敌人使用已 消耗 的所有攻击牌。 NL 消耗 。"
+  },
+  "${modID}:HeavenlyJudgment": {
+    "NAME": "天底的审判",
+    "DESCRIPTION": "造成18点伤害。 NL 获得 [E] 。 NL 被 消耗 后，获得3点 力量 并额外造成12点伤害。 NL 这张牌在使用后会返回抽牌堆。"
+  },
+  "${modID}:HeavenlyGaze": {
+    "NAME": "天底的注视",
+    "DESCRIPTION": "造成!D!点伤害。 NL 获得 [E] 。 NL 被 消耗 后，随机将抽牌堆中的3张攻击牌的带有 虚无 的复制放入手牌。 NL 这张牌在使用后会返回抽牌堆。"
   }
 }

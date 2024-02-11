@@ -75,5 +75,12 @@
     "DESCRIPTIONS": [
       "每个回合开始后，可以选择 #b1 张手牌返回抽牌堆并随机抽 #b1 张 #ydragonknight:烙印 牌。"
     ]
+  },
+  "${modID}:HeavenlyFate": {
+    "NAME": "天底的命数",
+    "FLAVOR": "暂无。",
+    "DESCRIPTIONS": [
+      "每个回合开始后，选择手牌中的 #b1 张攻击牌，使其获得 #y消耗 和 #y虚无 。"
+    ]
   }
 }

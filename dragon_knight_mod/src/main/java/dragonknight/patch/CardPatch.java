@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.localization.UIStrings;
 import dragonknight.DragonKnightMod;
 import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
+import dragonknight.powers.HeavenlyLinkPower;
 import dragonknight.powers.IceDevilsHeartPower;
 
 public class CardPatch {
@@ -134,8 +135,14 @@ public class CardPatch {
                         _instance.setCostForTurn(_instance.costForTurn - 1);
                         rec = true;
                     }
+                    if (player.hasPower(HeavenlyLinkPower.POWER_ID)
+                            && _instance.name.contains(DragonKnightMod.cardNameKeywords.TEXT_DICT.get("Heavenly"))) {
+                        _instance.setCostForTurn(_instance.costForTurn - 1);
+                        rec = true;
+                    }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {
-                        if (((DevouringBrandPower)player.getPower(makeID("DevouringBrandPower"))).existInExhaustPile.contains(_instance.cardID)) {
+                        if (((DevouringBrandPower) player.getPower(makeID("DevouringBrandPower"))).existInExhaustPile
+                                .contains(_instance.cardID)) {
                             _instance.setCostForTurn(_instance.costForTurn - 2);
                         }
                         rec = true;
@@ -178,8 +185,13 @@ public class CardPatch {
                             && _instance.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
                         _instance.setCostForTurn(_instance.costForTurn - 1);
                     }
+                    if (player.hasPower(HeavenlyLinkPower.POWER_ID)
+                            && _instance.name.contains(DragonKnightMod.cardNameKeywords.TEXT_DICT.get("Heavenly"))) {
+                        _instance.setCostForTurn(_instance.costForTurn - 1);
+                    }
                     if (player.hasPower(makeID("DevouringBrandPower"))) {
-                        if (((DevouringBrandPower)player.getPower(makeID("DevouringBrandPower"))).existInExhaustPile.contains(_instance.cardID)) {
+                        if (((DevouringBrandPower) player.getPower(makeID("DevouringBrandPower"))).existInExhaustPile
+                                .contains(_instance.cardID)) {
                             _instance.setCostForTurn(_instance.costForTurn - 2);
                         }
                     }
