@@ -486,7 +486,7 @@ public class DragonKnightMod implements
             ((BrandCopyCard) brandCard).brandExhaust = true;
         }
         AbstractDungeon.actionManager
-                .addToBottom(new ExhaustSpecificCardAction(brandCard, player.drawPile));
+                .addToTop(new ExhaustSpecificCardAction(brandCard, player.drawPile));
         if (!player.hasPower(makeID("Brand")))
             AbstractDungeon.actionManager
                     .addToBottom(new ApplyPowerAction(player, player, new Brand(player)));

@@ -3,7 +3,6 @@ package dragonknight.patch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardAtBottomOfDeckAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAndDeckAction;
@@ -25,8 +24,9 @@ public class MakeCardPatch {
             AbstractPlayer p = AbstractDungeon.player;
             if (c.type.equals(CardType.STATUS) && p.hasRelic(KingsInsight.ID)) {
                 p.getRelic(KingsInsight.ID).flash();
-                AbstractDungeon.actionManager
-                        .addToBottom(new ExhaustSpecificCardAction(c, AbstractDungeon.player.drawPile));
+                p.drawPile.moveToExhaustPile(c);
+                c.exhaustOnUseOnce = false;
+                c.freeToPlayOnce = false;
             }
         }
     }
@@ -51,10 +51,9 @@ public class MakeCardPatch {
                             AbstractPlayer p = AbstractDungeon.player;
                             if (result.type.equals(CardType.STATUS) && p.hasRelic(KingsInsight.ID)) {
                                 p.getRelic(KingsInsight.ID).flash();
-                                AbstractDungeon.actionManager
-                                        .addToBottom(
-                                                new ExhaustSpecificCardAction(result,
-                                                        AbstractDungeon.player.discardPile));
+                                p.drawPile.moveToExhaustPile(result);
+                                result.exhaustOnUseOnce = false;
+                                result.freeToPlayOnce = false;
                             }
                             isDone = true;
                         }
@@ -70,8 +69,9 @@ public class MakeCardPatch {
             AbstractPlayer p = AbstractDungeon.player;
             if (tmp.type.equals(CardType.STATUS) && p.hasRelic(KingsInsight.ID)) {
                 p.getRelic(KingsInsight.ID).flash();
-                AbstractDungeon.actionManager
-                        .addToBottom(new ExhaustSpecificCardAction(tmp, AbstractDungeon.player.drawPile));
+                p.drawPile.moveToExhaustPile(tmp);
+                tmp.exhaustOnUseOnce = false;
+                tmp.freeToPlayOnce = false;
             }
         }
 
@@ -80,8 +80,9 @@ public class MakeCardPatch {
             AbstractPlayer p = AbstractDungeon.player;
             if (tmp.type.equals(CardType.STATUS) && p.hasRelic(KingsInsight.ID)) {
                 p.getRelic(KingsInsight.ID).flash();
-                AbstractDungeon.actionManager
-                        .addToBottom(new ExhaustSpecificCardAction(tmp, AbstractDungeon.player.discardPile));
+                p.drawPile.moveToExhaustPile(tmp);
+                tmp.exhaustOnUseOnce = false;
+                tmp.freeToPlayOnce = false;
             }
         }
     }
@@ -97,8 +98,11 @@ public class MakeCardPatch {
                 // .addToBottom(new ExhaustSpecificCardAction(p.drawPile., p.drawPile));
                 CardGroup cardsOfType = p.drawPile.getCardsOfType(CardType.STATUS);
                 for (AbstractCard card : cardsOfType.group) {
-                    AbstractDungeon.actionManager
-                            .addToBottom(new ExhaustSpecificCardAction(card, p.drawPile));
+                    // AbstractDungeon.actionManager
+                    //         .addToBottom(new ExhaustSpecificCardAction(card, p.drawPile));
+                    p.drawPile.moveToExhaustPile(card);
+                    card.exhaustOnUseOnce = false;
+                    card.freeToPlayOnce = false;
                 }
             }
         }
@@ -115,15 +119,14 @@ public class MakeCardPatch {
                             if (result.type.equals(CardType.STATUS) && p.hasRelic(KingsInsight.ID)) {
                                 if (p.hand.contains(result)) {
                                     p.getRelic(KingsInsight.ID).flash();
-                                    AbstractDungeon.actionManager
-                                            .addToBottom(
-                                                    new ExhaustSpecificCardAction(result, AbstractDungeon.player.hand));
+                                    p.drawPile.moveToExhaustPile(result);
+                                    result.exhaustOnUseOnce = false;
+                                    result.freeToPlayOnce = false;
                                 } else if (p.discardPile.contains(result)) {
                                     p.getRelic(KingsInsight.ID).flash();
-                                    AbstractDungeon.actionManager
-                                            .addToBottom(
-                                                    new ExhaustSpecificCardAction(result,
-                                                            AbstractDungeon.player.discardPile));
+                                    p.drawPile.moveToExhaustPile(result);
+                                    result.exhaustOnUseOnce = false;
+                                    result.freeToPlayOnce = false;
                                 }
                             }
                             isDone = true;

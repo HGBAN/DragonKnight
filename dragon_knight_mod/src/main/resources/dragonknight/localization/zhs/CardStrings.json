@@ -215,7 +215,7 @@
   "${modID}:AshenMana": {
     "NAME": "灰烬魔能",
     "DESCRIPTION": "每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。",
-    "UPGRADE_DESCRIPTION":"每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。 NL 固有。"
+    "UPGRADE_DESCRIPTION":"每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。 NL 固有 。"
   },
   "${modID}:HauntingMurmur": {
     "NAME": "幽怨低吟",

@@ -38,11 +38,11 @@ public class BarrierPower extends BasePower {
     public void onAddPower(AbstractPower power) {
         int totalAmount = power.amount;
         // if (owner.hasPower(power.ID)) {
-        //     totalAmount += owner.getPower(power.ID).amount;
+        // totalAmount += owner.getPower(power.ID).amount;
         // }
 
         this.flash();
-        addToBot(new DamageAction(owner, new DamageInfo(source, totalAmount * amount, DamageType.HP_LOSS),
+        addToBot(new DamageAction(owner, new DamageInfo(source, Math.abs(totalAmount * amount), DamageType.HP_LOSS),
                 AttackEffect.FIRE));
     }
 }
