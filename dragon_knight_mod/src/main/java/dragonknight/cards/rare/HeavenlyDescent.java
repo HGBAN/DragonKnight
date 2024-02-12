@@ -2,7 +2,6 @@ package dragonknight.cards.rare;
 
 import static dragonknight.DragonKnightMod.*;
 
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -11,6 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
+import dragonknight.actions.UseCardAction2;
 import dragonknight.character.DragonPrince;
 
 public class HeavenlyDescent extends CustomCard {
@@ -45,7 +45,7 @@ public class HeavenlyDescent extends CustomCard {
                 card.calculateCardDamage(m);
                 card.use(AbstractDungeon.player, m);
 
-                addToBot(new UseCardAction(card, m));
+                addToBot(new UseCardAction2(card, m));
             }
         }
     }

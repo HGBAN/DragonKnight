@@ -1,6 +1,6 @@
 package dragonknight.patch;
 
-import static dragonknight.DragonKnightMod.addAntiBrandToCard;
+import static dragonknight.DragonKnightMod.*;
 
 import java.util.ArrayList;
 
@@ -20,8 +20,10 @@ public class GridCardSelectPatch {
             if (cards.size() > 0) {
                 addAntiBrandToCard(cards.get(0));
                 cards.get(0).initializeDescription();
+                cards.get(0).stopGlowing();
             }
             DragonKnightMod.antiBrandSet = false;
+            _instance.selectedCards.clear();
         }
     }
 }
