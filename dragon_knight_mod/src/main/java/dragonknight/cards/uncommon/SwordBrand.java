@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
@@ -56,23 +55,24 @@ public class SwordBrand extends BrandCopyCard {
                 List<AbstractCard> cards = p.hand.group.stream()
                         .filter(card -> !card.hasTag(DragonKnightMod.Enums.BRAND)
                                 && !card.hasTag(DragonKnightMod.Enums.BRAND2)
-                                && !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND) && canUseCard(card))
+                                && !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND) && canUseCard(card)
+                                && card.type.equals(CardType.SKILL))
                         .collect(Collectors.toList());
                 // cards.remove(SwordBrand.this);
 
-                for (int i = 0; i < SwordBrand.this.baseMagicNumber; i++) {
-                    if (cards.size() <= 0)
-                        break;
-                    int index = AbstractDungeon.cardRng.random(cards.size() - 1);
-                    AbstractCard randomCard = cards.get(index);
-                    cards.remove(index);
+                for (AbstractCard c:cards) {
+                    // if (cards.size() <= 0)
+                    //     break;
+                    // int index = AbstractDungeon.cardRng.random(cards.size() - 1);
+                    // AbstractCard randomCard = cards.get(index);
+                    // cards.remove(index);
 
-                    randomCard.tags.add(DragonKnightMod.Enums.BRAND);
-                    randomCard.tags.add(DragonKnightMod.Enums.TEMP_BRAND);
-                    DragonKnightMod.tempBrandCards.add(randomCard);
+                    c.tags.add(DragonKnightMod.Enums.BRAND);
+                    c.tags.add(DragonKnightMod.Enums.TEMP_BRAND);
+                    DragonKnightMod.tempBrandCards.add(c);
                     // randomCard.rawDescription += " NL dragonknight:"
                     // + DragonKnightMod.keywords.get("TempBrand").PROPER_NAME;
-                    randomCard.initializeDescription();
+                    c.initializeDescription();
                 }
 
                 isDone = true;

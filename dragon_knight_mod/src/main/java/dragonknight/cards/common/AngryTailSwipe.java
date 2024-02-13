@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.character.DragonPrince;
+import dragonknight.powers.WhiteDragon;
 import dragonknight.powers.WhiteDragonAwakeningPower;
 
 public class AngryTailSwipe extends CustomCard {
@@ -48,7 +49,8 @@ public class AngryTailSwipe extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AttackEffect.BLUNT_LIGHT));
-        this.addToBot(new GainBlockAction(p, block));
+        if (p.hasPower(WhiteDragon.POWER_ID))
+            this.addToBot(new GainBlockAction(p, block));
         if (!p.hasPower(makeID("WhiteDragonAwakeningPower")) && !p.hasPower(makeID("BlackDragonAwakeningPower")))
             this.addToBot(new ApplyPowerAction(p, p, new WhiteDragonAwakeningPower(p)));
     }

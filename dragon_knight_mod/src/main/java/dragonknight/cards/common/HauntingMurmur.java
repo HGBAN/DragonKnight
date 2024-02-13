@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
 import basemod.abstracts.CustomCard;
@@ -28,7 +27,8 @@ public class HauntingMurmur extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ALL;
 
     public HauntingMurmur() {
-        super(ID, NAME, imagePath("cards/skill/HauntingMurmur.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/HauntingMurmur.png"), COST, DESCRIPTION, TYPE,
+                DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseBlock = 10;
@@ -39,7 +39,9 @@ public class HauntingMurmur extends CustomCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(8);
+            // this.upgradeMagicNumber(8);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -49,11 +51,12 @@ public class HauntingMurmur extends CustomCard {
             this.addToBot(new ApplyPowerAction(p, p, new BlackDragonAwakeningPower(p)));
         int tmp = this.baseMagicNumber;
         if (DragonKnightMod.isEnemyDamagedLastTurn) {
-            tmp += 4;
+            tmp += 1;
+            if (upgraded)
+                tmp += 1;
             this.addToBot(new GainBlockAction(p, this.block));
         }
         for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            this.addToBot(new ApplyPowerAction(monster, p, new VulnerablePower(monster, tmp, true)));
             this.addToBot(new ApplyPowerAction(monster, p, new WeakPower(monster, tmp, true)));
         }
     }
@@ -67,5 +70,4 @@ public class HauntingMurmur extends CustomCard {
         }
     }
 
-    
 }

@@ -43,7 +43,7 @@ public class PlayerPatch {
                     if (player.hasPower(makeID("DevouringBrandPower"))) {
                         if (((DevouringBrandPower) player.getPower(makeID("DevouringBrandPower"))).existInExhaustPile
                                 .contains(c.cardID)) {
-                            c.setCostForTurn(c.costForTurn - 2);
+                            c.setCostForTurn(c.costForTurn - 1);
                         }
                     }
                     change = tmp - c.costForTurn;

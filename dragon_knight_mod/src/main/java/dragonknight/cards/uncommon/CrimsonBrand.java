@@ -46,9 +46,9 @@ public class CrimsonBrand extends BrandCopyCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DrawBrandCardAction(1));
-        if (p.exhaustPile.group.size() < 10) {
+        if (p.exhaustPile.group.size() > 20) {
             this.addToBot(new DrawCardAction(this.baseMagicNumber));
-            if (p.exhaustPile.group.size() < 5) {
+            if (p.exhaustPile.group.size() > 30) {
                 this.addToBot(new GainEnergyAction(this.baseMagicNumber));
             }
         }

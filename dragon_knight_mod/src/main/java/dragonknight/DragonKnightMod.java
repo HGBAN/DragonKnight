@@ -32,6 +32,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
@@ -71,6 +72,7 @@ import basemod.interfaces.PreMonsterTurnSubscriber;
 import dragonknight.actions.BrandAction;
 import dragonknight.cards.BrandCopyCard;
 import dragonknight.cards.IBrandDifferentCard;
+import dragonknight.cards.Roar;
 import dragonknight.character.DragonPrince;
 import dragonknight.commands.BrandCommand;
 import dragonknight.commands.ExhaustHand;
@@ -373,6 +375,9 @@ public class DragonKnightMod implements
     public static int enemyPowerCountThisTurn = 0;
     public static boolean isEnemyDamagedThisTurn = false;
     public static boolean isEnemyDamagedLastTurn = false;
+    public static int brandCardsUsed = 0;
+    public static int attackUsed = 0;
+    public static int attackBranded = 0;
     public static ArrayList<AbstractCard> brandCardsLastTurn = new ArrayList<>();
 
     public static ArrayList<AbstractCard> tempBrandCards = new ArrayList<>();
@@ -443,6 +448,21 @@ public class DragonKnightMod implements
     public void receiveCardUsed(AbstractCard card) {
         AbstractPlayer player = AbstractDungeon.player;
 
+        if (card.name.contains(cardNameKeywords.TEXT_DICT.get("Brand"))) {
+            brandCardsUsed++;
+            if (brandCardsUsed % 2 == 0) {
+                List<AbstractCard> roarCards = player.discardPile.group.stream().filter(x -> x.cardID.equals(Roar.ID))
+                        .collect(Collectors.toList());
+                if (roarCards.size() > 0) {
+                    AbstractDungeon.actionManager.addToBottom(new DiscardToHandAction(roarCards.get(0)));
+                }
+            }
+        }
+
+        if (card.type.equals(CardType.ATTACK)) {
+            attackUsed++;
+        }
+
         if (card.hasTag(Enums.DRAW_CARD)) {
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(1));
         }
@@ -470,6 +490,10 @@ public class DragonKnightMod implements
         }
         brandCards.add(brandCard);
         brandCount++;
+
+        if(brandCard.type.equals(CardType.ATTACK)){
+            attackBranded++;
+        }
 
         Iterator<WeakReference<Consumer<AbstractCard>>> itr = onAddBrandCard.iterator();
         while (itr.hasNext()) {
@@ -536,6 +560,9 @@ public class DragonKnightMod implements
         enemyPowerCountThisTurn = 0;
         isEnemyDamagedThisTurn = false;
         isEnemyDamagedLastTurn = false;
+        brandCardsUsed = 0;
+        attackUsed = 0;
+        attackBranded = 0;
     }
 
     public static void beDragon() {
@@ -562,6 +589,9 @@ public class DragonKnightMod implements
         enemyPowerCountThisTurn = 0;
         isEnemyDamagedThisTurn = false;
         isEnemyDamagedLastTurn = false;
+        brandCardsUsed = 0;
+        attackUsed = 0;
+        attackBranded = 0;
     }
 
     @Override

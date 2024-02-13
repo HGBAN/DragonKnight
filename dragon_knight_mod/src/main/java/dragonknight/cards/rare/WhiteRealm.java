@@ -10,13 +10,13 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import basemod.abstracts.CustomCard;
 import dragonknight.DragonKnightMod;
+import dragonknight.cards.BrandCopyCard;
 import dragonknight.character.DragonPrince;
 import dragonknight.powers.WhiteDragonAwakeningPower;
 import dragonknight.powers.WhiteRealmPower;
 
-public class WhiteRealm extends CustomCard {
+public class WhiteRealm extends BrandCopyCard {
     public static final String ID = makeID("WhiteRealm");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = cardStrings.NAME;
@@ -31,8 +31,9 @@ public class WhiteRealm extends CustomCard {
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         // this.exhaustOnUseOnce = true;
-        // this.exhaust = true;
+        this.exhaust = true;
         this.tags.add(DragonKnightMod.Enums.BRAND);
+        this.tags.add(DragonKnightMod.Enums.EXHAUST);
         this.initializeDescription();
     }
 
@@ -50,10 +51,17 @@ public class WhiteRealm extends CustomCard {
     }
 
     @Override
-    public void triggerOnExhaust() {
+    public void brandExhaust() {
         AbstractPlayer p = AbstractDungeon.player;
         addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 5)));
         addToBot(new ApplyPowerAction(p, p, new WhiteDragonAwakeningPower(p)));
     }
+
+    // @Override
+    // public void triggerOnExhaust() {
+    // AbstractPlayer p = AbstractDungeon.player;
+    // addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 5)));
+    // addToBot(new ApplyPowerAction(p, p, new WhiteDragonAwakeningPower(p)));
+    // }
 
 }

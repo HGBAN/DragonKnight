@@ -12,10 +12,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.DragonKnightMod;
-import dragonknight.cards.IBrandDifferentCard;
 import dragonknight.character.DragonPrince;
 
-public class StrongWind extends CustomCard implements IBrandDifferentCard {
+public class StrongWind extends CustomCard {
     public static final String ID = makeID("StrongWind");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = cardStrings.NAME;
@@ -25,24 +24,25 @@ public class StrongWind extends CustomCard implements IBrandDifferentCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    private int damageIncreased = 2;
-    private boolean branded = false;
+    // private int damageIncreased = 2;
+    // private boolean branded = false;
 
     public StrongWind() {
-        super(ID, NAME, imagePath("cards/attack/StrongWind.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/attack/StrongWind.png"), COST, DESCRIPTION, TYPE,
+                DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseDamage = 15;
-        this.baseMagicNumber = 10;
+        // this.baseMagicNumber = 10;
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(5);
-            this.upgradeDamage(3);
-            damageIncreased++;
+            // this.upgradeMagicNumber(5);
+            this.upgradeDamage(7);
+            // damageIncreased++;
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -56,15 +56,13 @@ public class StrongWind extends CustomCard implements IBrandDifferentCard {
 
     @Override
     public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster mo, float tmp) {
-        tmp += DragonKnightMod.exhaustCardsUsedThisTurn * this.damageIncreased;
-        if (branded) {
-            tmp += this.baseMagicNumber;
-        }
+        tmp += DragonKnightMod.attackUsed + DragonKnightMod.attackBranded;
+
         return tmp;
     }
 
-    @Override
-    public void setBranded(boolean branded) {
-        this.branded = branded;
-    }
+    // @Override
+    // public void setBranded(boolean branded) {
+    // this.branded = branded;
+    // }
 }

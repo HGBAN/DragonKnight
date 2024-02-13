@@ -19,7 +19,7 @@
   },
   "${modID}:BeDragon": {
     "NAME": "化龙",
-    "DESCRIPTION": "选择转变形态。"
+    "DESCRIPTION": "抽1张牌。"
   },
   "${modID}:BattleRage": {
     "NAME": "战斗怒吼",
@@ -27,8 +27,8 @@
   },
   "${modID}:BrandAwaken": {
     "NAME": "烙印唤醒",
-    "DESCRIPTION": "触发 dragonknight:烙印 。",
-    "UPGRADE_DESCRIPTION": "触发 dragonknight:烙印 。 NL 获得 [E] 。"
+    "DESCRIPTION": "抽1张牌。",
+    "UPGRADE_DESCRIPTION": "抽1张牌。 NL 获得 [E] 。"
   },
   "${modID}:AbyssForm": {
     "NAME": "深渊形态",
@@ -44,7 +44,7 @@
   },
   "${modID}:WhiteRealm": {
     "NAME": "白界之力",
-    "DESCRIPTION": "回合结束时被 dragonknight:烙印 消耗 的牌多触发一次。被 消耗 后，获得5点 力量 ，下个回合进入 dragonknight:白龙形态 。"
+    "DESCRIPTION": "回合结束时被 dragonknight:烙印 消耗 的牌多触发一次。被 dragonknight:烙印 消耗 后，获得5点 力量 ，下个回合进入 dragonknight:白龙形态 。"
   },
   "${modID}:FuriousFlames": {
     "NAME": "暴怒烈焰",
@@ -95,7 +95,8 @@
   },
   "${modID}:FusionBrand": {
     "NAME": "融合烙印",
-    "DESCRIPTION": "在上回合消耗 dragonknight:烙印 牌后，获得相应数量的 [E] 并抽取同样数量的牌。 NL 被 dragonknight:烙印 消耗 后，将另一张 *融合烙印 放入弃牌堆中。"
+    "DESCRIPTION": "抽3张牌，并使它们在本回合减少1点 [E] 的消耗。 NL 如果抽到是 dragonknight:烙印 牌或名字包含 dragonknight:烙印 ，获得 [E] [E] 。 NL 被 dragonknight:烙印 消耗 后，将另一张 *融合烙印 放入弃牌堆中。",
+    "UPGRADE_DESCRIPTION": "抽3张牌，并使它们在本回合减少1点 [E] 的消耗。 NL 如果抽到是 dragonknight:烙印 牌或名字包含 dragonknight:烙印 ，获得 [E] [E] 。 NL 被 dragonknight:烙印 消耗 后，将另一张 *融合烙印+ 放入弃牌堆中。"
   },
   "${modID}:MourningBrand": {
     "NAME": "悲恸烙印",
@@ -103,17 +104,17 @@
   },
   "${modID}:Trample": {
     "NAME": "践踏",
-    "DESCRIPTION": "造成!D!点伤害。 NL 如果处于 dragonknight:白龙形态 就再获得1点 力量 ，如果处于 dragonknight:黑龙形态 就再获得 [E] 。"
+    "DESCRIPTION": "造成!D!点伤害。 抽1张牌。 NL 如果处于 dragonknight:白龙形态 就再获得1点 力量 ，如果处于 dragonknight:黑龙形态 就再获得 [E] 。"
   },
   "${modID}:CrimsonBrand": {
     "NAME": "赤红烙印",
-    "DESCRIPTION": "抽1张 dragonknight:烙印 牌。如果已消耗的牌的数量不足10张，就再抽!M!张牌；如果不足5张，再获得 [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印 放入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果已消耗的牌的数量不足10张，就再抽!M!张牌；如果不足5张，再获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印+ 放入弃牌堆。"
+    "DESCRIPTION": "抽1张 dragonknight:烙印 牌。如果已消耗的牌的数量超过20张，就再抽!M!张牌；如果超过30张，再获得 [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印 放入弃牌堆。",
+    "UPGRADE_DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果已消耗的牌的数量超过20张，就再抽!M!张牌；如果超过30张，再获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印+ 放入弃牌堆。"
   },
   "${modID}:SwordBrand": {
     "NAME": "剑之烙印",
-    "DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被 dragonknight:烙印 消耗，将另一张 *剑之烙印 放入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "随机使!M!张手牌获得 dragonknight:临时烙印 。 NL 如果这张牌被 dragonknight:烙印 消耗，将另一张 *剑之烙印+ 放入弃牌堆。"
+    "DESCRIPTION": "使手牌中的所有技能牌获得 dragonknight:临时烙印 。 NL 如果这张牌被 dragonknight:烙印 消耗 ，将另一张 *剑之烙印 放入弃牌堆。",
+    "UPGRADE_DESCRIPTION": "使手牌中的所有技能牌获得 dragonknight:临时烙印 。 NL 如果这张牌被 dragonknight:烙印 消耗 ，将另一张 *剑之烙印+ 放入弃牌堆。"
   },
   "${modID}:ColdAirflow": {
     "NAME": "极寒气流",
@@ -135,8 +136,8 @@
   },
   "${modID}:Roar": {
     "NAME": "咆哮",
-    "DESCRIPTION": "造成!D!点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张 *咆哮 放入抽牌堆。",
-    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 被 dragonknight:烙印 消耗 后将另一张 *咆哮+ 放入抽牌堆。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 每使用2次名字中带有 dragonknight:烙印 的牌时，弃牌堆中的这张牌回到手牌（一次只能返回一张）。 NL 被 dragonknight:烙印 消耗 后将另一张 *咆哮 放入抽牌堆。",
+    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 每使用2次名字中带有 dragonknight:烙印 的牌时，弃牌堆中的这张牌回到手牌（一次只能返回一张）。 NL 被 dragonknight:烙印 消耗 后将另一张 *咆哮+ 放入抽牌堆。"
   },
   "${modID}:IceDevilBrand": {
     "NAME": "冰魔烙印",
@@ -162,11 +163,12 @@
   },
   "${modID}:HeavenlyRevelation": {
     "NAME": "天底的圣告",
-    "DESCRIPTION": "每个回合第一次使用 dragonknight:烙印 牌时，从抽牌堆中随机抽取一张名字中含有“烙印”的牌，并从弃牌堆中随机将一张牌洗回牌堆。"
+    "DESCRIPTION": "每个回合第2次使用 dragonknight:烙印 牌时，从抽牌堆中随机抽取一张名字中含有 dragonknight:烙印 的牌，并从消耗牌堆中将随机将一张攻击牌的复制放入抽牌堆。"
   },
   "${modID}:HeavenlyEtudeOfTheNadir": {
     "NAME": "天底的即凶剧",
-    "DESCRIPTION": "把全部手牌洗回牌堆，手牌中放入相同数量的 *即凶剧 。"
+    "DESCRIPTION": "把全部手牌洗回牌堆，手牌中放入相同数量的 *即凶剧 。",
+    "UPGRADE_DESCRIPTION": "把全部手牌洗回牌堆，手牌中放入相同数量的 *即凶剧+ 。"
   },
   "${modID}:EtudeOfTheNadir": {
     "NAME": "即凶剧",
@@ -175,12 +177,11 @@
   },
   "${modID}:StrongWind": {
     "NAME": "强风",
-    "DESCRIPTION": "造成!D!点伤害。 NL 本回合每次使用 消耗 牌，增加2点伤害。若被 dragonknight:烙印 消耗 ，额外增加!M!点伤害。",
-    "UPGRADE_DESCRIPTION": "造成!D!点伤害。 NL 本回合每次使用 消耗 牌，增加3点伤害。若被 dragonknight:烙印 消耗 ，额外增加!M!点伤害。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 本次战斗每次使用攻击牌，增加1点伤害。若攻击牌被 dragonknight:烙印 消耗 ，额外增加1点伤害。"
   },
   "${modID}:TrueEyeBrand": {
     "NAME": "真眼烙印",
-    "DESCRIPTION": "进入 dragonknight:白龙形态 。 NL 如果已经处于 dragonknight:黑龙形态 或 dragonknight:白龙形态 ，则进入 dragonknight:真龙形态 。"
+    "DESCRIPTION": "进入 dragonknight:白龙形态 。 NL 如果已经处于 dragonknight:黑龙形态 或 dragonknight:白龙形态 ，并且上个回合至少触发过4次 dragonknight:烙印 ，则进入 dragonknight:真龙形态 。"
   },
   "${modID}:SettingBarrier": {
     "NAME": "设置结界",
@@ -201,7 +202,7 @@
   },
   "${modID}:AngryTailSwipe": {
     "NAME": "愤怒尾扫",
-    "DESCRIPTION": "造成!D!点伤害。 NL 获得!B!点格挡。 NL 下个回合进入 dragonknight:白龙形态 。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果处于 dragonknight:白龙形态 ，额外获得!B!点格挡。 NL 下个回合进入 dragonknight:白龙形态 。"
   },
   "${modID}:SteadyMind": {
     "NAME": "稳定心神",
@@ -215,16 +216,17 @@
   "${modID}:AshenMana": {
     "NAME": "灰烬魔能",
     "DESCRIPTION": "每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。",
-    "UPGRADE_DESCRIPTION":"每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。 NL 固有 。"
+    "UPGRADE_DESCRIPTION": "每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。 NL 固有 。"
   },
   "${modID}:HauntingMurmur": {
     "NAME": "幽怨低吟",
-    "DESCRIPTION": "下个回合进入 dragonknight:黑龙形态 。 NL 使所有敌人获得!M!层 易伤 ，!M!层 虚弱 。 NL 如果上个回合有敌人受伤，则额外叠加4层状态，并获得!B!点格挡值。"
+    "DESCRIPTION": "下个回合进入 dragonknight:黑龙形态 。 NL 使所有敌人获得!M!层 虚弱 。 NL 如果上个回合有敌人受伤，则额外叠加1层 虚弱 ，并获得!B!点格挡值。",
+    "UPGRADE_DESCRIPTION": "下个回合进入 dragonknight:黑龙形态 。 NL 使所有敌人获得!M!层 虚弱 。 NL 如果上个回合有敌人受伤，则额外叠加2层 虚弱 ，并获得!B!点格挡值。"
   },
   "${modID}:DevouringBrand": {
     "NAME": "吞噬烙印",
-    "DESCRIPTION": "将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。",
-    "UPGRADE_DESCRIPTION":"将已存在于消耗堆中的同名卡的 [E] 的消耗降低2点。 NL 固有 。"
+    "DESCRIPTION": "将已存在于消耗堆中的同名卡的 [E] 的消耗降低1点。",
+    "UPGRADE_DESCRIPTION": "将已存在于消耗堆中的同名卡的 [E] 的消耗降低1点。 NL 固有 。"
   },
   "${modID}:HeavenlyLink": {
     "NAME": "天底的连接",

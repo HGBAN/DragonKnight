@@ -2,6 +2,7 @@ package dragonknight.cards;
 
 import static dragonknight.DragonKnightMod.*;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -41,6 +42,7 @@ public class BrandAwaken extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new DrawCardAction(1));
         if (this.upgraded) {
             this.addToBot(new GainEnergyAction(1));
         }

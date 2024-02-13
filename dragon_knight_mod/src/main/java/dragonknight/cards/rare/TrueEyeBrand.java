@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
+import dragonknight.DragonKnightMod;
 import dragonknight.character.DragonPrince;
 import dragonknight.powers.TrueDragon;
 import dragonknight.powers.WhiteDragon;
@@ -41,7 +42,7 @@ public class TrueEyeBrand extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!p.hasPower(makeID("WhiteDragon")) && !p.hasPower(makeID("BlackDragon"))) {
             addToBot(new ApplyPowerAction(p, p, new WhiteDragon(p)));
-        } else {
+        } else if (DragonKnightMod.brandCardsLastTurn.size() >= 4) {
             addToBot(new ApplyPowerAction(p, p, new TrueDragon(p)));
         }
     }

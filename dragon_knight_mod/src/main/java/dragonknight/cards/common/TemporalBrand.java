@@ -35,8 +35,10 @@ public class TemporalBrand extends CustomCard {
         super(ID, NAME, imagePath("cards/skill/TemporalBrand.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
+        this.exhaust=true;
         this.baseMagicNumber = 3;
         this.tags.add(DragonKnightMod.Enums.BRAND);
+        this.tags.add(DragonKnightMod.Enums.EXHAUST);
         this.rawDescription = String.format(DESCRIPTION, brandNumber);
         this.initializeDescription();
     }
