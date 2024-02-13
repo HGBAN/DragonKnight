@@ -14,10 +14,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-import basemod.abstracts.CustomCard;
+import dragonknight.cards.BrandCopyCard;
 import dragonknight.character.DragonPrince;
 
-public class HeavenlyJudgment extends CustomCard {
+public class HeavenlyJudgment extends BrandCopyCard {
     public static final String ID = makeID("HeavenlyJudgment");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = cardStrings.NAME;
@@ -28,7 +28,8 @@ public class HeavenlyJudgment extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public HeavenlyJudgment() {
-        super(ID, NAME, imagePath("cards/attack/HeavenlyJudgment.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/attack/HeavenlyJudgment.png"), COST, DESCRIPTION, TYPE,
+                DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.baseDamage = 18;
@@ -47,6 +48,14 @@ public class HeavenlyJudgment extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AttackEffect.BLUNT_LIGHT));
+        if (this.exhaust || this.exhaustOnUseOnce || this.brandExhaust) {
+            int tmp = this.baseDamage;
+            this.baseDamage = 18;
+            calculateCardDamage(m);
+            this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
+                    AttackEffect.BLUNT_LIGHT));
+            this.baseDamage = tmp;
+        }
         this.addToBot(new GainEnergyAction(1));
     }
 

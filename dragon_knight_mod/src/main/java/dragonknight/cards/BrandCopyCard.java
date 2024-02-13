@@ -22,17 +22,18 @@ public abstract class BrandCopyCard extends CustomCard {
 
     @Override
     public void triggerOnExhaust() {
-        if(brandExhaust)
+        if (brandExhaust)
             brandExhaust();
         else
             normalExhaust();
+        brandExhaust = false;
     }
 
-    public void normalExhaust(){
+    public void normalExhaust() {
 
     }
 
-    public void brandExhaust(){
-        
+    public void brandExhaust() {
+
     }
 }

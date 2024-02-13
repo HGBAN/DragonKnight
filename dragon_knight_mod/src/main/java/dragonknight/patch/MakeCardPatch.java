@@ -51,7 +51,7 @@ public class MakeCardPatch {
                             AbstractPlayer p = AbstractDungeon.player;
                             if (result.type.equals(CardType.STATUS) && p.hasRelic(KingsInsight.ID)) {
                                 p.getRelic(KingsInsight.ID).flash();
-                                p.drawPile.moveToExhaustPile(result);
+                                p.discardPile.moveToExhaustPile(result);
                                 result.exhaustOnUseOnce = false;
                                 result.freeToPlayOnce = false;
                             }
@@ -80,7 +80,7 @@ public class MakeCardPatch {
             AbstractPlayer p = AbstractDungeon.player;
             if (tmp.type.equals(CardType.STATUS) && p.hasRelic(KingsInsight.ID)) {
                 p.getRelic(KingsInsight.ID).flash();
-                p.drawPile.moveToExhaustPile(tmp);
+                p.discardPile.moveToExhaustPile(tmp);
                 tmp.exhaustOnUseOnce = false;
                 tmp.freeToPlayOnce = false;
             }
@@ -119,12 +119,12 @@ public class MakeCardPatch {
                             if (result.type.equals(CardType.STATUS) && p.hasRelic(KingsInsight.ID)) {
                                 if (p.hand.contains(result)) {
                                     p.getRelic(KingsInsight.ID).flash();
-                                    p.drawPile.moveToExhaustPile(result);
+                                    p.hand.moveToExhaustPile(result);
                                     result.exhaustOnUseOnce = false;
                                     result.freeToPlayOnce = false;
                                 } else if (p.discardPile.contains(result)) {
                                     p.getRelic(KingsInsight.ID).flash();
-                                    p.drawPile.moveToExhaustPile(result);
+                                    p.hand.moveToExhaustPile(result);
                                     result.exhaustOnUseOnce = false;
                                     result.freeToPlayOnce = false;
                                 }

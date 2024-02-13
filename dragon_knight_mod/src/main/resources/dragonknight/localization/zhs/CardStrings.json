@@ -236,7 +236,7 @@
   },
   "${modID}:HeavenlyJudgment": {
     "NAME": "天底的审判",
-    "DESCRIPTION": "造成18点伤害。 NL 获得 [E] 。 NL 被 消耗 后，获得3点 力量 并额外造成12点伤害。 NL 这张牌在使用后会返回抽牌堆。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 获得 [E] 。 NL 被 消耗 后，获得3点 力量 并额外造成12点伤害。 NL 这张牌在使用后会返回抽牌堆。"
   },
   "${modID}:HeavenlyGaze": {
     "NAME": "天底的注视",
