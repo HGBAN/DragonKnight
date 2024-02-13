@@ -36,6 +36,8 @@ public class HeavenlyEtudeOfTheNadir extends CustomCard {
         if (!upgraded) {
             this.upgradeName();
             this.upgradeBaseCost(1);
+            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 

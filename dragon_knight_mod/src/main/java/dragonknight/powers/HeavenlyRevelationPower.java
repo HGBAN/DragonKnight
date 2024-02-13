@@ -54,10 +54,15 @@ public class HeavenlyRevelationPower extends BasePower {
             // addToBot(new DiscardPileToDrawPileAction(amount));
             List<AbstractCard> attackCards = player.exhaustPile.group.stream()
                     .filter(x -> x.type.equals(CardType.ATTACK)).collect(Collectors.toList());
-            if (attackCards.size() > 0) {
-                AbstractCard c = attackCards.get(AbstractDungeon.cardRng.random(attackCards.size()));
+
+            for (int i = 0; i < amount; i++) {
+                if (attackCards.size() <= 0) {
+                    break;
+                }
+                AbstractCard c = attackCards.remove(AbstractDungeon.cardRng.random(attackCards.size()));
                 addToBot(new MakeTempCardInDrawPileAction(c, 1, true, true));
             }
+
         }
     }
 

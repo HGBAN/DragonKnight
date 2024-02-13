@@ -104,7 +104,7 @@
   },
   "${modID}:Trample": {
     "NAME": "践踏",
-    "DESCRIPTION": "造成!D!点伤害。 抽1张牌。 NL 如果处于 dragonknight:白龙形态 就再获得1点 力量 ，如果处于 dragonknight:黑龙形态 就再获得 [E] 。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 抽1张牌。 NL 如果处于 dragonknight:白龙形态 就再获得1点 力量 ，如果处于 dragonknight:黑龙形态 就再获得 [E] 。"
   },
   "${modID}:CrimsonBrand": {
     "NAME": "赤红烙印",
@@ -163,7 +163,7 @@
   },
   "${modID}:HeavenlyRevelation": {
     "NAME": "天底的圣告",
-    "DESCRIPTION": "每个回合第2次使用 dragonknight:烙印 牌时，从抽牌堆中随机抽取一张名字中含有 dragonknight:烙印 的牌，并从消耗牌堆中将随机将一张攻击牌的复制放入抽牌堆。"
+    "DESCRIPTION": "每个回合第2次使用 dragonknight:烙印 牌时，从抽牌堆中随机抽取一张名字中含有 dragonknight:烙印 的牌，并从消耗牌堆中随机将一张攻击牌的复制放入抽牌堆。"
   },
   "${modID}:HeavenlyEtudeOfTheNadir": {
     "NAME": "天底的即凶剧",

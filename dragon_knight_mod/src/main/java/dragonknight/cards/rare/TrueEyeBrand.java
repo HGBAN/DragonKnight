@@ -46,4 +46,13 @@ public class TrueEyeBrand extends CustomCard {
             addToBot(new ApplyPowerAction(p, p, new TrueDragon(p)));
         }
     }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        if (DragonKnightMod.brandCardsLastTurn.size() >= 4) {
+            this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
+        } else {
+            this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
+        }
+    }
 }
