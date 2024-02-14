@@ -21,7 +21,7 @@ public class AshPower extends BasePower {
     public AbstractCreature source;
 
     public AshPower(AbstractCreature owner, AbstractCreature source, int amount) {
-        super(POWER_ID, PowerType.DEBUFF, true, owner, owner, amount);
+        super(POWER_ID, PowerType.DEBUFF, false, owner, owner, amount);
         this.source = source;
     }
 

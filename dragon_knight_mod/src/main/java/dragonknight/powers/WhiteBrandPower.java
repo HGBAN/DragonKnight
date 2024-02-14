@@ -1,6 +1,6 @@
 package dragonknight.powers;
 
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,7 +13,7 @@ public class WhiteBrandPower extends BasePower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public WhiteBrandPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, amount);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, amount);
     }
 
     @Override

@@ -18,7 +18,7 @@ public class HeavenlyLinkPower extends BasePower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public HeavenlyLinkPower(AbstractCreature owner) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, -1);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class PhantomDragonPower extends BasePower {
     public boolean isUsed = false;
 
     public PhantomDragonPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, amount);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, amount);
     }
 
     @Override

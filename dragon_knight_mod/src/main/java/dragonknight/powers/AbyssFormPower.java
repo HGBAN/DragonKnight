@@ -19,7 +19,7 @@ public class AbyssFormPower extends BasePower {
     private boolean isUsed = false;
 
     public AbyssFormPower(AbstractCreature owner) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, -1);
     }
 
     @Override

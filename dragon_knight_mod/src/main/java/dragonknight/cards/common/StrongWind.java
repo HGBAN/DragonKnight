@@ -43,8 +43,8 @@ public class StrongWind extends CustomCard {
             // this.upgradeMagicNumber(5);
             this.upgradeDamage(7);
             // damageIncreased++;
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            // this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            // this.initializeDescription();
         }
     }
 

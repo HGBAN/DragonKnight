@@ -1,6 +1,6 @@
 package dragonknight.powers;
 
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,7 +18,7 @@ public class BrandProtectorPower extends BasePower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public BrandProtectorPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, amount);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, amount);
         priority = 3;
     }
 

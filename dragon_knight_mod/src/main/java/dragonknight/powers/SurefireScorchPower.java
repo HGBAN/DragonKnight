@@ -13,7 +13,7 @@ public class SurefireScorchPower extends BasePower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public SurefireScorchPower(AbstractCreature owner) {
-        super(POWER_ID, PowerType.DEBUFF, true, owner, owner, -1);
+        super(POWER_ID, PowerType.DEBUFF, false, owner, owner, -1);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package dragonknight.powers;
 
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -18,7 +18,7 @@ public class NextCardFreePower extends BasePower {
     // private List<AbstractCard> cards = new ArrayList<>();
 
     public NextCardFreePower(AbstractCreature owner, int amount) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, amount);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, amount);
     }
 
     @Override

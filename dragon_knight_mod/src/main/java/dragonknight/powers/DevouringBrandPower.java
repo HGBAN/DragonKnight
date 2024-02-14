@@ -21,7 +21,7 @@ public class DevouringBrandPower extends BasePower {
     public Set<String> existInExhaustPile = new HashSet<>();
 
     public DevouringBrandPower(AbstractCreature owner) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, -1);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, -1);
     }
 
     @Override

@@ -27,7 +27,7 @@ public class HeavenlyRevelationPower extends BasePower {
     private int useCount = 0;
 
     public HeavenlyRevelationPower(AbstractCreature owner) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, 1);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, 1);
     }
 
     @Override
@@ -44,25 +44,27 @@ public class HeavenlyRevelationPower extends BasePower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if (!owner.isPlayer)
             return;
-        useCount++;
+
         AbstractPlayer player = AbstractDungeon.player;
         if ((card.hasTag(DragonKnightMod.Enums.BRAND) || card.hasTag(DragonKnightMod.Enums.BRAND2)
-                || card.hasTag(DragonKnightMod.Enums.TEMP_BRAND)) && useCount == 2) {
-            this.flash();
-            addToBot(new DrawBrandCardAction(amount,
-                    c -> c.name.contains(DragonKnightMod.cardNameKeywords.TEXT_DICT.get("Brand"))));
-            // addToBot(new DiscardPileToDrawPileAction(amount));
-            List<AbstractCard> attackCards = player.exhaustPile.group.stream()
-                    .filter(x -> x.type.equals(CardType.ATTACK)).collect(Collectors.toList());
+                || card.hasTag(DragonKnightMod.Enums.TEMP_BRAND))) {
+            useCount++;
+            if (useCount == 2) {
+                this.flash();
+                addToBot(new DrawBrandCardAction(amount,
+                        c -> c.name.contains(DragonKnightMod.cardNameKeywords.TEXT_DICT.get("Brand"))));
+                // addToBot(new DiscardPileToDrawPileAction(amount));
+                List<AbstractCard> attackCards = player.exhaustPile.group.stream()
+                        .filter(x -> x.type.equals(CardType.ATTACK)).collect(Collectors.toList());
 
-            for (int i = 0; i < amount; i++) {
-                if (attackCards.size() <= 0) {
-                    break;
+                for (int i = 0; i < amount; i++) {
+                    if (attackCards.size() <= 0) {
+                        break;
+                    }
+                    AbstractCard c = attackCards.remove(AbstractDungeon.cardRng.random(attackCards.size() - 1));
+                    addToBot(new MakeTempCardInDrawPileAction(c, 1, true, true));
                 }
-                AbstractCard c = attackCards.remove(AbstractDungeon.cardRng.random(attackCards.size()));
-                addToBot(new MakeTempCardInDrawPileAction(c, 1, true, true));
             }
-
         }
     }
 

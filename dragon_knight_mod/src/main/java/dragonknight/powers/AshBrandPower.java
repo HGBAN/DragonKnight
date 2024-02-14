@@ -21,7 +21,7 @@ public class AshBrandPower extends BasePower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public AshBrandPower(AbstractCreature owner, int amount) {
-        super(POWER_ID, PowerType.BUFF, true, owner, owner, amount);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, amount);
     }
 
     @Override
