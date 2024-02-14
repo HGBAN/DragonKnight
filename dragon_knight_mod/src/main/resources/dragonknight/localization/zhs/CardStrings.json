@@ -243,5 +243,18 @@
   "${modID}:HeavenlyGaze": {
     "NAME": "天底的注视",
     "DESCRIPTION": "造成!D!点伤害。 NL 获得 [E] 。 NL 被 消耗 后，随机将抽牌堆中的3张攻击牌的带有 虚无 的复制放入手牌。 NL 这张牌在使用后会返回抽牌堆。"
+  },
+  "${modID}:SurefireForging": {
+    "NAME": "神炎锻剑",
+    "DESCRIPTION": "复制手牌中的随机1张 dragonknight:反烙印 牌，使复制的这张牌本回合减少1点 [E] 的消耗。"
+  },
+  "${modID}:IceDevilErosion": {
+    "NAME": "冰魔侵蚀",
+    "DESCRIPTION": "每个回合使手牌中的 dragonknight:反烙印 的攻击牌在本场战斗中的伤害增加2点。",
+    "UPGRADE_DESCRIPTION": "每个回合使手牌中的 dragonknight:反烙印 的攻击牌在本场战斗中的伤害增加2点。 NL 固有 。"
+  },
+  "${modID}:IceDevilForm": {
+    "NAME": "冰魔形态",
+    "DESCRIPTION": " dragonknight:反烙印 攻击牌在使用时也会触发其被 消耗 后的效果。 NL dragonknight:反烙印 技能牌在使用时会获得 [E] 。"
   }
 }

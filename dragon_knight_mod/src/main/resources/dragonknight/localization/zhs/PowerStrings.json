@@ -176,5 +176,17 @@
     "DESCRIPTIONS": [
       "名字中有 #y天底 的牌降低 #b1 点 [E] 的消耗。每次使用 #y天底 牌都会获得 [E] 。"
     ]
+  },
+  "${modID}:IceDevilErosionPower": {
+    "NAME": "冰魔侵蚀",
+    "DESCRIPTIONS": [
+      "每个回合使手牌中的 反烙印 攻击牌在本场战斗中的伤害增加 #b2 点。"
+    ]
+  },
+  "${modID}:IceDevilFormPower": {
+    "NAME": "冰魔形态",
+    "DESCRIPTIONS": [
+      " #y反烙印 攻击牌在使用时也会触发其被 #y消耗 后的效果。 NL #y反烙印 技能牌在使用时会获得 [E] 。"
+    ]
   }
 }

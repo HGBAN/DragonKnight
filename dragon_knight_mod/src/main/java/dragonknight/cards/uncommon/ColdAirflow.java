@@ -1,7 +1,6 @@
 package dragonknight.cards.uncommon;
 
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -18,6 +17,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import basemod.abstracts.CustomCard;
 import dragonknight.DragonKnightMod;
 import dragonknight.character.DragonPrince;
+import dragonknight.powers.IceDevilFormPower;
 
 public class ColdAirflow extends CustomCard {
     public static final String ID = makeID("ColdAirflow");
@@ -49,7 +49,8 @@ public class ColdAirflow extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!this.exhaustOnUseOnce && !this.exhaust) {
+        if (!this.exhaustOnUseOnce && !this.exhaust
+                && !(p.hasPower(IceDevilFormPower.POWER_ID) && hasTag(DragonKnightMod.Enums.ANTI_BRAND))) {
             for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
                 this.addToBot(new ApplyPowerAction(mo, p, new StrengthPower(mo, -this.baseMagicNumber)));
                 this.addToBot(new ApplyPowerAction(mo, p, new GainStrengthPower(mo, this.baseMagicNumber)));

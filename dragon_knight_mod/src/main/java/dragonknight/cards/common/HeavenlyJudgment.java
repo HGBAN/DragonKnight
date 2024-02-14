@@ -14,8 +14,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
+import dragonknight.DragonKnightMod;
 import dragonknight.cards.BrandCopyCard;
 import dragonknight.character.DragonPrince;
+import dragonknight.powers.IceDevilFormPower;
 
 public class HeavenlyJudgment extends BrandCopyCard {
     public static final String ID = makeID("HeavenlyJudgment");
@@ -48,9 +50,13 @@ public class HeavenlyJudgment extends BrandCopyCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AttackEffect.BLUNT_LIGHT));
-        if (this.exhaust || this.exhaustOnUseOnce || this.brandExhaust) {
+        if (this.exhaust || this.exhaustOnUseOnce || this.brandExhaust
+                || (p.hasPower(IceDevilFormPower.POWER_ID) && hasTag(DragonKnightMod.Enums.ANTI_BRAND))) {
+            if( (p.hasPower(IceDevilFormPower.POWER_ID) && hasTag(DragonKnightMod.Enums.ANTI_BRAND))){
+                p.getPower(IceDevilFormPower.POWER_ID).flash();
+            }
             int tmp = this.baseDamage;
-            this.baseDamage = 18;
+            this.baseDamage = 12;
             calculateCardDamage(m);
             this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                     AttackEffect.BLUNT_LIGHT));
