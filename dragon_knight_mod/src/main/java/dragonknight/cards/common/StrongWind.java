@@ -56,7 +56,7 @@ public class StrongWind extends CustomCard {
 
     @Override
     public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster mo, float tmp) {
-        tmp += DragonKnightMod.attackUsed + DragonKnightMod.attackBranded;
+        tmp += DragonKnightMod.attackUsed + DragonKnightMod.attackBranded * 2;
 
         return tmp;
     }

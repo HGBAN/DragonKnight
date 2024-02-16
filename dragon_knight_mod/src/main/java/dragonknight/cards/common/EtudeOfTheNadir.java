@@ -2,8 +2,10 @@ package dragonknight.cards.common;
 
 import static dragonknight.DragonKnightMod.*;
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -24,7 +26,8 @@ public class EtudeOfTheNadir extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public EtudeOfTheNadir() {
-        super(ID, NAME, imagePath("cards/skill/EtudeOfTheNadir.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
+        super(ID, NAME, imagePath("cards/skill/EtudeOfTheNadir.png"), COST, DESCRIPTION, TYPE,
+                DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
         this.exhaust = true;
@@ -43,7 +46,21 @@ public class EtudeOfTheNadir extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DrawCardAction(1));
+        this.addToBot(new DrawCardAction(1, new AbstractGameAction() {
+
+            @Override
+            public void update() {
+                for (AbstractCard c : DrawCardAction.drawnCards) {
+                    if (c.type.equals(CardType.ATTACK)) {
+                        c.exhaust = true;
+                        c.tags.add(DragonKnightMod.Enums.EXHAUST);
+                        c.initializeDescription();
+                    }
+                }
+                isDone = true;
+            }
+
+        }));
         if (this.upgraded)
             this.addToBot(new GainEnergyAction(1));
     }

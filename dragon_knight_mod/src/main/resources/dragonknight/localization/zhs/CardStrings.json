@@ -167,17 +167,16 @@
   },
   "${modID}:HeavenlyEtudeOfTheNadir": {
     "NAME": "天底的即凶剧",
-    "DESCRIPTION": "把全部手牌洗回牌堆，手牌中放入相同数量的 *即凶剧 。",
-    "UPGRADE_DESCRIPTION": "把全部手牌洗回牌堆，手牌中放入相同数量的 *即凶剧+ 。"
+    "DESCRIPTION": "把全部手牌洗回牌堆，手牌中放入!M!张 *即凶剧+ 。"
   },
   "${modID}:EtudeOfTheNadir": {
     "NAME": "即凶剧",
-    "DESCRIPTION": "抽1张牌。",
-    "UPGRADE_DESCRIPTION": "抽1张牌。 NL 获得 [E] 。"
+    "DESCRIPTION": "抽1张牌。 NL 抽到的攻击牌在使用后会被 消耗 。",
+    "UPGRADE_DESCRIPTION": "抽1张牌。 NL 抽到的攻击牌在使用后会被 消耗 。 NL 获得 [E] 。"
   },
   "${modID}:StrongWind": {
     "NAME": "强风",
-    "DESCRIPTION": "造成!D!点伤害。 NL 本次战斗每次使用攻击牌，增加1点伤害。若攻击牌被 dragonknight:烙印 消耗 ，额外增加1点伤害。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 本次战斗每次使用攻击牌，增加1点伤害。若攻击牌被 dragonknight:烙印 消耗 ，额外增加2点伤害。"
   },
   "${modID}:TrueEyeBrand": {
     "NAME": "真眼烙印",

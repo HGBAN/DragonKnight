@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
+import dragonknight.DragonKnightMod;
 import dragonknight.actions.HandToDrawPileAction;
 import dragonknight.cards.common.EtudeOfTheNadir;
 import dragonknight.character.DragonPrince;
@@ -19,7 +20,7 @@ public class HeavenlyEtudeOfTheNadir extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    private static final int COST = 2;
+    private static final int COST = 3;
     private static final CardType TYPE = CardType.SKILL;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
@@ -29,13 +30,18 @@ public class HeavenlyEtudeOfTheNadir extends CustomCard {
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.cardsToPreview = new EtudeOfTheNadir();
+        this.baseMagicNumber = 4;
+        this.exhaust = true;
+        this.tags.add(DragonKnightMod.Enums.EXHAUST);
+        this.initializeDescription();
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeBaseCost(1);
+            this.upgradeBaseCost(2);
+            this.upgradeMagicNumber(1);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -43,12 +49,11 @@ public class HeavenlyEtudeOfTheNadir extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int handSize = p.hand.size();
+        // int handSize = p.hand.size();
         this.addToBot(new HandToDrawPileAction());
         AbstractCard c = new EtudeOfTheNadir();
-        if (upgraded)
-            c.upgrade();
-        this.addToBot(new MakeTempCardInHandAction(c, handSize));
+        c.upgrade();
+        this.addToBot(new MakeTempCardInHandAction(c, this.baseMagicNumber));
 
     }
 
