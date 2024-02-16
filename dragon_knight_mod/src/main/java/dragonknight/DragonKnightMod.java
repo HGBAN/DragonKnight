@@ -32,6 +32,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags;
@@ -79,7 +80,10 @@ import dragonknight.commands.ExhaustHand;
 import dragonknight.potions.BeDragonPotion;
 import dragonknight.potions.BrandPotion;
 import dragonknight.potions.IceDevilPotion;
+import dragonknight.powers.AbyssAwakenPower;
 import dragonknight.powers.AbyssFormPower;
+import dragonknight.powers.AbyssalBeastFormPower;
+import dragonknight.powers.AbyssalVengeanceDramaPower;
 import dragonknight.powers.AshBrandPower;
 import dragonknight.powers.AshPower;
 import dragonknight.powers.AshenManaPower;
@@ -357,6 +361,9 @@ public class DragonKnightMod implements
         BaseMod.addPower(BrandsCallPower.class, BrandsCallPower.POWER_ID);
         BaseMod.addPower(IceDevilErosionPower.class, IceDevilErosionPower.POWER_ID);
         BaseMod.addPower(IceDevilFormPower.class, IceDevilFormPower.POWER_ID);
+        BaseMod.addPower(AbyssalVengeanceDramaPower.class, AbyssalVengeanceDramaPower.POWER_ID);
+        BaseMod.addPower(AbyssalBeastFormPower.class, AbyssalBeastFormPower.POWER_ID);
+        BaseMod.addPower(AbyssAwakenPower.class, AbyssAwakenPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
@@ -382,6 +389,7 @@ public class DragonKnightMod implements
     public static int brandCardsUsed = 0;
     public static int attackUsed = 0;
     public static int attackBranded = 0;
+    public static int beDragonCount = 0;
     public static ArrayList<AbstractCard> brandCardsLastTurn = new ArrayList<>();
 
     public static ArrayList<AbstractCard> tempBrandCards = new ArrayList<>();
@@ -391,6 +399,8 @@ public class DragonKnightMod implements
     public static ArrayList<WeakReference<Consumer<AbstractCard>>> onAddBrandCard = new ArrayList<>();
     public static ArrayList<WeakReference<Runnable>> onRemoveBrandCards = new ArrayList<>();
     public static ArrayList<WeakReference<Runnable>> onClearBrandCards = new ArrayList<>();
+
+    public static ArrayList<WeakReference<Runnable>> onBeDragon = new ArrayList<>();
 
     public static ArrayList<AbstractCard> exhaustCardsThisTurn = new ArrayList<>();
 
@@ -420,6 +430,21 @@ public class DragonKnightMod implements
 
         @SpireEnum
         public static CardTags DRAW_CARD;
+
+        @SpireEnum
+        public static CardTags DRAGON_BRAND;
+    }
+
+    public static void onBeDragon() {
+        beDragonCount++;
+        Iterator<WeakReference<Runnable>> itr = onBeDragon.iterator();
+        while (itr.hasNext()) {
+            Runnable r = itr.next().get();
+            if (r == null)
+                itr.remove();
+            else
+                r.run();
+        }
     }
 
     public static void onClearBrandCards() {
@@ -485,6 +510,13 @@ public class DragonKnightMod implements
         if (card.exhaustOnUseOnce || card.exhaust) {
             exhaustCardsUsedThisTurn++;
         }
+
+        // 处理深渊的复仇剧
+        if (player.hasPower(AbyssalVengeanceDramaPower.POWER_ID) && card.hasTag(Enums.DRAGON_BRAND)) {
+            player.getPower(AbyssalVengeanceDramaPower.POWER_ID).flash();
+            AbstractDungeon.actionManager
+                    .addToBottom(new GainEnergyAction(1));
+        }
     }
 
     public static void brandCard(AbstractCard brandCard) {
@@ -495,7 +527,7 @@ public class DragonKnightMod implements
         brandCards.add(brandCard);
         brandCount++;
 
-        if(brandCard.type.equals(CardType.ATTACK)){
+        if (brandCard.type.equals(CardType.ATTACK)) {
             attackBranded++;
         }
 
@@ -567,6 +599,7 @@ public class DragonKnightMod implements
         brandCardsUsed = 0;
         attackUsed = 0;
         attackBranded = 0;
+        beDragonCount = 0;
     }
 
     public static void beDragon() {
@@ -596,6 +629,7 @@ public class DragonKnightMod implements
         brandCardsUsed = 0;
         attackUsed = 0;
         attackBranded = 0;
+        beDragonCount = 0;
     }
 
     @Override
@@ -662,10 +696,15 @@ public class DragonKnightMod implements
     }
 
     public static void addBrandToCard(AbstractCard card) {
+        addBrandToCard(card, false);
+    }
+
+    public static void addBrandToCard(AbstractCard card, boolean dragonBrand) {
         if (canBrand(card)) {
             card.tags.add(DragonKnightMod.Enums.BRAND);
-            // card.rawDescription += " NL dragonknight:"
-            // + DragonKnightMod.keywords.get("Brand").PROPER_NAME;
+            if (dragonBrand) {
+                card.tags.add(DragonKnightMod.Enums.DRAGON_BRAND);
+            }
         }
     }
 

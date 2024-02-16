@@ -2,6 +2,8 @@ package dragonknight.patch;
 
 import static dragonknight.DragonKnightMod.*;
 
+import java.util.WeakHashMap;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
@@ -9,14 +11,17 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireField;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.TheLibrary;
 import com.megacrit.cardcrawl.helpers.GameDictionary;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import dragonknight.DragonKnightMod;
+import dragonknight.powers.AbyssalBeastFormPower;
 import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
 import dragonknight.powers.HeavenlyLinkPower;
@@ -204,6 +209,64 @@ public class CardPatch {
             if (change > 0) {
                 _instance.setCostForTurn(_instance.costForTurn + change);
                 change = 0;
+            }
+        }
+    }
+
+    public static WeakHashMap<AbstractCard, Integer> randoms = new WeakHashMap<>();
+    private static int getRandom(AbstractCard c) {
+        if (!randoms.containsKey(c))
+            randoms.put(c, AbstractDungeon.cardRng.random(7, 14));
+        return randoms.get(c);
+    }
+
+    @SpirePatch(clz = AbstractCard.class, method = "calculateCardDamage")
+    public static class DamagePatch {
+        @SpireInsertPatch(loc = 3235, localvars = { "tmp" })
+        public static void Insert(AbstractCard _instance, AbstractMonster mo, @ByRef float[] tmp) {
+            AbstractPlayer player = AbstractDungeon.player;
+            if (player != null && _instance.type.equals(CardType.ATTACK)) {
+                if (player.hasPower(AbyssalBeastFormPower.POWER_ID) && !AbstractDungeon.getCurrRoom().isBattleOver) {
+                    tmp[0] += getRandom(_instance);
+                }
+            }
+        }
+
+        @SpireInsertPatch(loc = 3291, localvars = { "tmp" })
+        public static void Insert2(AbstractCard _instance, AbstractMonster mo, float[] tmp) {
+            AbstractPlayer player = AbstractDungeon.player;
+            if (player != null && _instance.type.equals(CardType.ATTACK)) {
+                if (player.hasPower(AbyssalBeastFormPower.POWER_ID) && !AbstractDungeon.getCurrRoom().isBattleOver) {
+                    for (int i = 0; i < tmp.length; i++) {
+                        tmp[i] += getRandom(_instance);
+                    }
+                }
+            }
+        }
+    }
+
+    @SpirePatch(clz = AbstractCard.class, method = "applyPowers")
+    public static class ApplyPowersPatch {
+
+        @SpireInsertPatch(loc = 3106, localvars = { "tmp" })
+        public static void Insert(AbstractCard _instance, @ByRef float[] tmp) {
+            AbstractPlayer player = AbstractDungeon.player;
+            if (player != null && _instance.type.equals(CardType.ATTACK)) {
+                if (player.hasPower(AbyssalBeastFormPower.POWER_ID) && !AbstractDungeon.getCurrRoom().isBattleOver) {
+                    tmp[0] += getRandom(_instance);
+                }
+            }
+        }
+
+        @SpireInsertPatch(loc = 3152, localvars = { "tmp" })
+        public static void Insert2(AbstractCard _instance, float[] tmp) {
+            AbstractPlayer player = AbstractDungeon.player;
+            if (player != null && _instance.type.equals(CardType.ATTACK)) {
+                if (player.hasPower(AbyssalBeastFormPower.POWER_ID) && !AbstractDungeon.getCurrRoom().isBattleOver) {
+                    for (int i = 0; i < tmp.length; i++) {
+                        tmp[i] += getRandom(_instance);
+                    }
+                }
             }
         }
     }

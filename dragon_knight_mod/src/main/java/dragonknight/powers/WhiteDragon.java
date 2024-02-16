@@ -44,7 +44,7 @@ public class WhiteDragon extends BeDragonPower {
                     for (AbstractCard card : cards) {
                         AbstractCard newCard = card.makeSameInstanceOf();
 
-                        addBrandToCard(newCard);
+                        addBrandToCard(newCard, true);
                         newCard.initializeDescription();
                         addToBot(new CopyCardInHandAction(newCard));
                     }
@@ -55,58 +55,16 @@ public class WhiteDragon extends BeDragonPower {
             addToBot(new ApplyPowerAction(owner, owner,
                     new StrengthPower(owner, owner.getPower(makeID("WhiteBrandPower")).amount)));
         }
+
+        if (owner.hasPower(AbyssalBeastFormPower.POWER_ID)) {
+            owner.getPower(AbyssalBeastFormPower.POWER_ID).flash();
+            addToBot(new ApplyPowerAction(owner, owner,
+                    new StrengthPower(owner, 1)));
+        }
     }
 
     @Override
     public void stackPower(int stackAmount) {
         addToBot(new DrawCardAction(1));
     }
-
-    // @Override
-    // public void stackPower(int stackAmount) {
-    // logger.info("stack");
-    // }
-
-    // @Override
-    // public void atStartOfTurn() {
-    // addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-    // }
-
-    // @Override
-    // public void onInitialApplication() {
-    // if (owner.hasPower(makeID("BlackDragon"))) {
-    // addToBot(new RemoveSpecificPowerAction(owner, owner, this));
-    // return;
-    // }
-    // addToBot(new SelectCardsInHandAction(1, "复制", (card) ->
-    // !card.hasTag(DragonKnightMod.Enums.BRAND), (cards) -> {
-    // for (AbstractCard card : cards) {
-    // AbstractCard newCard = card.makeSameInstanceOf();
-
-    // newCard.rawDescription += " NL 烙印";
-    // newCard.initializeDescription();
-    // newCard.tags.add(DragonKnightMod.Enums.BRAND);
-    // addToBot(new CopyCradInHandAction(newCard));
-    // }
-    // }));
-
-    // if (owner.hasPower(makeID("WhiteBrandPower"))) {
-    // addToBot(new ApplyPowerAction(owner, owner,
-    // new StrengthPower(owner, owner.getPower(makeID("WhiteBrandPower")).amount)));
-    // }
-
-    // if (owner.hasPower(makeID("PhantomDragonPower"))) {
-    // PhantomDragonPower power = (PhantomDragonPower)
-    // owner.getPower(makeID("PhantomDragonPower"));
-    // if (!power.isUsed) {
-    // if (owner.isPlayer) {
-    // addToBot(new ApplyPowerAction(owner, owner, new NextCardFreePower(owner,
-    // 1)));
-    // power.isUsed = true;
-    // }
-    // }
-    // }
-    // // com.megacrit.cardcrawl.actions.utility.
-    // }
-
 }

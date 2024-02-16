@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 
+import dragonknight.DragonKnightMod;
+
 public abstract class BeDragonPower extends BasePower {
     protected boolean done = false;
 
@@ -59,5 +61,7 @@ public abstract class BeDragonPower extends BasePower {
             }
         }
 
+        // DragonKnightMod.beDragonCount++;
+        DragonKnightMod.onBeDragon();
     }
 }
