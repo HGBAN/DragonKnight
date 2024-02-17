@@ -17,7 +17,7 @@
     "NAME": "深渊的使徒像",
     "FLAVOR": "一座暗黑色的雕像，眼睛深邃而闪烁着若有所思的光芒。触摸它时会感受到来自深渊的寒意，仿佛能听到龙的低语。",
     "DESCRIPTIONS": [
-      "将本回合结束时因为 #ydragonknight:烙印 消耗的前三张牌的带有 #y消耗 和 #y虚无 的复制加入到下回合的手牌中。"
+      "将本回合结束时因为 #ydragonknight:烙印 消耗的 #b1 张攻击牌的带有 #y消耗 的复制加入到下回合的手牌中，其 [E] 的消耗减少 #b1 点。"
     ]
   },
   "${modID}:BrandedCyclone": {
@@ -81,6 +81,13 @@
     "FLAVOR": "暂无。",
     "DESCRIPTIONS": [
       "每个回合开始后，选择手牌中的 #b1 张攻击牌，使其获得 #y消耗 和 #y虚无 。"
+    ]
+  },
+  "${modID}:AbyssalSpectator": {
+    "NAME": "深渊的观众",
+    "FLAVOR": "暂无。",
+    "DESCRIPTIONS": [
+      "每回合第一次使用 #ydragonknight:反烙印 牌后，随机抽 #b1 张能力牌。如果这张能力牌在本回合被使用，进入 #ydragonknight:黑龙形态 。"
     ]
   }
 }

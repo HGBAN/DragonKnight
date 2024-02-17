@@ -50,6 +50,9 @@ public class CardPatch {
         if (card.hasTag(DragonKnightMod.Enums.DRAW_CARD)) {
             card.rawDescription += " NL " + uiStrings.TEXT[1];
         }
+        if (card.hasTag(DragonKnightMod.Enums.BLACK_DRAGON)) {
+            card.rawDescription += " NL " + DragonKnightMod.cardNameKeywords.TEXT_DICT.get("BlackDragon");
+        }
         if (card.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
             card.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("AntiBrand").PROPER_NAME + period;
         }

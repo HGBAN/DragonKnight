@@ -1,5 +1,6 @@
 package dragonknight.actions;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.function.Predicate;
 
@@ -16,6 +17,7 @@ import dragonknight.DragonKnightMod;
 public class DrawBrandCardAction extends AbstractGameAction {
     private AbstractPlayer p;
     private Predicate<AbstractCard> predicate;
+    public static ArrayList<AbstractCard> cards = new ArrayList<>();
 
     public DrawBrandCardAction(int amount, Predicate<AbstractCard> predicate) {
         this.p = AbstractDungeon.player;
@@ -75,6 +77,7 @@ public class DrawBrandCardAction extends AbstractGameAction {
                         AbstractDungeon.player.hand.refreshHandLayout();
                         AbstractDungeon.player.hand.applyPowers();
                     }
+                    cards.add(card);
                 }
             }
 

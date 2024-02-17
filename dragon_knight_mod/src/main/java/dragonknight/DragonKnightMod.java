@@ -433,6 +433,8 @@ public class DragonKnightMod implements
 
         @SpireEnum
         public static CardTags DRAGON_BRAND;
+        @SpireEnum
+        public static CardTags BLACK_DRAGON;
     }
 
     public static void onBeDragon() {
@@ -516,6 +518,12 @@ public class DragonKnightMod implements
             player.getPower(AbyssalVengeanceDramaPower.POWER_ID).flash();
             AbstractDungeon.actionManager
                     .addToBottom(new GainEnergyAction(1));
+        }
+
+        if (card.hasTag(Enums.BLACK_DRAGON)) {
+            if (!player.hasPower(BlackDragon.POWER_ID))
+                AbstractDungeon.actionManager
+                        .addToBottom(new ApplyPowerAction(player, player, new BlackDragon(player)));
         }
     }
 

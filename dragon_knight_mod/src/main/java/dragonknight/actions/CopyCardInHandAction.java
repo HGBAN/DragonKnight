@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 
+import dragonknight.patch.CardPatch;
+
 public class CopyCardInHandAction extends AbstractGameAction {
     private AbstractCard c;
     private static final float PADDING;
@@ -208,6 +210,7 @@ public class CopyCardInHandAction extends AbstractGameAction {
         for (CardTags tags : this.c.tags) {
             card.tags.add(tags);
         }
+        CardPatch.Field.reduceEnergy.set(card, CardPatch.Field.reduceEnergy.get(this.c));
         card.initializeDescription();
         return card;
     }

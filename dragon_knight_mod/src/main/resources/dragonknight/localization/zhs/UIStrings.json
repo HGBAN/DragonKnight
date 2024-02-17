@@ -33,7 +33,8 @@
   "${modID}:CardNameKeywords": {
     "TEXT_DICT": {
       "Brand": "烙印",
-      "Heavenly": "天底"
+      "Heavenly": "天底",
+      "BlackDragon":"进入 dragonknight:黑龙形态 。"
     }
   }
 }
