@@ -26,5 +26,11 @@
     "DESCRIPTIONS": [
       "对所有敌人造成本次战斗中已 #y消耗 牌的数量的伤害。"
     ]
+  },
+  "${modID}:HeavenlyPotion": {
+    "NAME": "天底药水",
+    "DESCRIPTIONS": [
+      "使所有手牌中的攻击牌获得 #y消耗 和 #y虚无 。"
+    ]
   }
 }

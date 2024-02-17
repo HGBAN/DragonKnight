@@ -23,7 +23,7 @@ public class IceDevilErosion extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public IceDevilErosion() {
-        super(ID, NAME, imagePath("cards/power/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/power/IceDevilErosion.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
 

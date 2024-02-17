@@ -79,6 +79,7 @@ import dragonknight.commands.BrandCommand;
 import dragonknight.commands.ExhaustHand;
 import dragonknight.potions.BeDragonPotion;
 import dragonknight.potions.BrandPotion;
+import dragonknight.potions.HeavenlyPotion;
 import dragonknight.potions.IceDevilPotion;
 import dragonknight.powers.AbyssAwakenPower;
 import dragonknight.powers.AbyssFormPower;
@@ -368,6 +369,7 @@ public class DragonKnightMod implements
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
         BaseMod.addPotion(IceDevilPotion.class, Color.CYAN, Color.BLUE, Color.OLIVE, IceDevilPotion.ID);
+        BaseMod.addPotion(HeavenlyPotion.class, Color.CORAL, Color.GREEN, Color.ORANGE, HeavenlyPotion.ID);
         new AutoAdd(modID)
                 .packageFilter("dragonknight.cards")
                 .setDefaultSeen(true)

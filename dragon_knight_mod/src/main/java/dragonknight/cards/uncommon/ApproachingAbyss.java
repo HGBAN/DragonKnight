@@ -32,7 +32,7 @@ public class ApproachingAbyss extends CustomCard {
     };
 
     public ApproachingAbyss() {
-        super(ID, NAME, imagePath("cards/attack/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/attack/ApproachingAbyss.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.exhaust = true;
