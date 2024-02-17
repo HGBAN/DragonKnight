@@ -219,8 +219,7 @@
   },
   "${modID}:HauntingMurmur": {
     "NAME": "幽怨低吟",
-    "DESCRIPTION": "下个回合进入 dragonknight:黑龙形态 。 NL 使所有敌人获得!M!层 虚弱 。 NL 如果上个回合有敌人受伤，则额外叠加1层 虚弱 ，并获得!B!点格挡值。",
-    "UPGRADE_DESCRIPTION": "下个回合进入 dragonknight:黑龙形态 。 NL 使所有敌人获得!M!层 虚弱 。 NL 如果上个回合有敌人受伤，则额外叠加2层 虚弱 ，并获得!B!点格挡值。"
+    "DESCRIPTION": "下个回合进入 dragonknight:黑龙形态 。 NL 使所有敌人获得1层 虚弱 。 NL 如果上个回合有敌人受伤，则额外叠加!M!层 虚弱 ，并获得!B!点格挡值。"
   },
   "${modID}:DevouringBrand": {
     "NAME": "吞噬烙印",

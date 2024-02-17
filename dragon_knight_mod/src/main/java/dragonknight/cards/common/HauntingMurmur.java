@@ -39,9 +39,9 @@ public class HauntingMurmur extends CustomCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            // this.upgradeMagicNumber(8);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            this.upgradeMagicNumber(1);
+            // this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            // this.initializeDescription();
         }
     }
 
@@ -49,11 +49,11 @@ public class HauntingMurmur extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!p.hasPower(makeID("WhiteDragonAwakeningPower")) && !p.hasPower(makeID("BlackDragonAwakeningPower")))
             this.addToBot(new ApplyPowerAction(p, p, new BlackDragonAwakeningPower(p)));
-        int tmp = this.baseMagicNumber;
+        int tmp = 1;
         if (DragonKnightMod.isEnemyDamagedLastTurn) {
-            tmp += 1;
-            if (upgraded)
-                tmp += 1;
+            tmp += baseMagicNumber;
+            // if (upgraded)
+            //     tmp += 1;
             this.addToBot(new GainBlockAction(p, this.block));
         }
         for (AbstractMonster monster : AbstractDungeon.getCurrRoom().monsters.monsters) {

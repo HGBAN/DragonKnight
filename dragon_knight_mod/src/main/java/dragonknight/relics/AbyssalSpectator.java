@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import dragonknight.DragonKnightMod;
 import dragonknight.actions.DrawBrandCardAction;
@@ -38,6 +39,16 @@ public class AbyssalSpectator extends BaseRelic {
                     public void update() {
                         for (AbstractCard c : DrawBrandCardAction.cards) {
                             c.tags.add(DragonKnightMod.Enums.BLACK_DRAGON);
+                            AbstractDungeon.actionManager.addToTurnStart(new AbstractGameAction() {
+
+                                @Override
+                                public void update() {
+                                    c.tags.remove(DragonKnightMod.Enums.BLACK_DRAGON);
+                                    c.initializeDescription();
+                                    isDone = true;
+                                }
+
+                            });
                             c.initializeDescription();
                         }
                         DrawBrandCardAction.cards.clear();
