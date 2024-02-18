@@ -42,8 +42,8 @@ public class HeavenlyEtudeOfTheNadir extends CustomCard {
             this.upgradeName();
             this.upgradeBaseCost(2);
             this.upgradeMagicNumber(1);
-            this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            // this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
+            // this.initializeDescription();
         }
     }
 

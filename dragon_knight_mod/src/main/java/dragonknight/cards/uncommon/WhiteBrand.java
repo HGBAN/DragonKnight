@@ -1,7 +1,6 @@
 package dragonknight.cards.uncommon;
 
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -27,7 +26,7 @@ public class WhiteBrand extends CustomCard {
         super(ID, NAME, imagePath("cards/power/WhiteBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
-        this.baseMagicNumber = 3;
+        this.baseMagicNumber = 2;
     }
 
     @Override

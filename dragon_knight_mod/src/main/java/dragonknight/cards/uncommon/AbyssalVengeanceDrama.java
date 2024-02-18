@@ -48,14 +48,14 @@ public class AbyssalVengeanceDrama extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new ApplyPowerAction(p, p, new AbyssalVengeanceDramaPower(p)));
-        if (DragonKnightMod.beDragonCount >= 3) {
+        if (DragonKnightMod.beDragonCount >= 2) {
             addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy()));
         }
     }
 
     @Override
     public void triggerOnGlowCheck() {
-        if (DragonKnightMod.beDragonCount >= 3)
+        if (DragonKnightMod.beDragonCount >= 2)
             this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
         else
             this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();

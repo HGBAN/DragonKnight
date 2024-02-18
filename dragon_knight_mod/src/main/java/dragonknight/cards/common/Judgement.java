@@ -1,7 +1,6 @@
 package dragonknight.cards.common;
 
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
@@ -30,7 +29,7 @@ public class Judgement extends CustomCard {
         super(ID, NAME, imagePath("cards/attack/Judgement.png"), COST, DESCRIPTION, TYPE, DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
-        this.baseDamage = 14;
+        this.baseDamage = 16;
     }
 
     @Override

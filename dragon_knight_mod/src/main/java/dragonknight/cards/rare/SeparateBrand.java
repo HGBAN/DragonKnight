@@ -30,7 +30,7 @@ public class SeparateBrand extends BrandCopyCard {
         super(ID, NAME, imagePath("cards/attack/SeparateBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
-        this.baseDamage = 16;
+        this.baseDamage = 8;
         this.baseMagicNumber = 2;
     }
 
@@ -38,7 +38,7 @@ public class SeparateBrand extends BrandCopyCard {
     public void upgrade() {
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeDamage(8);
+            this.upgradeDamage(4);
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

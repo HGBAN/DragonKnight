@@ -52,14 +52,14 @@ public class AbyssalGaze extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (AbstractDungeon.player.hasPower(BlackDragon.POWER_ID) && DragonKnightMod.exhaustCardsThisTurn.size() >= 7) {
+        if (AbstractDungeon.player.hasPower(BlackDragon.POWER_ID) && DragonKnightMod.exhaustCount >= 7) {
             addToBot(new ApplyPowerAction(p, p, new AbyssAwakenPower(p)));
         }
     }
 
     @Override
     public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.hasPower(BlackDragon.POWER_ID) && DragonKnightMod.exhaustCardsThisTurn.size() >= 7)
+        if (AbstractDungeon.player.hasPower(BlackDragon.POWER_ID) && DragonKnightMod.exhaustCount >= 7)
             this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
         else
             this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();

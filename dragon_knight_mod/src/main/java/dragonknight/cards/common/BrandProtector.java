@@ -34,7 +34,7 @@ public class BrandProtector extends CustomCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(1);
+            this.upgradeMagicNumber(2);
         }
     }
 

@@ -1,8 +1,8 @@
 package dragonknight.cards.uncommon;
 
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -40,7 +40,7 @@ public class Banish extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        
+        addToBot(new DrawCardAction(1));
     }
 
 }

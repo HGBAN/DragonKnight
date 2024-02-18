@@ -42,14 +42,14 @@ public class TrueEyeBrand extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!p.hasPower(makeID("WhiteDragon")) && !p.hasPower(makeID("BlackDragon"))) {
             addToBot(new ApplyPowerAction(p, p, new WhiteDragon(p)));
-        } else if (DragonKnightMod.brandCardsLastTurn.size() >= 4) {
+        } else if (DragonKnightMod.exhaustCardsLastTurn.size() >= 4) {
             addToBot(new ApplyPowerAction(p, p, new TrueDragon(p)));
         }
     }
 
     @Override
     public void triggerOnGlowCheck() {
-        if (DragonKnightMod.brandCardsLastTurn.size() >= 4) {
+        if (DragonKnightMod.exhaustCardsLastTurn.size() >= 4) {
             this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
         } else {
             this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();

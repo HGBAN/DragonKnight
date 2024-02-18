@@ -1,17 +1,16 @@
 package dragonknight.cards.uncommon;
 
-import static dragonknight.DragonKnightMod.imagePath;
-import static dragonknight.DragonKnightMod.makeID;
+import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.character.DragonPrince;
-import dragonknight.powers.BlackBrandPower;
 
 public class BlackBrand extends CustomCard {
     public static final String ID = makeID("BlackBrand");
@@ -27,7 +26,7 @@ public class BlackBrand extends CustomCard {
         super(ID, NAME, imagePath("cards/power/BlackBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
-        this.baseMagicNumber = 1;
+        this.baseMagicNumber = 2;
     }
 
     @Override
@@ -40,7 +39,7 @@ public class BlackBrand extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new BlackBrandPower(p, this.baseMagicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, this.baseMagicNumber)));
     }
 
 }

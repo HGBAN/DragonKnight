@@ -40,7 +40,7 @@ public class ApproachingAbyss extends CustomCard {
         this.tags.add(DragonKnightMod.Enums.EXHAUST);
         this.initializeDescription();
 
-        this.baseDamage = 24;
+        this.baseDamage = 20;
         setCostForTurn(this.cost - DragonKnightMod.beDragonCount);
 
         DragonKnightMod.onBeDragon.add(new WeakReference<Runnable>(onBeDragon));
@@ -69,14 +69,14 @@ public class ApproachingAbyss extends CustomCard {
 
     @Override
     public void triggerOnExhaust() {
-        if (AbstractDungeon.player.exhaustPile.size() < 20) {
+        if (AbstractDungeon.player.exhaustPile.size() < 25) {
             addToBot(new MakeTempCardInDrawPileAction(this.cardsToPreview.makeStatEquivalentCopy(), 1, true, true));
         }
     }
 
     @Override
     public void triggerOnGlowCheck() {
-        if (AbstractDungeon.player.exhaustPile.size() < 20)
+        if (AbstractDungeon.player.exhaustPile.size() < 25)
             this.glowColor = GOLD_BORDER_GLOW_COLOR.cpy();
         else
             this.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();

@@ -12,6 +12,7 @@ public class CardGroupPatch {
     static class MoveToExhaustPilePatch {
         public static void Postfix(CardGroup __instance, AbstractCard c) {
             DragonKnightMod.exhaustCardsThisTurn.add(c);
+            DragonKnightMod.exhaustCount++;
         }
     }
 

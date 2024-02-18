@@ -34,7 +34,7 @@ public class HeavenlyJudgment extends BrandCopyCard {
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY,
                 TARGET);
-        this.baseDamage = 18;
+        this.baseDamage = 12;
         this.shuffleBackIntoDrawPile = true;
     }
 
@@ -56,7 +56,7 @@ public class HeavenlyJudgment extends BrandCopyCard {
                 p.getPower(IceDevilFormPower.POWER_ID).flash();
             }
             int tmp = this.baseDamage;
-            this.baseDamage = 12;
+            this.baseDamage = 6;
             calculateCardDamage(m);
             this.addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                     AttackEffect.BLUNT_LIGHT));

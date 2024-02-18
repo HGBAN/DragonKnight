@@ -392,6 +392,7 @@ public class DragonKnightMod implements
     public static int attackUsed = 0;
     public static int attackBranded = 0;
     public static int beDragonCount = 0;
+    public static int exhaustCount = 0;
     public static ArrayList<AbstractCard> brandCardsLastTurn = new ArrayList<>();
 
     public static ArrayList<AbstractCard> tempBrandCards = new ArrayList<>();
@@ -405,6 +406,7 @@ public class DragonKnightMod implements
     public static ArrayList<WeakReference<Runnable>> onBeDragon = new ArrayList<>();
 
     public static ArrayList<AbstractCard> exhaustCardsThisTurn = new ArrayList<>();
+    public static ArrayList<AbstractCard> exhaustCardsLastTurn = new ArrayList<>();
 
     public static UIStrings cardNameKeywords;
 
@@ -602,6 +604,7 @@ public class DragonKnightMod implements
         brandCardsLastTurn.clear();
         blockGainedThisTurn = 0;
         exhaustCardsThisTurn.clear();
+        exhaustCardsLastTurn.clear();
         exhaustCardsUsedThisTurn = 0;
         enemyPowerCountThisTurn = 0;
         isEnemyDamagedThisTurn = false;
@@ -610,6 +613,7 @@ public class DragonKnightMod implements
         attackUsed = 0;
         attackBranded = 0;
         beDragonCount = 0;
+        exhaustCount = 0;
     }
 
     public static void beDragon() {
@@ -632,6 +636,7 @@ public class DragonKnightMod implements
         brandCards.clear();
         onClearBrandCards();
         exhaustCardsThisTurn.clear();
+        exhaustCardsLastTurn.clear();
         exhaustCardsUsedThisTurn = 0;
         enemyPowerCountThisTurn = 0;
         isEnemyDamagedThisTurn = false;
@@ -640,6 +645,7 @@ public class DragonKnightMod implements
         attackUsed = 0;
         attackBranded = 0;
         beDragonCount = 0;
+        exhaustCount = 0;
     }
 
     @Override
@@ -659,6 +665,8 @@ public class DragonKnightMod implements
         }
         tempBrandCards.clear();
 
+        exhaustCardsLastTurn.clear();
+        exhaustCardsLastTurn.addAll(exhaustCardsThisTurn);
         exhaustCardsThisTurn.clear();
         exhaustCardsUsedThisTurn = 0;
         enemyPowerCountThisTurn = 0;

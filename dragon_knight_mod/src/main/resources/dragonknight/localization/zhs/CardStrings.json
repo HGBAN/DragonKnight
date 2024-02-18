@@ -60,7 +60,7 @@
   },
   "${modID}:BlackBrand": {
     "NAME": "黑色烙印",
-    "DESCRIPTION": "每次进入 dragonknight:黑龙形态 ，获得!M!点 *多层护甲 。"
+    "DESCRIPTION": "每次进入 dragonknight:黑龙形态 ，获得!M!点 敏捷 。"
   },
   "${modID}:PhantomDragon": {
     "NAME": "幻影之龙",
@@ -78,11 +78,11 @@
   },
   "${modID}:Banish": {
     "NAME": "追放",
-    "DESCRIPTION": "如果处于化龙状态，则将 dragonknight:烙印 改为可以选择一张抽牌堆里的卡牌。"
+    "DESCRIPTION": "抽1张牌。 NL 如果处于 dragonknight:化龙 状态，则将 dragonknight:烙印 改为可以选择一张抽牌堆里的卡牌。"
   },
   "${modID}:Convict": {
     "NAME": "断罪",
-    "DESCRIPTION": "造成!D!点伤害。如果这张牌被 消耗 ，就对所有敌人造成!D!点伤害。"
+    "DESCRIPTION": "造成!D!点伤害。如果这张牌被 消耗 ，就再对所有敌人造成!D!点伤害。"
   },
   "${modID}:ApostlesComing": {
     "NAME": "使徒降临",
@@ -108,8 +108,8 @@
   },
   "${modID}:CrimsonBrand": {
     "NAME": "赤红烙印",
-    "DESCRIPTION": "抽1张 dragonknight:烙印 牌。如果已消耗的牌的数量超过20张，就再抽!M!张牌；如果超过30张，再获得 [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印 放入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果已消耗的牌的数量超过20张，就再抽!M!张牌；如果超过30张，再获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印+ 放入弃牌堆。"
+    "DESCRIPTION": "抽1张 dragonknight:烙印 牌。如果已消耗的牌的数量超过12张，就再抽!M!张牌；如果超过20张，再获得 [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印 放入弃牌堆。",
+    "UPGRADE_DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果已消耗的牌的数量超过12张，就再抽!M!张牌；如果超过20张，再获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印+ 放入弃牌堆。"
   },
   "${modID}:SwordBrand": {
     "NAME": "剑之烙印",
@@ -180,7 +180,7 @@
   },
   "${modID}:TrueEyeBrand": {
     "NAME": "真眼烙印",
-    "DESCRIPTION": "进入 dragonknight:白龙形态 。 NL 如果已经处于 dragonknight:黑龙形态 或 dragonknight:白龙形态 ，并且上个回合至少触发过4次 dragonknight:烙印 ，则进入 dragonknight:真龙形态 。"
+    "DESCRIPTION": "进入 dragonknight:白龙形态 。 NL 如果已经处于 dragonknight:黑龙形态 或 dragonknight:白龙形态 ，并且上个回合至少 消耗 了6张牌 ，则进入 dragonknight:真龙形态 。"
   },
   "${modID}:SettingBarrier": {
     "NAME": "设置结界",
@@ -236,7 +236,7 @@
   },
   "${modID}:HeavenlyJudgment": {
     "NAME": "天底的审判",
-    "DESCRIPTION": "造成!D!点伤害。 NL 获得 [E] 。 NL 被 消耗 后，获得3点 力量 并额外造成12点伤害。 NL 这张牌在使用后会返回抽牌堆。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 获得 [E] 。 NL 被 消耗 后，获得3点 力量 并额外造成6点伤害。 NL 这张牌在使用后会返回抽牌堆。"
   },
   "${modID}:HeavenlyGaze": {
     "NAME": "天底的注视",
@@ -257,14 +257,14 @@
   },
   "${modID}:AbyssalVengeanceDrama": {
     "NAME": "深渊的复仇剧",
-    "DESCRIPTION": "本场战斗中因 dragonknight:化龙 刻上 dragonknight:烙印 的牌在使用后会获得 [E] 。 NL 如果本场战斗中已经 dragonknight:化龙 过3次，把一张 *深渊临近 放入手牌。"
+    "DESCRIPTION": "本场战斗中因 dragonknight:化龙 刻上 dragonknight:烙印 的牌在使用后会获得 [E] 。 NL 如果本场战斗中已经 dragonknight:化龙 过2次，把一张 *深渊临近 放入手牌。"
   },
   "${modID}:ApproachingAbyss": {
     "NAME": "深渊临近",
-    "DESCRIPTION": "造成!D!点伤害。 NL 每次 dragonknight:化龙 会降低这张牌1点 [E] 的消耗。如果已 消耗 的牌不足20张，这张牌会在 消耗 后将一张 *深渊的凝视 放入抽牌堆。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 每次 dragonknight:化龙 会降低这张牌1点 [E] 的消耗。如果已 消耗 的牌不足25张，这张牌会在 消耗 后将一张 *深渊的凝视 放入抽牌堆。"
   },
   "${modID}:AbyssalGaze": {
     "NAME": "深渊的凝视",
-    "DESCRIPTION": "处于 dragonknight:黑龙形态 时，如果本回合 消耗 了7张牌，下个回合开始时进入 dragonknight:深渊兽形态 。"
+    "DESCRIPTION": "处于 dragonknight:黑龙形态 时，如果本场战斗中已经 消耗 了7张牌，下个回合开始时进入 dragonknight:深渊兽形态 。"
   }
 }

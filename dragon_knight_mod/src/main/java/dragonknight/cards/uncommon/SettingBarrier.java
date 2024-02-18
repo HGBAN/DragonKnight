@@ -26,14 +26,14 @@ public class SettingBarrier extends CustomCard {
         super(ID, NAME, imagePath("cards/skill/SettingBarrier.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
-        this.baseMagicNumber = 4;
+        this.baseMagicNumber = 2;
     }
 
     @Override
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.upgradeMagicNumber(2);
+            this.upgradeMagicNumber(1);
         }
     }
 
