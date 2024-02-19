@@ -35,5 +35,6 @@ public class ScorchPower extends BasePower {
         if (this.amount <= 0) {
             addToBot(new RemoveSpecificPowerAction(owner, owner, this));
         }
+        updateDescription();
     }
 }

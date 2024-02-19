@@ -65,7 +65,7 @@
   "${modID}:PhantomDragon": {
     "NAME": "幻影之龙",
     "DESCRIPTION": "本次战斗中， dragonknight:化龙 后使用的第一张牌不消耗 [E] 。",
-    "UPGRADE_DESCRIPTION": "本次战斗中， dragonknight:化龙 后使用的第一张牌不消耗 [E] 。 NL 固有 。"
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 本次战斗中， dragonknight:化龙 后使用的第一张牌不消耗 [E] 。"
   },
   "${modID}:KingsBrand": {
     "NAME": "王之烙印",
@@ -132,7 +132,7 @@
   "${modID}:AshBrand": {
     "NAME": "灰烬烙印",
     "DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗 的牌的具有消耗和虚无的复制放入手牌。",
-    "UPGRADE_DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗的牌的具有消耗和虚无的复制放入手牌。 NL 固有 。"
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗的牌的具有消耗和虚无的复制放入手牌。"
   },
   "${modID}:Roar": {
     "NAME": "咆哮",
@@ -215,7 +215,7 @@
   "${modID}:AshenMana": {
     "NAME": "灰烬魔能",
     "DESCRIPTION": "每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。",
-    "UPGRADE_DESCRIPTION": "每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。 NL 固有 。"
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 每个回合开始时，随机选择手牌中的一张 dragonknight:烙印 牌，将其降低1点 [E] 的消耗，并在使用后抽1张牌。"
   },
   "${modID}:HauntingMurmur": {
     "NAME": "幽怨低吟",
@@ -224,7 +224,7 @@
   "${modID}:DevouringBrand": {
     "NAME": "吞噬烙印",
     "DESCRIPTION": "将已存在于消耗堆中的同名卡的 [E] 的消耗降低1点。",
-    "UPGRADE_DESCRIPTION": "将已存在于消耗堆中的同名卡的 [E] 的消耗降低1点。 NL 固有 。"
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 将已存在于消耗堆中的同名卡的 [E] 的消耗降低1点。"
   },
   "${modID}:HeavenlyLink": {
     "NAME": "天底的连接",
@@ -249,7 +249,7 @@
   "${modID}:IceDevilErosion": {
     "NAME": "冰魔侵蚀",
     "DESCRIPTION": "每个回合使手牌中的 dragonknight:反烙印 的攻击牌在本场战斗中的伤害增加2点。",
-    "UPGRADE_DESCRIPTION": "每个回合使手牌中的 dragonknight:反烙印 的攻击牌在本场战斗中的伤害增加2点。 NL 固有 。"
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 每个回合使手牌中的 dragonknight:反烙印 的攻击牌在本场战斗中的伤害增加2点。"
   },
   "${modID}:IceDevilForm": {
     "NAME": "冰魔形态",
@@ -266,5 +266,18 @@
   "${modID}:AbyssalGaze": {
     "NAME": "深渊的凝视",
     "DESCRIPTION": "处于 dragonknight:黑龙形态 时，如果本场战斗中已经 消耗 了7张牌，下个回合开始时进入 dragonknight:深渊兽形态 。"
+  },
+  "${modID}:SwiftWindAssault": {
+    "NAME": "疾风突进",
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果手牌中至少有2张 dragonknight:反烙印 牌，则丢弃所有的 dragonknight:反烙印 牌，每丢弃一张提升!M!点伤害。"
+  },
+  "${modID}:InvisibleSurefire": {
+    "NAME": "不可视之神炎",
+    "DESCRIPTION": "给予!M!层 *灼烧 。如果手牌里至少有2张 dragonknight:反烙印 牌，丢弃所有 dragonknight:反烙印 牌，每丢弃1张就增加!M!层 *灼烧 。"
+  },
+  "${modID}:DivineFlameForm": {
+    "NAME": "神炎形态",
+    "DESCRIPTION": " dragonknight:反烙印 牌在被丢弃或是 消耗 后，会抽1张牌。如果任一敌人身上有负面状态，则额外抽2张牌。每个回合只会触发一次。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL dragonknight:反烙印 牌在被丢弃或是 消耗 后，会抽1张牌。如果任一敌人身上有负面状态，则额外抽2张牌。每个回合只会触发一次。"
   }
 }
