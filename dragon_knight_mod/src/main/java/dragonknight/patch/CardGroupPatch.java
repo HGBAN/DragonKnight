@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import dragonknight.DragonKnightMod;
-import dragonknight.powers.DivineFlameFormPower;
+import dragonknight.powers.SurefireFormPower;
 
 public class CardGroupPatch {
     @SpirePatch(clz = CardGroup.class, method = "moveToExhaustPile")
@@ -48,8 +48,8 @@ public class CardGroupPatch {
         @SpireInsertPatch(locs = { 57, 71, 98 }, localvars = { "c" })
         public static void Insert(DiscardAction __instance, AbstractCard c) {
             AbstractPlayer p = AbstractDungeon.player;
-            if (p.hasPower(DivineFlameFormPower.POWER_ID)) {
-                ((DivineFlameFormPower) p.getPower(DivineFlameFormPower.POWER_ID)).onDiscard(c);
+            if (p.hasPower(SurefireFormPower.POWER_ID)) {
+                ((SurefireFormPower) p.getPower(SurefireFormPower.POWER_ID)).onDiscard(c);
             }
         }
     }
@@ -60,8 +60,8 @@ public class CardGroupPatch {
         @SpireInsertPatch(loc = 38)
         public static void Insert(DiscardSpecificCardAction __instance, AbstractCard ___targetCard) {
             AbstractPlayer p = AbstractDungeon.player;
-            if (p.hasPower(DivineFlameFormPower.POWER_ID)) {
-                ((DivineFlameFormPower) p.getPower(DivineFlameFormPower.POWER_ID)).onDiscard(___targetCard);
+            if (p.hasPower(SurefireFormPower.POWER_ID)) {
+                ((SurefireFormPower) p.getPower(SurefireFormPower.POWER_ID)).onDiscard(___targetCard);
             }
         }
     }

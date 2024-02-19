@@ -10,10 +10,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.character.DragonPrince;
-import dragonknight.powers.DivineFlameFormPower;
+import dragonknight.powers.SurefireFormPower;
 
-public class DivineFlameForm extends CustomCard {
-    public static final String ID = makeID("DivineFlameForm");
+public class SurefireForm extends CustomCard {
+    public static final String ID = makeID("SurefireForm");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -22,7 +22,7 @@ public class DivineFlameForm extends CustomCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public DivineFlameForm() {
+    public SurefireForm() {
         super(ID, NAME, imagePath("cards/power/default.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
@@ -40,7 +40,7 @@ public class DivineFlameForm extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower(DivineFlameFormPower.POWER_ID))
-            addToBot(new ApplyPowerAction(p, p, new DivineFlameFormPower(p)));
+        if (!p.hasPower(SurefireFormPower.POWER_ID))
+            addToBot(new ApplyPowerAction(p, p, new SurefireFormPower(p)));
     }
 }

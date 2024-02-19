@@ -279,5 +279,22 @@
     "NAME": "神炎形态",
     "DESCRIPTION": " dragonknight:反烙印 牌在被丢弃或是 消耗 后，会抽1张牌。如果任一敌人身上有负面状态，则额外抽2张牌。每个回合只会触发一次。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL dragonknight:反烙印 牌在被丢弃或是 消耗 后，会抽1张牌。如果任一敌人身上有负面状态，则额外抽2张牌。每个回合只会触发一次。"
+  },
+  "${modID}:SongsBrand": {
+    "NAME": "歌之烙印",
+    "DESCRIPTION": "给予3层 易伤 。 NL 获得 [E] 。被 *丢弃 或 消耗 后使所有敌人获得1层 易伤 ，并抽1张牌。"
+  },
+  "${modID}:SurefireEntwining": {
+    "NAME": "神炎缠绕",
+    "DESCRIPTION": "本回合每次使用 dragonknight:反烙印 牌，就随机使另一张没有 dragonknight:反烙印 的手牌获得 dragonknight:反烙印 。",
+    "UPGRADE_DESCRIPTION":" 保留 。 NL 本回合每次使用 dragonknight:反烙印 牌，就随机使另一张没有 dragonknight:反烙印 的手牌获得 dragonknight:反烙印 。"
+  },
+  "${modID}:IceDevilRaid": {
+    "NAME": "冰魔强袭",
+    "DESCRIPTION": "造成!D!点伤害。 NL 丢弃手牌中所有 dragonknight:反烙印 牌，抽取丢弃数量的牌（最多2张）。"
+  },
+  "${modID}:AbyssalGuidance": {
+    "NAME": "深渊的指引",
+    "DESCRIPTION": "如果本场战斗中还没有触发过1次以上 dragonknight:化龙 ，进入 dragonknight:真龙形态 。 NL 被 dragonknight:烙印 消耗 后，效果改为下回合进入 dragonknight:黑龙形态 。"
   }
 }

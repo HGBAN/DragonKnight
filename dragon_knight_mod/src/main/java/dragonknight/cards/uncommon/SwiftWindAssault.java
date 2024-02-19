@@ -2,12 +2,10 @@ package dragonknight.cards.uncommon;
 
 import static dragonknight.DragonKnightMod.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,6 +16,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.DragonKnightMod;
+import dragonknight.actions.DiscardAntiBrandCardAction;
 import dragonknight.character.DragonPrince;
 
 public class SwiftWindAssault extends CustomCard {
@@ -55,11 +54,12 @@ public class SwiftWindAssault extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        ArrayList<AbstractCard> cards = new ArrayList<>();
-        if (checkHand(cards) >= 2) {
-            for (AbstractCard c : cards) {
-                addToBot(new DiscardSpecificCardAction(c));
-            }
+        // ArrayList<AbstractCard> cards = new ArrayList<>();
+        if (checkHand() >= 2) {
+            // for (AbstractCard c : cards) {
+            //     addToBot(new DiscardSpecificCardAction(c));
+            // }
+            addToBot(new DiscardAntiBrandCardAction());
         }
         addToBot(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn),
                 AttackEffect.LIGHTNING));

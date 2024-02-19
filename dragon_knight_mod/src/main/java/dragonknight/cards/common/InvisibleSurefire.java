@@ -2,11 +2,9 @@ package dragonknight.cards.common;
 
 import static dragonknight.DragonKnightMod.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -16,6 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.DragonKnightMod;
+import dragonknight.actions.DiscardAntiBrandCardAction;
 import dragonknight.character.DragonPrince;
 import dragonknight.powers.ScorchPower;
 
@@ -53,12 +52,13 @@ public class InvisibleSurefire extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int tmp = this.baseMagicNumber;
-        ArrayList<AbstractCard> cards = new ArrayList<>();
-        int count = checkHand(cards);
+        // ArrayList<AbstractCard> cards = new ArrayList<>();
+        int count = checkHand();
         if (count >= 2) {
-            for (AbstractCard c : cards) {
-                addToBot(new DiscardSpecificCardAction(c));
-            }
+            // for (AbstractCard c : cards) {
+            // addToBot(new DiscardSpecificCardAction(c));
+            // }
+            addToBot(new DiscardAntiBrandCardAction());
         }
         tmp += count * this.baseMagicNumber;
         addToBot(new ApplyPowerAction(m, p, new ScorchPower(m, tmp)));

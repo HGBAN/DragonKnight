@@ -207,10 +207,16 @@
       "下个回合开始时进入 #y深渊兽形态 。"
     ]
   },
-  "${modID}:DivineFlameFormPower": {
+  "${modID}:SurefireFormPower": {
     "NAME": "神炎形态",
     "DESCRIPTIONS": [
       " #y反烙印 牌在被丢弃或是 #y消耗 后，会抽 #b1 张牌。如果任一敌人身上有负面状态，则额外抽 #b2 张牌。每个回合只会触发一次。"
+    ]
+  },
+  "${modID}:SurefireEntwiningPower": {
+    "NAME": "神炎缠绕",
+    "DESCRIPTIONS": [
+      "本回合每次使用 #y反烙印 牌，就随机使另一张没有 #y反烙印 的手牌获得 #y反烙印 。"
     ]
   }
 }

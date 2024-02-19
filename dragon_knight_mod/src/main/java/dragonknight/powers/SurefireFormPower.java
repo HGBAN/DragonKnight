@@ -13,15 +13,15 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import dragonknight.DragonKnightMod;
 import dragonknight.actions.DrawBrandCardAction;
 
-public class DivineFlameFormPower extends BasePower {
-    public static final String POWER_ID = makeID("DivineFlameFormPower");
+public class SurefireFormPower extends BasePower {
+    public static final String POWER_ID = makeID("SurefireFormPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     private boolean isUsed = false;
 
-    public DivineFlameFormPower(AbstractCreature owner) {
+    public SurefireFormPower(AbstractCreature owner) {
         super(POWER_ID, PowerType.BUFF, false, owner, owner, -1);
     }
 
@@ -46,9 +46,7 @@ public class DivineFlameFormPower extends BasePower {
 
     private void handle(AbstractCard card) {
         if (!isUsed) {
-            logger.info("11");
             if (card.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
-                logger.info(card.name);
                 int tmp = 1;
                 boolean flag = false;
                 for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters) {

@@ -102,6 +102,7 @@ import dragonknight.powers.IceDevilFormPower;
 import dragonknight.powers.NextCardFreePower;
 import dragonknight.powers.PhantomDragonPower;
 import dragonknight.powers.ScorchPower;
+import dragonknight.powers.SurefireEntwiningPower;
 import dragonknight.powers.SurefirePower;
 import dragonknight.powers.SurefireScorchPower;
 import dragonknight.powers.TrueDragon;
@@ -365,6 +366,8 @@ public class DragonKnightMod implements
         BaseMod.addPower(AbyssalVengeanceDramaPower.class, AbyssalVengeanceDramaPower.POWER_ID);
         BaseMod.addPower(AbyssalBeastFormPower.class, AbyssalBeastFormPower.POWER_ID);
         BaseMod.addPower(AbyssAwakenPower.class, AbyssAwakenPower.POWER_ID);
+        BaseMod.addPower(SurefirePower.class, SurefirePower.POWER_ID);
+        BaseMod.addPower(SurefireEntwiningPower.class, SurefireEntwiningPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
