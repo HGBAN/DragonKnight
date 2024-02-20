@@ -7,10 +7,10 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.character.DragonPrince;
+import dragonknight.powers.BlackBrandPower;
 
 public class BlackBrand extends CustomCard {
     public static final String ID = makeID("BlackBrand");
@@ -39,7 +39,7 @@ public class BlackBrand extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, this.baseMagicNumber)));
+        addToBot(new ApplyPowerAction(p, p, new BlackBrandPower(p, this.baseMagicNumber)));
     }
 
 }

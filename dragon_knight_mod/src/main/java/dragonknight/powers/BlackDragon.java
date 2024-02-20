@@ -18,7 +18,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
 
 import dragonknight.DragonKnightMod;
 
@@ -82,7 +81,7 @@ public class BlackDragon extends BeDragonPower {
         if (owner.hasPower(makeID("BlackBrandPower"))) {
             owner.getPower(makeID("BlackBrandPower")).flash();
             addToBot(new ApplyPowerAction(owner, owner,
-                    new PlatedArmorPower(owner, owner.getPower(makeID("BlackBrandPower")).amount)));
+                    new DexterityPower(owner, owner.getPower(makeID("BlackBrandPower")).amount)));
         }
 
         if (owner.hasPower(AbyssalBeastFormPower.POWER_ID)) {

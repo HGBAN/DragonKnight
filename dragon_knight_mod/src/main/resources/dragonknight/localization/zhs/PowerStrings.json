@@ -180,7 +180,7 @@
   "${modID}:IceDevilErosionPower": {
     "NAME": "冰魔侵蚀",
     "DESCRIPTIONS": [
-      "每个回合使手牌中的 反烙印 攻击牌在本场战斗中的伤害增加 #b2 点。"
+      "每个回合使手牌中的 #y反烙印 攻击牌在本场战斗中的伤害增加 #b2 点。"
     ]
   },
   "${modID}:IceDevilFormPower": {

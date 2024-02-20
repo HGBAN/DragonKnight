@@ -48,7 +48,10 @@ public class SwiftWindAssault extends CustomCard {
 
     @Override
     public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster m, float tmp) {
-        tmp += checkHand() * this.baseMagicNumber;
+        int c = checkHand();
+        if (c >= 2) {
+            tmp += c * this.baseMagicNumber;
+        }
         return tmp;
     }
 
@@ -57,7 +60,7 @@ public class SwiftWindAssault extends CustomCard {
         // ArrayList<AbstractCard> cards = new ArrayList<>();
         if (checkHand() >= 2) {
             // for (AbstractCard c : cards) {
-            //     addToBot(new DiscardSpecificCardAction(c));
+            // addToBot(new DiscardSpecificCardAction(c));
             // }
             addToBot(new DiscardAntiBrandCardAction());
         }
