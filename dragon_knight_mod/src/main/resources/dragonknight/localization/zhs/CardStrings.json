@@ -275,7 +275,7 @@
     "NAME": "不可视之神炎",
     "DESCRIPTION": "给予!M!层 *灼烧 。如果手牌里至少有2张 dragonknight:反烙印 牌，丢弃所有 dragonknight:反烙印 牌，每丢弃1张就增加!M!层 *灼烧 。"
   },
-  "${modID}:DivineFlameForm": {
+  "${modID}:SurefireForm": {
     "NAME": "神炎形态",
     "DESCRIPTION": " dragonknight:反烙印 牌在被丢弃或是 消耗 后，会抽1张牌。如果任一敌人身上有负面状态，则额外抽2张牌。每个回合只会触发一次。",
     "UPGRADE_DESCRIPTION": " 固有 。 NL dragonknight:反烙印 牌在被丢弃或是 消耗 后，会抽1张牌。如果任一敌人身上有负面状态，则额外抽2张牌。每个回合只会触发一次。"

@@ -30,7 +30,7 @@ public class SwiftWindAssault extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public SwiftWindAssault() {
-        super(ID, NAME, imagePath("cards/attack/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/attack/SwiftWindAssault.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.baseDamage = 8;

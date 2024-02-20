@@ -28,7 +28,7 @@ public class AbyssalGuidance extends CustomCard implements IBrandDifferentCard {
     private boolean branded = false;
 
     public AbyssalGuidance() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/AbyssalGuidance.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
     }
