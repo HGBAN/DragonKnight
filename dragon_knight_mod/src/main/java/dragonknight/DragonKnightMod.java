@@ -187,6 +187,7 @@ public class DragonKnightMod implements
         ConsoleCommand.addCommand("exhaust", ExhaustHand.class);
         ConsoleCommand.addCommand("brand", BrandCommand.class);
         cardNameKeywords = CardCrawlGame.languagePack.getUIString(makeID("CardNameKeywords"));
+        selectCardTips = CardCrawlGame.languagePack.getUIString(makeID("SelectCardTips"));
     }
 
     /*----------Localization----------*/
@@ -335,9 +336,6 @@ public class DragonKnightMod implements
                 BG_ATTACK_P, BG_SKILL_P, BG_POWER_P, ENERGY_ORB_P,
                 SMALL_ORB);
 
-        // BaseMod.addKeyword(new String[] { "烙印" }, "打出时，随机消耗抽牌堆中的一张牌，并在回合结束时将其打出。");
-        // BaseMod.addKeyword(new String[] { "化龙" }, "选择一种形态进行变换。");
-
         BaseMod.addPower(BlackDragon.class, BlackDragon.POWER_ID);
         BaseMod.addPower(WhiteDragon.class, WhiteDragon.POWER_ID);
         BaseMod.addPower(Brand.class, Brand.POWER_ID);
@@ -413,6 +411,7 @@ public class DragonKnightMod implements
     public static ArrayList<AbstractCard> exhaustCardsLastTurn = new ArrayList<>();
 
     public static UIStrings cardNameKeywords;
+    public static UIStrings selectCardTips;
 
     public static class Enums {
         // 随机消耗

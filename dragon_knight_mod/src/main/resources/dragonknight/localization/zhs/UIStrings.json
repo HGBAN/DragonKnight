@@ -34,7 +34,22 @@
     "TEXT_DICT": {
       "Brand": "烙印",
       "Heavenly": "天底",
-      "BlackDragon":"进入 dragonknight:黑龙形态 。"
+      "BlackDragon": "进入 dragonknight:黑龙形态 。"
+    }
+  },
+  "${modID}:SelectDragonScreen": {
+    "TEXT_DICT": {
+      "BlackDragon": "黑龙",
+      "WhiteDragon": "白龙",
+      "Illustration": "一回合中进入一种形态后就不能再进入另一种形态。形态会在下一回合开始时结束。已有烙印的牌不能被复制。如果化身黑龙失败，则获得1点能量；如果化身白龙失败，则抽1张牌。"
+    }
+  },
+  "${modID}:SelectCardTips": {
+    "TEXT_DICT": {
+      "Brand":"选择一张牌消耗（烙印）",
+      "WhiteDragon":"复制（白龙形态）",
+      "CopyPaper":"放回抽牌堆（复印纸）",
+      "HeavenlyFate":"获得消耗和虚无（天底的命数）"
     }
   }
 }

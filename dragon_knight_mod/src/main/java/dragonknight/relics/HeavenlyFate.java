@@ -24,15 +24,16 @@ public class HeavenlyFate extends BaseRelic {
 
     @Override
     public void atTurnStartPostDraw() {
-        addToBot(new SelectCardsInHandAction(1, "获得消耗和虚无", true, true, x -> x.type.equals(CardType.ATTACK), cards -> {
-            for (AbstractCard c : cards) {
-                c.exhaust = true;
-                c.isEthereal = true;
-                c.tags.add(DragonKnightMod.Enums.EXHAUST);
-                c.tags.add(DragonKnightMod.Enums.ETHEREAL);
-                c.initializeDescription();
-            }
-        }));
+        addToBot(new SelectCardsInHandAction(1, DragonKnightMod.selectCardTips.TEXT_DICT.get("HeavenlyFate"), true,
+                true, x -> x.type.equals(CardType.ATTACK), cards -> {
+                    for (AbstractCard c : cards) {
+                        c.exhaust = true;
+                        c.isEthereal = true;
+                        c.tags.add(DragonKnightMod.Enums.EXHAUST);
+                        c.tags.add(DragonKnightMod.Enums.ETHEREAL);
+                        c.initializeDescription();
+                    }
+                }));
     }
 
 }

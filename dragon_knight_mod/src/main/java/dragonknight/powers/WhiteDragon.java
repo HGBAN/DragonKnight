@@ -38,7 +38,7 @@ public class WhiteDragon extends BeDragonPower {
             done = true;
             return;
         }
-        addToBot(new SelectCardsInHandAction(1, "复制",
+        addToBot(new SelectCardsInHandAction(1, DragonKnightMod.selectCardTips.TEXT_DICT.get("WhiteDragon"),
                 (card) -> !card.hasTag(DragonKnightMod.Enums.ANTI_BRAND) && canUseCard(card),
                 (cards) -> {
                     for (AbstractCard card : cards) {

@@ -55,13 +55,5 @@ public class SurefireForging extends CustomCard {
             newCard.setCostForTurn(newCard.costForTurn - 1);
             addToBot(new MakeTempCardInHandAction(newCard));
         }
-        // addToBot(new SelectCardsInHandAction(1, "复制", x ->
-        // x.hasTag(DragonKnightMod.Enums.ANTI_BRAND), cards -> {
-        // for (AbstractCard c : cards) {
-        // AbstractCard newCard = c.makeCopy();
-        // newCard.setCostForTurn(c.costForTurn - 1);
-        // addToBot(new MakeTempCardInHandAction(newCard));
-        // }
-        // }));
     }
 }

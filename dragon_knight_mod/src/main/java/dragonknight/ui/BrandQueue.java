@@ -47,12 +47,12 @@ public class BrandQueue {
     public BrandQueue(AbstractPlayer player) {
         this.player = player;
         x = player.hb.cX - player.hb.width / 2.0F;
-        y = player.hb.cY - player.hb.height / 2.0F + 250;
+        y = player.hb.cY - player.hb.height / 2.0F + 350 * Settings.scale;
 
         onAddBrandCardListener = (card) -> {
             AbstractCard cp = copyCard(card);
             cp.drawScale = 0.2f;
-            cp.target_x = cp.current_x = x + (HB_W * cp.drawScale + 10) * brandCards.size();
+            cp.target_x = cp.current_x = x + (HB_W * cp.drawScale + 10 * Settings.scale) * brandCards.size();
             cp.target_y = cp.current_y = y;
             cp.hb.move(cp.current_x, cp.current_y);
             cp.hb.resize(HB_W * cp.drawScale, HB_H * cp.drawScale);
@@ -85,7 +85,7 @@ public class BrandQueue {
 
     public void render(SpriteBatch sb) {
         if (brandCards.size() > 0) {
-            FontHelper.charDescFont.draw(sb, uiStrings.TEXT[0], x - 80, y);
+            FontHelper.charDescFont.draw(sb, uiStrings.TEXT[0], x - 110 * Settings.scale, y);
         }
 
         renderCards.clear();

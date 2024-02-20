@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
+import dragonknight.DragonKnightMod;
 import dragonknight.DragonKnightMod.Enums;
 import dragonknight.relics.IceDevilsHeart;
 
@@ -33,18 +34,27 @@ public class BrandAction extends AbstractGameAction {
             if (brandCard != null)
                 brandCard(brandCard);
         } else {
-            ArrayList<AbstractCard> group = new ArrayList<>();
-            for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
-                if (!c.hasTag(Enums.ANTI_BRAND)) {
-                    group.add(c);
-                }
-            }
-            AbstractDungeon.actionManager
-                    .addToBottom(new SelectCardsAction(group, "选择一张牌消耗", cards -> {
-                        for (AbstractCard brandCard : cards) {
-                            brandCard(brandCard);
+
+            addToBot(new AbstractGameAction() {
+
+                @Override
+                public void update() {
+                    ArrayList<AbstractCard> group = new ArrayList<>();
+                    for (AbstractCard c : AbstractDungeon.player.drawPile.group) {
+                        if (!c.hasTag(Enums.ANTI_BRAND)) {
+                            group.add(c);
                         }
-                    }));
+                    }
+                    addToTop((new SelectCardsAction(group, DragonKnightMod.selectCardTips.TEXT_DICT.get("Brand"),
+                            cards -> {
+                                for (AbstractCard brandCard : cards) {
+                                    brandCard(brandCard);
+                                }
+                            })));
+                    isDone = true;
+                }
+
+            });
         }
         isDone = true;
     }
