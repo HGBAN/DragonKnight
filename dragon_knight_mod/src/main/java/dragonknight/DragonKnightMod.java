@@ -42,6 +42,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -58,6 +59,7 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.abstracts.CustomSavable;
 import basemod.devcommands.ConsoleCommand;
+import basemod.eventUtil.AddEventParams;
 import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
@@ -77,6 +79,7 @@ import dragonknight.cards.Roar;
 import dragonknight.character.DragonPrince;
 import dragonknight.commands.BrandCommand;
 import dragonknight.commands.ExhaustHand;
+import dragonknight.events.AbyssGiveaway;
 import dragonknight.potions.BeDragonPotion;
 import dragonknight.potions.BrandPotion;
 import dragonknight.potions.HeavenlyPotion;
@@ -372,6 +375,8 @@ public class DragonKnightMod implements
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
         BaseMod.addPotion(IceDevilPotion.class, Color.CYAN, Color.BLUE, Color.OLIVE, IceDevilPotion.ID);
         BaseMod.addPotion(HeavenlyPotion.class, Color.CORAL, Color.GREEN, Color.ORANGE, HeavenlyPotion.ID);
+
+        BaseMod.addEvent(new AddEventParams.Builder(AbyssGiveaway.ID, AbyssGiveaway.class).dungeonID(Exordium.ID).create());
         new AutoAdd(modID)
                 .packageFilter("dragonknight.cards")
                 .setDefaultSeen(true)
