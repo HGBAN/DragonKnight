@@ -3,7 +3,6 @@ package dragonknight.cards.uncommon;
 import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -30,6 +29,7 @@ public class HeavenlyEtudeOfTheNadir extends CustomCard {
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.cardsToPreview = new EtudeOfTheNadir();
+        this.cardsToPreview.upgrade();
         this.baseMagicNumber = 4;
         this.exhaust = true;
         this.tags.add(DragonKnightMod.Enums.EXHAUST);
@@ -51,9 +51,9 @@ public class HeavenlyEtudeOfTheNadir extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         // int handSize = p.hand.size();
         this.addToBot(new HandToDrawPileAction());
-        AbstractCard c = new EtudeOfTheNadir();
-        c.upgrade();
-        this.addToBot(new MakeTempCardInHandAction(c, this.baseMagicNumber));
+        // AbstractCard c = new EtudeOfTheNadir();
+        // c.upgrade();
+        this.addToBot(new MakeTempCardInHandAction(this.cardsToPreview.makeStatEquivalentCopy(), this.baseMagicNumber));
 
     }
 

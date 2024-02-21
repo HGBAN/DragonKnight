@@ -4,8 +4,10 @@ import static dragonknight.DragonKnightMod.*;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.ParticleEffect;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
@@ -17,6 +19,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardColor;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.beyond.SpireHeart;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -44,6 +47,8 @@ public class DragonPrince extends CustomPlayer {
 
     // private Form form = Form.HUMAN;
     private BrandQueue brandQueue;
+    // private BoundingBoxAttachment p;
+    ParticleEffect particleEffect = new ParticleEffect();
 
     public DragonPrince() {
         super(NAMES[0], Enums.DRAGON_PRINCE, new CustomEnergyOrb(null, null, null), new AbstractAnimation() { // this.
@@ -53,19 +58,26 @@ public class DragonPrince extends CustomPlayer {
             }
         });
         // ArrayList<String> relics = new ArrayList<>();
-
         // ArrayList<String> deck = new ArrayList<>();
-        initializeClass(characterPath("dragonprince/skeleton.png"),
+        initializeClass(null,
                 SHOULDER_2,
                 SHOULDER_1,
                 CORPSE, getLoadout(),
                 -4.0F, -16.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
         this.loadAnimation(characterPath("dragonprince/skeleton.atlas"),
-        characterPath("dragonprince/skeleton.json"), 1.0F);
+                characterPath("dragonprince/skeleton.json"), 1.0F);
         AnimationState.TrackEntry e = this.state.setAnimation(0, "idle", true);
         // this.stateData.setMix("Hit", "Idle", 0.1F);
         e.setTimeScale(0.6F);
+        // p = (BoundingBoxAttachment) skeleton.findSlot("p").getAttachment();
+
+        particleEffect.load(Gdx.files.internal("dragonknight/images/particles/a.p"),
+                Gdx.files.internal("dragonknight/images/particles/"));
+        particleEffect.setEmittersCleanUpBlendFunction(false);
+        particleEffect.scaleEffect(0.7f);
+        particleEffect.start();
+
         // com.megacrit.cardcrawl.characters.Ironclad
         brandQueue = new BrandQueue(this);
     }
@@ -236,5 +248,13 @@ public class DragonPrince extends CustomPlayer {
                 || AbstractDungeon.getCurrRoom() instanceof MonsterRoom) && !this.isDead) {
             brandQueue.render(sb);
         }
+
+        particleEffect.setPosition(skeleton.findBone("eye").getWorldX() + hb.x + hb.width / 2,
+                skeleton.findBone("eye").getWorldY() + hb.y + 18 * Settings.scale);
+        particleEffect.update(Gdx.graphics.getDeltaTime()); // 更新粒子效果
+        if (particleEffect.isComplete())
+            particleEffect.start();
+        particleEffect.draw(sb);
+
     }
 }
