@@ -43,6 +43,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheBeyond;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.localization.EventStrings;
@@ -376,7 +378,8 @@ public class DragonKnightMod implements
         BaseMod.addPotion(IceDevilPotion.class, Color.CYAN, Color.BLUE, Color.OLIVE, IceDevilPotion.ID);
         BaseMod.addPotion(HeavenlyPotion.class, Color.CORAL, Color.GREEN, Color.ORANGE, HeavenlyPotion.ID);
 
-        BaseMod.addEvent(new AddEventParams.Builder(AbyssGiveaway.ID, AbyssGiveaway.class).dungeonID(Exordium.ID).create());
+        BaseMod.addEvent(new AddEventParams.Builder(AbyssGiveaway.ID, AbyssGiveaway.class)
+                .dungeonIDs(Exordium.ID, TheCity.ID, TheBeyond.ID).create());
         new AutoAdd(modID)
                 .packageFilter("dragonknight.cards")
                 .setDefaultSeen(true)

@@ -3,7 +3,9 @@ package dragonknight.events;
 import static dragonknight.DragonKnightMod.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -55,10 +57,15 @@ public class AbyssGiveaway extends PhasedEvent {
                     }
                 }
 
+                String relic;
                 if (relics.size() > 0)
-                    AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F,
-                            RelicLibrary
-                                    .getRelic(makeID(relics.get(AbstractDungeon.miscRng.random(relics.size() - 1)))));
+                    relic = makeID(relics.get(AbstractDungeon.miscRng.random(relics.size() - 1)));
+                else
+                    relic = "Circlet";
+
+                AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F,
+                        RelicLibrary
+                                .getRelic(relic).makeCopy());
                 transitionKey("Good");
                 break;
             case 2:
@@ -79,11 +86,33 @@ public class AbyssGiveaway extends PhasedEvent {
                 transitionKey("Bad");
                 break;
             case 4:
+                getRandomFace();
                 transitionKey("Bad");
                 break;
             default:
                 transitionKey("Leave");
                 break;
         }
+    }
+
+    private void getRandomFace() {
+        ArrayList<String> ids = new ArrayList<>();
+        if (!AbstractDungeon.player.hasRelic("CultistMask")) {
+            ids.add("CultistMask");
+        }
+        if (!AbstractDungeon.player.hasRelic("GremlinMask")) {
+            ids.add("GremlinMask");
+        }
+        if (!AbstractDungeon.player.hasRelic("NlothsMask")) {
+            ids.add("NlothsMask");
+        }
+        if (ids.size() <= 0) {
+            ids.add("Circlet");
+        }
+
+        Collections.shuffle(ids, new Random(AbstractDungeon.miscRng.randomLong()));
+        AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F,
+        RelicLibrary
+                .getRelic(ids.get(0)).makeCopy());
     }
 }
