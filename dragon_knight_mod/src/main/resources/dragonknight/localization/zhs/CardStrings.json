@@ -131,8 +131,8 @@
   },
   "${modID}:AshBrand": {
     "NAME": "灰烬烙印",
-    "DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗 的牌的具有消耗和虚无的复制放入手牌。",
-    "UPGRADE_DESCRIPTION": " 固有 。 NL 每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗的牌的具有消耗和虚无的复制放入手牌。"
+    "DESCRIPTION": "每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗 的牌的具有 消耗 和 虚无 的复制放入手牌。",
+    "UPGRADE_DESCRIPTION": " 固有 。 NL 每回合开始时，随机将上一回合的一张因 dragonknight:烙印 消耗的牌的具有 消耗 和 虚无 的复制放入手牌。"
   },
   "${modID}:Roar": {
     "NAME": "咆哮",

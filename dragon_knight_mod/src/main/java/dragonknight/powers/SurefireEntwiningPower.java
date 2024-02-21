@@ -24,7 +24,7 @@ public class SurefireEntwiningPower extends BasePower {
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     public SurefireEntwiningPower(AbstractCreature owner) {
-        super(POWER_ID, PowerType.DEBUFF, false, owner, owner, -1);
+        super(POWER_ID, PowerType.BUFF, false, owner, owner, -1);
     }
 
     @Override

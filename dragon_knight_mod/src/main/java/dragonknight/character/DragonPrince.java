@@ -29,6 +29,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake.ShakeIntensity;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom.RoomPhase;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
+import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 
@@ -249,12 +250,13 @@ public class DragonPrince extends CustomPlayer {
             brandQueue.render(sb);
         }
 
-        particleEffect.setPosition(skeleton.findBone("eye").getWorldX() + hb.x + hb.width / 2,
-                skeleton.findBone("eye").getWorldY() + hb.y + 18 * Settings.scale);
-        particleEffect.update(Gdx.graphics.getDeltaTime()); // 更新粒子效果
-        if (particleEffect.isComplete())
-            particleEffect.start();
-        particleEffect.draw(sb);
-
+        if (!(AbstractDungeon.getCurrRoom() instanceof RestRoom)) {
+            particleEffect.setPosition(skeleton.findBone("eye").getWorldX() + hb.x + hb.width / 2,
+                    skeleton.findBone("eye").getWorldY() + hb.y + 18 * Settings.scale);
+            particleEffect.update(Gdx.graphics.getDeltaTime()); // 更新粒子效果
+            if (particleEffect.isComplete())
+                particleEffect.start();
+            particleEffect.draw(sb);
+        }
     }
 }

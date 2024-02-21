@@ -4,7 +4,6 @@ import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -33,7 +32,8 @@ public class ScorchPower extends BasePower {
                 AttackEffect.FIRE));
         this.amount /= 2;
         if (this.amount <= 0) {
-            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+            // addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+            this.amount = 1;
         }
         updateDescription();
     }
