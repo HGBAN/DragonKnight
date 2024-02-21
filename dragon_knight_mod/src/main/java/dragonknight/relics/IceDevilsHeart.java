@@ -3,7 +3,6 @@ package dragonknight.relics;
 import static dragonknight.DragonKnightMod.*;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
@@ -41,7 +40,7 @@ public class IceDevilsHeart extends BaseRelic {
         AbstractPlayer p = AbstractDungeon.player;
         addToBot(new DrawBrandCardAction(1, (x) -> x.hasTag(DragonKnightMod.Enums.ANTI_BRAND)));
         addToBot(new ApplyPowerAction(p, p, new IceDevilsHeartPower(p, 1)));
-        addToBot(new GainEnergyAction(2));
+        // addToBot(new GainEnergyAction(2));
         // addToBot(new DrawCardAction(2));
     }
 

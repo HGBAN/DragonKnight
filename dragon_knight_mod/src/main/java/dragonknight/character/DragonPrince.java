@@ -74,7 +74,7 @@ public class DragonPrince extends CustomPlayer {
 
         particleEffect.load(Gdx.files.internal("dragonknight/images/particles/a.p"),
                 Gdx.files.internal("dragonknight/images/particles/"));
-        particleEffect.setEmittersCleanUpBlendFunction(false);
+        // particleEffect.setEmittersCleanUpBlendFunction(false);
         particleEffect.scaleEffect(0.7f);
         particleEffect.start();
 

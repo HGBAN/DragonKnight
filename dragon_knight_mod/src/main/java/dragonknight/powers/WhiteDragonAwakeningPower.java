@@ -24,6 +24,14 @@ public class WhiteDragonAwakeningPower extends BasePower {
     }
 
     @Override
+    public void onInitialApplication() {
+        if (!owner.isPlayer)
+            return;
+        if (owner.hasPower(WhiteDragonAwakeningPower.POWER_ID) || owner.hasPower(BlackDragonAwakeningPower.POWER_ID))
+            addToBot(new RemoveSpecificPowerAction(owner, owner, this));
+    }
+
+    @Override
     public void atStartOfTurnPostDraw() {
         if (!owner.isPlayer)
             return;
