@@ -8,84 +8,84 @@
   },
   "${modID}:AbyssSeal": {
     "NAME": "深渊之印",
-    "FLAVOR": "最初刻下的烙印，赐予王子化龙之力。",
+    "FLAVOR": "传说中深渊之印是一种神秘的印记，每场战斗都会以黑龙或白龙的形态出现。",
     "DESCRIPTIONS": [
       "每场战斗开始时随机进入 #ydragonknight:黑龙形态 或 #ydragonknight:白龙形态 。"
     ]
   },
   "${modID}:AbyssApostles": {
     "NAME": "深渊的使徒像",
-    "FLAVOR": "一座暗黑色的雕像，眼睛深邃而闪烁着若有所思的光芒。触摸它时会感受到来自深渊的寒意，仿佛能听到龙的低语。",
+    "FLAVOR": "这些深渊的使徒像具有特殊的力量，能够复制并延长烙印的效果。",
     "DESCRIPTIONS": [
       "将本回合结束时因为 #ydragonknight:烙印 消耗的 #b1 张攻击牌的带有 #y消耗 的复制加入到下回合的手牌中，其 [E] 的消耗减少 #b1 点。"
     ]
   },
   "${modID}:BrandedCyclone": {
     "NAME": "烙印的气旋",
-    "FLAVOR": "一件护身符，散发着微弱的光芒。当触摸这个护身符时，你能感受到一股涌动的能量。",
+    "FLAVOR": "一股神秘的气旋环绕着烙印的战士，每次使用烙印都能唤起其中的力量。",
     "DESCRIPTIONS": [
       "每回合第一次使用 #ydragonknight:烙印 牌后抽一张牌。"
     ]
   },
   "${modID}:AbyssDragon": {
     "NAME": "深渊之龙",
-    "FLAVOR": "一个庞大的龙的雕像，让人感到无比的压迫力和神秘。",
+    "FLAVOR": "深渊之龙是深渊之印的进化形态，可以变化为强大的龙形态。",
     "DESCRIPTIONS": [
       "替换深渊之印。每场战斗开始时选择变成一个 #ydragonknight:化龙 形态。每回合开始时，如果上个回合有至少4张牌被 #ydragonknight:烙印 消耗，就随机进入一个 #ydragonknight:化龙 形态。"
     ]
   },
   "${modID}:BrandFate": {
     "NAME": "烙印的命数",
-    "FLAVOR": "它的表面有着细微的符文纹路，看起来仿佛在不断地闪耀着。佩戴它时，你能感受到内部蕴含的龙之力量。",
+    "FLAVOR": "烙印的命数是一种神秘的力量，能够改变卡牌的命运。",
     "DESCRIPTIONS": [
       "在篝火处休息时，可以选择给一张卡牌添加 #ydragonknight:反烙印 。"
     ]
   },
   "${modID}:BrandsCall": {
     "NAME": "烙印的呼唤",
-    "FLAVOR": "暂无。",
+    "FLAVOR": "烙印的呼唤在能让战士更快地获得烙印。",
     "DESCRIPTIONS": [
       "每个回合开始时额外抽 #b1 张 #ydragonknight:烙印 牌，每个回合使用的第1张 #ydragonknight:烙印 牌降低 #b1 点 [E] 的消耗。"
     ]
   },
   "${modID}:KingsInsight": {
     "NAME": "王的觉悟",
-    "FLAVOR": "暂无。",
+    "FLAVOR": "王的觉悟使战士能够迅速理解并掌握新的力量。",
     "DESCRIPTIONS": [
       "每当获得状态牌时，将其 #y消耗 。"
     ]
   },
   "${modID}:IceDevilsHeart": {
     "NAME": "冰魔之心",
-    "FLAVOR": "暂无。",
+    "FLAVOR": "冰魔之心是一块凝聚了寒冷之力的珍贵宝石，能够赋予战士强大的冰之力量。",
     "DESCRIPTIONS": [
       "每个回合开始时额外抽 #b1 张 #ydragonknight:反烙印 牌，每个回合使用的第 #b1 张 #ydragonknight:反烙印 牌降低 #b1 点 [E] 的消耗。每个回合开始时额外获得 [E] [E] ，并额外抽 #b2 张牌。你不会再触发 #ydragonknight:烙印 。"
     ]
   },
   "${modID}:DivineFlameRing": {
     "NAME": "神炎之环",
-    "FLAVOR": "暂无。",
+    "FLAVOR": "神炎之环能够吸收敌人状态的力量，为战士提供额外的能量和力量。",
     "DESCRIPTIONS": [
       "每当你使敌人获得状态，获得 [E] 和 #b1 点临时 #y力量 。"
     ]
   },
   "${modID}:CopyPaper": {
     "NAME": "复印纸",
-    "FLAVOR": "暂无。",
+    "FLAVOR": "似乎是来自异次元的神秘道具。",
     "DESCRIPTIONS": [
       "每个回合开始后，可以选择 #b1 张手牌返回抽牌堆并随机抽 #b1 张 #ydragonknight:烙印 牌。"
     ]
   },
   "${modID}:HeavenlyFate": {
     "NAME": "天底的命数",
-    "FLAVOR": "暂无。",
+    "FLAVOR": "一种神圣的力量。",
     "DESCRIPTIONS": [
       "每个回合开始后，选择手牌中的 #b1 张攻击牌，使其获得 #y消耗 和 #y虚无 。"
     ]
   },
   "${modID}:AbyssalSpectator": {
     "NAME": "深渊的观众",
-    "FLAVOR": "暂无。",
+    "FLAVOR": "深渊的观众是神秘存在，它们的出现能够引发黑龙的降临。",
     "DESCRIPTIONS": [
       "每回合第一次使用 #ydragonknight:反烙印 牌后，随机抽 #b1 张能力牌。如果这张能力牌在本回合被使用，进入 #ydragonknight:黑龙形态 。"
     ]
