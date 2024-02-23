@@ -32,6 +32,7 @@
     "ID": "BeDragon",
     "PROPER_NAME": "化龙",
     "NAMES": [
+      "化龙",
       "化龙"
     ],
     "DESCRIPTION": "选择进入 #y黑龙形态 或 #y白龙形态 。"
@@ -40,6 +41,7 @@
     "ID": "TempBrand",
     "PROPER_NAME": "临时烙印",
     "NAMES": [
+      "临时烙印",
       "临时烙印"
     ],
     "DESCRIPTION": "仅限本回合。打出时，随机 消耗 抽牌堆中的一张牌，并在回合结束时将其打出。"
@@ -82,7 +84,7 @@
     "NAMES": [
       "神炎灼烧"
     ],
-    "DESCRIPTION": "每次有牌因为 #y烙印 被 #y消耗 ，则添加 #b1 层灼烧。"
+    "DESCRIPTION": "每次有牌因为 #y烙印 被 #y消耗 ，则添加 #b1 层 #y灼烧 。"
   },
   {
     "ID": "AshPower",

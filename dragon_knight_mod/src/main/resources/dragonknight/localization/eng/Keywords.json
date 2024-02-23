@@ -19,5 +19,92 @@
       "multiword_keywords"
     ],
     "DESCRIPTION": "Make sure the first element in NAMES has no underscores. The rest should use _ in the place of spaces. In card text, you'll use the underscore versions."
+  },
+  {
+    "ID": "Brand",
+    "PROPER_NAME": "Brand",
+    "NAMES": [
+      "Brand"
+    ],
+    "DESCRIPTION": "When played, randomly #yExhaust a card from the draw pile and play it at the end of the turn."
+  },
+  {
+    "ID": "BeDragon",
+    "PROPER_NAME": "Be Dragon",
+    "NAMES": [
+      "Be Dragon",
+      "Be_Dragon"
+    ],
+    "DESCRIPTION": "Choose to enter either #yBlack #yDragon #yForm or #yWhite #yDragon #yForm."
+  },
+  {
+    "ID": "TempBrand",
+    "PROPER_NAME": "Temporary Brand",
+    "NAMES": [
+      "Temporary Brand",
+      "Temporary_Brand"
+    ],
+    "DESCRIPTION": "Limited to this turn. When played, randomly #Exhaust a card from the draw pile and play it at the end of the turn."
+  },
+  {
+    "ID": "AntiBrand",
+    "PROPER_NAME": "Anti-Brand",
+    "NAMES": [
+      "Anti-Brand"
+    ],
+    "DESCRIPTION": "Will not be #yExhausted by #yBrand and will not be stamped with #yBrand."
+  },
+  {
+    "ID": "BlackDragon",
+    "PROPER_NAME": "Black Dragon Form",
+    "NAMES": [
+      "Black Dragon Form",
+      "Black_Dragon_Form"
+    ],
+    "DESCRIPTION": "Transform into a #yBlack #yDragon, gain #b10 Armor, and randomly grant #yExhaust and #yBrand to a card in your hand."
+  },
+  {
+    "ID": "WhiteDragon",
+    "PROPER_NAME": "White Dragon Form",
+    "NAMES": [
+      "White Dragon Form",
+      "White_Dragon_Form"
+    ],
+    "DESCRIPTION": "Transform into a #yWhite #yDragon, duplicate a card in your hand, and grant #yBrand to it."
+  },
+  {
+    "ID": "TrueDragon",
+    "PROPER_NAME": "True Dragon Form",
+    "NAMES": [
+      "True Dragon Form",
+      "True_Dragon_Form"
+    ],
+    "DESCRIPTION": "Transform into a #yTrue #yDragon, gain #b6 [E], draw #b6 cards, and the next #b6 cards played cost #b1 less [E]."
+  },
+  {
+    "ID": "SurefireScorchPower",
+    "PROPER_NAME": "Surefire Scorch",
+    "NAMES": [
+      "Surefire Scorch",
+      "Surefire_Scorch"
+    ],
+    "DESCRIPTION": "Every time a card is #Exhausted by #yBrand, apply #b1 #yScorch."
+  },
+  {
+    "ID": "AshPower",
+    "PROPER_NAME": "Ash",
+    "NAMES": [
+      "Ash"
+    ],
+    "DESCRIPTION": "Take additional damage every time receive damage."
+  },
+  {
+    "ID": "AbyssalBeastForm",
+    "PROPER_NAME": "Abyssal Beast Form",
+    "NAMES": [
+      "Abyssal Beast Form",
+      "Abyssal_Beast_Form"
+    ],
+    "DESCRIPTION": "The damage of all Attack cards randomly increases by #b7 - #b14 each turn. Gain an equal amount of #yDexterity or #yStrength when gaining #yStrength or #yDexterity. Gain #b1 #yDexterity when entering #yBlack #yDragon #yForm and #b1 #yStrength when entering #yWhite #yDragon #yForm."
   }
 ]

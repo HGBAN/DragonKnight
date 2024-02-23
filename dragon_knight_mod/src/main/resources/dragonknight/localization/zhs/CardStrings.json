@@ -15,7 +15,7 @@
   },
   "${modID}:Defend_DK": {
     "NAME": "防御",
-    "DESCRIPTION": "获得!B!点格挡。"
+    "DESCRIPTION": "获得!B!点 格挡 。"
   },
   "${modID}:BeDragon": {
     "NAME": "化龙",
@@ -23,7 +23,7 @@
   },
   "${modID}:BattleRage": {
     "NAME": "战斗怒吼",
-    "DESCRIPTION": "造成!D!点伤害。 NL 获得!B!点格挡。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 获得!B!点 格挡 。"
   },
   "${modID}:BrandAwaken": {
     "NAME": "烙印唤醒",
@@ -36,7 +36,7 @@
   },
   "${modID}:DragonScale": {
     "NAME": "龙鳞",
-    "DESCRIPTION": "获得!B!点格挡。 NL 如果被 消耗 ，则再获得!M!点格挡。"
+    "DESCRIPTION": "获得!B!点 格挡 。 NL 如果被 消耗 ，则再获得!M!点 格挡 。"
   },
   "${modID}:Sweeping": {
     "NAME": "横扫",
@@ -52,7 +52,7 @@
   },
   "${modID}:BrandProtector": {
     "NAME": "烙印护体",
-    "DESCRIPTION": "回合结束时，本回合每有一张牌因为 dragonknight:烙印 被 消耗 则获得!M!点格挡。"
+    "DESCRIPTION": "回合结束时，本回合每有一张牌因为 dragonknight:烙印 被 消耗 则获得!M!点 格挡 。"
   },
   "${modID}:WhiteBrand": {
     "NAME": "白色烙印",
@@ -69,7 +69,7 @@
   },
   "${modID}:KingsBrand": {
     "NAME": "王之烙印",
-    "DESCRIPTION": "获得一层 人工制品 ，使所有敌人失去1点 力量 。 dragonknight:化龙 后弃牌堆的这张牌会回到手牌。 NL 保留 。"
+    "DESCRIPTION": " 保留 。 NL 获得一层 人工制品 ，使所有敌人失去1点 力量 。 dragonknight:化龙 后弃牌堆的这张牌会回到手牌。"
   },
   "${modID}:Judgement": {
     "NAME": "审判",
@@ -86,12 +86,12 @@
   },
   "${modID}:ApostlesComing": {
     "NAME": "使徒降临",
-    "DESCRIPTION": "获得等同于本回合已经获得的格挡值一半数值的临时 力量 。 NL （获得!M!点临时 力量 ）"
+    "DESCRIPTION": "获得等同于本回合已经获得的 格挡 值一半数值的临时 力量 。 NL （获得!M!点临时 力量 ）"
   },
   "${modID}:RebornScale": {
     "NAME": "再生鳞甲",
-    "DESCRIPTION": "获得!B!点格挡。 NL 被 消耗 后，将另一张 *再生鳞甲 放入抽牌堆中。",
-    "UPGRADE_DESCRIPTION": "获得!B!点格挡。 NL 被 消耗 后，将另一张 *再生鳞甲+ 放入抽牌堆中。"
+    "DESCRIPTION": "获得!B!点 格挡 。 NL 被 消耗 后，将另一张 *再生鳞甲 放入抽牌堆中。",
+    "UPGRADE_DESCRIPTION": "获得!B!点 格挡 。 NL 被 消耗 后，将另一张 *再生鳞甲+ 放入抽牌堆中。"
   },
   "${modID}:FusionBrand": {
     "NAME": "融合烙印",
@@ -109,7 +109,7 @@
   "${modID}:CrimsonBrand": {
     "NAME": "赤红烙印",
     "DESCRIPTION": "抽1张 dragonknight:烙印 牌。如果已消耗的牌的数量超过12张，就再抽!M!张牌；如果超过20张，再获得 [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印 放入弃牌堆。",
-    "UPGRADE_DESCRIPTION": "随机抽取一张 dragonknight:烙印 牌。如果已消耗的牌的数量超过12张，就再抽!M!张牌；如果超过20张，再获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印+ 放入弃牌堆。"
+    "UPGRADE_DESCRIPTION": "抽1张 dragonknight:烙印 牌。如果已消耗的牌的数量超过12张，就再抽!M!张牌；如果超过20张，再获得 [E] [E] [E] 。被 dragonknight:烙印 消耗 后，将另一张 *赤红烙印+ 放入弃牌堆。"
   },
   "${modID}:SwordBrand": {
     "NAME": "剑之烙印",
@@ -118,7 +118,7 @@
   },
   "${modID}:ColdAirflow": {
     "NAME": "极寒气流",
-    "DESCRIPTION": "对所有敌人造成!D!点伤害，并使他们失去!M!点临时 力量 。被 消耗 后，首先摧毁所有敌人的格挡。"
+    "DESCRIPTION": "对所有敌人造成!D!点伤害，并使他们失去!M!点临时 力量 。被 消耗 后，首先摧毁所有敌人的 格挡 。"
   },
   "${modID}:SeparateBrand": {
     "NAME": "分离烙印",
@@ -150,7 +150,7 @@
   },
   "${modID}:Puncture": {
     "NAME": "穿刺",
-    "DESCRIPTION": "造成!D!点伤害。 NL 如果被 消耗 则先摧毁目标的格挡。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果被 消耗 则先摧毁目标的 格挡 。"
   },
   "${modID}:LavaImpact": {
     "NAME": "熔岩冲击",
@@ -196,17 +196,17 @@
   },
   "${modID}:IceDevilShield": {
     "NAME": "冰魔护盾",
-    "DESCRIPTION": "获得!B!点格挡。本场战斗中，当前所有手牌获得 dragonknight:反烙印 。",
-    "UPGRADE_DESCRIPTION": "获得!B!点格挡。当前所有手牌将始终获得 dragonknight:反烙印 。"
+    "DESCRIPTION": "获得!B!点 格挡 。本场战斗中，当前所有手牌获得 dragonknight:反烙印 。",
+    "UPGRADE_DESCRIPTION": "获得!B!点 格挡 。当前所有手牌将始终获得 dragonknight:反烙印 。"
   },
   "${modID}:AngryTailSwipe": {
     "NAME": "愤怒尾扫",
-    "DESCRIPTION": "造成!D!点伤害。 NL 如果处于 dragonknight:白龙形态 ，额外获得!B!点格挡。 NL 下个回合进入 dragonknight:白龙形态 。"
+    "DESCRIPTION": "造成!D!点伤害。 NL 如果处于 dragonknight:白龙形态 ，额外获得!B!点 格挡 。 NL 下个回合进入 dragonknight:白龙形态 。"
   },
   "${modID}:SteadyMind": {
     "NAME": "稳定心神",
-    "DESCRIPTION": "获得!B!点格挡。 NL 造成获得的格挡值的伤害。",
-    "UPGRADE_DESCRIPTION": "获得!B!点格挡。 NL 造成2倍获得的格挡值的伤害。"
+    "DESCRIPTION": "获得!B!点 格挡 。 NL 造成获得的 格挡 值的伤害。",
+    "UPGRADE_DESCRIPTION": "获得!B!点 格挡 。 NL 造成2倍获得的 格挡 值的伤害。"
   },
   "${modID}:TemporalBrand": {
     "NAME": "时之烙印",
@@ -219,7 +219,7 @@
   },
   "${modID}:HauntingMurmur": {
     "NAME": "幽怨低吟",
-    "DESCRIPTION": "下个回合进入 dragonknight:黑龙形态 。 NL 使所有敌人获得1层 虚弱 。 NL 如果上个回合有敌人受伤，则额外叠加!M!层 虚弱 ，并获得!B!点格挡值。"
+    "DESCRIPTION": "下个回合进入 dragonknight:黑龙形态 。 NL 使所有敌人获得1层 虚弱 。 NL 如果上个回合有敌人受伤，则额外叠加!M!层 虚弱 ，并获得!B!点 格挡 值。"
   },
   "${modID}:DevouringBrand": {
     "NAME": "吞噬烙印",
@@ -232,7 +232,7 @@
   },
   "${modID}:HeavenlyDescent": {
     "NAME": "天底的降临",
-    "DESCRIPTION": "对敌人使用已 消耗 的所有攻击牌。 NL 消耗 。"
+    "DESCRIPTION": "对敌人使用已 消耗 的所有攻击牌。"
   },
   "${modID}:HeavenlyJudgment": {
     "NAME": "天底的审判",

@@ -205,6 +205,7 @@ public class DragonKnightMod implements
     private static final String defaultLanguage = "eng";
 
     public static final Map<String, KeywordInfo> keywords = new HashMap<>();
+    // public static final Map<String, KeywordInfo> keywordsRaw = new HashMap<>();
 
     @Override
     public void receiveEditStrings() {
@@ -255,6 +256,7 @@ public class DragonKnightMod implements
         String json = Gdx.files.internal(localizationPath(defaultLanguage, "Keywords.json"))
                 .readString(String.valueOf(StandardCharsets.UTF_8));
         KeywordInfo[] keywords = gson.fromJson(json, KeywordInfo[].class);
+        
         for (KeywordInfo keyword : keywords) {
             keyword.prep();
             registerKeyword(keyword);

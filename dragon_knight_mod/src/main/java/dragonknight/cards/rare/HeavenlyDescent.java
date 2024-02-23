@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
+import dragonknight.DragonKnightMod;
 import dragonknight.actions.UseCardAction2;
 import dragonknight.character.DragonPrince;
 
@@ -28,6 +29,8 @@ public class HeavenlyDescent extends CustomCard {
                 RARITY,
                 TARGET);
         this.exhaust = true;
+        tags.add(DragonKnightMod.Enums.EXHAUST);
+        this.initializeDescription();
     }
 
     @Override

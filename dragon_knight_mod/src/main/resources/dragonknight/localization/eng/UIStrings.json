@@ -12,5 +12,44 @@
       "This": "Contains pairs of Strings, used to get values based on keys.",
       "This is a key": "This is a value."
     }
+  },
+  "${modID}:AntiBrandOption": {
+    "TEXT": [
+      "Anti-Branding",
+      "Choose a card to grant the Anti-Brand."
+    ]
+  },
+  "${modID}:BrandQueue": {
+    "TEXT": [
+      "Brand:"
+    ]
+  },
+  "${modID}:Description": {
+    "TEXT": [
+      ".",
+      "Draw 1 card."
+    ]
+  },
+  "${modID}:CardNameKeywords": {
+    "TEXT_DICT": {
+      "Brand": "Brand",
+      "Heavenly": "Heavenly",
+      "BlackDragon": "Enter dragonknight:Black_Dragon_Form."
+    }
+  },
+  "${modID}:SelectDragonScreen": {
+    "TEXT_DICT": {
+      "BlackDragon": "Black Dragon",
+      "WhiteDragon": "White Dragon",
+      "Illustration": "Once you transform into one form in a turn, you cannot transform into the other form. The transformation ends at the start of the next turn. Cards with Brand cannot be copied. If transforming into a Black Dragon fails, gain 1 Energy; if transforming into a White Dragon fails, draw 1 card."
+    }
+  },
+  "${modID}:SelectCardTips": {
+    "TEXT_DICT": {
+      "Brand": "Choose a card to Exhaust (Brand)",
+      "WhiteDragon": "Duplicate (White Dragon Form)",
+      "CopyPaper": "Return to draw pile (Copy Paper)",
+      "HeavenlyFate": "Grant Exhaust and Ethereal (Heavenly Fate)"
+    }
   }
 }

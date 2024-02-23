@@ -8,5 +8,288 @@
       "If you need to use it for stuff.",
       "Blizzard is a good example for this."
     ]
+  },
+  "${modID}:Strike_DK": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage."
+  },
+  "${modID}:Defend_DK": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "${modID}:BeDragon": {
+    "NAME": "Be Dragon",
+    "DESCRIPTION": "Draw 1 card."
+  },
+  "${modID}:BattleRage": {
+    "NAME": "Battle Rage",
+    "DESCRIPTION": "Deal !D! damage. NL Gain !B! Block."
+  },
+  "${modID}:BrandAwaken": {
+    "NAME": "Brand Awaken",
+    "DESCRIPTION": "Draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Gain [E] ."
+  },
+  "${modID}:AbyssForm": {
+    "NAME": "Abyss Form",
+    "DESCRIPTION": "The first time you play a card with dragonknight:Brand in a turn, trigger dragonknight:Be_Dragon."
+  },
+  "${modID}:DragonScale": {
+    "NAME": "Dragon Scale",
+    "DESCRIPTION": "Gain !B! Block. NL When Exhausted, gain an additional !M! Block."
+  },
+  "${modID}:Sweeping": {
+    "NAME": "Sweeping",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies. NL When Exhausted, deal an additional !D! damage."
+  },
+  "${modID}:WhiteRealm": {
+    "NAME": "White Realm",
+    "DESCRIPTION": "At the end of the turn, trigger cards which are  Exhausted by dragonknight:Brand one extra time. If  Exhausted by dragonknight:Brand , gain 5 Strength , and enter dragonknight:White_Dragon_Form next turn."
+  },
+  "${modID}:FuriousFlames": {
+    "NAME": "Furious Flames",
+    "DESCRIPTION": "Deal !D! damage. NL Each time dragonknight:Brand is triggered in this combat, gain 3 additional damage."
+  },
+  "${modID}:BrandProtector": {
+    "NAME": "Brand Protector",
+    "DESCRIPTION": "At the end of your turn, gain !M! Block for each card  Exhausted by dragonknight:Brand this turn."
+  },
+  "${modID}:WhiteBrand": {
+    "NAME": "White Brand",
+    "DESCRIPTION": "Whenever you enter dragonknight:White_Dragon_Form, gain !M! Strength."
+  },
+  "${modID}:BlackBrand": {
+    "NAME": "Black Brand",
+    "DESCRIPTION": "Whenever you enter dragonknight:Black_Dragon_Form, gain !M! Dexterity."
+  },
+  "${modID}:PhantomDragon": {
+    "NAME": "Phantom Dragon",
+    "DESCRIPTION": "The first card played each combat after dragonknight:Be_Dragon does not consume [E] .",
+    "UPGRADE_DESCRIPTION": "Innate. NL The first card played each combat after dragonknight:Be_Dragon does not consume [E] ."
+  },
+  "${modID}:KingsBrand": {
+    "NAME": "King's Brand",
+    "DESCRIPTION": " Retain . NL Gain 1 Artifact . ALL enemies lose 1 Strength. Whenever you trigger dragonknight:Be_Dragon, return this from the discard pile to your hand."
+  },
+  "${modID}:Judgement": {
+    "NAME": "Judgement",
+    "DESCRIPTION": "Deal !D! damage. NL When Exhausted, shuffle another *Judgement into the draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL When Exhausted, shuffle another *Judgement+ into the draw pile."
+  },
+  "${modID}:Banish": {
+    "NAME": "Banish",
+    "DESCRIPTION": "Draw 1 card. NL If in dragonknight:Be_Dragon, dragonknight:Brand can now choose a card from the draw pile."
+  },
+  "${modID}:Convict": {
+    "NAME": "Convict",
+    "DESCRIPTION": "Deal !D! damage. NL When Exhausted, deal !D! damage to ALL enemies."
+  },
+  "${modID}:ApostlesComing": {
+    "NAME": "Apostles Coming",
+    "DESCRIPTION": "Gain temporary Strength equal to half the Block value gained this turn. NL (Gain !M! temporary Strength )"
+  },
+  "${modID}:RebornScale": {
+    "NAME": "Reborn Scale",
+    "DESCRIPTION": "Gain !B! Block. NL When Exhausted, shuffle another *Reborn *Scale into the draw pile.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL When Exhausted, shuffle another *Reborn *Scale+ into the draw pile."
+  },
+  "${modID}:FusionBrand": {
+    "NAME": "Fusion Brand",
+    "DESCRIPTION": "Draw 3 cards, reducing their cost by 1 this turn. NL If a dragonknight:Brand card is drawn or has \"dragonknight:Brand\" in its name, gain [E] [E] . NL When  Exhausted by dragonknight:Brand , shuffle another *Fusion *Brand into the discard pile.",
+    "UPGRADE_DESCRIPTION": "Draw 3 cards, reducing their cost by 1 this turn. NL If a dragonknight:Brand card is drawn or has \"dragonknight:Brand\" in its name, gain [E] [E] . NL When  Exhausted by dragonknight:Brand , shuffle another *Fusion *Brand+ into the discard pile."
+  },
+  "${modID}:MourningBrand": {
+    "NAME": "Mourning Brand",
+    "DESCRIPTION": "Deal !D! damage. NL If at least one card was Exhausted by dragonknight:Brand at the end of the last turn, gain [E] [E] , draw !M! cards, and trigger dragonknight:Brand once."
+  },
+  "${modID}:Trample": {
+    "NAME": "Trample",
+    "DESCRIPTION": "Deal !D! damage. NL Draw 1 card. NL If in dragonknight:White_Dragon_Form, gain 1 Strength. If in dragonknight:Black_Dragon_Form, gain [E] ."
+  },
+  "${modID}:CrimsonBrand": {
+    "NAME": "Crimson Brand",
+    "DESCRIPTION": "Draw 1 dragonknight:Brand card. If the number of Exhausted cards exceeds 12, draw an additional !M! cards; if it exceeds 20, gain [E] [E] . When Exhausted by dragonknight:Brand , shuffle another *Crimson *Brand into the discard pile.",
+    "UPGRADE_DESCRIPTION": "Draw 1 dragonknight:Brand card. If the number of Exhausted cards exceeds 20, draw an additional !M! cards; if it exceeds 20, gain [E] [E] [E] . When Exhausted by dragonknight:Brand , shuffle another *Crimson *Brand+ into the discard pile."
+  },
+  "${modID}:SwordBrand": {
+    "NAME": "Sword Brand",
+    "DESCRIPTION": "Grant dragonknight:Temporary_Brand to all Skill cards in your hand. NL When Exhausted by dragonknight:Brand , shuffle another *Sword *Brand into the discard pile.",
+    "UPGRADE_DESCRIPTION": "Grant dragonknight:Temporary_Brand to all Skill cards in your hand. NL When Exhausted by dragonknight:Brand , shuffle another *Sword *Brand+ into the discard pile."
+  },
+  "${modID}:SeparateBrand": {
+    "NAME": "Separate Brand",
+    "DESCRIPTION": "Deal !D! damage. NL If the number of cards Exhausted by dragonknight:Brand in the last turn exceeds 2, deal !M! additional damage. When Exhausted by dragonknight:Brand, shuffle another *Separate *Brand into the discard pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If the number of cards Exhausted by dragonknight:Brand in the last turn exceeds 2, deal !M! additional damage. When Exhausted by dragonknight:Brand, shuffle another *Separate *Brand+ into the discard pile."
+  },
+  "${modID}:Bite": {
+    "NAME": "Bite",
+    "DESCRIPTION": "Deal !D! damage and apply !M! temporary Strength reduction to the target."
+  },
+  "${modID}:AshBrand": {
+    "NAME": "Ash Brand",
+    "DESCRIPTION": "Innate. NL At the start of each turn, randomly add a copy of the card Exhausted by dragonknight:Brand last turn with Exhaust and Ethereal to your hand."
+  },
+  "${modID}:Roar": {
+    "NAME": "Roar",
+    "DESCRIPTION": "Deal !D! damage. NL Every 2 times you play a card with \"dragonknight:Brand\" in its name, return this card from the discard pile to your hand (can only return once each time). NL When Exhausted by dragonknight:Brand, shuffle another *Roar into the draw pile.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Every 2 times you play a card with \"dragonknight:Brand\" in its name, return this card from the discard pile to your hand (can only return once each time). NL When Exhausted by dragonknight:Brand, shuffle another *Roar+ into the draw pile."
+  },
+  "${modID}:IceDevilBrand": {
+    "NAME": "Ice Devil Brand",
+    "DESCRIPTION": "Deal damage to ALL enemies X times, where X is the total number of power gained by enemies this turn. NL (Deal !D! damage).",
+    "UPGRADE_DESCRIPTION": "Deal damage to ALL enemies X+1 times, where X is the total number of power gained by enemies this turn. NL (Deal !D! damage)."
+  },
+  "${modID}:SurefireBrand": {
+    "NAME": "Surefire Brand",
+    "DESCRIPTION": "Grant dragonknight:Brand , Ethereal , and Exhaust to all cards in your hand. At the end of the turn, shuffle copies of cards Exhausted this turn into the draw pile."
+  },
+  "${modID}:Puncture": {
+    "NAME": "Puncture",
+    "DESCRIPTION": "Deal !D! damage. NL When Exhausted, first remove the target's Block."
+  },
+  "${modID}:LavaImpact": {
+    "NAME": "Lava Impact",
+    "DESCRIPTION": "Deal damage X times, where X is the number of Exhausted cards. NL (Deal damage !D! X times).",
+    "UPGRADE_DESCRIPTION": "Deal damage X+1 times, where X is the number of Exhausted cards. NL (Deal damage !D! X+1 times)."
+  },
+  "${modID}:HammerBrand": {
+    "NAME": "Hammer Brand",
+    "DESCRIPTION": "Apply !M! temporary Strength reduction to the target. If dragonknight:Brand was triggered last turn, gain !M! Strength."
+  },
+  "${modID}:HeavenlyRevelation": {
+    "NAME": "Heavenly Revelation",
+    "DESCRIPTION": "Every second use of a dragonknight:Brand card each turn, randomly draw a card with \"dragonknight:Brand\" in its name from the draw pile. Additionally, randomly put a copy of an Attack into the draw pile from the Exhaust pile."
+  },
+  "${modID}:HeavenlyEtudeOfTheNadir": {
+    "NAME": "Heavenly Etude Of The Nadir",
+    "DESCRIPTION": "Shuffle all cards in your hand back into the draw pile and place !M! *Etude *Of *The *Nadir+ cards into your hand."
+  },
+  "${modID}:EtudeOfTheNadir": {
+    "NAME": "Etude Of The Nadir",
+    "DESCRIPTION": "Draw 1 card. NL Attack drawn will be Exhausted after use.",
+    "UPGRADE_DESCRIPTION": "Draw 1 card. NL Attack drawn will be Exhausted after use. NL Gain [E] ."
+  },
+  "${modID}:StrongWind": {
+    "NAME": "Strong Wind",
+    "DESCRIPTION": "Deal !D! damage. NL For each Attack played in this combat, increase damage by 1. If the Attack is Exhausted by dragonknight:Brand , gain an additional 2 damage."
+  },
+  "${modID}:TrueEyeBrand": {
+    "NAME": "True Eye Brand",
+    "DESCRIPTION": "Enter dragonknight:White_Dragon_Form. NL If already in dragonknight:Black_Dragon_Form or dragonknight:White_Dragon_Form and Exhausted at least 6 cards last turn, enter dragonknight:True_Dragon_Form."
+  },
+  "${modID}:SettingBarrier": {
+    "NAME": "Setting Barrier",
+    "DESCRIPTION": "For this turn, each time the enemy gains power, deal !M! times the number of that power as damage to it."
+  },
+  "${modID}:SurefireBreath": {
+    "NAME": "Surefire Breath",
+    "DESCRIPTION": "Deal !D! damage. NL Apply dragonknight:Surefire_Scorch ."
+  },
+  "${modID}:AshenScorch": {
+    "NAME": "Ashen Scorch",
+    "DESCRIPTION": "Apply !M! dragonknight:Ash ."
+  },
+  "${modID}:IceDevilShield": {
+    "NAME": "Ice Devil Shield",
+    "DESCRIPTION": "Gain !B! Block. NL ALL cards in hand gain dragonknight:Anti-Brand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL ALL cards in hand permanently gain dragonknight:Anti-Brand."
+  },
+  "${modID}:AngryTailSwipe": {
+    "NAME": "Angry Tail Swipe",
+    "DESCRIPTION": "Deal !D! damage. NL If in dragonknight:White_Dragon_Form, gain an additional !B! Block. NL Enter dragonknight:White_Dragon_Form next turn."
+  },
+  "${modID}:SteadyMind": {
+    "NAME": "Steady Mind",
+    "DESCRIPTION": "Gain !B! Block. NL Deal damage equal to the Block gained.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal damage equal to twice the Block gained."
+  },
+  "${modID}:TemporalBrand": {
+    "NAME": "Temporal Brand",
+    "DESCRIPTION": "Gain !M! Dexterity. NL Randomly apply dragonknight:Brand to %d cards in your hand."
+  },
+  "${modID}:AshenMana": {
+    "NAME": "Ashen Mana",
+    "DESCRIPTION": "At the start of each turn, randomly select a dragonknight:Brand card in your hand, reduce its [E] cost by 1, and draw 1 card after use.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, randomly select a dragonknight:Brand card in your hand, reduce its [E] cost by 1, and draw 1 card after use."
+  },
+  "${modID}:HauntingMurmur": {
+    "NAME": "Haunting Murmur",
+    "DESCRIPTION": "Enter dragonknight:Black_Dragon_Form next turn. NL Apply 1 Weak to ALL enemies. NL If any enemy was damaged last turn, gain !M! Block and apply an additional !B! Weak ."
+  },
+  "${modID}:DevouringBrand": {
+    "NAME": "Devouring Brand",
+    "DESCRIPTION": "Reduce the [E] cost of cards with the same name existing in the Exhaust pile by 1.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Reduce the [E] cost of cards with the same name existing in the Exhaust pile by 1."
+  },
+  "${modID}:HeavenlyLink": {
+    "NAME": "Heavenly Link",
+    "DESCRIPTION": "Cards with *Heavenly in their name reduce their [E] cost by 1. Gain [E] every time a *Heavenly card is played."
+  },
+  "${modID}:HeavenlyDescent": {
+    "NAME": "Heavenly Descent",
+    "DESCRIPTION": "Use ALL Exhausted Attack cards on enemies."
+  },
+  "${modID}:HeavenlyJudgment": {
+    "NAME": "Heavenly Judgment",
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E] . NL When Exhausted, gain 3 Strength and deal an additional 6 damage. NL This card returns to the draw pile after use."
+  },
+  "${modID}:HeavenlyGaze": {
+    "NAME": "Heavenly Gaze",
+    "DESCRIPTION": "Deal !D! damage. NL Gain [E] . NL When Exhausted, randomly add copies of 3 Attack cards with Ethereal from the draw pile to your hand. NL This card returns to the draw pile after use."
+  },
+  "${modID}:SurefireForging": {
+    "NAME": "Surefire Forging",
+    "DESCRIPTION": "Duplicate a random dragonknight:Anti-Brand card in your hand, reducing its [E] cost by 1 for this turn."
+  },
+  "${modID}:IceDevilErosion": {
+    "NAME": "Ice Devil Erosion",
+    "DESCRIPTION": "Each turn, increase the damage of dragonknight:Anti-Brand Attack cards in your hand by 2.",
+    "UPGRADE_DESCRIPTION": "Innate. NL Each turn, increase the damage of dragonknight:Anti-Brand Attack cards in your hand by 2."
+  },
+  "${modID}:IceDevilForm": {
+    "NAME": "Ice Devil Form",
+    "DESCRIPTION": "When dragonknight:Anti-Brand Attack cards are played, trigger their Exhausted effects. NL Dragonknight:Anti-Brand Skill cards gain [E] when played."
+  },
+  "${modID}:AbyssalVengeanceDrama": {
+    "NAME": "Abyssal Vengeance Drama",
+    "DESCRIPTION": "Attack cards marked with dragonknight:Brand by dragonknight:Be_Dragon will gain [E] after use in this combat. NL If dragonknight:Be_Dragon has been triggered at least twice this combat, add one *Approaching *Abyss to your hand."
+  },
+  "${modID}:ApproachingAbyss": {
+    "NAME": "Approaching Abyss",
+    "DESCRIPTION": "Deal !D! damage. NL Each dragonknight:Be_Dragon will reduce this card's [E] cost by 1. If the number of Exhausted cards is less than 25, add one *Abyssal *Gaze to the draw pile after Exhaust ."
+  },
+  "${modID}:AbyssalGaze": {
+    "NAME": "Abyssal Gaze",
+    "DESCRIPTION": "If in dragonknight:Black_Dragon_Form, enter dragonknight:Abyssal_Beast_Form at the start of the next turn if at least 7 cards have been Exhausted this combat."
+  },
+  "${modID}:SwiftWindAssault": {
+    "NAME": "Swift Wind Assault",
+    "DESCRIPTION": "Deal !D! damage. NL If there are at least 2 dragonknight:Anti-Brand cards in your hand, discard all dragonknight:Anti-Brand cards, gaining !M! damage for each discarded."
+  },
+  "${modID}:InvisibleSurefire": {
+    "NAME": "Invisible Surefire",
+    "DESCRIPTION": "Apply !M! *Scorch . If there are at least 2 dragonknight:Anti-Brand cards in your hand, discard all dragonknight:Anti-Brand cards, apply *Scorch for each discarded."
+  },
+  "${modID}:SurefireForm": {
+    "NAME": "Surefire Form",
+    "DESCRIPTION": "After dragonknight:Anti-Brand cards are discarded or Exhausted, draw 1 card. If any enemy has a debuff, draw 2 additional cards. Can only trigger once per turn.",
+    "UPGRADE_DESCRIPTION": "Innate. NL After dragonknight:Anti-Brand cards are discarded or Exhausted, draw 1 card. If any enemy has a debuff, draw 2 additional cards. Can only trigger once per turn."
+  },
+  "${modID}:SongsBrand": {
+    "NAME": "Song's Brand",
+    "DESCRIPTION": "Apply 3 Vulnerable. NL Gain [E] . After being *Discarded or Exhausted, apply 1 Vulnerable to all enemies and draw 1 card."
+  },
+  "${modID}:SurefireEntwining": {
+    "NAME": "Surefire Entwining",
+    "DESCRIPTION": "For this turn, each use of a dragonknight:Anti-Brand card randomly grants dragonknight:Anti-Brand to another card without dragonknight:Anti-Brand in your hand.",
+    "UPGRADE_DESCRIPTION": "Retain. NL For this turn, each use of a dragonknight:Anti-Brand card randomly grants dragonknight:Anti-Brand to another card without dragonknight:Anti-Brand in your hand."
+  },
+  "${modID}:IceDevilRaid": {
+    "NAME": "Ice Devil Raid",
+    "DESCRIPTION": "Deal !D! damage. NL Discard all dragonknight:Anti-Brand cards in your hand, draw an equal number of cards (up to 2)."
+  },
+  "${modID}:AbyssalGuidance": {
+    "NAME": "Abyssal Guidance",
+    "DESCRIPTION": "If dragonknight:Be_Dragon has not been triggered more than once this combat, enter dragonknight:True_Dragon_Form. NL If Exhausted by dragonknight:Brand, change to entering dragonknight:Black_Dragon_Form next turn."
   }
 }

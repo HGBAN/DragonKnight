@@ -46,7 +46,7 @@ public class CardPatch {
     private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString(makeID("Description"));
 
     public static void addKeywordText(AbstractCard card) {
-        String period = " " + uiStrings.TEXT[0];
+        String period = uiStrings.TEXT[0];
         if (card.hasTag(DragonKnightMod.Enums.DRAW_CARD)) {
             card.rawDescription += " NL " + uiStrings.TEXT[1];
         }
@@ -54,25 +54,48 @@ public class CardPatch {
             card.rawDescription += " NL " + DragonKnightMod.cardNameKeywords.TEXT_DICT.get("BlackDragon");
         }
         if (card.hasTag(DragonKnightMod.Enums.ANTI_BRAND)) {
-            card.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("AntiBrand").PROPER_NAME + period;
+            card.rawDescription += " NL " + toUpper(DragonKnightMod.keywords.get("AntiBrand").NAMES[0]) + period;
         }
         if (card.hasTag(DragonKnightMod.Enums.BRAND) || card.hasTag(DragonKnightMod.Enums.BRAND2)) {
             if (card.hasTag(DragonKnightMod.Enums.TEMP_BRAND)) {
-                card.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("TempBrand").PROPER_NAME
+                card.rawDescription += " NL " + toUpper(DragonKnightMod.keywords.get("TempBrand").NAMES[1])
                         + period;
             } else {
-                card.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("Brand").PROPER_NAME + period;
+                card.rawDescription += " NL " + toUpper(DragonKnightMod.keywords.get("Brand").NAMES[0]) + period;
             }
         }
         if (card.hasTag(DragonKnightMod.Enums.EXHAUST)) {
-            card.rawDescription += " NL " + GameDictionary.EXHAUST.NAMES[0] + period;
+            card.rawDescription += " NL " + toUpper(GameDictionary.EXHAUST.NAMES[0]) + period;
         }
         if (card.hasTag(DragonKnightMod.Enums.ETHEREAL)) {
-            card.rawDescription += " NL " + GameDictionary.ETHEREAL.NAMES[0] + period;
+            card.rawDescription += " NL " + toUpper(GameDictionary.ETHEREAL.NAMES[0]) + period;
         }
         if (card.hasTag(DragonKnightMod.Enums.BE_DRAGON)) {
-            card.rawDescription += " NL dragonknight:" + DragonKnightMod.keywords.get("BeDragon").PROPER_NAME + period;
+            card.rawDescription += " NL " + toUpper(DragonKnightMod.keywords.get("BeDragon").NAMES[1]) + period;
         }
+    }
+
+    private static String toUpper(String str) {
+        String[] words = str.split("[_:]"); // 使用正则表达式分割字符串为单词数组
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            if (!word.isEmpty()) { // 确保单词非空
+                if (i != 0)
+                    result.append(Character.toUpperCase(word.charAt(0))); // 将首字母大写
+                else
+                    result.append(word.charAt(0));
+                if (word.length() > 1) {
+                    result.append(word.substring(1)); // 添加单词剩余部分
+                }
+                if (i < words.length - 1) {
+                    result.append(str.charAt(str.indexOf(word) + word.length())); // 添加分隔符
+                }
+            }
+        }
+
+        return result.toString();
     }
 
     @SpirePatch(clz = AbstractCard.class, method = "initializeDescription")
@@ -217,6 +240,7 @@ public class CardPatch {
     }
 
     public static WeakHashMap<AbstractCard, Integer> randoms = new WeakHashMap<>();
+
     private static int getRandom(AbstractCard c) {
         if (!randoms.containsKey(c))
             randoms.put(c, AbstractDungeon.cardRng.random(7, 14));
