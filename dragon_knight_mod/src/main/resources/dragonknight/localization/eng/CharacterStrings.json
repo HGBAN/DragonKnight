@@ -1,12 +1,12 @@
 {
   "${modID}:DragonPrince": {
     "NAMES": [
-      "深渊龙王子",
-      "龙王子"
+      "Abyssal Dragon Prince",
+      "Dragon Prince"
     ],
     "TEXT": [
-      "深渊龙王子来自深渊之地...",
-      "龙王子"
+      "A dragon prince hailing from the Abyss. NL Engages in combat harnessing the power of imprinted Brands.",
+      "Dragon Prince"
     ]
   }
 }

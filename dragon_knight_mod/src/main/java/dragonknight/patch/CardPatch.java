@@ -65,10 +65,10 @@ public class CardPatch {
             }
         }
         if (card.hasTag(DragonKnightMod.Enums.EXHAUST)) {
-            card.rawDescription += " NL " + toUpper(GameDictionary.EXHAUST.NAMES[0]) + period;
+            card.rawDescription += " NL " + toUpper(GameDictionary.EXHAUST.NAMES[0], false) + period;
         }
         if (card.hasTag(DragonKnightMod.Enums.ETHEREAL)) {
-            card.rawDescription += " NL " + toUpper(GameDictionary.ETHEREAL.NAMES[0]) + period;
+            card.rawDescription += " NL " + toUpper(GameDictionary.ETHEREAL.NAMES[0], false) + period;
         }
         if (card.hasTag(DragonKnightMod.Enums.BE_DRAGON)) {
             card.rawDescription += " NL " + toUpper(DragonKnightMod.keywords.get("BeDragon").NAMES[1]) + period;
@@ -76,16 +76,20 @@ public class CardPatch {
     }
 
     private static String toUpper(String str) {
+        return toUpper(str, true);
+    }
+
+    private static String toUpper(String str, boolean ignoreFirst) {
         String[] words = str.split("[_:]"); // 使用正则表达式分割字符串为单词数组
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < words.length; i++) {
             String word = words[i];
             if (!word.isEmpty()) { // 确保单词非空
-                if (i != 0)
-                    result.append(Character.toUpperCase(word.charAt(0))); // 将首字母大写
-                else
+                if (i == 0 && ignoreFirst)
                     result.append(word.charAt(0));
+                else
+                    result.append(Character.toUpperCase(word.charAt(0))); // 将首字母大写
                 if (word.length() > 1) {
                     result.append(word.substring(1)); // 添加单词剩余部分
                 }

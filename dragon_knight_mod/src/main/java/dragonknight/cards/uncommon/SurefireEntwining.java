@@ -35,7 +35,7 @@ public class SurefireEntwining extends CustomCard {
     public void upgrade() {
         if (!upgraded) {
             this.upgradeName();
-            this.retain = true;
+            this.selfRetain = true;
             this.rawDescription = cardStrings.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
