@@ -31,7 +31,7 @@
     "NAME": "深渊之龙",
     "FLAVOR": "深渊之龙是深渊之印的进化形态，可以变化为强大的龙形态。",
     "DESCRIPTIONS": [
-      "替换深渊之印。每场战斗开始时选择变成一个 #ydragonknight:化龙 形态。每回合开始时，如果上个回合有至少4张牌被 #ydragonknight:烙印 消耗，就随机进入一个 #ydragonknight:化龙 形态。"
+      "替换 #y深渊之印 。每场战斗开始时选择变成一个 #ydragonknight:化龙 形态。每回合开始时，如果上个回合有至少4张牌被 #ydragonknight:烙印 消耗，就随机进入一个 #ydragonknight:化龙 形态。"
     ]
   },
   "${modID}:BrandFate": {
@@ -52,14 +52,14 @@
     "NAME": "王的觉悟",
     "FLAVOR": "王的觉悟使战士能够迅速理解并掌握新的力量。",
     "DESCRIPTIONS": [
-      "每当获得状态牌时，将其 #y消耗 。"
+      "每当获得 #y状态 牌时，将其 #y消耗 。"
     ]
   },
   "${modID}:IceDevilsHeart": {
     "NAME": "冰魔之心",
     "FLAVOR": "冰魔之心是一块凝聚了寒冷之力的珍贵宝石，能够赋予战士强大的冰之力量。",
     "DESCRIPTIONS": [
-      "每个回合开始时额外抽 #b1 张 #ydragonknight:反烙印 牌，每个回合使用的第 #b1 张 #ydragonknight:反烙印 牌降低 #b1 点 [E] 的消耗。每个回合开始时额外获得 [E] [E] ，并额外抽 #b2 张牌。你不会再触发 #ydragonknight:烙印 。"
+      "替换 #y深渊之印 。每个回合开始时额外抽 #b1 张 #ydragonknight:反烙印 牌，每个回合使用的第 #b1 张 #ydragonknight:反烙印 牌降低 #b1 点 [E] 的消耗。每个回合开始时额外获得 [E] [E] ，并额外抽 #b2 张牌。你不会再触发 #ydragonknight:烙印 。"
     ]
   },
   "${modID}:DivineFlameRing": {

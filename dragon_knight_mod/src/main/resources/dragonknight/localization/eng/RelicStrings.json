@@ -17,7 +17,7 @@
     "NAME": "Abyssal Apostles",
     "FLAVOR": "These Abyssal Apostle statues possess special powers, capable of duplicating and prolonging the effects of brands.",
     "DESCRIPTIONS": [
-      "At the end of this turn, add a copy of #b1 attack card with #yConsumed that was consumed by #ydragonknight:Brand into your hand next turn, reducing its [E] cost by #b1."
+      "At the end of this turn, add a copy of #b1 Attack with #yExhaust that was Exhausted by #ydragonknight:Brand into your hand next turn, reducing its [E] cost by #b1."
     ]
   },
   "${modID}:BrandedCyclone": {
@@ -31,14 +31,14 @@
     "NAME": "Abyssal Dragon",
     "FLAVOR": "The Abyssal Dragon is the evolved form of the Abyss Seal, capable of transforming into a powerful dragon shape.",
     "DESCRIPTIONS": [
-      "Replaces Abyss Seal. Choose to transform into a #ydragonknight:DragonForm at the start of each battle. At the start of each turn, if at least 4 cards were consumed by #ydragonknight:Brand last turn, randomly transform into a #ydragonknight:DragonForm."
+      "Replaces #yAbyss #ySeal. Choose to transform into a #yDragon #yForm at the start of each combat. At the start of each turn, if at least 4 cards were exhausted by #ydragonknight:Brand last turn, randomly transform into a #yDragon #yForm."
     ]
   },
   "${modID}:BrandFate": {
     "NAME": "Brand Fate",
     "FLAVOR": "Brand Fate is a mysterious force that can alter the destiny of cards.",
     "DESCRIPTIONS": [
-      "When resting at a campfire, choose a card to apply #ydragonknight:AntiBrand."
+      "When resting at a campfire, you can choose a card to apply #ydragonknight:Anti-Brand."
     ]
   },
   "${modID}:BrandsCall": {
@@ -52,21 +52,21 @@
     "NAME": "King's Insight",
     "FLAVOR": "The King's Insight allows the warrior to quickly understand and master new powers.",
     "DESCRIPTIONS": [
-      "Whenever you gain a status card, apply #yConsumed to it."
+      "Whenever you gain a #yStatus card, Exhaust it."
     ]
   },
   "${modID}:IceDevilsHeart": {
     "NAME": "Ice Devil's Heart",
     "FLAVOR": "The Ice Devil's Heart is a precious gem infused with the power of cold, bestowing the warrior with mighty ice abilities.",
     "DESCRIPTIONS": [
-      "At the start of each turn, draw an extra #b1 #ydragonknight:AntiBrand card. The first #b1 #ydragonknight:AntiBrand card used each turn reduces its [E] cost by #b1. At the start of each turn, gain [E] [E], and draw an extra #b2 cards. You will no longer trigger #ydragonknight:Brand."
+      "Replaces #yAbyss #ySeal. At the start of each turn, draw an extra #b1 #ydragonknight:Anti-Brand card. The first #b1 #ydragonknight:Anti-Brand card used each turn reduces its [E] cost by #b1. At the start of each turn, gain [E] [E] , and draw an extra #b2 cards. You will no longer trigger #ydragonknight:Brand."
     ]
   },
   "${modID}:DivineFlameRing": {
     "NAME": "Divine Flame Ring",
     "FLAVOR": "The Divine Flame Ring can absorb the power of enemy statuses, providing the warrior with additional energy and strength.",
     "DESCRIPTIONS": [
-      "Whenever you apply a status to an enemy, gain [E] and #b1 temporary #yStrength."
+      "Whenever you apply a power to an enemy, gain [E] and #b1 temporary #yStrength."
     ]
   },
   "${modID}:CopyPaper": {
@@ -80,14 +80,14 @@
     "NAME": "Heavenly Fate",
     "FLAVOR": "A divine power.",
     "DESCRIPTIONS": [
-      "After each turn, choose #b1 attack card in your hand to gain #yConsumed and #yEthereal."
+      "After each turn, choose #b1 Attack in your hand to grant #yExhaust and #yEthereal."
     ]
   },
   "${modID}:AbyssalSpectator": {
     "NAME": "Abyssal Spectator",
     "FLAVOR": "The Abyssal Spectators are mysterious entities whose appearance can bring forth the descent of the Black Dragon.",
     "DESCRIPTIONS": [
-      "The first time you use a #ydragonknight:AntiBrand card each turn, randomly draw #b1 ability card. If this ability card is used during this turn, enter #ydragonknight:BlackForm."
+      "The first time you use a #ydragonknight:Anti-Brand card each turn, randomly draw #b1 Power. If this Power is used during this turn, enter #ydragonknight:Black_Dragon_Form."
     ]
   }
 }

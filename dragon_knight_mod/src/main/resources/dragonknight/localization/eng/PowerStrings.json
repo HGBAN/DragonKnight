@@ -6,9 +6,216 @@
     ]
   },
   "${modID}:BlackDragon": {
-    "NAME": "黑龙形态",
+    "NAME": "Black Dragon Form",
     "DESCRIPTIONS": [
-      "化身黑龙，获得10点护甲，并随机使一张手牌获得消耗和烙印"
+      "Transform into a #yBlack #yDragon, gaining #b10 Armor, and randomly grant #yExhausted and #yBrand to a card in your hand."
+    ]
+  },
+  "${modID}:WhiteDragon": {
+    "NAME": "White Dragon Form",
+    "DESCRIPTIONS": [
+      "Transform into a #yWhite #yDragon, duplicating a card in your hand and granting #yBrand to it."
+    ]
+  },
+  "${modID}:Brand": {
+    "NAME": "Brand",
+    "DESCRIPTIONS": [
+      "Randomly #yExhaust a card from the draw pile and play it at the end of the turn.",
+      "The following cards will be played at the end of the turn:"
+    ]
+  },
+  "${modID}:AbyssFormPower": {
+    "NAME": "Abyssal Form",
+    "DESCRIPTIONS": [
+      "The first use of a #yBrand card each turn triggers #yBe #yDragon."
+    ]
+  },
+  "${modID}:WhiteRealmPower": {
+    "NAME": "White Realm Power",
+    "DESCRIPTIONS": [
+      "Each card #yExhausted by #yBrand triggers an additional time, lasting #b",
+      " turns."
+    ]
+  },
+  "${modID}:BrandProtectorPower": {
+    "NAME": "Brand Protector",
+    "DESCRIPTIONS": [
+      "At the end of your turn, gain #b",
+      " Block for each card #yExhausted by #yBrand this turn."
+    ]
+  },
+  "${modID}:WhiteBrandPower": {
+    "NAME": "White Brand",
+    "DESCRIPTIONS": [
+      "Each time you transform into #yWhite #yDragon, gain #b",
+      " #yStrength."
+    ]
+  },
+  "${modID}:BlackBrandPower": {
+    "NAME": "Black Brand",
+    "DESCRIPTIONS": [
+      "Each time you transform into #yBlack #yDragon, gain #b",
+      " #yDexterity."
+    ]
+  },
+  "${modID}:NextCardFreePower": {
+    "NAME": "Phantom",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " cards played will not consume [E]."
+    ]
+  },
+  "${modID}:PhantomDragonPower": {
+    "NAME": "Phantom Dragon",
+    "DESCRIPTIONS": [
+      "The first #b",
+      " cards played after #yBe #yDragon cost #b0 [E]."
+    ]
+  },
+  "${modID}:AshBrandPower": {
+    "NAME": "Ash Brand",
+    "DESCRIPTIONS": [
+      "At the start of each turn, randomly add a copy of the #b",
+      " cards #yExhausted by #yBrand last turn to your hand with #yExhaust and #yEthereal."
+    ]
+  },
+  "${modID}:SurefirePower": {
+    "NAME": "Surefire",
+    "DESCRIPTIONS": [
+      "At the end of your turn, add copies of cards #yExhausted this turn to your draw pile."
+    ]
+  },
+  "${modID}:HeavenlyRevelationPower": {
+    "NAME": "Heavenly Revelation",
+    "DESCRIPTIONS": [
+      "On the second use of a #yBrand card each turn, randomly draw #b",
+      " cards with #yBrand in their name from your draw pile and randomly place #b",
+      " copies of Attack cards from the Exhaust pile into the draw pile."
+    ]
+  },
+  "${modID}:TrueEyePower": {
+    "NAME": "True Eye",
+    "DESCRIPTIONS": [
+      "The next #b",
+      " cards played will cost #b1 less [E] ."
+    ]
+  },
+  "${modID}:TrueDragon": {
+    "NAME": "True Dragon Form",
+    "DESCRIPTIONS": [
+      "Transform into a True Dragon, gaining #b6 [E] , drawing #b6 cards, and reducing the cost of the next #b6 cards played by #b1 [E] ."
+    ]
+  },
+  "${modID}:BarrierPower": {
+    "NAME": "Barrier",
+    "DESCRIPTIONS": [
+      "For each power gained this turn, deal damage equal to #b",
+      " times the number of power."
+    ]
+  },
+  "${modID}:SurefireScorchPower": {
+    "NAME": "Surefire Scorch",
+    "DESCRIPTIONS": [
+      "Each time a card is #yExhausted by #yBrand, apply #b1 #yScorch."
+    ]
+  },
+  "${modID}:ScorchPower": {
+    "NAME": "Scorch",
+    "DESCRIPTIONS": [
+      "At the end of the turn, take #b",
+      " damage. Halve the layers after each damage instance."
+    ]
+  },
+  "${modID}:AshPower": {
+    "NAME": "Ashes",
+    "DESCRIPTIONS": [
+      "Take an additional #b",
+      " damage whenever take damage."
+    ]
+  },
+  "${modID}:WhiteDragonAwakeningPower": {
+    "NAME": "White Dragon Awakening",
+    "DESCRIPTIONS": [
+      "Transform into #yWhite #yDragon at the start of the next turn."
+    ]
+  },
+  "${modID}:AshenManaPower": {
+    "NAME": "Ashen Mana",
+    "DESCRIPTIONS": [
+      "At the start of each turn, randomly select #b1 #yBrand card in your hand, reduce its [E] cost by #b1, and draw #b1 card after use."
+    ]
+  },
+  "${modID}:BlackDragonAwakeningPower": {
+    "NAME": "Black Dragon Awakening",
+    "DESCRIPTIONS": [
+      "Transform into #yBlack #uDragon at the start of the next turn."
+    ]
+  },
+  "${modID}:DevouringBrandPower": {
+    "NAME": "Devouring Brand",
+    "DESCRIPTIONS": [
+      "Reduce the [E] cost of cards with the same name as those already in the Exhaust pile due to #yBrand by #b2."
+    ]
+  },
+  "${modID}:BrandsCallPower": {
+    "NAME": "Brand's Call",
+    "DESCRIPTIONS": [
+      "Reduce the [E] cost of the next #b",
+      " #yBrand cards played by #b1."
+    ]
+  },
+  "${modID}:IceDevilsHeartPower": {
+    "NAME": "Ice Devil's Heart",
+    "DESCRIPTIONS": [
+      "Reduce the [E] cost of the next #b",
+      " #yAnti-Brand cards played by #b1."
+    ]
+  },
+  "${modID}:HeavenlyLinkPower": {
+    "NAME": "Heavenly Link",
+    "DESCRIPTIONS": [
+      "Cards with #yHeavenly in their name reduce their [E] cost by #b1. Gain [E] each time a #yHeavenly card is played."
+    ]
+  },
+  "${modID}:IceDevilErosionPower": {
+    "NAME": "Ice Devil Erosion",
+    "DESCRIPTIONS": [
+      "Each turn, increase the damage of #yAnti-Brand Attack cards in your hand by #b2 for this combat."
+    ]
+  },"${modID}:IceDevilFormPower": {
+    "NAME": "Ice Devil Form",
+    "DESCRIPTIONS": [
+      "#yAnti-Brand Attack cards also trigger their #yExhausted effects. #yAnti-Brand Skill cards gain [E] when played."
+    ]
+  },
+  "${modID}:AbyssalVengeanceDramaPower": {
+    "NAME": "Abyssal Vengeance Drama",
+    "DESCRIPTIONS": [
+      "Cards that were #yBranded by #yDragon Transformation this battle gain [E] after being played."
+    ]
+  },
+  "${modID}:AbyssalBeastFormPower": {
+    "NAME": "Abyssal Beast Form",
+    "DESCRIPTIONS": [
+      "Randomly increase the damage of all Attack cards by #b7 - #b14 each turn. Gain equal amounts of #yDexterity or #yStrength when gaining #yDexterity or #yStrength. Gain #b1 #yDexterity when transforming into #yBlack #yDragon and #b1 #yStrength when transforming into #yWhite #yDragon."
+    ]
+  },
+  "${modID}:AbyssAwakenPower": {
+    "NAME": "Abyssal Awakening",
+    "DESCRIPTIONS": [
+      "Transform into #yAbyssal #yBeast #yForm at the start of the next turn."
+    ]
+  },
+  "${modID}:SurefireFormPower": {
+    "NAME": "Surefire Form",
+    "DESCRIPTIONS": [
+      "When an #yAnti-Brand card is discarded or #yExhausted, draw #b1 card. If any enemy has a debuff, draw an additional #b2 cards. This effect triggers only once per turn."
+    ]
+  },
+  "${modID}:SurefireEntwiningPower": {
+    "NAME": "Surefire Entwining",
+    "DESCRIPTIONS": [
+      "Each time an #yAnti-Brand card is played this turn, randomly grant #yAnti-Brand to another card in your hand without #yAnti-Brand."
     ]
   }
 }

@@ -8,5 +8,29 @@
       " into a description.",
       " Exactly how depends on the potion, and you can set it up however you want."
     ]
+  },
+  "${modID}:BrandPotion": {
+    "NAME": "Brand Potion",
+    "DESCRIPTIONS": [
+      "Choose one from random #b3 #yBrand cards to add to this combat. The first time you use it, it costs #b0 [E]."
+    ]
+  },
+  "${modID}:BeDragonPotion": {
+    "NAME": "Be Dragon Potion",
+    "DESCRIPTIONS": [
+      "Choose to transform into a #yDragon #yForm."
+    ]
+  },
+  "${modID}:IceDevilPotion": {
+    "NAME": "Ice Devil Potion",
+    "DESCRIPTIONS": [
+      "Deal damage to all enemies equal to the number of #yExhausted cards used in this combat."
+    ]
+  },
+  "${modID}:HeavenlyPotion": {
+    "NAME": "Heavenly Potion",
+    "DESCRIPTIONS": [
+      "Make ALL Attack cards in your hand gain #yExhausted and #yEthereal."
+    ]
   }
 }

@@ -30,7 +30,7 @@
   "${modID}:HeavenlyPotion": {
     "NAME": "天底药水",
     "DESCRIPTIONS": [
-      "使所有手牌中的攻击牌获得 #y消耗 和 #y虚无 。"
+      "使所有手牌中的 #y攻击 牌获得 #y消耗 和 #y虚无 。"
     ]
   }
 }

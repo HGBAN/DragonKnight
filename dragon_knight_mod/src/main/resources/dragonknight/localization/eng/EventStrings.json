@@ -2,7 +2,7 @@
   "${modID}:EventID": {
     "NAME": "Event Name",
     "DESCRIPTIONS": [
-      "This is event text, generally used to describe what's happening.",
+      "This is event text, generally used to describe what\"s happening.",
       "#g~This~ #g~text~ #g~is~ #g~green~ #g~and~ #g~wavy.~",
       "#r@RED@ #r@AND@ #r@VIBRATING@ #r@TEXT.@",
       "#rRed #gGreen #yYellow #bBlue #pPurple. ~Wavy~ @vibrating.@",
@@ -16,6 +16,22 @@
       "[Acceptance] #gGain #gApotheosis. Good stuff is green.",
       "[Leave]",
       "Select card to remove. (You can also stick extra text like this in here.)"
+    ]
+  },
+  "${modID}:AbyssGiveaway": {
+    "NAME": "Abyssal Giveaway Extravaganza",
+    "DESCRIPTIONS": [
+      "A mysterious agent suddenly appears before you, dressed in a black robe with their face hidden in the shadows. NL Without warning, he reveal to you, \"The viewers from the Abyss have prepared a #g~Giveaway~ #g~Extravaganza~ for you! You feel a chill, but also a sense of excitement.",
+      "\"Come on, it's time for the lottery!\" the agent enthusiastically declares. NL He present to you a mysterious black box with an endless #p~spinning~ #p~symbol~ on it. You can sense that this is not just a lottery but a gamble with the power of the Abyss.",
+      "\"Congratulations! You've won a #g~generous~ #g~prize~!\" the agent joyfully announces. NL Overwhelmed with joy, the value of the prize makes you feel that this adventure was worthwhile.",
+      "Suddenly, the agent reveals a small knife, sending shivers down your spine. NL \"Oh dear, it seems your choice wasn't that fortunate after all.\" NL Without mercy, he stabs you, causing #r@unbearable@ #r@pain@. NL Eventually, he vanishes into the darkness, leaving you alone.",
+      "The agent suddenly nods at you and disappears into the darkness. NL You feel a sense of tranquility, as if the Abyssal Giveaway Extravaganza was just a dream.",
+      "You gain a Curse..."
+    ],
+    "OPTIONS": [
+      "[Continue]",
+      "[Lottery] #g50%: Receive something good. #r50%: Get cursed.",
+      "[Leave]"
     ]
   }
 }

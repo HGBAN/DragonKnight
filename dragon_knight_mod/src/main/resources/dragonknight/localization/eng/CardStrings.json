@@ -116,6 +116,10 @@
     "DESCRIPTION": "Grant dragonknight:Temporary_Brand to all Skill cards in your hand. NL When Exhausted by dragonknight:Brand , shuffle another *Sword *Brand into the discard pile.",
     "UPGRADE_DESCRIPTION": "Grant dragonknight:Temporary_Brand to all Skill cards in your hand. NL When Exhausted by dragonknight:Brand , shuffle another *Sword *Brand+ into the discard pile."
   },
+  "${modID}:ColdAirflow": {
+    "NAME": "Cold Airflow",
+    "DESCRIPTION": "Deal !D! damage to all enemies and apply !M! temporary Strength reduction. When Exhausted, first remove ALL enemies' Block."
+  },
   "${modID}:SeparateBrand": {
     "NAME": "Separate Brand",
     "DESCRIPTION": "Deal !D! damage. NL If the number of cards Exhausted by dragonknight:Brand in the last turn exceeds 2, deal !M! additional damage. When Exhausted by dragonknight:Brand, shuffle another *Separate *Brand into the discard pile.",

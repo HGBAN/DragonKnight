@@ -14,7 +14,7 @@
   "${modID}:WhiteDragon": {
     "NAME": "白龙形态",
     "DESCRIPTIONS": [
-      "化身 #y白龙 ，复制一张手牌并使其获得 #y烙印 。"
+      "化身白龙，复制一张手牌并使其获得 #y烙印 。"
     ]
   },
   "${modID}:Brand": {
@@ -41,7 +41,7 @@
     "NAME": "烙印护体",
     "DESCRIPTIONS": [
       "回合结束时，本回合每有一张牌因为 #y烙印 被 #y消耗 则获得 #b",
-      " 点护甲。"
+      " 点格挡。"
     ]
   },
   "${modID}:WhiteBrandPower": {
@@ -55,7 +55,7 @@
     "NAME": "黑色烙印",
     "DESCRIPTIONS": [
       "每次化身 #y黑龙 时，获得 #b",
-      " 点 #y多层护甲 。"
+      " 点 #y敏捷 。"
     ]
   },
   "${modID}:NextCardFreePower": {
@@ -116,7 +116,7 @@
   "${modID}:SurefireScorchPower": {
     "NAME": "神炎灼烧",
     "DESCRIPTIONS": [
-      "每次有牌因为 #y烙印 被 #y消耗 ，则添加 #b1 层灼烧。"
+      "每次有牌因为 #y烙印 被 #y消耗 ，则添加 #b1 层 #y灼烧 。"
     ]
   },
   "${modID}:ScorchPower": {
