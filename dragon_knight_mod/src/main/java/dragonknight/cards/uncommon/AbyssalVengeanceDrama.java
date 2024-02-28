@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import basemod.abstracts.CustomCard;
 import dragonknight.DragonKnightMod;
+import dragonknight.cards.special.ApproachingAbyss;
 import dragonknight.character.DragonPrince;
 import dragonknight.powers.AbyssalVengeanceDramaPower;
 

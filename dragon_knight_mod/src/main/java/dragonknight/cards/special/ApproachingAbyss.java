@@ -1,4 +1,4 @@
-package dragonknight.cards.uncommon;
+package dragonknight.cards.special;
 
 import static dragonknight.DragonKnightMod.*;
 
