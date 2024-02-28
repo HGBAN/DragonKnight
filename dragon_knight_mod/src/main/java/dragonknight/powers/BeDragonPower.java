@@ -50,14 +50,19 @@ public abstract class BeDragonPower extends BasePower {
             }
         }
 
-        // 检查王之烙印
         if (owner.isPlayer) {
+            // 检查王之烙印
             AbstractPlayer player = (AbstractPlayer) owner;
             List<AbstractCard> cards = player.discardPile.group.stream()
                     .filter(card -> card.cardID.equals(makeID("KingsBrand")))
                     .collect(Collectors.toList());
             for (AbstractCard card : cards) {
                 addToBot(new DiscardToHandAction(card));
+            }
+
+            // 检查魔神烙印
+            if (player.hasPower(GoetiaBrandPower.POWER_ID)) {
+                ((GoetiaBrandPower) player.getPower(GoetiaBrandPower.POWER_ID)).handle();
             }
         }
 

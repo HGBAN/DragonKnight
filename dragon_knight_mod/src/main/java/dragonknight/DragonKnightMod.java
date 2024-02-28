@@ -256,7 +256,7 @@ public class DragonKnightMod implements
         String json = Gdx.files.internal(localizationPath(defaultLanguage, "Keywords.json"))
                 .readString(String.valueOf(StandardCharsets.UTF_8));
         KeywordInfo[] keywords = gson.fromJson(json, KeywordInfo[].class);
-        
+
         for (KeywordInfo keyword : keywords) {
             keyword.prep();
             registerKeyword(keyword);
@@ -546,6 +546,11 @@ public class DragonKnightMod implements
 
     public static void brandCard(AbstractCard brandCard) {
         AbstractPlayer player = AbstractDungeon.player;
+        brandCard(brandCard, player.drawPile);
+    }
+
+    public static void brandCard(AbstractCard brandCard, CardGroup group) {
+        AbstractPlayer player = AbstractDungeon.player;
         if (brandCard instanceof IBrandDifferentCard) {
             ((IBrandDifferentCard) brandCard).setBranded(true);
         }
@@ -571,7 +576,7 @@ public class DragonKnightMod implements
             ((BrandCopyCard) brandCard).brandExhaust = true;
         }
         AbstractDungeon.actionManager
-                .addToTop(new ExhaustSpecificCardAction(brandCard, player.drawPile));
+                .addToTop(new ExhaustSpecificCardAction(brandCard, group));
         if (!player.hasPower(makeID("Brand")))
             AbstractDungeon.actionManager
                     .addToBottom(new ApplyPowerAction(player, player, new Brand(player)));

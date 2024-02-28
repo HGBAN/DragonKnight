@@ -296,5 +296,17 @@
   "${modID}:AbyssalGuidance": {
     "NAME": "深渊的指引",
     "DESCRIPTION": "如果本场战斗中还没有触发过1次以上 dragonknight:化龙 ，进入 dragonknight:真龙形态 。 NL 被 dragonknight:烙印 消耗 后，效果改为下回合进入 dragonknight:黑龙形态 。"
+  },
+  "${modID}:GoetiaBrand": {
+    "NAME": "魔神烙印",
+    "DESCRIPTION": "每次 dragonknight:化龙 后，随机将1张 dragonknight:魔神牌 放入抽牌堆。每场战斗中每种 dragonknight:魔神牌 只会获得1次。"
+  },
+  "${modID}:BaelBrand": {
+    "NAME": "巴坎之印",
+    "DESCRIPTION": " dragonknight:魔神牌 。 NL 获得!B!点格挡。 NL 对所有敌人造成获得的格挡2倍的伤害。"
+  },
+  "${modID}:AgaresBrand": {
+    "NAME": "比利士之印",
+    "DESCRIPTION": " dragonknight:魔神牌 。 NL 消耗 1张手牌，获得2点 力量 。将 消耗 的手牌视作被 烙印 消耗 。"
   }
 }
