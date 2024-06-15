@@ -308,5 +308,9 @@
   "${modID}:AgaresBrand": {
     "NAME": "比利士之印",
     "DESCRIPTION": " dragonknight:魔神牌 。 NL 消耗 1张手牌，获得2点 力量 。将 消耗 的手牌视作被 烙印 消耗 。"
+  },
+  "${modID}:VassagoBrand": {
+    "NAME": "加麦基之印",
+    "DESCRIPTION": " dragonknight:魔神牌 。 NL 每回合使用的第五张牌如果是攻击牌，将其被 dragonknight:烙印 消耗 。"
   }
 }

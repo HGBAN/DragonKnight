@@ -2,17 +2,23 @@ package dragonknight.patch;
 
 import static dragonknight.DragonKnightMod.*;
 
+import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
 import dragonknight.DragonKnightMod;
 import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
 import dragonknight.powers.HeavenlyLinkPower;
 import dragonknight.powers.IceDevilsHeartPower;
+import dragonknight.powers.VassagoBrandPower;
 
 public class PlayerPatch {
 
@@ -58,6 +64,30 @@ public class PlayerPatch {
                     c.isCostModifiedForTurn = false;
                 }
                 change = 0;
+            }
+        }
+
+        @SpireInsertPatch(loc = 1707)
+        public static void Insert(AbstractPlayer _instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
+            DragonKnightMod.cardsUsedThisTurn++;
+            AbstractPlayer player = AbstractDungeon.player;
+            if (player.hasPower(VassagoBrandPower.POWER_ID)) {
+                AbstractPower p = player.getPower(VassagoBrandPower.POWER_ID);
+                p.amount = cardsUsedThisTurn;
+                if (cardsUsedThisTurn == 5 && c.type.equals(CardType.ATTACK)) {
+                    AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+                        @Override
+                        public void update() {
+                            CardGroup group = player.hand;
+                            if (player.discardPile.contains(c))
+                                group = player.discardPile;
+                            else if (player.exhaustPile.contains(c))
+                                group = player.exhaustPile;
+                            brandCard(c, group);
+                            isDone = true;
+                        }
+                    });
+                }
             }
         }
     }

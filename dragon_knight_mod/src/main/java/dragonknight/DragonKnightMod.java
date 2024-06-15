@@ -62,6 +62,7 @@ import basemod.BaseMod;
 import basemod.abstracts.CustomSavable;
 import basemod.devcommands.ConsoleCommand;
 import basemod.eventUtil.AddEventParams;
+import basemod.helpers.CardBorderGlowManager;
 import basemod.helpers.RelicType;
 import basemod.interfaces.EditCardsSubscriber;
 import basemod.interfaces.EditCharactersSubscriber;
@@ -113,6 +114,7 @@ import dragonknight.powers.SurefirePower;
 import dragonknight.powers.SurefireScorchPower;
 import dragonknight.powers.TrueDragon;
 import dragonknight.powers.TrueEyePower;
+import dragonknight.powers.VassagoBrandPower;
 import dragonknight.powers.WhiteBrandPower;
 import dragonknight.powers.WhiteDragon;
 import dragonknight.powers.WhiteDragonAwakeningPower;
@@ -193,6 +195,31 @@ public class DragonKnightMod implements
         ConsoleCommand.addCommand("brand", BrandCommand.class);
         cardNameKeywords = CardCrawlGame.languagePack.getUIString(makeID("CardNameKeywords"));
         selectCardTips = CardCrawlGame.languagePack.getUIString(makeID("SelectCardTips"));
+
+        CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo() {
+            @Override
+            public boolean test(AbstractCard card) {
+                if (AbstractDungeon.player != null) {
+                    if (AbstractDungeon.player.hasPower(VassagoBrandPower.POWER_ID)) {
+                        if (AbstractDungeon.player.getPower(VassagoBrandPower.POWER_ID).amount == 4
+                                && card.type.equals(CardType.ATTACK)) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
+            @Override
+            public Color getColor(AbstractCard card) {
+                return Color.GREEN.cpy();
+            }
+
+            @Override
+            public String glowID() {
+                return makeID("VassagoBrandGlow");
+            }
+        });
     }
 
     /*----------Localization----------*/
@@ -401,6 +428,7 @@ public class DragonKnightMod implements
     public static boolean isEnemyDamagedThisTurn = false;
     public static boolean isEnemyDamagedLastTurn = false;
     public static int brandCardsUsed = 0;
+    public static int cardsUsedThisTurn = 0;
     public static int attackUsed = 0;
     public static int attackBranded = 0;
     public static int beDragonCount = 0;
@@ -579,7 +607,7 @@ public class DragonKnightMod implements
                 .addToTop(new ExhaustSpecificCardAction(brandCard, group));
         if (!player.hasPower(makeID("Brand")))
             AbstractDungeon.actionManager
-                    .addToBottom(new ApplyPowerAction(player, player, new Brand(player)));
+                    .addToTop(new ApplyPowerAction(player, player, new Brand(player)));
         else
             player.getPower(makeID("Brand")).updateDescription();
 
@@ -628,6 +656,7 @@ public class DragonKnightMod implements
         isEnemyDamagedThisTurn = false;
         isEnemyDamagedLastTurn = false;
         brandCardsUsed = 0;
+        cardsUsedThisTurn = 0;
         attackUsed = 0;
         attackBranded = 0;
         beDragonCount = 0;
@@ -660,6 +689,7 @@ public class DragonKnightMod implements
         isEnemyDamagedThisTurn = false;
         isEnemyDamagedLastTurn = false;
         brandCardsUsed = 0;
+        cardsUsedThisTurn = 0;
         attackUsed = 0;
         attackBranded = 0;
         beDragonCount = 0;
@@ -697,6 +727,8 @@ public class DragonKnightMod implements
         DragonKnightMod.brandCardsLastTurn.addAll(DragonKnightMod.brandCards);
         DragonKnightMod.brandCards.clear();
         onClearBrandCards();
+
+        cardsUsedThisTurn = 0;
     }
 
     public static AbstractCard copyCard(AbstractCard card) {
