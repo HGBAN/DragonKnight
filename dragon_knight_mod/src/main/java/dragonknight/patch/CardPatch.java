@@ -26,6 +26,7 @@ import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
 import dragonknight.powers.HeavenlyLinkPower;
 import dragonknight.powers.IceDevilsHeartPower;
+import dragonknight.powers.OriasBrandPower;
 
 public class CardPatch {
     // @SpirePatch(clz = TheLibrary.class, method = "buttonEffect")
@@ -260,6 +261,9 @@ public class CardPatch {
                 if (player.hasPower(AbyssalBeastFormPower.POWER_ID) && !AbstractDungeon.getCurrRoom().isBattleOver) {
                     tmp[0] += getRandom(_instance);
                 }
+                if (player.hasPower(OriasBrandPower.POWER_ID) && !AbstractDungeon.getCurrRoom().isBattleOver) {
+                    tmp[0] /= 2;
+                }
             }
         }
 
@@ -272,8 +276,23 @@ public class CardPatch {
                         tmp[i] += getRandom(_instance);
                     }
                 }
+                if (player.hasPower(OriasBrandPower.POWER_ID) && !AbstractDungeon.getCurrRoom().isBattleOver) {
+                    for (int i = 0; i < tmp.length; i++) {
+                        tmp[i] /= 2;
+                    }
+                }
             }
         }
+
+        // public static void Postfix(AbstractCard _instance, AbstractMonster mo) {
+        // AbstractPlayer player = AbstractDungeon.player;
+        // if (player != null) {
+        // if (player.hasPower(OriasBrandPower.NAME) &&
+        // !AbstractDungeon.getCurrRoom().isBattleOver) {
+        // _instance.damage /= 2;
+        // }
+        // }
+        // }
     }
 
     @SpirePatch(clz = AbstractCard.class, method = "applyPowers")

@@ -230,5 +230,19 @@
     "DESCRIPTIONS": [
       "如果回合开始时处于 #y化龙 状态，抽 #b1 张攻击牌。如果回合结束时这张攻击牌还在手中，将其被 #y烙印 #y消耗 。"
     ]
+  },
+  "${modID}:OriasBrandPower": {
+    "NAME": "欧里亚斯的美德",
+    "DESCRIPTIONS": [
+      "下 #b",
+      " 个回合内所有目标造成的伤害减少一半。"
+    ]
+  },
+  "${modID}:OriasKnowledgePower": {
+    "NAME": "欧里亚斯的学识",
+    "DESCRIPTIONS": [
+      "下 #b",
+      " 个回合内，每次使用技能牌时，抽 #b1 张能力牌。"
+    ]
   }
 }

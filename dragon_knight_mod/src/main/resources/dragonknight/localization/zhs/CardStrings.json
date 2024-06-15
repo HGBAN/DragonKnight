@@ -312,5 +312,9 @@
   "${modID}:VassagoBrand": {
     "NAME": "加麦基之印",
     "DESCRIPTION": " dragonknight:魔神牌 。 NL 每回合使用的第五张牌如果是攻击牌，将其被 dragonknight:烙印 消耗 。"
+  },
+  "${modID}:OriasBrand": {
+    "NAME": "欧里亚斯之印",
+    "DESCRIPTION": " dragonknight:魔神牌 。 NL 给予所有目标5层 易伤 。下2个回合内所有目标造成的伤害减少一半。 NL 本回合每次使用技能牌时，抽1张能力牌，并减少其1点 [E] 的消耗。"
   }
 }
