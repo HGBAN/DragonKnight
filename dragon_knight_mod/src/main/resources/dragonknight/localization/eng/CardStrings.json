@@ -131,7 +131,8 @@
   },
   "${modID}:AshBrand": {
     "NAME": "Ash Brand",
-    "DESCRIPTION": "Innate. NL At the start of each turn, randomly add a copy of the card Exhausted by dragonknight:Brand last turn with Exhaust and Ethereal to your hand."
+    "DESCRIPTION": "At the start of each turn, randomly add a copy of the card Exhausted by dragonknight:Brand last turn with Exhaust and Ethereal to your hand.",
+    "UPGRADE_DESCRIPTION": "Innate. NL At the start of each turn, randomly add a copy of the card Exhausted by dragonknight:Brand last turn with Exhaust and Ethereal to your hand."
   },
   "${modID}:Roar": {
     "NAME": "Roar",
