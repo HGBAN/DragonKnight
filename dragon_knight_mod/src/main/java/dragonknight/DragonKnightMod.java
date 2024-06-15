@@ -101,6 +101,7 @@ import dragonknight.powers.BlackDragonAwakeningPower;
 import dragonknight.powers.Brand;
 import dragonknight.powers.BrandProtectorPower;
 import dragonknight.powers.BrandsCallPower;
+import dragonknight.powers.BuerBrandPower;
 import dragonknight.powers.DevouringBrandPower;
 import dragonknight.powers.HeavenlyRevelationPower;
 import dragonknight.powers.IceDevilErosionPower;
@@ -406,6 +407,7 @@ public class DragonKnightMod implements
         BaseMod.addPower(VassagoBrandPower.class, VassagoBrandPower.POWER_ID);
         BaseMod.addPower(OriasBrandPower.class, OriasBrandPower.POWER_ID);
         BaseMod.addPower(OriasKnowledgePower.class, OriasKnowledgePower.POWER_ID);
+        BaseMod.addPower(BuerBrandPower.class, BuerBrandPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);

@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
 import dragonknight.actions.DrawBrandCardAction;
+import dragonknight.patch.CardPatch;
 
 public class OriasKnowledgePower extends BasePower {
     public static final String POWER_ID = makeID("OriasKnowledgePower");
@@ -44,7 +45,12 @@ public class OriasKnowledgePower extends BasePower {
                 @Override
                 public void update() {
                     for (AbstractCard c : DrawBrandCardAction.cards) {
+                        if (c.cost > 0) {
+                            c.cost--;
+                            c.setCostForTurn(card.cost);
+                        }
                         c.setCostForTurn(c.costForTurn - 1);
+                        CardPatch.Field.reduceEnergy.set(c, true);
                     }
                     DrawBrandCardAction.cards.clear();
                     isDone = true;
