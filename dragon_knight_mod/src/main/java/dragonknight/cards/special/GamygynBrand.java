@@ -11,10 +11,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import basemod.abstracts.CustomCard;
 import dragonknight.DragonKnightMod;
 import dragonknight.character.DragonPrince;
-import dragonknight.powers.BuerBrandPower;
+import dragonknight.powers.GamygynBrandPower;
 
-public class BuerBrand extends CustomCard {
-    public static final String ID = makeID("BuerBrand");
+public class GamygynBrand extends CustomCard {
+    public static final String ID = makeID("GamygynBrand");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String NAME = cardStrings.NAME;
     private static final String DESCRIPTION = cardStrings.DESCRIPTION;
@@ -23,10 +23,11 @@ public class BuerBrand extends CustomCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public BuerBrand() {
+    public GamygynBrand() {
         super(ID, NAME, imagePath("cards/power/default.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
+
         this.tags.add(DragonKnightMod.Enums.ANTI_BRAND);
         initializeDescription();
     }
@@ -43,8 +44,7 @@ public class BuerBrand extends CustomCard {
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!p.hasPower(BuerBrandPower.POWER_ID)) {
-            addToBot(new ApplyPowerAction(p, p, new BuerBrandPower(p)));
-        }
+        if (!p.hasPower(GamygynBrandPower.POWER_ID))
+            addToBot(new ApplyPowerAction(p, p, new GamygynBrandPower(p, p)));
     }
 }

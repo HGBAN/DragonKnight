@@ -11,12 +11,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 
-import dragonknight.cards.special.AgaresBrand;
-import dragonknight.cards.special.BaelBrand;
-import dragonknight.cards.special.BuerBrand;
+import dragonknight.cards.special.BathinBrand;
+import dragonknight.cards.special.BelialBrand;
+import dragonknight.cards.special.BerithBrand;
+import dragonknight.cards.special.GamygynBrand;
 import dragonknight.cards.special.OriasBrand;
-import dragonknight.cards.special.PaimonBrand;
-import dragonknight.cards.special.VassagoBrand;
+import dragonknight.cards.special.ShaxBrand;
 
 public class GoetiaBrandPower extends BasePower {
     public static final String POWER_ID = makeID("GoetiaBrandPower");
@@ -28,12 +28,12 @@ public class GoetiaBrandPower extends BasePower {
     private ArrayList<AbstractCard> cardsCombat;
 
     static {
-        cards.add(new AgaresBrand());
-        cards.add(new BaelBrand());
-        cards.add(new VassagoBrand());
+        cards.add(new BerithBrand());
+        cards.add(new BathinBrand());
+        cards.add(new GamygynBrand());
         cards.add(new OriasBrand());
-        cards.add(new PaimonBrand());
-        cards.add(new BuerBrand());
+        cards.add(new BelialBrand());
+        cards.add(new ShaxBrand());
     }
 
     public GoetiaBrandPower(AbstractCreature owner) {

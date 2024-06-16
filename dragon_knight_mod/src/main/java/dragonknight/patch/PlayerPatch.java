@@ -16,9 +16,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import dragonknight.DragonKnightMod;
 import dragonknight.powers.BrandsCallPower;
 import dragonknight.powers.DevouringBrandPower;
+import dragonknight.powers.GamygynBrandPower;
 import dragonknight.powers.HeavenlyLinkPower;
 import dragonknight.powers.IceDevilsHeartPower;
-import dragonknight.powers.VassagoBrandPower;
 
 public class PlayerPatch {
 
@@ -71,8 +71,8 @@ public class PlayerPatch {
         public static void Insert(AbstractPlayer _instance, AbstractCard c, AbstractMonster monster, int energyOnUse) {
             DragonKnightMod.cardsUsedThisTurn++;
             AbstractPlayer player = AbstractDungeon.player;
-            if (player.hasPower(VassagoBrandPower.POWER_ID)) {
-                AbstractPower p = player.getPower(VassagoBrandPower.POWER_ID);
+            if (player.hasPower(GamygynBrandPower.POWER_ID)) {
+                AbstractPower p = player.getPower(GamygynBrandPower.POWER_ID);
                 p.amount = cardsUsedThisTurn;
                 if (cardsUsedThisTurn == 5 && c.type.equals(CardType.ATTACK)) {
                     AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {

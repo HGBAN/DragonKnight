@@ -301,15 +301,15 @@
     "NAME": "魔神烙印",
     "DESCRIPTION": "每次 dragonknight:化龙 后，随机将1张 dragonknight:魔神牌 放入抽牌堆。每场战斗中每种 dragonknight:魔神牌 只会获得1次。"
   },
-  "${modID}:BaelBrand": {
-    "NAME": "巴坎之印",
+  "${modID}:BathinBrand": {
+    "NAME": "巴钦之印",
     "DESCRIPTION": " dragonknight:魔神牌 。 NL 获得!B!点格挡。 NL 对所有敌人造成获得的格挡2倍的伤害。"
   },
-  "${modID}:AgaresBrand": {
+  "${modID}:BerithBrand": {
     "NAME": "比利士之印",
     "DESCRIPTION": " dragonknight:魔神牌 。 NL 消耗 1张手牌，获得2点 力量 。将 消耗 的手牌视作被 烙印 消耗 。"
   },
-  "${modID}:VassagoBrand": {
+  "${modID}:GamygynBrand": {
     "NAME": "加麦基之印",
     "DESCRIPTION": " dragonknight:魔神牌 。 NL 每回合使用的第五张牌如果是攻击牌，将其被 dragonknight:烙印 消耗 。"
   },
@@ -317,12 +317,12 @@
     "NAME": "欧里亚斯之印",
     "DESCRIPTION": " dragonknight:魔神牌 。 NL 给予所有目标5层 易伤 。下2个回合内所有目标造成的伤害减少一半。 NL 本回合每次使用技能牌时，抽1张能力牌，并减少其1点 [E] 的消耗。"
   },
-  "${modID}:PaimonBrand": {
-    "NAME": "毕列之印",
-    "DESCRIPTION": " 消耗 所有手牌，对目标造成20倍 消耗 的手牌数量的伤害。每有一张攻击牌被 消耗 ，增加造成的伤害5点。 NL （造成!D!点伤害）。"
+  "${modID}:BelialBrand": {
+    "NAME": "比列之印",
+    "DESCRIPTION": " dragonknight:魔神牌 。 消耗 所有手牌，对目标造成20倍 消耗 的手牌数量的伤害。每有一张攻击牌被 消耗 ，增加造成的伤害5点。 NL （造成!D!点伤害）。"
   },
-  "${modID}:BuerBrand": {
+  "${modID}:ShaxBrand": {
     "NAME": "沙克斯之印",
-    "DESCRIPTION": "每回合第1次使自身获得状态时，选择1张弃牌堆中的牌放入手牌。 NL 每回合第1次使敌人获得状态时，选择1张抽牌堆中的牌放入手牌。"
+    "DESCRIPTION": " dragonknight:魔神牌 。 每回合第1次使自身获得状态时，选择1张弃牌堆中的牌放入手牌。 NL 每回合第1次使敌人获得状态时，选择1张抽牌堆中的牌放入手牌。"
   }
 }

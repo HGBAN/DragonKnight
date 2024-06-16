@@ -225,7 +225,7 @@
       "每次 #y化龙 后，随机将 #b1 张 #y魔神牌 放入抽牌堆。每场战斗中每种 #y魔神牌 只会获得 #b1 次。"
     ]
   },
-  "${modID}:VassagoBrandPower": {
+  "${modID}:GamygynBrandPower": {
     "NAME": "加麦基之印",
     "DESCRIPTIONS": [
       "如果回合开始时处于 #y化龙 状态，抽 #b1 张攻击牌。如果回合结束时这张攻击牌还在手中，将其被 #y烙印 #y消耗 。"
@@ -245,7 +245,7 @@
       " 个回合内，每次使用技能牌时，抽 #b1 张能力牌。"
     ]
   },
-  "${modID}:BuerBrandPower": {
+  "${modID}:ShaxBrandPower": {
     "NAME": "沙克斯之印",
     "DESCRIPTIONS": [
       "每回合第 #b1 次使自身获得状态时，选择 #b1 张弃牌堆中的牌放入手牌。 NL 每回合第 #b1 次使敌人获得状态时，选择 #b1 张抽牌堆中的牌放入手牌。"

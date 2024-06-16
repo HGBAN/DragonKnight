@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class BuerBrandPower extends BasePower {
-    public static final String POWER_ID = makeID("BuerBrandPower");
+public class ShaxBrandPower extends BasePower {
+    public static final String POWER_ID = makeID("ShaxBrandPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
@@ -18,7 +18,7 @@ public class BuerBrandPower extends BasePower {
     private boolean usedSelf = false;
     private boolean usedEnemy = false;
 
-    public BuerBrandPower(AbstractCreature owner) {
+    public ShaxBrandPower(AbstractCreature owner) {
         super(POWER_ID, PowerType.BUFF, false, owner, owner, -1);
     }
 

@@ -8,13 +8,13 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 
 import dragonknight.DragonKnightMod;
 
-public class VassagoBrandPower extends BasePower {
-    public static final String POWER_ID = makeID("VassagoBrandPower");
+public class GamygynBrandPower extends BasePower {
+    public static final String POWER_ID = makeID("GamygynBrandPower");
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public VassagoBrandPower(AbstractCreature owner, AbstractCreature sourceAbstractCreature) {
+    public GamygynBrandPower(AbstractCreature owner, AbstractCreature sourceAbstractCreature) {
         super(POWER_ID, PowerType.BUFF, true, owner, owner, DragonKnightMod.cardsUsedThisTurn);
     }
 

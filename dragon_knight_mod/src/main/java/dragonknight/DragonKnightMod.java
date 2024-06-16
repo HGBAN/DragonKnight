@@ -101,8 +101,8 @@ import dragonknight.powers.BlackDragonAwakeningPower;
 import dragonknight.powers.Brand;
 import dragonknight.powers.BrandProtectorPower;
 import dragonknight.powers.BrandsCallPower;
-import dragonknight.powers.BuerBrandPower;
 import dragonknight.powers.DevouringBrandPower;
+import dragonknight.powers.GamygynBrandPower;
 import dragonknight.powers.HeavenlyRevelationPower;
 import dragonknight.powers.IceDevilErosionPower;
 import dragonknight.powers.IceDevilFormPower;
@@ -111,13 +111,13 @@ import dragonknight.powers.OriasBrandPower;
 import dragonknight.powers.OriasKnowledgePower;
 import dragonknight.powers.PhantomDragonPower;
 import dragonknight.powers.ScorchPower;
+import dragonknight.powers.ShaxBrandPower;
 import dragonknight.powers.SurefireEntwiningPower;
 import dragonknight.powers.SurefireFormPower;
 import dragonknight.powers.SurefirePower;
 import dragonknight.powers.SurefireScorchPower;
 import dragonknight.powers.TrueDragon;
 import dragonknight.powers.TrueEyePower;
-import dragonknight.powers.VassagoBrandPower;
 import dragonknight.powers.WhiteBrandPower;
 import dragonknight.powers.WhiteDragon;
 import dragonknight.powers.WhiteDragonAwakeningPower;
@@ -203,8 +203,8 @@ public class DragonKnightMod implements
             @Override
             public boolean test(AbstractCard card) {
                 if (AbstractDungeon.player != null) {
-                    if (AbstractDungeon.player.hasPower(VassagoBrandPower.POWER_ID)) {
-                        if (AbstractDungeon.player.getPower(VassagoBrandPower.POWER_ID).amount == 4
+                    if (AbstractDungeon.player.hasPower(GamygynBrandPower.POWER_ID)) {
+                        if (AbstractDungeon.player.getPower(GamygynBrandPower.POWER_ID).amount == 4
                                 && card.type.equals(CardType.ATTACK)) {
                             return true;
                         }
@@ -404,10 +404,10 @@ public class DragonKnightMod implements
         BaseMod.addPower(AbyssAwakenPower.class, AbyssAwakenPower.POWER_ID);
         BaseMod.addPower(SurefireFormPower.class, SurefireFormPower.POWER_ID);
         BaseMod.addPower(SurefireEntwiningPower.class, SurefireEntwiningPower.POWER_ID);
-        BaseMod.addPower(VassagoBrandPower.class, VassagoBrandPower.POWER_ID);
+        BaseMod.addPower(GamygynBrandPower.class, GamygynBrandPower.POWER_ID);
         BaseMod.addPower(OriasBrandPower.class, OriasBrandPower.POWER_ID);
         BaseMod.addPower(OriasKnowledgePower.class, OriasKnowledgePower.POWER_ID);
-        BaseMod.addPower(BuerBrandPower.class, BuerBrandPower.POWER_ID);
+        BaseMod.addPower(ShaxBrandPower.class, ShaxBrandPower.POWER_ID);
 
         BaseMod.addPotion(BrandPotion.class, Color.BROWN, Color.CYAN, Color.BLUE, BrandPotion.ID);
         BaseMod.addPotion(BeDragonPotion.class, Color.GOLD, Color.RED, Color.ORANGE, BeDragonPotion.ID);
