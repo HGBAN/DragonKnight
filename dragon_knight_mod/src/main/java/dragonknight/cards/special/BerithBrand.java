@@ -25,7 +25,7 @@ public class BerithBrand extends CustomCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public BerithBrand() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/BerithBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.exhaust = true;

@@ -27,7 +27,7 @@ public class BathinBrand extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
     public BathinBrand() {
-        super(ID, NAME, imagePath("cards/attack/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/attack/BathinBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
         this.baseBlock = 10;

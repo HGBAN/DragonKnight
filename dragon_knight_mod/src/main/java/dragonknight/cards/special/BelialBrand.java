@@ -27,7 +27,7 @@ public class BelialBrand extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public BelialBrand() {
-        super(ID, NAME, imagePath("cards/attack/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/attack/BelialBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
 

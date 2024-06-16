@@ -27,7 +27,7 @@ public class OriasBrand extends CustomCard {
     private static final CardTarget TARGET = CardTarget.ALL;
 
     public OriasBrand() {
-        super(ID, NAME, imagePath("cards/skill/default.png"), COST, DESCRIPTION, TYPE,
+        super(ID, NAME, imagePath("cards/skill/OriasBrand.png"), COST, DESCRIPTION, TYPE,
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
 
