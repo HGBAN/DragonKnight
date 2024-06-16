@@ -217,5 +217,37 @@
     "DESCRIPTIONS": [
       "Each time an #yAnti-Brand card is played this turn, randomly grant #yAnti-Brand to another card in your hand without #yAnti-Brand."
     ]
+  },
+  "${modID}:GoetiaBrandPower": {
+    "NAME": "Goetia Brand",
+    "DESCRIPTIONS": [
+      "Every time after #yBe #yDragon, add #b1 random #yGoetia to your draw pile. Each type of #yGoetia can only be gained #b1 time per battle."
+    ]
+  },
+  "${modID}:GamygynBrandPower": {
+    "NAME": "Gamygyn's Brand",
+    "DESCRIPTIONS": [
+      "The fifth card you play every turn, if it's an Attack, will be Exhausted by #yBrand."
+    ]
+  },
+  "${modID}:OriasBrandPower": {
+    "NAME": "Orias's Virtue",
+    "DESCRIPTIONS": [
+      "For the next #b",
+      " turns, ALL damage dealt is halved."
+    ]
+  },
+  "${modID}:OriasKnowledgePower": {
+    "NAME": "Orias's Knowledge",
+    "DESCRIPTIONS": [
+      "For the next #b",
+      " turns, every time you play a Skill, Draw #b1 Power, and the drawn Power costs #b1 less [E]."
+    ]
+  },
+  "${modID}:ShaxBrandPower": {
+    "NAME": "Shax's Brand",
+    "DESCRIPTIONS": [
+      "The first time every turn you gain a power, choose #b1 card from your discard pile and add it to your hand. NL The first time every turn an enemy gains a power, choose #b1 card from your draw pile and add it to your hand."
+    ]
   }
 }

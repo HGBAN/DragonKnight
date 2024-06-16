@@ -106,5 +106,13 @@
       "Abyssal_Beast_Form"
     ],
     "DESCRIPTION": "The damage of all Attack cards randomly increases by #b7 - #b14 each turn. Gain an equal amount of #yDexterity or #yStrength when gaining #yStrength or #yDexterity. Gain #b1 #yDexterity when entering #yBlack #yDragon #yForm and #b1 #yStrength when entering #yWhite #yDragon #yForm."
+  },
+  {
+    "ID": "GoetiaCard",
+    "PROPER_NAME": "Goetia",
+    "NAMES": [
+      "Goetia"
+    ],
+    "DESCRIPTION": "A series of special cards that can only be obtained through the #yGoetia #yBrand and cannot be upgraded."
   }
 ]

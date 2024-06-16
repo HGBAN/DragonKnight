@@ -296,5 +296,33 @@
   "${modID}:AbyssalGuidance": {
     "NAME": "Abyssal Guidance",
     "DESCRIPTION": "If dragonknight:Be_Dragon has not been triggered more than once this combat, enter dragonknight:True_Dragon_Form. NL If Exhausted by dragonknight:Brand, change to entering dragonknight:Black_Dragon_Form next turn."
+  },
+  "${modID}:GoetiaBrand": {
+    "NAME": "Goetia Brand",
+    "DESCRIPTION": "Every time after dragonknight:Be_Dragon, add a random dragonknight:Goetia to your draw pile. Each type of dragonknight:Goetia can only be gained once per battle."
+  },
+  "${modID}:BathinBrand": {
+    "NAME": "Bathin's Brand",
+    "DESCRIPTION": " dragonknight:Goetia. NL Gain !B! Block. NL Deal damage to ALL enemies equal to twice the Block gained."
+  },
+  "${modID}:BerithBrand": {
+    "NAME": "Berith's Brand",
+    "DESCRIPTION": " dragonknight:Goetia. NL Exhaust 1 card from your hand, Gain 2 Strength. Treat the Exhausted card as being Exhausted by dragonknight:Brand."
+  },
+  "${modID}:GamygynBrand": {
+    "NAME": "Gamygyn's Brand",
+    "DESCRIPTION": " dragonknight:Goetia. NL The fifth card you play every turn, if it's an Attack, will be Exhausted by dragonknight:Brand."
+  },
+  "${modID}:OriasBrand": {
+    "NAME": "Orias's Brand",
+    "DESCRIPTION": " dragonknight:Goetia. NL Apply 5 Vulnerable to ALL. For the next 2 turns, ALL damage dealt is halved. NL Every time you play a Skill this turn, Draw 1 Power and reduce its [E] cost by 1."
+  },
+  "${modID}:BelialBrand": {
+    "NAME": "Belial's Brand",
+    "DESCRIPTION": " dragonknight:Goetia. NL Exhaust ALL cards in your hand, Deal 20 times the number of Exhausted cards as damage to a target. For each Attack Exhausted, increase the damage dealt by 5. NL (Deals !D! damage)."
+  },
+  "${modID}:ShaxBrand": {
+    "NAME": "Shax's Brand",
+    "DESCRIPTION": " dragonknight:Goetia. NL The first time every turn you gain a power, choose 1 card from your discard pile and add it to your hand. NL The first time every turn an enemy gains a power, choose 1 card from your draw pile and add it to your hand."
   }
 }
