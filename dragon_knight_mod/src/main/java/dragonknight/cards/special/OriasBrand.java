@@ -31,6 +31,7 @@ public class OriasBrand extends CustomCard {
                 DragonPrince.Enums.CARD_COLOR,
                 RARITY, TARGET);
 
+        exhaust = true;
         this.tags.add(DragonKnightMod.Enums.EXHAUST);
         initializeDescription();
     }

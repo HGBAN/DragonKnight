@@ -33,6 +33,7 @@ public class BelialBrand extends CustomCard {
 
         baseDamage = 0;
 
+        exhaust = true;
         this.tags.add(DragonKnightMod.Enums.EXHAUST);
         initializeDescription();
     }

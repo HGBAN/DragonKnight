@@ -38,7 +38,12 @@ public class MonsterPatch {
     public static class ApplyPowersPatch {
         @SpireInsertPatch(loc = 1352, localvars = { "dmg" })
         public static void Insert(AbstractMonster _instance, DamageInfo dmg) {
-            dmg.output /= 2;
+            AbstractPlayer player = AbstractDungeon.player;
+            if (player != null) {
+                if (player.hasPower(OriasBrandPower.POWER_ID) && !AbstractDungeon.getCurrRoom().isBattleOver) {
+                    dmg.output /= 2;
+                }
+            }
         }
     }
 }
